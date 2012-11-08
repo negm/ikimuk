@@ -1,0 +1,75 @@
+<?php
+        //set the session
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
+        
+        if (!isset($_POST["number"]))
+        {
+            echo 'shit';
+            return;
+        }
+        else 
+            {
+            $phone = '+'.$_POST["number"];
+     
+            }
+ //check if a code was sent in less than 5 minutes
+        $five_minutes = 5*60;
+        if (isset($_SESSION["sms_ts"]))
+        {
+         if (time() - $_SESSION["sms_ts"] <= $five_minutes)
+         {
+             echo "shit";
+             return;
+         }
+         if (isset($_SESSION["sms_count"]))
+         {
+             if ($_SESSION["sms_count"]>= 5)
+             {
+                 echo "shit";
+                 return;
+             }
+         }
+             
+        }
+        if (!isset($_SESSION["sms_code"]))
+        {
+            
+            echo "shit";
+            print_r ($_SESSION);
+            return;
+        }
+        else
+            $random = $_SESSION["sms_code"];
+        
+        include_once 'settings.php';
+	include_once ( "inc/NexmoMessage.php" );
+        
+        
+
+	/**
+	 * To send a text message.
+	 *
+	 */
+
+	// Step 1: Declare new NexmoMessage.
+	$nexmo_sms = new NexmoMessage($nexmo_key, $nexmo_secret);
+        
+        // Step 2: Use sendText( $to, $from, $message ) method to send a message. 
+	$info = $nexmo_sms->sendText( $phone, 'Ikimuk', "Hello! Please use the following code to complete the preorder $random" );
+        echo 'done';
+	// Step 3: Display an overview of the message
+	//echo $nexmo_sms->displayOverview($info);
+        
+        //Step 4: 
+        //Set session variables
+        $_SESSION["sms_ts"] = time();
+        if(!isset($_SESSION["sms_count"]))
+          $_SESSION["sms_count"]=1; 
+        else $_SESSION["sms_count"]+=1;
+	
+
+	// Done!
+?>
