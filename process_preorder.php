@@ -5,17 +5,17 @@
  * and open the template in the editor.
  * 
  */
-if (!isset($_SESSION))
-{
-    session_start ();
-}
-include_once 'settings.php';
-if (!isset($_SESSION["user_id"]) || !$_SESSION["user_id"])
-{
-    echo 'user error';
-    return;
-}
+require_once 'settings.php';
+include_once 'block/logged_in.php';
 $param = $_POST;
+if (isset($_SESSION["last_preorder_design_id"]))
+{
+    $param["design_id"]= $_SESSION["last_preorder_design_id"];
+}
+else
+{
+    echo 'design error'; return;
+}
 //print_r($param);
 if (!$param["name"] || strlen(trim($param["name"])) < 5)
 {echo 'name error'; return;}

@@ -28,7 +28,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
         $rollover = $row_image["url"];
     }
     echo '<div class="home_list span3"><a class="home_list" href="design.php?product_id='.$row["id"].'" ><img class="thumbnail" src="'.$primary.'" data-hover="'.$rollover.'" /></a></div>';
-    echo '<div class="preorderButton"><a href="preorder.php?design_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
+    echo '<div class="preorderButton"><a href="preorder.php?product_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
         echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 
               data-href="http://'.$settings->root.'/design.php?design_id='.$row['id'].'"></div></center>';
  } 

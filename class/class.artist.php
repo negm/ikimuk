@@ -50,7 +50,9 @@ class artist {
 		$oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
 		
+                if ($this->database->rows >0){
 		// Assign results to class.
+                
 		$this->id = $oRow->id; // Primary Key
                 
 		$this->name       =$oRow->name    ;
@@ -59,6 +61,9 @@ class artist {
                 $this->location   =$oRow->location;
                 $this->twitter    =$oRow->twitter ;
                 $this->facebook   =$oRow->facebook;
+                }
+                else
+                {$this->database->result = Null;}
 	}
 	
 	public function insert() {

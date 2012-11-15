@@ -5,7 +5,7 @@
  * State the different verification cases here
  * 
  */
-$pagetitle = "Preorder";
+
 include 'block/logged_in.php';
 require_once 'class/settings.php';
 require_once 'class/class.product.php';
@@ -14,21 +14,23 @@ require_once 'class/class.image.php';
 $image = new image();
 $design = new product();
 $artist = new artist();
-if (!isset($_GET["design_id"]))
+if (!isset($_GET["product_id"]))
 {
  header("Location: index.php");
 }
 else
 { 
-  if(!isset($_SESSION['sms_code']) )
-    $_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);
-  $design_id = $_GET["design_id"];
-  $design->select($design_id);
-  if(!$design->database->result)
-     redirect("index.php"); 
-  else
-  {
+if(!isset($_SESSION['sms_code']) )
+$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);
+$design_id = $_GET["product_id"];
+$design->select($design_id);
+if(!$design->database->result)
+   redirect("index.php"); 
+else
+{
+$pagetitle = "Preorder ".$design->title;
 $image->product_id = $design_id;
+$_SERVER["last_preorder_design_id"] = $design_id;
 $image->getBasicImages();
 while ($row_image = mysqli_fetch_assoc($image->database->result))
 {
@@ -51,76 +53,7 @@ while ($row_image = mysqli_fetch_assoc($image->database->result))
 include_once "block/header.php";
 ?>
 <script>
-    var size="";
-    $(document).ready(function() {
-   // put all your jQuery goodness in here.
-    $('#name').attr("readonly",true);
-    $('#email').attr("readonly",true);
-    $('#ccode').attr("readonly",true);
-    $('#address').popover({'trigger':'focus', 'title': 'Please write down your full address so we can deliver to your doorstep!'});
-    $('#monum').popover({'trigger':'focus', 'placement':'bottom', 'title': 'Please fill in your 8-digit  Lebanese number!'});
-    $('#vcode').popover({'trigger':'focus', 'title': 'The code you received via SMS!'});
-    
-    var options = {
-    data: { design_id: <?php echo $design_id ?>, size_t: '"'+size+'"' },
-//  target:     '#divToUpdate', 
-    url:        'process_preorder.php', 
-    success:    function(response) { 
-        //alert('thanks for completing the preorder' + response); 
-        if (response === "agreement error")
-            {
-                $("#agreement_g").removeClass("hidden").addClass("alert").focus();return false;
-            }
-          if (response === "mobile error")
-            {
-               $("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;
-            }
-           if (response === "user error")
-               {
-                   alert("Please login using your facebook!  Scroll up :)");
-                   return false;
-               }
-           if (response === "verification error")
-               {
-                    $("#vcode_g").removeClass("hidden").addClass("alert").focus();
-                    return false;
-               }
-           if (response === "address error")
-               {
-                   $("#address_g").addClass("alert");
-                     $("#address").focus();  return false;
-               }
-            else
-                {
-                $("#preorderForm").fadeOut(600);
-                $(".userInfo").fadeOut(600);
-                $("#orderComplete").removeClass("hidden");
-                return false;
-                }
-        },
-    beforeSubmit: function(arr, $form, options) { 
-    // The array of form data takes the following form: 
-    // [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] 
-    var valid = true;
-    $("*").removeClass("alert");
-    if ($("#address").val().length < 9){$("#address_g").addClass("alert");
-     $("#address").focus();  valid = false;}
-    if ($("#size").val()  ==="")
-        {$("#size_g").removeClass("hidden").addClass("alert").focus();valid = false;}
-     if (!$("#agreement").is(':checked'))
-        {$("#agreement_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
-   
-    return valid;
-    // return false to cancel submit                  
-    }
-     
-}; 
- 
-// pass options to ajaxForm 
-$('#preorderForm').ajaxForm(options);
-    
 
- });
   
 </script>
 <?php 

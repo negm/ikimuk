@@ -51,8 +51,9 @@ class product {
 		$sSQL = "SELECT * FROM product WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysqli_fetch_object($oResult);
-		
+                if ($this->database->rows >0)
+		{
+                $oRow = mysqli_fetch_object($oResult);
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
                 $this->title = $oRow->title;
@@ -62,7 +63,9 @@ class product {
                 $this->price = $oRow->price;
                 $this->desc = $oRow->desc;
                 $this->preorders = $oRow->preorders;
-                $this->views = $oRow->views;
+                $this->views = $oRow->views;}
+                else
+                {$this->database->result = Null;}
 	}
 	public function CurrentCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.
@@ -70,7 +73,28 @@ class product {
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 	}
-	
+	public function GetNextInCompetitionID() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT id FROM `product` WHERE competition_id = $this->competition_id AND id=$this->id+1";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+                if ($this->database->rows >0)
+		{$oRow = mysqli_fetch_object($oResult);
+                return $oRow->id;
+                }
+                else {return null;}
+	}
+        public function GetPrevInCompetitionID() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT id FROM `product` WHERE competition_id = $this->competition_id AND id=$this->id-1";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+                if ($this->database->rows >0)
+		{$oRow = mysqli_fetch_object($oResult);
+                return $oRow->id;
+                }
+                else {return null;}
+	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO product () VALUES ();";
