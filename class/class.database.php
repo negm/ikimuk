@@ -11,7 +11,7 @@
 *	config file rather than being hard-coded
 * 	Hussein Negm
 */
-require_once "settings.php"; 
+include_once "class/settings.php"; 
 class Database {
 public $host;           // Hostname / Server
 public $password;       // MySQL Password
@@ -30,10 +30,11 @@ public function __construct()
 // Method : begin
 //constructor
 // ********** ADJUST THESE VALUES HERE **********
-$this->host = $database['host'];
-$this->password = $database['password'];
-$this->user = $database['username'];
-$this->database = $database['database'];
+$setting = new settings();
+$this->host = $setting->config['host'];
+$this->password = $setting->config['password'];
+$this->user = $setting->config['username'];
+$this->database = $setting->config['database'];
 $this->rows = 0;
 $this->link = NULL;
 $this->debug = TRUE; //this should be set to false on production
@@ -74,7 +75,7 @@ if($this->debug) {
 		// Close the previous connection if we have one open.
         // We do this because if the server/user/pass change, the class will open a new link and never close the old one.
         if(!(($this->link == NULL) || ($this->link == FALSE))) {
-            mysql_close($this->link);
+            mysqli_close($this->link);
         }
 
         // Open the connection, persistent or not.
@@ -86,7 +87,7 @@ if($this->debug) {
                             or die(print "class.database: Error connecting to database.\n" . $this->failureHandler(mysqli_error()));
         }
 		//set charset
-		if (!mysqli_set_charset($link, "utf8")) {
+		if (!mysqli_set_charset($this->link, "utf8")) {
 		failureHandler(mysqli_error(), 'mysqli_set_charset($link, "utf8")');
 			} 
 
@@ -102,7 +103,7 @@ if($this->debug) {
         // Closes our connection and resets the link variable if successful.
 
         // First check to see if we have a connection open.
-        if($this->link > 0) {
+        if($this->link) {
             // Attempt to close link.
             if(mysqli_close($this->link)) {
                 $this->link = NULL;
@@ -124,7 +125,7 @@ if($this->debug) {
 		//$this->SelectDB();
 
         // Clean SQL to prevent attacks
-        $query = stripslashes(mysqli_real_escape_string($query));
+        $query = stripslashes(mysqli_real_escape_string($this->link,$query));
 
         // Execute query.
 		$this->query = $query;

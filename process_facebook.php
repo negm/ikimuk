@@ -6,7 +6,7 @@ check our post variable from index.php, just to insure user isn't accessing this
 You can replace this with strong function, something like HTTP_REFERER
 */
 if(isset($_POST["connect"]) && $_POST["connect"]==1)
-{ 		
+{       unset($_GET["logout"]);	
 	include_once("settings.php"); //Include configuration file.
 	
 	//Call Facebook API
@@ -76,7 +76,6 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
                 $_SESSION['logged_in']=true;
                 $_SESSION['user_name']=$me['first_name'].' '.$me['last_name'];
 		$_SESSION['user_email'] =$me['email'];
-                $_SESSION['validated_mobile'] = $row["validated_mobile"];
 	}
 	
 }

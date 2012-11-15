@@ -16,8 +16,16 @@ class product {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+	public $title;
+        public $artist_id;
+        public $competition_id;
+        public $shop;
+        public $price;
+        public $desc;
+        public $preorders;
+        public $views;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -37,15 +45,30 @@ class product {
 		$this->id = $mValue;
 	}
 	
-	public function select($mID) { // SELECT Function
+	//Select functions
+        public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM product WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysql_fetch_object($oResult);
+		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
+                $this->title = $oRow->title;
+                $this->artist_id = $oRow->artist_id;
+                $this->competition_id = $oRow->competition_id;
+                $this->shop = $oRow->shop;
+                $this->price = $oRow->price;
+                $this->desc = $oRow->desc;
+                $this->preorders = $oRow->preorders;
+                $this->views = $oRow->views;
+	}
+	public function CurrentCompetitionDesigns() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT product.* FROM `product` inner join competition on product.competition_id = competition.id WHERE competition.end_date > NOW();";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
 	}
 	
 	public function insert() {

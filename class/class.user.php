@@ -42,12 +42,21 @@ class user {
 		$sSQL = "SELECT * FROM user WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysql_fetch_object($oResult);
+		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	
+	public function getPreorderHistory($mID) { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id WHERE user_id = $mID AND image.`primary` = 1;";
+		$oResult = $this->database->query($sSQL);
+		//$oResult = $this->database->result;
+		//$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+		//$this->id = $oRow->id; // Primary Key
+	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO user () VALUES ();";

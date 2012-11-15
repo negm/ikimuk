@@ -2,33 +2,27 @@
 include_once ('settings.php');
 if (!isset($_SESSION))
 {session_start();}
-include_once 'blocks/header_en.php';
+//include_once 'block/header.php';
 if(isset($_GET["logout"]) && $_GET["logout"]==1)
 {
 //User clicked logout button, distroy all session variables.
+$_GET["logout"] = 0;
 unset($_GET["logout"]);
 $_SESSION['logged_in']=false;
 unset($_COOKIE);
 session_destroy();
-redirect($site_url);
+header('Location: '.$_SERVER['PHP_SELF']);
 }
 ?>
-<!--[if lt IE 7]><style>
-/* style for IE6 + IE5.5 + IE5.0 */
-.gainlayout { height: 0; }
-</style><![endif]-->
- 
-<!--[if gt IE 7]><style>
-.gainlayout { zoom: 1; }
-</style><![endif]-->
+
 </head>
 
 <body>
 <div id="bar" class="">
-<div class="top-area">
+<div class="top-area row-fluid">
 <div class="log">
 <?php
-if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'] || !isset($_SESSION["user_name"]) ||strlen(trim($_SESSION["user_name"])) < 1)
+if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 {
 ?>
     <b id="results" class=""> </b>
@@ -60,7 +54,7 @@ FB.init({appId: '<?php echo $app_id; ?>',channelUrl: 'channel.php', status:true,
 </script>
 
 <div class="logoBg">
-<div class="container_12">
+<div class="row-fluid">
 <div class="artist"><img src="img/artist.png" alt="artists"/></div>
 <a href="index.php" class=""><div class="logo"> <!--<img src="img/logo.png" class="" alt="logo"/>--></div></a>
 <div class="topText"> Awesome t-shirts designed by you!</div>
@@ -82,5 +76,4 @@ FB.init({appId: '<?php echo $app_id; ?>',channelUrl: 'channel.php', status:true,
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-<div  class="container_12">
 

@@ -42,7 +42,7 @@ class preorder_profile_history {
 		$sSQL = "SELECT * FROM preorder_profile_history WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysql_fetch_object($oResult);
+		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key

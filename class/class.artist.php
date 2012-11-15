@@ -16,8 +16,14 @@ class artist {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+	public $name;
+        public $image;
+        public $website;
+        public $location;
+        public $twitter;
+        public $facebook;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -42,10 +48,17 @@ class artist {
 		$sSQL = "SELECT * FROM artist WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysql_fetch_object($oResult);
+		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
+                
+		$this->name       =$oRow->name    ;
+                $this->image      =$oRow->image   ;
+                $this->website    =$oRow->website ;
+                $this->location   =$oRow->location;
+                $this->twitter    =$oRow->twitter ;
+                $this->facebook   =$oRow->facebook;
 	}
 	
 	public function insert() {
@@ -53,6 +66,7 @@ class artist {
 		$sSQL = "INSERT INTO artist () VALUES ();";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
+                
 	}
 	
 	function update($mID) {

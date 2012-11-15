@@ -16,8 +16,9 @@ class image {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+        public $product_id;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -42,12 +43,17 @@ class image {
 		$sSQL = "SELECT * FROM image WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysql_fetch_object($oResult);
+		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	
+	public function selectByProduct($mID) { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM image WHERE product_id = $mID;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO image () VALUES ();";
@@ -64,7 +70,16 @@ class image {
 		$sSQL = "DELETE FROM image WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
-
+        public function getBasicImages() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM `image` WHERE product_id = $this->product_id AND (`primary`=1 OR `rollover`=1);";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+		//$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+		//$this->id = $oRow->id; // Primary Key
+	}
 }
 // End Class "image"
 ?>

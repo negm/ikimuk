@@ -44,9 +44,9 @@
         else
             $random = $_SESSION["sms_code"];
         
-        include_once 'settings.php';
-	include_once ( "inc/NexmoMessage.php" );
-        
+        require_once 'class/settings.php';
+	require_once ( "inc/NexmoMessage.php" );
+        $settings = new settings();
         
 
 	/**
@@ -55,7 +55,7 @@
 	 */
 
 	// Step 1: Declare new NexmoMessage.
-	$nexmo_sms = new NexmoMessage($nexmo_key, $nexmo_secret);
+	$nexmo_sms = new NexmoMessage($settings->nexmo_key, $settings->nexmo_secret);
         
         // Step 2: Use sendText( $to, $from, $message ) method to send a message. 
 	$info = $nexmo_sms->sendText( $phone, 'Ikimuk', "Hello! Please use the following code to complete the preorder $random" );
