@@ -2,6 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+var target="";
 $(function() {
     $('img[data-hover]').hover(function() {
         $(this)
@@ -25,7 +26,10 @@ data:myData,
 cache: false,
 success:function(response){
 $("#results").html(response); //Result
-{ location.reload(true);}
+if(target.length > 1)
+    window.location = target;
+else
+    location.reload(true);
  },
 error:function (xhr, ajaxOptions, thrownError){
 //$("#results").html('<fieldset style="padding:20px;color:red;">'+thrownError+'</fieldset>'); //Error

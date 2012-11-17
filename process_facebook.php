@@ -56,28 +56,28 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 		//User is now connected, log him in
                 $_SESSION['user_id']=$row['id'];
 		$_SESSION['logged_in']=true;
-                $_SESSION['user_name']=$me['first_name'].' '.$me['last_name'];
-		$_SESSION['user_email'] =$me['email'];
                 $_SESSION['validated_mobile'] = $row["validated_mobile"];
+                $_SESSION['role']= $row['role_id'];
 	}
 	else
 	{
 		//User is new, Show connected message and store info in our Database
 		echo 'Hi '. $me['first_name'] . ' '. $me['last_name'].'!.';
 		//print user facebook data
-		//echo '<pre>';
-		//print_r($me);
-		//echo '</pre>';
+		echo '<pre>';
+		print_r($me);
+		echo '</pre>';
 		// Insert user into Database.
 		$mysqli->query("INSERT INTO user (fbid, name, email) VALUES ($uid, '$fullname','$email')");
 		
 		//User is now connected, log him in
                 $_SESSION['user_id']= $mysqli->insert_id;
                 $_SESSION['logged_in']=true;
-                $_SESSION['user_name']=$me['first_name'].' '.$me['last_name'];
-		$_SESSION['user_email'] =$me['email'];
+                
 	}
-	
+	$_SESSION['user_name']=$me['first_name'].' '.$me['last_name'];
+        $_SESSION['user_email'] =$me['email'];
+        $_SESSION["access_token"] = $facebook->getAccessToken();
 }
 
 function login_user($loggedin,$user_name)

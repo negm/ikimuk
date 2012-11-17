@@ -24,6 +24,7 @@ class product {
         public $desc;
         public $preorders;
         public $views;
+        public $image;
 
         // Class Constructor
 	public function __construct() {
@@ -48,7 +49,7 @@ class product {
 	//Select functions
         public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM product WHERE id = $mID;";
+		$sSQL = "SELECT product . * , image.url FROM product INNER JOIN image ON image.product_id = product.id WHERE product.id =$mID AND image.`primary` =1";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
                 if ($this->database->rows >0)
@@ -63,7 +64,9 @@ class product {
                 $this->price = $oRow->price;
                 $this->desc = $oRow->desc;
                 $this->preorders = $oRow->preorders;
-                $this->views = $oRow->views;}
+                $this->views = $oRow->views;
+                $this->image = $oRow->url;
+                }
                 else
                 {$this->database->result = Null;}
 	}

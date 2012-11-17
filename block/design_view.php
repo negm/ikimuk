@@ -32,6 +32,15 @@ else
     $next = $product->GetNextInCompetitionID();
     $prev = $product->GetPrevInCompetitionID();
     include "block/header.php";
+    
+    echo '<meta property="og:site_name" content="Ikimuk" />';
+    echo '<meta property="og:title" content="'.$product->title.'" />';
+    echo '<meta property="og:image" content="'.$product->image.'" />';
+    echo '<meta property="og:description" content="Cool T-shirt Design">';
+    echo '<meta property="og:determiner" content="a" />';
+    echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
+    echo '<meta property="og:url" content="'.$settings->site_url_vars.' />';
+    echo '<meta property="og:type" content="phennec:design" />';
     ?>
  <script type="text/javascript">
     $(window).load(function() {

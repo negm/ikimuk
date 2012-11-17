@@ -16,8 +16,16 @@ class user {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+	public $fbid;
+        public $name;
+        public $email;
+        public $validated_mobile;
+        public $role_id;
+        public $image;
+        public $newsletter;
+        public $points;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -46,10 +54,18 @@ class user {
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
+                $this->fbid            = $oRow->fbid;
+                $this->name            = $oRow->name;
+                $this->email           = $oRow->email;
+                $this->validated_mobile= $oRow->validated_mobile;
+                $this->role_id         = $oRow->role_id;
+                $this->image           = $oRow->image;
+                $this->newsletter      = $oRow->newsletter;
+                $this->points          = $oRow->points;
 	}
 	public function getPreorderHistory($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id WHERE user_id = $mID AND image.`primary` = 1;";
+		$sSQL = "SELECT *, product.title as product_title FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id INNER JOIN STATUS ON preorder.status_id = status.id WHERE user_id =$mID AND image.`primary` =1";
 		$oResult = $this->database->query($sSQL);
 		//$oResult = $this->database->result;
 		//$oRow = mysqli_fetch_object($oResult);

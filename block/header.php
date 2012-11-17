@@ -1,5 +1,9 @@
 <?php
     // Include this function on your pages
+if (!isset($_SESSION))
+{
+    session_start ();
+}
 function print_gzipped_page() {
 
     global $HTTP_ACCEPT_ENCODING;
@@ -34,7 +38,7 @@ ob_implicit_flush(0);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
+<head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phennec: http://ogp.me/ns/fb/phennec#">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" href="img/favicon.ico">
@@ -70,9 +74,11 @@ ob_implicit_flush(0);
 $(function(){
 $(".preorderButton").click(function() 
 {
-if(!<?php if(isset($_SESSION["logged_in"])) echo $_SESSION["logged_in"];?>)
+if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
 {//show the modal
-    $('#loginModal').modal(); return false; } else {return true;} }
+    target = $(this).attr("href");
+    $('#loginModal').modal(); return false; } else {return true;} 
+}
     
 );})
 </script>
