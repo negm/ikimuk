@@ -43,21 +43,21 @@ ob_implicit_flush(0);
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" href="img/favicon.ico">
 <title><? echo $pagetitle; ?></title>
-<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/default/default.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/light/light.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/dark/dark.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/bar/bar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/light/light.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/dark/dark.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
-<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
-<script type="text/javascript" src="js/mainjs.js"></script>
-<script type="text/javascript" src="js/ajaxupload.3.5.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js"></script>
+<script type="text/javascript" src="../js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="../js/ajaxupload.3.5.js"></script>
+<script type="text/javascript" src="../js/mainjs.js"></script>
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }
@@ -66,12 +66,13 @@ ob_implicit_flush(0);
 <!--[if gt IE 7]><style>
 .gainlayout { zoom: 1; }
 </style><![endif]-->
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/html5.js"></script>
 <![endif]-->  
 <script type="text/javascript">
-$(function(){
+$(document).ready(function() {
+
 $(".preorderButton").click(function() 
 {
 if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)

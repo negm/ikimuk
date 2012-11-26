@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "artist"
 class artist {
@@ -65,6 +65,11 @@ class artist {
                 else
                 {$this->database->result = Null;}
 	}
+        public function selectAll()
+        {
+            $sSQL = "SELECT * FROM artist";
+            $oResult = $this->database->query($sSQL);
+        }
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert

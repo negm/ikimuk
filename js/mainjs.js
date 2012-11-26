@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 var target="";
+var user_name="";
 $(function() {
     $('img[data-hover]').hover(function() {
         $(this)
@@ -89,8 +90,10 @@ return false;
   
 
 ///////////////////////////////////////upload & submit
-$(document).ready(function() {
  var uploaded = false;
+ var img_list = new Array();
+$(document).ready(function() {
+
  var options = {
 //  target:     '#divToUpdate', 
     url:        'process-submit.php', 
@@ -126,38 +129,38 @@ $(document).ready(function() {
 // pass options to ajaxForm 
 $('#submitDesign').ajaxForm(options);
 
-
-	$(function(){
-		var btnUpload=$('#upload');
-		var status=$('#status');
-		new AjaxUpload(btnUpload, {
-			action: 'process-upload.php',
-			name: 'uploadfile',
-			onSubmit: function(file, ext){
-				 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-                    // extension is not allowed 
-					status.text('Only JPG, PNG or GIF files are allowed');
-					return false;
-				}
-				status.text('Uploading...');
-			},
-			onComplete: function(file, response){
-				//On completion clear the status
-				status.text('');
-				//Add uploaded file to list
-				if(response != "error"){
-					$('<li></li>').appendTo('#files').html('<img src="'+response+'" alt="" /><br />'+file).addClass('success');
-                                        $('#img_url').val(response);
-                                        uploaded = true;
-                                        $('#upload').hide();
-				} else{
-					$('<li></li>').appendTo('#files').text(file).addClass('error');
-				}
-			}
-		});
-		
-	});
- });
+//upload ajax
+$(function(){
+var btnUploadSubmit=$('#upload');
+var status=$('#status');
+new AjaxUpload(btnUploadSubmit, {
+action: '../process-upload.php',
+name: 'uploadfileSubmit',
+onSubmit: function(file, ext){
+if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+// extension is not allowed 
+status.text('Only JPG, PNG or GIF files are allowed');
+return false;
+}
+status.text('Uploading...');
+},
+onComplete: function(file, response){
+//On completion clear the status
+status.text('');
+//Add uploaded file to list
+if(response != "error"){
+$('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" /><br />'+file).addClass('success');
+img_list.push(response);
+$('#img_url').val(img_list);
+uploaded = true;
+//$('#upload').hide();
+} else{
+$('<li></li>').appendTo('#files').text(file).addClass('error');
+}
+}
+});
+});
+});
  
  
  ////////////////preorder
@@ -200,7 +203,8 @@ $('#submitDesign').ajaxForm(options);
                      $("#address").focus();  return false;
                }
             else
-                {
+                {                    
+                alert(response);
                 $("#preorderForm").fadeOut(1000);
                 $(".userInfo").fadeOut(1000);
                 $("#orderComplete").removeClass("hidden");
@@ -277,3 +281,36 @@ $(function(){
     }
     
 );})
+
+// add product
+$(document).ready(function() {
+ var options = {
+    url:        'process-addproduct.php', 
+    success:    function(response) {
+        if (response === 'done')
+            { $("#addproduct").fadeOut(1000);
+                $(".userInfo").fadeOut(1000);
+                $("#orderComplete").removeClass("hidden");
+                return false;}
+        else {alert("something went wrong"+ response);}
+          },
+    beforeSubmit: function(arr, $form, options) { 
+    // The array of form data takes the following form: 
+    // [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] 
+    var valid = true;
+    $("*").removeClass("alert");
+    if($('#title').val().length <1){           
+     $("#title_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+    if (!uploaded)
+        {$("#img_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+     return valid;
+    // return false to cancel submit                  
+    }
+}; 
+
+// pass options to ajaxForm 
+$('#addproduct').ajaxForm(options);
+});
+
+/*
+*/

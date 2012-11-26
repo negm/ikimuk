@@ -11,7 +11,7 @@
 *	config file rather than being hard-coded
 * 	Hussein Negm
 */
-include_once "class/settings.php"; 
+require_once ($_SERVER["DOCUMENT_ROOT"]."/class/settings.php"); 
 class Database {
 public $host;           // Hostname / Server
 public $password;       // MySQL Password

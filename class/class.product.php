@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "product"
 class product {
@@ -73,8 +73,8 @@ class product {
 	public function CurrentCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT product.* FROM `product` inner join competition on product.competition_id = competition.id WHERE competition.end_date > NOW();";
-		$oResult = $this->database->query($sSQL);
-		$oResult = $this->database->result;
+		$this->database->query($sSQL);
+		
 	}
 	public function GetNextInCompetitionID() { // SELECT Function
 		// Execute SQL Query to get record.
@@ -100,7 +100,7 @@ class product {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO product () VALUES ();";
+		$sSQL = "INSERT INTO `product`(`title`, `artist_id`, `competition_id`, `price`, `desc`) VALUES ('$this->title',$this->artist_id,$this->competition_id,$this->price,'$this->desc');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

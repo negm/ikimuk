@@ -77,14 +77,14 @@ else
         //echo '<img src="img/artist.png" data-thumb="img/artist.png" alt="" />';
     }
      echo '</div>';
-      echo '<div class="preorderButton grid_4"><a href="preorder.php?product_id='.$product->id.'" class="preorderButton"> Preorder </a></div>';
-     echo '<center class="grid_4"><div style="text-align: center;  margin:0 auto o auto;" class="fb-like" data-send="false" data-layout="button_count" data-width="400" data-show-faces="false" 
+      echo '<div class="preorderButton span4"><a href="preorder.php?product_id='.$product->id.'" class="preorderButton"> Preorder </a></div>';
+     echo '<center class="span4"><div style="text-align: center;  margin:0 auto o auto;" class="fb-like" data-send="false" data-layout="button_count" data-width="400" data-show-faces="false" 
               data-href="'.urldecode($settings->site_url_vars).'"></div></center>';
    
      if($next)
-         echo '<div class="preorderButton grid_4"><a href="design.php?product_id='.$next.'" class="preorderButton"> Next </a></div>';
+         echo '<div class="preorderButton span4"><a href="design.php?product_id='.$next.'" class="preorderButton"> Next </a></div>';
         if($prev)
-         echo '<div class="preorderButton grid_4"><a href="design.php?product_id='.$prev.'" class="preorderButton"> Prev </a></div>';
+         echo '<div class="preorderButton span4"><a href="design.php?product_id='.$prev.'" class="preorderButton"> Prev </a></div>';
 
 
 }

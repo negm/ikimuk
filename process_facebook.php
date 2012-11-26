@@ -7,15 +7,17 @@ You can replace this with strong function, something like HTTP_REFERER
 */
 if(isset($_POST["connect"]) && $_POST["connect"]==1)
 {       unset($_GET["logout"]);	
-	include_once("settings.php"); //Include configuration file.
-	
+	require_once("class/settings.php"); //Include configuration file.
+        require_once 'class/class.user.php';
+	$settings = new settings();
+        $user =  new user();
 	//Call Facebook API
 	if (!class_exists('FacebookApiException')) {
 	require_once('inc/facebook.php' );
 	}
 		$facebook = new Facebook(array(
-		'appId' => $app_id,
-		'secret' => $app_secret,
+		'appId' => $settings->app_id,
+		'secret' => $settings->app_secret,
 	));
 	
 	$fbuser = $facebook->getUser();
@@ -34,49 +36,49 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	
 	// redirect user to facebook login page if empty data or fresh login requires
 	if (!$fbuser){
-		$loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$site_url, false));
+		$loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$settings->site_url, false));
 		header('Location: '.$loginUrl);
 	}
 	
 	//user details
-	$fullname = $me['name'];
-	$email = $me['email'];
+	$user->name = $me['name'];
+	$user->email= $me['email'];
+        $user->fbid = $uid;
           
 	//Check user id in our database
-	$result = $mysqli->query("SELECT * FROM user WHERE fbid=$uid");
-	if($result->num_rows > 0)
+	$user->selectbyfb();
+	if($user->database->rows > 0)
 	{	
 		//User exist, Show welcome back message
-		echo 'Welcome back '. $me['first_name'] . ' '. $me['last_name'].'!';
-		$row = $result->fetch_assoc();
+		echo "Welcome back $user->name!";
+		
 		//print user facebook data
 		//echo '<pre>';
 		//print_r($me);
 		//echo '</pre>';
 		//User is now connected, log him in
-                $_SESSION['user_id']=$row['id'];
+                $_SESSION['user_id']=$user->id;
 		$_SESSION['logged_in']=true;
-                $_SESSION['validated_mobile'] = $row["validated_mobile"];
-                $_SESSION['role']= $row['role_id'];
+                $_SESSION['validated_mobile'] = $user->validated_mobile;
+                $_SESSION['role']= $user->role_id;
 	}
 	else
 	{
 		//User is new, Show connected message and store info in our Database
-		echo 'Hi '. $me['first_name'] . ' '. $me['last_name'].'!.';
+		echo "Hi $user->name!.";
 		//print user facebook data
-		echo '<pre>';
-		print_r($me);
-		echo '</pre>';
+                //echo "<pre>';
+                //print_r($me);
+                //echo '</pre>';
 		// Insert user into Database.
-		$mysqli->query("INSERT INTO user (fbid, name, email) VALUES ($uid, '$fullname','$email')");
-		
+		$user->insert();
 		//User is now connected, log him in
-                $_SESSION['user_id']= $mysqli->insert_id;
+                $_SESSION['user_id']= $user->id;
                 $_SESSION['logged_in']=true;
                 
 	}
-	$_SESSION['user_name']=$me['first_name'].' '.$me['last_name'];
-        $_SESSION['user_email'] =$me['email'];
+	$_SESSION['user_name']=$user->name;
+        $_SESSION['user_email'] =$user->email;
         $_SESSION["access_token"] = $facebook->getAccessToken();
 }
 

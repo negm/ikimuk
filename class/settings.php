@@ -1,6 +1,5 @@
 <?php
 //This file is for DB connection settings and other configs shared accross the app
-include_once 'inc/library.inc.php';
 class settings
 {
 public $site_url;
@@ -16,6 +15,7 @@ public $nexmo_secret;
 public $awsAccessKey;
 public $awsSecretKey;
 public $submissionBucketName = 'dsub';
+public $imageBucketName = 'large-pics';
 public function __construct() 
 {
  $this->awsAccessKey = 'AKIAJQDO6Z5X5WME2TSQ';
@@ -48,7 +48,7 @@ if (strpos($this->site_url,'localhost'))
     );
  $this->app_id = "299742366741440";
  $this->app_secret = "2369fc592909a16047bbce32bd75e23d";
- $this->root = "localhost:8080/ikimuk";
+ $this->root = "localhost:8080";
 
 }
 else

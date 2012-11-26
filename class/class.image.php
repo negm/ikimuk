@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "image"
 class image {
@@ -17,6 +17,11 @@ class image {
 	public $id; // Primary Key
 	public $database;
         public $product_id;
+        public $primary;
+        public $rollover;
+        public $url;
+        public $desc;
+        public $title;
 
         // Class Constructor
 	public function __construct() {

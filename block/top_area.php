@@ -1,8 +1,6 @@
 <?php
-include_once ('settings.php');
-if (!isset($_SESSION))
-{session_start();}
-//include_once 'block/header.php';
+include_once ($_SERVER["DOCUMENT_ROOT"].'/class/settings.php');
+$settings = new settings();
 if(isset($_GET["logout"]) && $_GET["logout"]==1)
 {
 //User clicked logout button, distroy all session variables.
@@ -27,7 +25,7 @@ if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 ?>
     <b id="results" class=""> </b>
     <div id="LoginButton" class="">
-    <div class="fb-login-button" onlogin="javascript:CallAfterLogin();" size="medium" scope="<?php echo $fbPermissions; ?>">Connect With Facebook</div> 
+    <div class="fb-login-button" onlogin="javascript:CallAfterLogin();" size="medium" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div> 
 <?php
 }
 else
@@ -43,7 +41,7 @@ else
 <div id="fb-root"></div>
 <script>
 window.fbAsyncInit = function() {
-FB.init({appId: '<?php echo $app_id; ?>',channelUrl: 'channel.php', status:true, cookie: true,xfbml: true,oath:true});
+FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', status:true, cookie: true,xfbml: true,oath:true});
 
 };
 // Load the SDK's source Asynchronously
@@ -55,10 +53,10 @@ FB.init({appId: '<?php echo $app_id; ?>',channelUrl: 'channel.php', status:true,
 
 <div class="logoBg">
 <div class="row-fluid">
-<div class="artist"><img src="img/artist.png" alt="artists"/></div>
-<a href="index.php" class=""><div class="logo"> <!--<img src="img/logo.png" class="" alt="logo"/>--></div></a>
+<div class="artist"><img src="../img/artist.png" alt="artists"/></div>
+<a href="../index.php" class=""><div class="logo"> <!--<img src="img/logo.png" class="" alt="logo"/>--></div></a>
 <div class="topText"> Awesome t-shirts designed by you!</div>
-<div class="fennec"><img src="img/fennec.png" alt="fennec" /></div>
+<div class="fennec"><img src="../img/fennec.png" alt="fennec" /></div>
 </div>
 </div>
 </div>
@@ -70,7 +68,7 @@ FB.init({appId: '<?php echo $app_id; ?>',channelUrl: 'channel.php', status:true,
     
   </div>
   <div class="modal-body">
-  <center><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" size="medium" scope="<?php echo $fbPermissions; ?>">Connect With Facebook</div></center>
+  <center><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" size="medium" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></center>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

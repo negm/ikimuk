@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "user"
 class user {
@@ -63,6 +63,28 @@ class user {
                 $this->newsletter      = $oRow->newsletter;
                 $this->points          = $oRow->points;
 	}
+        public function selectbyfb() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM user WHERE fbid = $this->fbid;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+		$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+                if ($this->database->rows >0)
+		{
+		$this->id = $oRow->id; // Primary Key          
+                $this->name            = $oRow->name;
+                $this->email           = $oRow->email;
+                $this->validated_mobile= $oRow->validated_mobile;
+                $this->role_id         = $oRow->role_id;
+                $this->image           = $oRow->image;
+                $this->newsletter      = $oRow->newsletter;
+                $this->points          = $oRow->points;
+                }
+                else
+                {$this->database->result = Null;}
+	}
 	public function getPreorderHistory($mID) { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT *, product.title as product_title FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id INNER JOIN STATUS ON preorder.status_id = status.id WHERE user_id =$mID AND image.`primary` =1";
@@ -75,7 +97,7 @@ class user {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO user () VALUES ();";
+		$sSQL = "INSERT INTO user (fbid, name, email) VALUES ($this->fbid,'$this->name','$this->email');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

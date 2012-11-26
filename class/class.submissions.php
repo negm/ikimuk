@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "submissions"
 class submissions {
@@ -17,7 +17,6 @@ class submissions {
 	public $id; // Primary Key
 	public $database;
         public $title;
-        public $image_url;
         public $user_id;
 	
 	// Class Constructor
@@ -50,13 +49,12 @@ class submissions {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
                 $this->title = $oRow->title;
-                $this->image_url = $oRow->image_url;
                 $this->user_id = $oRow->user_id;
                 }
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO submissions (user_id,title, image_url) VALUES ($this->user_id,'$this->title','$this->image_url');";
+		$sSQL = "INSERT INTO submissions (user_id,title) VALUES ($this->user_id,'$this->title');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

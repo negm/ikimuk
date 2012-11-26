@@ -1,9 +1,9 @@
 <?php
 /*******************************************************************************
-* Class Name:       competition
-* File Name:        class.competition.php
-* Generated:        Thursday, Nov 8, 2012 - 5:00:17 CET
-*  - for Table:     competition
+* Class Name:       submission_image
+* File Name:        class.submission_image.php
+* Generated:        Thursday, Nov 22, 2012 - 22:54:45 CET
+*  - for Table:     submission_image
 *   - in Database:  ikimuk
 * Created by: table2class (http://www.stevenflesch.com/projects/table2class/)
 ********************************************************************************/
@@ -11,13 +11,15 @@
 // Files required by class:
 require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
-// Begin Class "competition"
-class competition {
+// Begin Class "submission_image"
+class submission_image {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+	public $submission_id;
+        public $url;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -39,38 +41,32 @@ class competition {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM competition WHERE id = $mID;";
+		$sSQL = "SELECT * FROM submission_image WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysqli_fetch_object($oResult);
+		$oRow = mysql_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	public function selectActive() { // SELECT Function
-		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM competition WHERE end_date > Now();";
-		$this->database->query($sSQL);
-		
-		
-	}
+	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO competition () VALUES ();";
+		$sSQL = "INSERT INTO submission_image (submission_id,url) VALUES ($this->submission_id, '$this->url');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}
 	
 	function update($mID) {
-		$sSQL = "UPDATE competition SET (id = '$this->id') WHERE id = $mID;";
+		$sSQL = "UPDATE submission_image SET (id = '$this->id') WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
 	
 	public function delete($mID) {
-		$sSQL = "DELETE FROM competition WHERE id = $mID;";
+		$sSQL = "DELETE FROM submission_image WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
 
 }
-// End Class "competition"
+// End Class "submission_image"
 ?>

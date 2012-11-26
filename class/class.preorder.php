@@ -9,15 +9,24 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "preorder"
 class preorder {
 	// Variable declaration
 	public $id; // Primary Key
 	public $database;
-	
-	// Class Constructor
+        public $user_id;
+        public $product_id;
+        public $phone;
+        public $price;
+        public $country;
+        public $region;
+        public $address;
+        public $size;
+        public $status_id;
+        public $newsletter;
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -47,12 +56,24 @@ class preorder {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	
+	public function alreadyPreordered() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM preorder WHERE user_id = $this->user_id AND product_id = $this->product_id;";
+		$oResult = $this->database->query($sSQL);
+		if ($this->database->rows > 0 )
+                    return true;
+                else return false;
+	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO preorder () VALUES ();";
+		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,size) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address','$this->size')";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
+                if ($this->id)
+                $sSQL = "update product set preorders=preorders+1 where id=$this->product_id";
+                $this->database->query($sSQL);
+                $sSQL = "update user set validated_mobile ='$this->phone' where id=$this->user_id";
+                $this->database->query($sSQL);
 	}
 	
 	function update($mID) {
