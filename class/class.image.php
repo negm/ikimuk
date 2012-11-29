@@ -26,6 +26,8 @@ class image {
         // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
+                $this->primary=0;
+                $this->rollover=0;
 	}
 	
 	// Class Destructor
@@ -61,7 +63,7 @@ class image {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO image () VALUES ();";
+		$sSQL = "INSERT INTO `image`(`primary`, `rollover`, `url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,'$this->url','$this->title','$this->title',$this->product_id);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

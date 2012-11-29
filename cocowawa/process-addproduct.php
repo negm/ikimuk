@@ -15,7 +15,7 @@ $product->competition_id = $_POST["competition"];
 $product->desc = $_POST["desc"];
 $product->price = $_POST["price"];
 $img_arr = explode(',',$_POST["img_url"]);
-if(count($img_arr) <1)
+if(count($img_arr) <2)
 {
 echo 'shit';
 return;
@@ -26,9 +26,14 @@ if ($product->id == NULL)
 else
 {
     $sub_img->product_id = $product->id;
+    $count = 0;
     foreach ($img_arr as $img)
     {
         $sub_img->url = $img;
+        if ($count == 0)
+            $sub_img->primary=1;
+        if ($count == 1)
+            $sub_img->rollover=1;
         $sub_img->insert();
         if ($sub_img->id == null)
         {echo 'shit'; return;}

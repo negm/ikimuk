@@ -26,6 +26,8 @@ class preorder {
         public $size;
         public $status_id;
         public $newsletter;
+        public $comments;
+
         // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
@@ -56,7 +58,13 @@ class preorder {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	public function alreadyPreordered() { // SELECT Function
+	public function unconfirmed_incompetition() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM preorder WHERE status_id = 1;";
+		$this->database->query($sSQL);
+		}
+	        
+        public function alreadyPreordered() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM preorder WHERE user_id = $this->user_id AND product_id = $this->product_id;";
 		$oResult = $this->database->query($sSQL);
@@ -64,7 +72,9 @@ class preorder {
                     return true;
                 else return false;
 	}
-	public function insert() {
+	
+        
+        public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,size) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address','$this->size')";
 		$oResult = $this->database->query($sSQL);
