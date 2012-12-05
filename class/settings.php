@@ -54,7 +54,7 @@ if (strpos($this->site_url,'localhost'))
 else
 {
  $this->config = array (
-      'database' => 'app',
+      'database' => 'ikimuk',
       'username' => 'root',
       'password' => 'sqp.2012.sql++',
       'host' => 'localhost',
