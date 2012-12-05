@@ -19,16 +19,21 @@ if (!isset($_GET["product_id"]))
  header("Location: index.php");
 }
 else
-{ 
-if(!isset($_SESSION['sms_code']) )
-$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);
+{
 $design_id = $_GET["product_id"];
+if(!isset($_SESSION['size']) )
+{
+header("Location: design.php?product_id=$design_id");
+}
+if(!isset($_SESSION['sms_code']) )
+{$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
+
 $design->select($design_id);
 if(!$design->database->result)
-   redirect("index.php"); 
+   header("Location: index.php"); 
 else
 {
-$pagetitle = "Preorder ".$design->title;
+$pagetitle = "Preorder ".$design->title.$design_id;
 $image->product_id = $design_id;
 $_SERVER["last_preorder_design_id"] = $design_id;
 $image->getBasicImages();
@@ -53,15 +58,14 @@ while ($row_image = mysqli_fetch_assoc($image->database->result))
 include_once "block/header.php";
 ?>
 <script>
-
-  
+    //$(document).ready(function() {$('#preorderForm').ajaxForm(preorder_options);})
 </script>
 <?php 
 include "block/top_area.php";
 include "block/breadcrumb.php";
 ?>
-<div class="mainContainer span12">
-<div class="span7 userInfo nomargin">
+
+<div class="span7 userInfo">
 <h1 class="preTitle">Shipping Info</h1>
 <div class="inputContainer">
 <form id="preorderForm" class="appnitro"  method="post" action="">						
@@ -86,14 +90,8 @@ include "block/breadcrumb.php";
 <label class="description" for="element_2"><strong>Address </strong></label>
 <p id="address_g"><small>Please write down your full  address so we can deliver to your  doorstep!</small></p>
 <input id="address" name="address" class="" type="text" maxlength="255" value=""/> <br/><br/>
-<label for="element_7" id="size_l"><strong>Choose your Size</strong> </label><br/>
-<p class="hidden" id="size_g"><small>Please choose your Size!</small></p>
-<a href="#" name="small" class="sizeIcon span1">S</a>
-<a href="#" name="medium" class="sizeIcon span1">M</a>
-<a href="#" name="large" class="sizeIcon span1">L</a>
-<a href="#" name="xlarge" class="sizeIcon span1">XL</a>
-<a href="#" name="xxlarge" class="sizeIcon span1">XXL</a><br/><br/><br/>
-
+<input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; unset($_SESSION["size"]);?>" />
+<input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />
 <?php if (!isset($_SESSION['validated_mobile'])) {?>
 
 <p class="hidden" id="monum_g"><small>Please fill in your 8-digit  Lebanese number!</small></p>
@@ -120,14 +118,14 @@ include "block/breadcrumb.php";
     Keep me in the loop, sign me up for your newsletter 
 </label>
 <input type="hidden" name="size" value="" id="size"/>
-<center><input id="saveForm" class="button_text" type="submit" name="submit" value="Preorder" /></center>
+<center><input id="preorderSubmit" class="preorderButton span3" type="submit" name="submit" value="Preorder" /></center>
 </div></div>
 <div class="preSummary span4 ">
 <h1 class="preTitle">Order Summary</h1>
 <div class="span4 nomargin"><?php echo '<div class="home_list span3"><a class="home_list" href="design.php?product_id='.$design_id.'" ><img class="thumbnail" src="'.$primary.'" data-hover="'.$rollover.'" /></a></div>';?></div>
-<div class="span3 artistInfo">
-    <?php
 
+    <?php
+/*<div class="span3 artistInfo">
         if($artist)
         {
         echo '<div class="artistName span3">'.$artist->name.'</div>';
@@ -138,7 +136,7 @@ include "block/breadcrumb.php";
         if(strlen(trim($artist->twitter)) > 1)
             echo '<div class="span3 twitter"><a <a target="_blank" href="http&#58;//twitter.com/'.$artist->twitter.'"><img class="icon" src="img/twitter_icon.png" alt="location"/>'.str_replace ('@', '', $artist->twitter).'</a></div>';
         }
-
+*/
 ?>
 <!-- Button to trigger modal -->
 
@@ -180,5 +178,5 @@ include "block/breadcrumb.php";
         Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
         
     </div>
-</div>
+
 </form>	

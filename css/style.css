@@ -1,56 +1,134 @@
 /* general helper classes */
 .nomargin{margin:0px;}
+.block {display: block;}
 .center {margin-left:auto; margin-right:auto;}
+.centert{text-align: center;}
 .hidden{display: none;}
-img {-ms-interpolation-mode: bicubic;}
+img {-ms-interpolation-mode: bicubic;max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */}
+.thumb img {
+min-width: 60px;
+min-height: 60px;
+width: 60px;
+}
 .line{background:#EF5822;border-bottom:2px solid #EF5822;}
 .linew{background:#fff;border-bottom:2px solid #fff; margin-bottom: 10px;}
-.lineb{background:#44c6e3;border-bottom:2px solid #44c6e3;}
+.lineb{background:#34C8FF;border-bottom:2px solid #44c6e3;margin-top: 5px;}
 a, ins {text-decoration: none; color:inherit;}
-body{font-family: 'Arvo', serif;}
+body{font-family: 'Kulturista','Arvo', serif;}
+table {border: 1px;}
+.tlblue {color:#34C8FF;}
+.tblack{color:#000;}
+.twhite{color:#fff;}
+.tnormal{font-weight:normal;}
+.dwidth {max-width: 300px;}
+.lbluebg{background-color: #34C8FF;}
+.circle { 
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   background: #34C8FF; 
+   -moz-border-radius: 20px; 
+   -webkit-border-radius: 20px; 
+   border-radius: 20px;
+   float:left;
+   margin-right: 10px;
+}
 
+.wrapper {
+    position: relative;
+}
+.ribbon {
+    background: #34C8FF;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 5px 0 0 #34C8FF,
+                -5px 0 0 #34C8FF;
+    margin: 0 5px;
+    color:#fff;
+    font-size: 14pt;
+    text-align: center;
+    padding-top: 5px;
+    position: absolute;
+    top:0;
+    left:10px;
+    height: 70px;
+    width: 50px;
+    -webkit-filter: drop-shadow(0 2px 5px hsla(0,0%,0%,.5));
+    z-index: 999;
+}
+.ribbon:after,
+.ribbon:before {
+    border-top: 15px solid #34C8FF;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+.ribbon:after {
+    border-left: 50px solid transparent;
+    right: -5px;
+}
+.ribbon:before {
+    border-right: 50px solid transparent;
+    left: -5px;
+}
+.triangles:before {
+    background-image: -webkit-linear-gradient(45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6), 
+                      -webkit-linear-gradient(-45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6);
+    background-image:    -moz-linear-gradient(45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6),
+                         -moz-linear-gradient(-45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6);
+    background-image:     -ms-linear-gradient(45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6),
+                          -ms-linear-gradient(-45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6);
+    background-image:      -o-linear-gradient(45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6),
+                           -o-linear-gradient(-45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6);
+    background-image:         linear-gradient(45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6),
+                              linear-gradient(-45deg, #E6E6E6 25%, transparent 25%, transparent 75%, #E6E6E6 75%, #E6E6E6);
+    background-repeat: repeat-x;
+    background-size: 20px 20px;
+    content: '';
+    height: 10px;
+    left: 0;
+    position: absolute; /* Make sure the parent element has a position set */
+    right: 0;
+}
+.triangles:after {
+    background-position: 50% -30px;
+    top: -10px;
+}
+.triangles:before {
+    background-position: 50% 0;
+    bottom: -10px;
+}
+
+/* header area */
+.log{float:left; width:100%;background-color: #FFC800; color:#000; text-align: right;padding:5px 0;}
+.logoBg{background-color: #34C8FF;padding-bottom: 20px;}
+.logo{float:left; width:314px; height:61px; display: block; margin:20px 0px 20px 60px; background-image: url('../img/logo.png');background-repeat: no-repeat;}
+.logo:hover{background-image: url('../img/logo_hover.png');}
+.topText{font-size: 20pt; color: #fff; width:460px; margin-left:10px; text-align: center;}
+.fennec {position:relative;z-index:1;}
+.menu >ul >li {vertical-align: baseline; font-size: 28pt; margin-right: 80px;display: inline;}
+.compHeader {margin-bottom: 30px;}
 
 
 /*index page */
 .designContainer{padding:30px 0 30px 0;}
 .designBox{border:2px solid #44c6e3;  padding: 10px;}
-.designTitle{color:#e87c23; font-size: 18pt;}
-.imgc {max-width: 280px;max-height:280px;height:auto;width:auto; /*ie8 */
-      margin: 0 auto 0 auto; }
-.artistText{color:#a0a0a0;}
-.preorderButton {color:#fff; background-color: #00ccff; text-decoration:none; 
-font-size:16pt; width:144px;height:30px;margin: 20px auto 10px auto; text-align: center; padding-top: 10px;}
+.designTitle{color:#FFC800; font-size: 18pt;margin:10px 0  10px 0; display:inline-block;}
+.preorderButton {color:#fff; background-color: #ED1E79; text-decoration:none; 
+font-size:16pt; max-width: 300px; height:50px;text-align: center;line-height: 50px;}
 .preorderCount{background-color: #e7f8fb; border:2px solid #44c6e3;  border-bottom-right-radius:10px; 
  border-bottom-left-radius:10px; margin:0px 5px;height:40px; text-align:center;
  padding-top:10px;border-top:0px;-moz-border-radius: 10px; -webkit-border-bottom-left-radius: 10px; 
  -webkit-border-bottom-right-radius: 10px; -khtml-border-radius: 10px;}
-.fb-like {margin:10px auto 10px auto; }
-.orText {text-align:center; color:#a0a0a0; }
-.openingText{background-color: #e7f8fb; border:2px solid #44c6e3; margin-top: -15px;
-  border-radius:10px;  text-align:left; font-size:16pt; 
-  padding:20px 0px 20px 0px;border-top:0px;-moz-border-radius: 10px; -webkit-border-radius: 10px; 
- -webkit-border-radius: 10px; -khtml-border-radius: 10px;position: relative; z-index: 2;}
 .preorderText {color:#44c6e3; font-size:20pt; text-align: center;}
 .printText{color:#3d3d3d; font-size:18pt; text-align: center; margin:60px auto 60px auto;}
 .printText b {font-size:20pt;}
-.nxtComp{background-color: #e87c23; color:#fff; margin-bottom: 50px;  border-radius:15px;
--moz-border-radius: 15px; -webkit-border-radius: 15px;  -webkit-border-radius: 15px; -khtml-border-radius: 15px;
-padding:10px;}
-.nxtCompText{font-size:20pt;}
-.nxtCompText b {font-size:26pt;}
-.button {background-color: #44c6e3;}
-.home_list{min-height: 280px !important;}
-
-
-/* header area */
-.log{float:left; width:100%;background-color: #3d3d3d; color:#fff; text-align: right; margin-right:10px;}
-.log b { padding-right: 10px;}
-.logoBg{background-color: #44c6e3;}
-.logo{float:left; width:314px; height:61px; display: block; margin:20px 0px 20px 60px; background-image: url('../img/logo.png');background-repeat: no-repeat;}
-.logo:hover{background-image: url('../img/logo_hover.png');}
-.topText{font-size: 20pt; color: #fff; width:460px; margin-left:10px; text-align: center;}
-.artist{float:right; margin-right:50px;}
-.fennec {position:relative;z-index:1;}
+.openingContainer{position:relative; padding:20px; background: #E6E6E6;margin-bottom: 50px;}
+.home_list{min-height: 280px !important; width: 300px; max-width:300px;}
+.countBox {padding:5px; background: #FFC800; color:#fff; margin: 0; text-align: center; max-width:300px; display:block;}
 
 
 /* design page */
@@ -61,7 +139,7 @@ padding:10px;}
 .innerContainer {border:2px solid #44c6e3; padding:10px;background-color:#fff; position: relative; }
 .img_large{-ms-interpolation-mode: bicubic;max-width: 520px;max-height:420px;height:auto;width:auto; /*ie8 */}
 .box{background-color: #44c6e3; height:60px;margin:10px 0 10px 0;}
-.artistInfo {font-size:12pt; margin-bottom: 10px; text-decoration: none;}
+.artistInfo {font-size:12pt; margin-bottom: 10px; text-decoration: none; line-height: 10px;}
 .artisitInfo .location .website .twitter img {margin-right:5px;}
 .artistName{color:#44c6e3; font-size:18pt;}
 .preorderCount_design{background-color: #e7f8fb; border:2px solid #44c6e3;  border-bottom-right-radius:20px; 
@@ -69,8 +147,11 @@ padding:10px;}
  border-top:0px;-moz-border-radius: 20px; -webkit-border-bottom-left-radius: 20px; 
  -webkit-border-bottom-right-radius: 20px; -khtml-border-radius: 20px; padding:10px;}
 .icon{padding:5px;}
-
-
+.countText{line-height: 40px;margin: 20px 0;}
+.price {font-size: 21pt;}
+.socialbox{border: #808080 solid 1px; line-height: 50px;margin-top:40px; padding-bottom: 10px;}
+.socialbox > b{margin-bottom:20px; text-indent: 10px;} 
+.designT{color:#FFC800; font-size: 18pt; display:inline-block;}
 /*preorder page*/
 .userInfo{color:#4d4d4d; border:2px solid #44c6e3; font-size:14pt;}
 .preSummary{background-color:#fff; border:2px solid #44c6e3; padding-bottom: 50px;}
@@ -82,33 +163,79 @@ padding:10px;}
 .verfiyButton {background-color:#4d4d4d; padding:0 20px 0 20px; color:#fff; text-decoration:none; }
 .ccode{width:30px; margin:0;}
 .inputContainer {padding:20px; background-color: #fff;}
-.sizeIcon{background-color: #808080; color:#fff;  text-decoration:none; text-align:center; line-height: 60px;}
+.sizeIcon{background-color: #808080; color:#fff;  text-decoration:none; text-align:center; line-height: 40px; width:40px;margin:20px 20px 20px 0;display: inline-block;}
 .selected {color:#44c6e3;}
 
+/* admin pages */
+.tbl{border: 2px;}
 
+/* breadcrumb */
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#breadcrumbs-two{
+  overflow: hidden;
+  width: 100%;
+}
 
+#breadcrumbs-two li{
+  float: left;
+  margin: 0 .5em 0 1em;
+}
 
+#breadcrumbs-two a{
+  background: #ddd;
+  padding: .7em 1em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+  position: relative;
+}
 
-/* MailChimp Form Embed Code - Slim - 08/17/2011 */
-#mc_embed_signup {height: 100px; background-color: #fff; color:#000; margin: -10px 0 0 30px;  border-radius:15px;
--moz-border-radius: 15px; -webkit-border-radius: 15px;  -webkit-border-radius: 15px; -khtml-border-radius: 15px;
-position: relative; z-index: 2;}
-#mc_embed_signup form {display:block; position:relative; text-align:left; padding:0 0 10px 3%}
-#mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
-#mc_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
-#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
-#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
-#mc_embed_signup input:focus {border-color:#333;}
-#mc_embed_signup .button {clear:both; background-color: #44c6e3; border: 0 none; border-radius:4px; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: bold; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
-#mc_embed_signup .button:hover {background-color:#e7f8fb; color:#44c6e3;}
-#mc_embed_signup .small-meta {font-size: 11px;}
-#mc_embed_signup .nowrap {white-space:nowrap;}     
-#mc_embed_signup .clear {clear:none; display:inline;}
-#mc_embed_signup label {display:block; font-size:18px; padding-bottom:10px; font-weight:bold;}
-#mc_embed_signup input.email {display:inline; padding:8px 0; margin:0 4% 10px 0; text-indent:5px; width:58%; min-width:130px;}
-#mc_embed_signup input.button {display:inline; width:35%; margin:0 0 10px 0; min-width:90px;}
-#mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
-#mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
-#mc_embed_signup #mce-error-response {display:none;}
-#mc_embed_signup #mce-success-response {color:#529214; display:none;}
-#mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+#breadcrumbs-two a:hover{
+  background: #99db76;
+}
+
+#breadcrumbs-two a::before{
+  content: "";
+  position: absolute;
+  top: 50%; 
+  margin-top: -1.5em;   
+  border-width: 1.5em 0 1.5em 1em;
+  border-style: solid;
+  border-color: #ddd #ddd #ddd transparent;
+  left: -1em;
+}
+
+#breadcrumbs-two a:hover::before{
+  border-color: #99db76 #99db76 #99db76 transparent;
+}
+
+#breadcrumbs-two a::after{
+  content: "";
+  position: absolute;
+  top: 50%; 
+  margin-top: -1.5em;   
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-left: 1em solid #ddd;
+  right: -1em;
+}
+
+#breadcrumbs-two a:hover::after{
+  border-left-color: #99db76;
+}
+
+#breadcrumbs-two .current,
+#breadcrumbs-two .current:hover{
+  font-weight: bold;
+  background: none;
+}
+
+#breadcrumbs-two .current::after,
+#breadcrumbs-two .current::before{
+  content: normal;
+}

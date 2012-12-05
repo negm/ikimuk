@@ -1,5 +1,5 @@
 <?php
-
+$pagetitle = "Edit preorder";
 include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.preorder.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.user.php';

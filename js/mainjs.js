@@ -28,12 +28,12 @@ cache: false,
 success:function(response){
 $("#results").html(response); //Result
 if(target.length > 1)
-    window.location = target;
+    window.location.href = target;
 else
     location.reload(true);
  },
 error:function (xhr, ajaxOptions, thrownError){
-//$("#results").html('<fieldset style="padding:20px;color:red;">'+thrownError+'</fieldset>'); //Error
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
     }
  });
  }
@@ -129,37 +129,7 @@ $(document).ready(function() {
 // pass options to ajaxForm 
 $('#submitDesign').ajaxForm(options);
 
-//upload ajax
-$(function(){
-var btnUploadSubmit=$('#upload');
-var status=$('#status');
-new AjaxUpload(btnUploadSubmit, {
-action: '../process-upload.php',
-name: 'uploadfileSubmit',
-onSubmit: function(file, ext){
-if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-// extension is not allowed 
-status.text('Only JPG, PNG or GIF files are allowed');
-return false;
-}
-status.text('Uploading...');
-},
-onComplete: function(file, response){
-//On completion clear the status
-status.text('');
-//Add uploaded file to list
-if(response != "error"){
-$('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" /><br />'+file).addClass('success');
-img_list.push(response);
-$('#img_url').val(img_list);
-uploaded = true;
-//$('#upload').hide();
-} else{
-$('<li></li>').appendTo('#files').text(file).addClass('error');
-}
-}
-});
-});
+
 });
  
  
@@ -173,76 +143,88 @@ $('<li></li>').appendTo('#files').text(file).addClass('error');
     $('#address').popover({'trigger':'focus', 'title': 'Please write down your full address so we can deliver to your doorstep!'});
     $('#monum').popover({'trigger':'focus', 'placement':'bottom', 'title': 'Please fill in your 8-digit  Lebanese number!'});
     $('#vcode').popover({'trigger':'focus', 'title': 'The code you received via SMS!'});
-    
-    var preorder_options = {
-//  target:     '#divToUpdate', 
-    url:        'process_preorder.php', 
-    success:    function(response) { 
-        //alert('thanks for completing the preorder' + response); 
-        if (response === "agreement error")
-            {
-                $("#agreement_g").removeClass("hidden").addClass("alert").focus();return false;
-            }
-          if (response === "mobile error")
-            {
-               $("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;
-            }
-           if (response === "user error")
-               {
-                   alert("Please login using your facebook!  Scroll up :)");
-                   return false;
-               }
-           if (response === "verification error")
-               {
-                    $("#vcode_g").removeClass("hidden").addClass("alert").focus();
-                    return false;
-               }
-           if (response === "address error")
-               {
-                   $("#address_g").addClass("alert");
-                     $("#address").focus();  return false;
-               }
-            else
-                {                    
-                alert(response);
-                $("#preorderForm").fadeOut(1000);
-                $(".userInfo").fadeOut(1000);
-                $("#orderComplete").removeClass("hidden");
-                return false;
-                }
-        },
-    beforeSubmit: function(arr, $form, options) { 
-    // The array of form data takes the following form: 
-    // [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] 
+ });
+ 
+ $(function() {  
+  $("#preorderSubmit").click(function() {  
+    // validate and process form here
     var valid = true;
     $("*").removeClass("alert");
     if ($("#address").val().length < 9){$("#address_g").addClass("alert");
      $("#address").focus();  valid = false;}
     if ($("#size").val()  ==="")
         {$("#size_g").removeClass("hidden").addClass("alert").focus();valid = false;}
-     if (!$("#agreement").is(':checked'))
+    if (!$("#agreement").is(':checked'))
         {$("#agreement_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
-   return valid;
-    // return false to cancel submit                  
-    }  
-}; 
-// pass options to ajaxForm 
-$('#preorderForm').ajaxForm(preorder_options);
- });
+    if (!valid)return false;
+    
+    var dataString = 'address='+$("#address").val()+'&size='+$("#size").val()+
+        '&name='+$("#name").val()+'&email='+$("#email").val()+'&ccode='+$("#ccode").val()
+        +'&monum='+$("#monum").val()+'&vcode='+$("#vcode").val()+'&design_id='+$("#design_id").val()
+        +'&agreement='+$("#agreement").val();
+    $.ajax({  
+    type: "POST",  
+    url: "process_preorder.php",  
+    data: dataString,  
+    success: function(response) {  
+     if (response === "agreement error")
+            {
+                $("#agreement_g").removeClass("hidden").addClass("alert").focus();return false;
+            }
+          if (response === "mobile error")
+            {$("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;}
+           if (response === "user error")
+               {alert("Please login using your facebook!  Scroll up :)");return false;}
+           if (response === "verification error")
+               {$("#vcode_g").removeClass("hidden").addClass("alert").focus();return false;}
+           if (response === "address error")
+               {$("#address_g").addClass("alert");$("#address").focus();  return false;}
+            else
+                {
+                  $("#preorderForm").fadeOut(1000);$(".userInfo").fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
+              }
+  }  
+});  
+return false;  
+     
+  });  
+});  
  $(function(){
-    $(".sizeIcon").click(function() {
-    $("#size").val(this.name);
-    $(".sizeIcon").removeClass("selected");
-    $(this).addClass("selected");
-        
-        return false;
-    }  );})
+    $(".sizeIcon").click(function(e) {
+        e.preventDefault();
+	var size= 'size='+this.name;
+        sid = "#"+this.id;
+    //$("#size").val(this.name);
+	jQuery.ajax({
+	type: "POST",
+	url: "process-size.php",
+	dataType:"html",
+	data:size,
+	cache: false,
+	success:function(response){
+        if (response === 'done'){         
+	$(".sizeIcon").removeClass("selected");
+        $(sid).addClass("selected");
+        return false;}
+        else{return false;}
+
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+ return false;
+    }
+ });
+   }  );})
+
+$(function(){
+    $(".preorderButton").click(function() {
+        if ($(".selected").length === 0)
+            {$("#size_g").removeClass("hidden").addClass("alert").focus();return false;}
+    });})
 
 $(function(){
     $("#verify").click(function() 
     {
-        //if ($("#ccode").val()==="" ||  $("#ccode").val().trim().match(/[^\d]/))
-          //  {alert("The country code you entered isn't correct");$("#ccode").focus();return false;}
         if ($("#monum").val()==="" || $("#monum").val().trim().length <6 || $("#monum").val().trim().match(/[^\d]/))
             {$("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;}
         else{var monum = $("#monum").val();       

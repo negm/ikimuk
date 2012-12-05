@@ -38,7 +38,7 @@ ob_implicit_flush(0);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# phennec: http://ogp.me/ns/fb/phennec#">
+<head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" href="img/favicon.ico">
@@ -83,3 +83,4 @@ if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false
     
 );})
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

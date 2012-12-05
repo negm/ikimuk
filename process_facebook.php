@@ -19,9 +19,10 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 		'appId' => $settings->app_id,
 		'secret' => $settings->app_secret,
 	));
-	
+	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+        Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
 	$fbuser = $facebook->getUser();
-	if ($fbuser) {
+        if ($fbuser) {
 		try {
 			// Proceed knowing you have a logged in user who's authenticated.
 			$me = $facebook->api('/me'); //user
@@ -30,14 +31,15 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 		catch (FacebookApiException $e) 
 		{
 			echo error_log($e);
-			$fbuser = null;
+                       	$fbuser = null;
+                        return;
 		}
 	}
 	
 	// redirect user to facebook login page if empty data or fresh login requires
 	if (!$fbuser){
 		$loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$settings->site_url, false));
-		header('Location: '.$loginUrl);
+		//header('Location: '.$loginUrl);
 	}
 	
 	//user details

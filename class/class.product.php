@@ -72,7 +72,7 @@ class product {
 	}
 	public function CurrentCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT product.* FROM `product` inner join competition on product.competition_id = competition.id WHERE competition.end_date > NOW();";
+		$sSQL = "SELECT pr.*,artist.name, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id WHERE competition.end_date > NOW();";
 		$this->database->query($sSQL);
 		
 	}

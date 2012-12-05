@@ -16,9 +16,9 @@ header('Location: '.$_SERVER['PHP_SELF']);
 </head>
 
 <body>
-<div id="bar" class="">
-<div class="top-area row-fluid">
 <div class="log">
+<div class="container-fluid">
+    <div class="offset4 span4">Sorry we only deliver in Lebanon for now</div>
 <?php
 if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 {
@@ -30,7 +30,7 @@ if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 }
 else
 {
-	echo '<b>Hi '. $_SESSION['user_name'].'!</b> <a href="index.php?logout=1">Log Out</a>.';
+	echo '<b>Hi '. $_SESSION['user_name'].'!</b> <a href="../index.php?logout=1">Log Out</a>.';
         
 }
 ?>
@@ -50,16 +50,15 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
      js = d.createElement('script'); js.id = id; js.async = true;  js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref); }(document));
 </script>
-
 <div class="logoBg">
+<div class="container-fluid">
 <div class="row-fluid">
-<div class="artist"><img src="../img/artist.png" alt="artists"/></div>
-<a href="../index.php" class=""><div class="logo"> <!--<img src="img/logo.png" class="" alt="logo"/>--></div></a>
-<div class="topText"> Awesome t-shirts designed by you!</div>
-<div class="fennec"><img src="../img/fennec.png" alt="fennec" /></div>
+<a href="../index.php"><div class="offset1 span4 logo"></div></a>
+</div>
+<div class="menu row"><ul><li class="offset5">CHOOSE</li><li class="">BUY</li><li class=""><a href="../submit.php">SUBMIT</a></li><li class="">ABOUT</li></ul></div>
 </div>
 </div>
-</div>
+
 <!-- Modal -->
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

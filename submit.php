@@ -3,6 +3,37 @@ include "block/logged_in.php";
 $pagetitle = "Submit your design";
 include_once 'block/header.php';
 ?>
+<script>//upload ajax
+$(function(){
+var btnUploadSubmit=$('#upload');
+var status=$('#status');
+new AjaxUpload(btnUploadSubmit, {
+action: 'process-upload.php',
+name: 'uploadfileSubmit',
+onSubmit: function(file, ext){
+if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+// extension is not allowed 
+status.text('Only JPG, PNG or GIF files are allowed');
+return false;
+}
+status.text('Uploading...');
+},
+onComplete: function(file, response){
+//On completion clear the status
+status.text('');
+//Add uploaded file to list
+if(response != "error"){
+$('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" /><br />'+file).addClass('success');
+img_list.push(response);
+$('#img_url').val(img_list);
+uploaded = true;
+//$('#upload').hide();
+} else{
+$('<li></li>').appendTo('#files').text(file).addClass('error');
+}
+}
+});
+});</script>
 <?php
 include "block/top_area.php";
 include "block/breadcrumb.php";

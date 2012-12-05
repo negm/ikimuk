@@ -5,31 +5,27 @@
  * and open the template in the editor.
  * 
  */
-include_once 'block/logged_in.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
 require_once('inc/facebook.php' );
 $settings = new settings();
-$config = array(
-    'appId' => $settings->app_id,
-    'secret' => $settings->app_secret,
-  );
-$facebook = new Facebook($config);
-$ret_obj = $facebook->api('/me/feed', 'POST',
-                                    array(
-                                      'message' => 'Offfffff'
-                                 ));
-print_r($ret_obj);
-return;
+//$config = array(
+//    'appId' => $settings->app_id,
+//    'secret' => $settings->app_secret,
+//  );
+//$facebook = new Facebook($config);
+//$ret_obj = $facebook->api('/me/feed', 'POST',
+//                                    array(
+//                                      'message' => 'Offfffff'
+//                                 ));
+//print_r($ret_obj);
+//return;
 $param = $_POST;
 $preorder = new preorder();
-if (isset($_SESSION["last_preorder_design_id"]))
-{
-    $param["design_id"]= $_SESSION["last_preorder_design_id"];
-}
-else
-{
-    echo 'design error'; return;
-}
+$preorder->user_id = $_SESSION["user_id"];
+//if (isset($_SESSION["last_preorder_design_id"]))
+//{$param["design_id"]= $_SESSION["last_preorder_design_id"];}
+//else{echo 'design error'.$_SESSION["last_preorder_design_id"]; return;}
 if (!$param["name"] || strlen(trim($param["name"])) < 5)
 {echo 'name error'; return;}
 if (!$param["email"] || strlen(trim($param["email"])) < 9 )

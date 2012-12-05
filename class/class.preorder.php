@@ -60,7 +60,7 @@ class preorder {
 	}
 	public function unconfirmed_incompetition() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM preorder WHERE status_id = 1;";
+		$sSQL = "SELECT u.*,p.*,s.status,im.url  FROM preorder p INNER JOIN status s ON p.status_id = s.id INNER JOIN user u ON p.user_id = u.id INNER JOIN product pr ON p.product_id = pr.id INNER JOIN image im ON pr.id = im.product_id WHERE status_id = 1 AND `primary`=1;";
 		$this->database->query($sSQL);
 		}
 	        

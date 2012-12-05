@@ -15,7 +15,11 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 class competition {
 	// Variable declaration
 	public $id; // Primary Key
-	public $database;
+	public $title;
+        public $desc;
+        public $end_date;
+        public $start_date;
+        public $database;
 	
 	// Class Constructor
 	public function __construct() {
@@ -46,6 +50,10 @@ class competition {
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
+                $this->title = $oRow->title;
+                $this->desc = $oRow->desc;
+                $this->end_date = $oRow->end_date;
+                $this->start_date = $oRow->start_date;
 	}
 	public function selectActive() { // SELECT Function
 		// Execute SQL Query to get record.
