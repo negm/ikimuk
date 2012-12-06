@@ -33,7 +33,7 @@ if(!$design->database->result)
    header("Location: index.php"); 
 else
 {
-$pagetitle = "Preorder ".$design->title.$design_id;
+$pagetitle = "Preorder ".$design->title;
 $image->product_id = $design_id;
 $_SERVER["last_preorder_design_id"] = $design_id;
 $image->getBasicImages();
@@ -64,51 +64,55 @@ include_once "block/header.php";
 include "block/top_area.php";
 include "block/breadcrumb.php";
 ?>
-
+<div class="container">
 <div class="span7 userInfo">
 <h1 class="preTitle">Shipping Info</h1>
 <div class="inputContainer">
 <form id="preorderForm" class="appnitro"  method="post" action="">						
     <label class="description" for="element_1"><strong>Name </strong></label>
 <div>
-    <input id="name" name="name" class="element text medium" type="text" maxlength="255" value="<?php echo $_SESSION["user_name"];?>"/> <br/><br/>
+    <input id="name" name="name" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_name"];?>"/> <br/><br/>
 </div>
 		
 <label class="description" for="element_2"><strong>Email </strong></label>
 <div>
-<input id="email" name="email" class="element text medium" type="text" maxlength="255" value="<?php echo $_SESSION["user_email"];?>"/> <br/><br/>
+<input id="email" name="email" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_email"];?>"/> <br/><br/>
 </div><p class="guidelines" id="span2"></p> 
 <label for="element_9"><strong>Area/Region</strong></label>
-<select class="element select medium" id="region" name="region"> 
-<option value="Beirut" >Beirut</option>
-<option value="Beirut" >Bekaa</option>
-<option value="Beirut" >Mount Lebanon</option>
-<option value="Beirut" >Nabatieh</option>
-<option value="Beirut" >North</option>
-<option value="Beirut" >South</option>
+<p class="hidden" id="region_g"><small>Please choose an area!</small></p>
+<select class="span6" id="region" name="region"> 
+    <option value="" selected="selected" >I live in..</option>
+    <option value="Beirut" >Beirut</option>
+    <option value="Bekaa" >Bekaa</option>
+    <option value="Mount Lebanont" >Mount Lebanon</option>
+    <option value="Nabatieh" >Nabatieh</option>
+    <option value="North" >North</option>
+    <option value="South" >South</option>
 </select><br/><br/>
 <label class="description" for="element_2"><strong>Address </strong></label>
 <p id="address_g"><small>Please write down your full  address so we can deliver to your  doorstep!</small></p>
-<input id="address" name="address" class="" type="text" maxlength="255" value=""/> <br/><br/>
+<input id="address" name="address" class="span6 centert" type="text" maxlength="255" value=""/> <br/><br/>
 <input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; unset($_SESSION["size"]);?>" />
 <input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />
 <?php if (!isset($_SESSION['validated_mobile'])) {?>
-
+<div class="">
 <p class="hidden" id="monum_g"><small>Please fill in your 8-digit  Lebanese number!</small></p>
 <label  for="element_3"><strong>Mobile number </strong></label>
-<input id="ccode" name="ccode" class="ccode" type="text" maxlength="3" value="961"/> 
-<input id="monum" name="monum" class="monum" type="text" maxlength="9"  onkeyup="moveOnMax(this,'verify')" value=""/> 
+<div class="input-append">
+<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="961"/> 
+<input id="monum" name="monum" class="monum span4 centert" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
+</div>
 <p class="hidden" id="vcode_g2"><small>Please check you mobile now! </small></p>
 <p class="hidden" id="vcode_g3"><small>You either requested more than five verification SMSz or made two requests in less than 5 minutes! </small></p>
 <p class="hidden" id="vcode_g4"><small>We could not complete your request now. please try again in a while! </small></p>
 <label for="vcode"><strong>Verification code </strong></label>
-
-<input id="vcode" name="vcode" type="text" maxlength="5" value=""/> 
-<p id="guide_4"><small>The code you received via SMS</small></p><br/>
 <p class="hidden" id="vcode_g"><small>Please enter the right verification  code you received </small></p>
+<input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> 
+<p id=""><small>The code you received via SMS</small></p><br/>
+</div>
 <?php }else echo '<br/>';?>
-<p class="guidelines hidden" id="agreement_g"><small> You should read and agree on the terms</small></p>
+<p class="hidden" id="agreement_g"><small> You should read and agree on the terms</small></p>
 <label class="checkbox" >
     <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
     I agree on Ikimuk's <a href="#myModal" role="button" style="color:#44c6e3" data-toggle="modal">Terms & Conditions</a>
@@ -171,7 +175,6 @@ include "block/breadcrumb.php";
 </div>
 </div>
 <div class="clear"></div>
-</div>
     <div id="orderComplete" class="span7 hidden">
         <div class="preTitle">Preorder complete</div>
         Thank you for preordering this  design! We will notify you if it  gets printed.<br/>

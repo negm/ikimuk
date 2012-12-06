@@ -47,8 +47,7 @@ ob_implicit_flush(0);
 <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../css/light/light.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/dark/dark.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/bar/bar.css" type="text/css" media="screen" />
+<!--<link rel="stylesheet" href="../css/bar/bar.css" type="text/css" media="screen" />-->
 <link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
@@ -83,4 +82,3 @@ if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false
     
 );})
 </script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

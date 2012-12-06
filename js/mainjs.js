@@ -92,14 +92,25 @@ return false;
 ///////////////////////////////////////upload & submit
  var uploaded = false;
  var img_list = new Array();
-$(document).ready(function() {
-
- var options = {
-//  target:     '#divToUpdate', 
-    url:        'process-submit.php', 
-    success:    function(response) {
-        
-        if (response === 'done')
+$(function() {  
+  $("#submit_design").click(function() {
+    var valid = true;
+    $("*").removeClass("alert");
+    if($('#design_title').val().length <1){           
+     $("#title_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+    if (!uploaded)
+        {$("#img_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+     if(!valid)
+         return valid; 
+    // return false to cancel submit    
+    var params = 'design_title='+ $('#design_title').val()+'&img_url='+
+        $("#img_g").val()+'&comment='+$("#comment").val();
+    $.ajax({  
+    type: "POST",  
+    url: "process-submit.php",  
+    data: dataString,  
+    success: function(response) {  
+     if (response === 'done')
             {
                 $("#submitDesign").fadeOut(1000);
                 $(".userInfo").fadeOut(1000);
@@ -107,32 +118,12 @@ $(document).ready(function() {
                 return false;
             }
         else
-            {alert("something went wrong"+ response);}
+            {alert("something went wrong please try again later");}
             
+       }
        
-        },
-    beforeSubmit: function(arr, $form, options) { 
-    // The array of form data takes the following form: 
-    // [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] 
-    var valid = true;
-    $("*").removeClass("alert");
-    if($('#design_title').val().length <1){           
-     $("#title_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
-    if (!uploaded)
-        {$("#img_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
-     return valid;
-    // return false to cancel submit                  
-    }
-     
-}; 
-
-// pass options to ajaxForm 
-$('#submitDesign').ajaxForm(options);
-
-
-});
- 
- 
+      });   
+  });}) 
  ////////////////preorder
      var size="";
     $(document).ready(function() {
@@ -150,12 +141,21 @@ $('#submitDesign').ajaxForm(options);
     // validate and process form here
     var valid = true;
     $("*").removeClass("alert");
+    if ($("#region").val() === "")
+    {$("#region_g").removeClass("hidden").addClass("alert").focus();valid = false;}
     if ($("#address").val().length < 9){$("#address_g").addClass("alert");
      $("#address").focus();  valid = false;}
     if ($("#size").val()  ==="")
         {$("#size_g").removeClass("hidden").addClass("alert").focus();valid = false;}
     if (!$("#agreement").is(':checked'))
         {$("#agreement_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+    if ($("#monum").length > 0)
+        {
+            if ($("#monum").val().length < 8)
+                {$("#monum_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+            if ($("#vcode").val().length < 4)
+                {$("#vcode_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+        }
     if (!valid)return false;
     
     var dataString = 'address='+$("#address").val()+'&size='+$("#size").val()+

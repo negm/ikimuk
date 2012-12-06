@@ -17,7 +17,7 @@ header('Location: '.$_SERVER['PHP_SELF']);
 
 <body>
 <div class="log">
-<div class="container-fluid">
+<div class="container">
     <div class="offset4 span4">Sorry we only deliver in Lebanon for now</div>
 <?php
 if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
@@ -38,24 +38,13 @@ else
 </div>
 </div>
 
-<div id="fb-root"></div>
-<script>
-window.fbAsyncInit = function() {
-FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', status:true, cookie: true,xfbml: true,oath:true});
 
-};
-// Load the SDK's source Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];  if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;  js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref); }(document));
-</script>
 <div class="logoBg">
-<div class="container-fluid">
-<div class="row-fluid">
-<a href="../index.php"><div class="offset1 span4 logo"></div></a>
+<div class="container">
+<div class="row">
+<a href="../index.php"><div class="span4 logo"></div></a>
+<div class="menu row"><ul><li class="offset4 twhite"><a href="../index.php">CHOOSE</a></li><li class="tgray">BUY</li><li class="tyellow"><a href="../submit-intro.php">SUBMIT</a></li><li class="twhite">ABOUT</li></ul></div>
 </div>
-<div class="menu row"><ul><li class="offset5">CHOOSE</li><li class="">BUY</li><li class=""><a href="../submit.php">SUBMIT</a></li><li class="">ABOUT</li></ul></div>
 </div>
 </div>
 
