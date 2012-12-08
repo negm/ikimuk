@@ -78,7 +78,6 @@ table {border: 1px;}
 }
 .ribbon {
     background: #34C8FF;
-    border-radius: 5px 5px 0 0;
     box-shadow: 5px 0 0 #34C8FF,
                 -5px 0 0 #34C8FF;
     margin: 0 5px;
