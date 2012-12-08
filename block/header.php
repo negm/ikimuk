@@ -43,13 +43,17 @@ ob_implicit_flush(0);
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" href="img/favicon.ico">
 <title><? echo $pagetitle; ?></title>
+<meta name="title" content="Ikimuk">
+<meta name="description" content="Browse our collection of amazing graphic t-shirt designs.  The best tees on the planet." />
+<meta name="keywords" content="browse, catalog, collection, best, amazing, variety, guys, girls, men&#039;s, women&#039;s, salethreadless, t-shirts, tee shirts, tshirts, clothing, design, art, arab, gulf, lebanon, خليج ,عرب, ملابس , موضة , شباب" />
 <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../css/light/light.css" type="text/css" media="screen" />
 <!--<link rel="stylesheet" href="../css/bar/bar.css" type="text/css" media="screen" />-->
 <link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
-<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/jquery.form.js"></script>
@@ -80,5 +84,16 @@ if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false
     $('#loginModal').modal(); return false; } else {return true;} 
 }
     
-);})
+);
+$(".subButton").click(function() 
+{
+if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
+{//show the modal
+    target = $(this).attr("href");
+    $('#loginModal').modal(); return false; } else {return true;} 
+}
+    
+);
+
+})
 </script>

@@ -37,7 +37,7 @@ $this->user = $setting->config['username'];
 $this->database = $setting->config['database'];
 $this->rows = 0;
 $this->link = NULL;
-$this->debug = TRUE; //this should be set to false on production
+$this->debug = !$setting->prodction; //this should be set to false on production
 $this->persistentconn = FALSE;
 $this->lastinsertid = -1;
 // **********************************************

@@ -27,7 +27,8 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
 <br><br><br>
 <div class=" container">
     <div class="row">
-    <div class="span8 preSummary nomargin">
+    <div class="span8">
+        <div class="preSummary">
         <h1 class="preTitle">preorder Form</h1>
         <div class="content">
 			<h3 class="titre">1-THE GREAT T-SHIRT IDEA</h3>
@@ -71,8 +72,10 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
                                 <div class ="subButton center"><a href="../submit.php">Submit a design</a></div>
 		</div>
         </div>
-    <div class="span4">
-        <div class="graybg">
+        </div>
+
+        <div class="span4">
+            <div class="graybg">
         <h3 class="header">Newsletter</h3>
         <div class="line"></div>
         <p>Sign up to our newsletter to stay in the loop</p>
@@ -85,7 +88,18 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         <br>
         <h3 class="header">Connect with us</h3>
         <div class="line"></div>
+          </div> 
         </div>
+        <div class="socialIcons">
+        <div class="span1 facebook"><a class="" href="https://www.facebook.com/ikimukofficial" target="_blank"></a></div>
+        <div class="span1 twitter"><a  href="https://twitter.com/IkimukTweets" target="_blank"></a></div>
+        <div class="span1 contact"><a  href=""></a></div>
+        <div class="span1 youtube"><a  href=""></a></div>
+        </div>
+  
+
     </div>
     </div>
-    </div>
+<?php
+include 'block/footer.php';
+?>

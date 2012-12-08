@@ -2,6 +2,38 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+addLoadEvent(function() {
+  $('.home_list').mouseenter(function(){
+    var image= $(this).find('img'),
+        caption = $(this).find('div');
+    
+    caption.width(image.width());
+    caption.height(image.height());
+    caption.fadeIn(350);
+}).mouseleave(function(){
+     var image= $(this).find('img'),
+        caption = $(this).find('div');
+    
+    caption.width(image.width());
+    caption.height(image.height());
+    caption.fadeOut(350);
+});
+});
+
 var target="";
 var user_name="";
 $(function() {
@@ -93,13 +125,14 @@ return false;
  var uploaded = false;
  var img_list = new Array();
 $(function() {  
-  $("#submit_design").click(function() {
+  $("#submit_design").click(function(e){
+     e.preventDefault();
     var valid = true;
-    $("*").removeClass("alert");
+    $("*").removeClass("alertr");
     if($('#design_title').val().length <1){           
-     $("#title_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+     $("#title_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
     if (!uploaded)
-        {$("#img_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+        {$("#img_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
      if(!valid)
          return valid; 
     // return false to cancel submit    
@@ -108,21 +141,22 @@ $(function() {
     $.ajax({  
     type: "POST",  
     url: "process-submit.php",  
-    data: dataString,  
+    data: params,  
     success: function(response) {  
      if (response === 'done')
             {
-                $("#submitDesign").fadeOut(1000);
-                $(".userInfo").fadeOut(1000);
+                $(".preSummary").fadeOut(1000);
+                $('#title_msg').html( $('#design_title').val());
                 $("#orderComplete").removeClass("hidden");
                 return false;
             }
         else
-            {alert("something went wrong please try again later");}
+            {alert("something went wrong please try again later"+response); return false;}
             
        }
        
       });   
+      return false;
   });}) 
  ////////////////preorder
      var size="";
@@ -137,26 +171,28 @@ $(function() {
  });
  
  $(function() {  
-  $("#preorderSubmit").click(function() {  
+  $("#preorderSubmit").click(function(e) {  
     // validate and process form here
+    e.preventDefault();
+    $("#preorderSubmit").html('<img src="img/ajax-loader.gif" />');
     var valid = true;
-    $("*").removeClass("alert");
+    $("*").removeClass("alertr");
     if ($("#region").val() === "")
-    {$("#region_g").removeClass("hidden").addClass("alert").focus();valid = false;}
-    if ($("#address").val().length < 9){$("#address_g").addClass("alert");
+    {$("#region_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
+    if ($("#address").val().length < 9){$("#address_g").addClass("alertr");
      $("#address").focus();  valid = false;}
     if ($("#size").val()  ==="")
-        {$("#size_g").removeClass("hidden").addClass("alert").focus();valid = false;}
+        {$("#size_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
     if (!$("#agreement").is(':checked'))
-        {$("#agreement_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+        {$("#agreement_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
     if ($("#monum").length > 0)
         {
             if ($("#monum").val().length < 8)
-                {$("#monum_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+                {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
             if ($("#vcode").val().length < 4)
-                {$("#vcode_g").removeClass("hidden").addClass("alert").focus(); valid = false;}
+                {$("#vcode_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
         }
-    if (!valid)return false;
+    if (!valid){$("#preorderSubmit").html('Preorder');return false;}
     
     var dataString = 'address='+$("#address").val()+'&size='+$("#size").val()+
         '&name='+$("#name").val()+'&email='+$("#email").val()+'&ccode='+$("#ccode").val()
@@ -169,16 +205,16 @@ $(function() {
     success: function(response) {  
      if (response === "agreement error")
             {
-                $("#agreement_g").removeClass("hidden").addClass("alert").focus();return false;
+                $("#agreement_g").removeClass("hidden").addClass("alertr").focus();return false;
             }
           if (response === "mobile error")
-            {$("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;}
+            {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); return false;}
            if (response === "user error")
                {alert("Please login using your facebook!  Scroll up :)");return false;}
            if (response === "verification error")
-               {$("#vcode_g").removeClass("hidden").addClass("alert").focus();return false;}
+               {$("#vcode_g").removeClass("hidden").addClass("alertr").focus();return false;}
            if (response === "address error")
-               {$("#address_g").addClass("alert");$("#address").focus();  return false;}
+               {$("#address_g").addClass("alertr");$("#address").focus();  return false;}
             else
                 {
                   $("#preorderForm").fadeOut(1000);$(".userInfo").fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
@@ -219,14 +255,15 @@ error:function (xhr, ajaxOptions, thrownError){
 $(function(){
     $(".preorderButton").click(function() {
         if ($(".selected").length === 0)
-            {$("#size_g").removeClass("hidden").addClass("alert").focus();return false;}
+            {$("#size_g").removeClass("hidden").addClass("alertr").focus();return false;}
     });})
 
 $(function(){
-    $("#verify").click(function() 
-    {
+    $("#verify").click(function(e) 
+    {   e.preventDefault();
+        $("#verify").html('<img src="img/ajax-loader.gif" />');
         if ($("#monum").val()==="" || $("#monum").val().trim().length <6 || $("#monum").val().trim().match(/[^\d]/))
-            {$("#monum_g").removeClass("hidden").addClass("alert").focus(); return false;}
+            {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); return false;}
         else{var monum = $("#monum").val();       
                if (monum[0] === '0'){monum = monum.replace(/^0+/, '');}
                var dataString = 'number=+'+$("#ccode").val().trim()+monum;
@@ -239,19 +276,19 @@ $(function(){
                     if ((response === 'done'))
                     {
                     //show the preoder form
-                     $("#vcode_g2").removeClass("hidden").addClass("alert").focus();
+                     $("#vcode_g2").removeClass("hidden").addClass("alertr").focus();
                      return false;
                      }
                      else 
                      if(response === 'shit' )
                      {
                        //Either received more than 5 messages or requested a new code in less than 5 minutes
-                     $("#vcode_g3").removeClass("hidden").addClass("alert").focus();
+                     $("#vcode_g3").removeClass("hidden").addClass("alertr").focus();
                      return false;
                       }
                       else
                       {
-                     $("#vcode_g4").removeClass("hidden").addClass("alert").focus();
+                     $("#vcode_g4").removeClass("hidden").addClass("alertr").focus();
                      return false;
                       }
                   } 
@@ -280,11 +317,11 @@ $(document).ready(function() {
     // The array of form data takes the following form: 
     // [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] 
     var valid = true;
-    $("*").removeClass("alert");
+    $("*").removeClass("alertr");
     if($('#title').val().length <1){           
-     $("#title_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+     $("#title_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
     if (!uploaded)
-        {$("#img_g").removeClass("hidden").addClass("alert").focus();  valid = false;}
+        {$("#img_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
      return valid;
     // return false to cancel submit                  
     }

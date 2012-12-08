@@ -3,7 +3,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
 $product = new product();
-$sub_img = new image();
 //print_r($_POST);
 //return;
 if (!isset($_SESSION["user_id"]) || !isset($_POST["img_url"])||
@@ -15,7 +14,7 @@ $product->competition_id = $_POST["competition"];
 $product->desc = $_POST["desc"];
 $product->price = $_POST["price"];
 $img_arr = explode(',',$_POST["img_url"]);
-if(count($img_arr) <2)
+if(count($img_arr) <3)
 {
 echo 'shit';
 return;
@@ -25,18 +24,23 @@ if ($product->id == NULL)
 {echo'shit';return;}
 else
 {
-    $sub_img->product_id = $product->id;
+    
     $count = 0;
     foreach ($img_arr as $img)
     {
+        $sub_img = new image();
+        $sub_img->product_id = $product->id;
         $sub_img->url = $img;
         if ($count == 0)
-            $sub_img->primary=1;
+            $sub_img->small=1;
         if ($count == 1)
+            $sub_img->primary=1;
+        if ($count == 2)
             $sub_img->rollover=1;
         $sub_img->insert();
         if ($sub_img->id == null)
         {echo 'shit'; return;}
+        $count++;
     }
     echo 'done';return;
 }

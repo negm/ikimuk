@@ -57,7 +57,7 @@ class competition {
 	}
 	public function selectActive() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM competition WHERE end_date > Now();";
+		$sSQL = "SELECT * FROM competition WHERE end_date > Now() LIMIT 1;";
 		$this->database->query($sSQL);
 		
 		

@@ -17,6 +17,7 @@ require_once 'class/class.image.php';
 require_once 'class/class.artist.php';
 require_once 'class/class.competition.php';
 require_once 'class/settings.php';
+$regex = '/(?<!href=["\'])http:\/\//';
 $product = new product();
 $image = new image();
 $competition = new competition();
@@ -92,14 +93,14 @@ else
     <div class="">(You only pay if T-shirt gets printed)</div>
     <div class="hidden" id="size_g"><small><br/>Please choose your Size!</small></div>
     <div class="">
-    <a href="#" name="small" id="s" class="sizeIcon">S</a>
-    <a href="#" name="medium" id="M" class="sizeIcon">M</a>
-    <a href="#" name="large" id="L" class="sizeIcon">L</a>
-    <a href="#" name="xlarge" id="XL" class="sizeIcon">XL</a>
-    <a href="#" name="xxlarge" id="XXL" class="sizeIcon nomargin">XXL</a>
+    <a href="#" name="S" id="s" class="sizeIcon">S</a>
+    <a href="#" name="M" id="M" class="sizeIcon">M</a>
+    <a href="#" name="L" id="L" class="sizeIcon">L</a>
+    <a href="#" name="XL" id="XL" class="sizeIcon">XL</a>
+    <a href="#" name="XXL" id="XXL" class="sizeIcon nomargin">XXL</a>
     </div>
     <?php
-     echo '<div class=" preorderButton "><a href="preorder.php?product_id='.$product->id.'" class="preorderButton"> Preorder Now</a></div><br/>';
+     echo '<div class=" preorderButton "><a href="preorder.php?product_id='.$product->id.'" class="preorderButton"> Preorder Now</a></div>';
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->site_url_vars).'"></div>';
@@ -110,8 +111,8 @@ else
      echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';
      echo '<div class="span2 artistInfo "><b>'.$artist->name.'</b></div>';
      echo '<div class="span2 artistInfo">'.$artist->location.'</div>';
-     echo '<div class="span2 artistInfo"><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.$artist->website.'</a></div>';
-     echo '<div class="span2 artistInfo"><a class ="tlblue" href="http://twitter/'.$artist->twitter.'" target="_blank">'.$artist->twitter.'</a></div>';
+     echo '<div class="span2 artistInfo nomargin"><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.preg_replace($regex, '',$artist->website).'</a></div>';
+     echo '<div class="span2 artistInfo"><a class ="tlblue" href="http://www.twitter.com/'.$artist->twitter.'" target="_blank">'.$artist->twitter.'</a></div>';
      echo '</div>';//end of artist profile
      echo '</div>'; //end of row
      echo '</div>'; //end of container

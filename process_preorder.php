@@ -7,8 +7,10 @@
  */
 include_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.message.php";
 require_once('inc/facebook.php' );
 $settings = new settings();
+$message = new message();
 //$config = array(
 //    'appId' => $settings->app_id,
 //    'secret' => $settings->app_secret,
@@ -70,5 +72,9 @@ $preorder->country = 'Lebanon';
 $preorder->insert();
 $_SESSION["validated_mobile"] = $preorder->phone;
 
+$subject = 'Confirming Your preorder on Ikimuk';
+$body ="Hello ".$_SESSION["user_name"]." \n \n Your order has been received and we will contact you soon";
+$result = $message->send($param["email"], $subject, $body);
+sleep(5);
 echo 'done';
 ?>

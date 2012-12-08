@@ -32,17 +32,14 @@ while($row= mysqli_fetch_assoc($product->database->result))
         echo '<div class="row">';
     $count++;
     $image->product_id = $row["id"];
-    $image->getBasicImages();
+    $image->getBasicImage();
     while ($row_image = mysqli_fetch_assoc($image->database->result))
     {
-        if ($row_image["primary"])
+        if ($row_image["small"])
         $primary = $row_image["url"];
-        if ($row_image["rollover"])
-        $rollover = $row_image["url"];
     }
-    echo '<div class="span4 wrapper"><div class="ribbon"><span>'.$daysLeft.' DAYS left</span></div>
-        <a class="home_list" href="design.php?product_id='.$row["id"].'" >
-            <img class="thumbnail" src="'.$primary.'" data-hover="'.$rollover.'" /></a>';
+    echo '<div class="span4 wrapper"><a class="home_list" href="design.php?product_id='.$row["id"].'" >
+            <div class="caption"><b>PREORDER NOW</b></div><img class="" src="'.$primary.'" alt="'.$row["title"].'"/></a>';
     //echo '<div class="preorderButton"><a id="'.$row["id"].'" href="preorder.php?product_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
     //echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 
     //          data-href="http://'.$settings->root.'/design.php?design_id='.$row['id'].'"></div></center>';
@@ -50,7 +47,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     echo '<div class="span4 designTitle">'.$row["title"].'<b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$row["name"].'</b></div>';
     echo '</div>';
     if($count % 3 == 0)
-        echo '</div>';
+        echo '</div><br>';
  }  
  echo '</div>';
  ?>

@@ -22,13 +22,15 @@ class image {
         public $url;
         public $desc;
         public $title;
+        public $small;
 
         // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
                 $this->primary=0;
                 $this->rollover=0;
-	}
+                $this->small =0;
+	}   
 	
 	// Class Destructor
 	public function __destruct() {
@@ -57,13 +59,13 @@ class image {
 	}
 	public function selectByProduct($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM image WHERE product_id = $mID;";
+		$sSQL = "SELECT * FROM image WHERE product_id = $mID AND small= 0;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO `image`(`primary`, `rollover`, `url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,'$this->url','$this->title','$this->title',$this->product_id);";
+		$sSQL = "INSERT INTO `image`(`primary`, `rollover`, `small`,`url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,$this->small,'$this->url','$this->title','$this->title',$this->product_id);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}
@@ -77,9 +79,9 @@ class image {
 		$sSQL = "DELETE FROM image WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
-        public function getBasicImages() { // SELECT Function
+        public function getBasicImage() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM `image` WHERE product_id = $this->product_id AND (`primary`=1 OR `rollover`=1);";
+		$sSQL = "SELECT * FROM `image` WHERE product_id = $this->product_id AND image.small=1;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		//$oRow = mysqli_fetch_object($oResult);

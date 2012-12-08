@@ -12,7 +12,7 @@ require_once 'class/class.product.php';
 require_once 'class/class.artist.php';
 require_once 'class/class.image.php';
 $image = new image();
-$design = new product();
+$product = new product();
 $artist = new artist();
 if (!isset($_GET["product_id"]))
 {
@@ -28,24 +28,23 @@ header("Location: design.php?product_id=$design_id");
 if(!isset($_SESSION['sms_code']) )
 {$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
 
-$design->select($design_id);
-if(!$design->database->result)
+$product->select($design_id);
+if(!$product->database->result)
    header("Location: index.php"); 
 else
 {
-$pagetitle = "Preorder ".$design->title;
+$pagetitle = "Preorder ".$product->title;
 $image->product_id = $design_id;
 $_SERVER["last_preorder_design_id"] = $design_id;
-$image->getBasicImages();
+$image->getBasicImage();
 while ($row_image = mysqli_fetch_assoc($image->database->result))
 {
-   if ($row_image["primary"])
+   if ($row_image["small"])
     $primary = $row_image["url"];
-   if ($row_image["rollover"])
-    $rollover = $row_image["url"];
+   
 }
    
-    $artist->select($design->artist_id);
+    $artist->select($product->artist_id);
     if ($artist->database->result)
     {
         $regex = '/(?<!href=["\'])http:\/\//';
@@ -91,8 +90,8 @@ include "block/breadcrumb.php";
 </select><br/><br/>
 <label class="description" for="element_2"><strong>Address </strong></label>
 <p id="address_g"><small>Please write down your full  address so we can deliver to your  doorstep!</small></p>
-<input id="address" name="address" class="span6 centert" type="text" maxlength="255" value=""/> <br/><br/>
-<input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; unset($_SESSION["size"]);?>" />
+<input id="address" name="address" class="span6" type="text" maxlength="255" value=""/> <br/><br/>
+<input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; //unset($_SESSION["size"]);?>" />
 <input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />
 <?php if (!isset($_SESSION['validated_mobile'])) {?>
 <div class="">
@@ -100,7 +99,7 @@ include "block/breadcrumb.php";
 <label  for="element_3"><strong>Mobile number </strong></label>
 <div class="input-append">
 <input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="961"/> 
-<input id="monum" name="monum" class="monum span4 centert" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
+<input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
 </div>
 <p class="hidden" id="vcode_g2"><small>Please check you mobile now! </small></p>
@@ -111,7 +110,7 @@ include "block/breadcrumb.php";
 <input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> 
 <p id=""><small>The code you received via SMS</small></p><br/>
 </div>
-<?php }else echo '<br/>';?>
+<?php }?>
 <p class="hidden" id="agreement_g"><small> You should read and agree on the terms</small></p>
 <label class="checkbox" >
     <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
@@ -122,26 +121,31 @@ include "block/breadcrumb.php";
     Keep me in the loop, sign me up for your newsletter 
 </label>
 <input type="hidden" name="size" value="" id="size"/>
-<center><input id="preorderSubmit" class="preorderButton span3" type="submit" name="submit" value="Preorder" /></center>
+<br><a id="preorderSubmit" class="offset1 span3 preorderButton" >Preorder</a><br>
+</form>
 </div></div>
 <div class="preSummary span4 ">
 <h1 class="preTitle">Order Summary</h1>
-<div class="span4 nomargin"><?php echo '<div class="home_list span3"><a class="home_list" href="design.php?product_id='.$design_id.'" ><img class="thumbnail" src="'.$primary.'" data-hover="'.$rollover.'" /></a></div>';?></div>
-
+<div class="span4">
+  <?php echo '<div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
+          '" ><img class="" src="'.$primary.'" /></a></div>';?></div>
+<div class="span3 artistInfo">
     <?php
-/*<div class="span3 artistInfo">
+
         if($artist)
         {
-        echo '<div class="artistName span3">'.$artist->name.'</div>';
-        if(strlen(trim($artist->location)) > 1)
-            echo '<div class="span3 location"><img src="img/location_icon.png" class="icon" alt="location"/>'.$artist->location.'</div>';
-        if(strlen(trim($artist->website)) > 1)
-            echo '<div class="span3 website"><a target="_blank" href="'.urldecode($artist->website).'"><img src="img/link_icon.png" class="icon" alt="location"/>'.$website_label.'</a></div>';
-        if(strlen(trim($artist->twitter)) > 1)
-            echo '<div class="span3 twitter"><a <a target="_blank" href="http&#58;//twitter.com/'.$artist->twitter.'"><img class="icon" src="img/twitter_icon.png" alt="location"/>'.str_replace ('@', '', $artist->twitter).'</a></div>';
+        echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
         }
-*/
+        echo '<p>Size ('.$_SESSION["size"].')</p>';
+        echo '<div class="lineb"></div>';
+        echo '<div>T-shirt<span class="right">'.$product->price.'.00$</span></div>';
+        echo '<div>Deilivery charge<span class="right">3.00$</span></div>';
+        echo '<div class="lineb"></div>';
+        echo '<div><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
+        unset($_SESSION["size"]);
 ?>
+</div>
+</div>
 <!-- Button to trigger modal -->
 
  
@@ -173,7 +177,7 @@ include "block/breadcrumb.php";
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-</div>
+
 <div class="clear"></div>
     <div id="orderComplete" class="span7 hidden">
         <div class="preTitle">Preorder complete</div>
@@ -182,4 +186,7 @@ include "block/breadcrumb.php";
         
     </div>
 
-</form>	
+
+<?php
+include 'block/footer.php';
+?>

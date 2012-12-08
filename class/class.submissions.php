@@ -17,6 +17,7 @@ class submissions {
 	public $id; // Primary Key
 	public $database;
         public $title;
+        public $comment;
         public $user_id;
 	
 	// Class Constructor
@@ -54,7 +55,7 @@ class submissions {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO submissions (user_id,title) VALUES ($this->user_id,'$this->title');";
+		$sSQL = "INSERT INTO submissions (user_id,title,comments) VALUES ($this->user_id,'$this->title','$this->comment');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

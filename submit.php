@@ -85,8 +85,8 @@ include "block/breadcrumb.php";
 </div>
 </div>
 <div id="orderComplete" class="span5 hidden">
-        <div class="preTitle span8">Preorder complete</div>
-        Thank you for submitting this  design! We will update you soon.<br/>
+        <div class="preTitle span8">Submission complete</div>
+        Thank you for submitting <span id="title_msg" class="tlblue"></span>! We will update you soon.<br/>
         Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
         
 </div>
@@ -121,3 +121,6 @@ include "block/breadcrumb.php";
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
+<?php
+include 'block/footer.php';
+?>

@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 
-$ul_id='breadcrumbs-two';
+$ul_id='';
 $bc=explode("/",$_SERVER["PHP_SELF"]);
-echo '<div class="container"><ul id="'.$ul_id.'" class=""><li><a href="index.php">Home</a></li>';
+echo '<div class="container" ><ul id="'.$ul_id.'" class=""><li class="span1"><a href="index.php">Home</a><span class="divid">/</span></li>';
 while(list($key,$val)=each($bc)){
  $dir='';
  if($key > 1){
@@ -21,7 +21,7 @@ while(list($key,$val)=each($bc)){
  }
 }
 if (strpos($pagetitle,"Awesome t-shirts designed by you!")=== FALSE)
-{echo '<li ><a href="" class="current">'.$pagetitle.'</a></li>'; //To be defined in each page
+{echo '<li class="tyellow active span3"> '.$pagetitle.'</li>'; //To be defined in each page
 }
 echo '</ul></div>';
 
