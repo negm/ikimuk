@@ -149,7 +149,10 @@ $(function() {
                 return false;
             }
         else
-            {alert("something went wrong please try again later"+response); return false;}
+            { $(".preSummary").fadeOut(1000);
+                $('#title_msg').html( $('#design_title').val());
+                $("#submitFailed").removeClass("hidden");
+                return false;}
             
        }
        

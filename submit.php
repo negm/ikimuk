@@ -87,7 +87,13 @@ include "block/breadcrumb.php";
         Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
         
 </div>
-<ul id="files" class ="thumb"></ul>
+<div id="submitFailed" class="span4 hidden">
+        <div class="preTitle">Submission FAILED!</div>
+        Thank you for submitting <span id="title_msg" class="tlblue"></span>! However, we weren't able to complete your submission<br/>
+        Please try again in a while. Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
+        
+</div>
+
 </div>
 </div>
 <!-- Modal -->
