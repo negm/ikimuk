@@ -16,15 +16,17 @@ $settings = new settings();
 include "block/header.php";
 include "block/top_area.php";
 unset($_SESSION["size"]);
-echo '<div class= "container openingContainer center"><div class="span8">';
+/*echo '<div class= "container openingContainer center"><div class="span8">';
 echo '<h2 class="tlblue">YOUR PREORDER MAKES THE T-SHIRTS</h2>';
 echo 'Your design is ready. Now all you have to do is pick a design challenge 
     to submit to. The Threadless challenge is our big, ongoing, challenge. All 
     the rest have themes, timelines, and different stuff up for grabs.</div>';
 echo '<div class="triangles"></div>';
-echo '</div><div class="clear"></div>';
-echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header-comp.png" alt="competition header"/></div></div>';
+echo '</div><div class="clear"></div>';*/
+echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="competition header"/></div></div>';
 echo '<div class="container center">';
+echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header"/></div></div>';
+echo '<div class="container center"><b class="tlblue tlarge">OUR FIRST COMPETITION </b> <b class="tpink tmedium">  (ends at 17/12/2012)<div class="lineb"></div><br>';
 $count = 0;
 while($row= mysqli_fetch_assoc($product->database->result))
 {   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));

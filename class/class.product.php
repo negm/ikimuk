@@ -102,6 +102,10 @@ class product {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
+                $this->database->OpenLink();
+                $this->title = mysqli_real_escape_string($this->database->link, $this->title);
+                $this->desc = mysqli_real_escape_string($this->database->link, $this->desc);
+                
 		$sSQL = "INSERT INTO `product`(`title`, `artist_id`, `competition_id`, `price`, `desc`) VALUES ('$this->title',$this->artist_id,$this->competition_id,$this->price,'$this->desc');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;

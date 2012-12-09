@@ -11,9 +11,9 @@ new AjaxUpload(btnUploadSubmit, {
 action: 'process-upload.php',
 name: 'uploadfileSubmit',
 onSubmit: function(file, ext){
-if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+if (! (ext && /^(jpg|png|jpeg)$/.test(ext))){ 
 // extension is not allowed 
-status.text('Only JPG, PNG or GIF files are allowed');
+status.text('Only JPG, PNG files are allowed');
 return false;
 }
 status.text('Uploading...');
@@ -43,10 +43,11 @@ include "block/breadcrumb.php";
     <div class="row">
         
     
-<div class="preSummary span7 center">
+<div class="offset3 preSummary span6 ">
+    
 
 <h1 class="preTitle">Submit your design</h1>
-<div class ="offset1 span5">
+<div class ="offset1 span4">
 <form id="submitDesign"  method="post" action="" class="">
 
 <h3 class="header">ADD IMAGES</h3>
@@ -61,9 +62,9 @@ include "block/breadcrumb.php";
 <h3 class="header">DESIGN INFO</h3>
 <p>Design title</p>
 <p class="hidden" id="title_g">Please choose a title!</p>
-<input type="text" name="design_title" id="design_title" class="span5"/>
+<input type="text" name="design_title" id="design_title" class="span4"/>
 <p>About your design</p>
-<textarea class="span5" rows="6" name="comment" id="comment" placeholder="tell us your inspiration"></textarea>
+<textarea class="span4" rows="6" name="comment" id="comment" placeholder="tell us your inspiration"></textarea>
 <p class="hidden" id="agreement_g"><small> You should read and agree on the terms</small></p>
 <label class="checkbox" >
     <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
@@ -75,17 +76,13 @@ include "block/breadcrumb.php";
 </label>
 
 <input type="hidden" name="img_url" id="img_url"/>
-
-
-
-            <br><br>
- 
-<input type="submit" id="submit_design" class="subButton center offset1" value="Submit you design"/>
+ <br><br>
+<a id="submit_design" class="subButton span4" >Submit your design</a>
 </form>
 </div>
 </div>
-<div id="orderComplete" class="span5 hidden">
-        <div class="preTitle span8">Submission complete</div>
+<div id="orderComplete" class="span4 hidden">
+        <div class="preTitle">Submission complete</div>
         Thank you for submitting <span id="title_msg" class="tlblue"></span>! We will update you soon.<br/>
         Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
         

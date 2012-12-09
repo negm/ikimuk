@@ -63,8 +63,12 @@ include_once "block/header.php";
 include "block/top_area.php";
 include "block/breadcrumb.php";
 ?>
+<div class="clear"></div>
 <div class="container">
-<div class="span7 userInfo">
+<div class="row">
+    <div class="clear"></div>
+<div class="span8">
+<div class="userInfo">
 <h1 class="preTitle">Shipping Info</h1>
 <div class="inputContainer">
 <form id="preorderForm" class="appnitro"  method="post" action="">						
@@ -123,8 +127,11 @@ include "block/breadcrumb.php";
 <input type="hidden" name="size" value="" id="size"/>
 <br><a id="preorderSubmit" class="offset1 span3 preorderButton" >Preorder</a><br>
 </form>
-</div></div>
-<div class="preSummary span4 ">
+</div></div></div>
+<div class="clear"></div>
+<div class="span4 ">
+    <div class="clear"></div>
+<div class="preSummary">
 <h1 class="preTitle">Order Summary</h1>
 <div class="span4">
   <?php echo '<div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
@@ -145,7 +152,8 @@ include "block/breadcrumb.php";
         unset($_SESSION["size"]);
 ?>
 </div>
-</div>
+</div></div>
+</div></div>
 <!-- Button to trigger modal -->
 
  

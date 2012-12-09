@@ -12,12 +12,13 @@ include "block/top_area.php";
 <br><br>
 <div class="container">
     <div class="row">
-        <div class="span8 graybg nomargin">
+        <div class="span8">
+            <div class="graybg">
             <h3 class="header tpink"> SUBMIT YOUR IDEA TO US</h3>
             <div class="linep"></div><br>
             <p>ikimuk is here for you. Not only do you get to choose the designs, you get to create them too!<br>
 Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
-            
+            </div>
         </div>
         <div class="span4">
             <img src="img/submission_guy.png" alt="submit illustration"/>
@@ -69,7 +70,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
 
 				<p>Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get right back to you!</p>
                                 <br>
-                                <div class ="subButton center"><a href="../submit.php">Submit a design</a></div>
+                                <a href="../submit.php"><div class ="subButton center">Submit a design</div></a>
 		</div>
         </div>
         </div>

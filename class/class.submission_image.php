@@ -52,7 +52,10 @@ class submission_image {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO submission_image (submission_id,url) VALUES ($this->submission_id, '$this->url');";
+                $this->database->OpenLink();
+                $this->submission_id = mysqli_real_escape_string($this->database->link, $this->submission_id);
+                $this->url = mysqli_real_escape_string($this->database->link, $this->url);
+                $sSQL = "INSERT INTO submission_image (submission_id,url) VALUES ($this->submission_id, '$this->url');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

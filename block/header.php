@@ -80,7 +80,7 @@ $(".preorderButton").click(function()
 {
 if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
 {//show the modal
-    target = $(this).attr("href");
+    target = $(this).parent().attr("href");
     $('#loginModal').modal(); return false; } else {return true;} 
 }
     
@@ -89,7 +89,7 @@ $(".subButton").click(function()
 {
 if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
 {//show the modal
-    target = $(this).attr("href");
+    target = $(this).parent().attr("href");
     $('#loginModal').modal(); return false; } else {return true;} 
 }
     

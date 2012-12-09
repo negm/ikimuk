@@ -1,6 +1,7 @@
 /* general helper classes */
 .footer{height: 60px;margin-top:10px;}
 #footer a {text-decoration: underline;}
+.noindent{text-indent: 0px !important;}
 #footer-wrap {margin-top:20px;}
 body > img {display: none;}
 .alertr {color:red; font-size:12px;}
@@ -63,6 +64,9 @@ width: 260px;}
 .linep{background:#ED1E79;border-bottom:2px solid #ED1E79;}
 .linew{background:#fff;border-bottom:2px solid #fff; margin-bottom: 10px;}
 .lineb{background:#34C8FF;border-bottom:2px solid #44c6e3;margin-top: 5px;}
+.txlarge {font-size: 28px;}
+.tlarge {font-size: 21px;}
+.tmedium {font-size: 16px;}
 a, ins {text-decoration: none; color:inherit;}
 body{font-family: 'Adelle';}
 table {border: 1px;}
@@ -198,7 +202,7 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
 .innerContainer {border:2px solid #44c6e3; padding:10px;background-color:#fff; position: relative; }
 .img_large{-ms-interpolation-mode: bicubic;max-width: 520px;max-height:420px;height:auto;width:auto; /*ie8 */}
 .box{background-color: #44c6e3; height:60px;margin:10px 0 10px 0;}
-.artistInfo {font-size:12px; margin-bottom: 10px; text-decoration: none; line-height: 20px;}
+.artistInfo {font-size:14px; margin-bottom: 10px; text-decoration: none; line-height: 12px; font-family: Helvatica,arial,sans-serif;}
 .artistInfo .location .website .twitter img {margin-right:5px;}
 .artistName{color:#44c6e3; font-size:18px;}
 .preorderCount_design{background-color: #e7f8fb; border:2px solid #44c6e3;  border-bottom-right-radius:20px; 
@@ -208,16 +212,18 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
 .icon{padding:5px;}
 .countText{line-height: 40px;margin: 20px 0;font-size: 16px;}
 .price {font-size: 18px;}
-.socialbox{border: #34c8ff solid 2px; padding:10px; height: 100px;}
+.socialbox{border: #34c8ff solid 2px; padding:20px; height: 80px;}
+.socialbox b {font-size:18px; font-family: Adelle;}
 .boxheader {margin-top: 40px; text-indent: 20px;line-height: 50px;font-size: 18px; font-weight: bold;} 
-.designT{color:#FFC800; font-size: 18px; display:inline-block;}
+.commentheader {margin-top: 40px; text-indent: 20px;line-height: 20px;font-size: 18px; font-weight: bold;}
+.designT{color:#FFC800; font-size: 18px; display:inline-block; line-height: 20px;}
 /*preorder page*/
-.userInfo{color:#4d4d4d; border:2px solid #44c6e3; font-size:14px;}
-.preSummary{background-color:#fff; border:2px solid #44c6e3; padding-bottom: 20px;}
-.preTitle{background-color: #44c6e3;color:#fff;padding-left:20px; margin: 0px; font-size: 14px;}
+.userInfo{color:#4d4d4d; border:2px solid #44c6e3; font-size:14px;margin-top:10px;}
+.preSummary{background-color:#fff; border:2px solid #44c6e3; padding-bottom: 20px;min-height:400px; margin-top:10px;}
+.preTitle{background-color: #44c6e3;color:#fff;text-indent:20px; margin: 0px; font-size: 18px;}
 .preSummary img { margin-left: auto; margin-right:auto; padding: 5px;}
 .button_text {background-color: #808080; color:#fff; font-size:18px; 
-             margin:0 auto 30px auto; text-align: center; height:50px;}
+ margin:0 auto 30px auto; text-align: center; height:50px;}
 .button_text:hover {background-color: #656565;}
 .verfiyButton {background-color:#4d4d4d; padding:0 20px 0 20px; color:#fff; text-decoration:none; }
 .ccode{width:30px; margin:0;}
@@ -238,8 +244,8 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
     padding:10px;
 }
 .subButton {color:#fff; background-color: #ED1E79; text-decoration:none; 
-font-size:16px; max-width: 300px; height:50px;text-align: center;line-height: 50px;}
-
+font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50px;font-weight: bold;}
+.subButton:hover {background: #FFC800;}
 .button{color:#fff; background-color: #34C8FF; border-width: 0px; height:30px;margin-left: -2px;font-weight: bold;}
 
 /* admin pages */
@@ -338,7 +344,7 @@ ul{
 .titre{
     font-style: normal;
     font-weight: 600;
-    font-family: kulturista-web, georgia, serif;
+    font-family: Adelle, georgia, serif;
     font-size: 21px;
     color: #1E1E1E;
     margin-top: 40px;

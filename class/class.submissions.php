@@ -55,6 +55,9 @@ class submissions {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
+                $this->database->OpenLink();
+                $this->title = mysqli_real_escape_string($this->database->link, $this->title);
+                $this->comment = mysqli_real_escape_string($this->database->link, $this->comment);
 		$sSQL = "INSERT INTO submissions (user_id,title,comments) VALUES ($this->user_id,'$this->title','$this->comment');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;

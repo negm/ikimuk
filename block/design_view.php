@@ -83,6 +83,7 @@ else
         echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="" />';
     }
      echo '</div></div>';
+     echo '<div class="tlblue commentheader noindent">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
      echo '<div class="fb-comments" data-href="'.$settings->site_url_vars.'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
      echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
@@ -105,15 +106,15 @@ else
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->site_url_vars).'"></div>';
      echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
-     echo '<div class="span1" style="margin-top:10px;"><a  data-pin-config="above" data-pin-do="buttonPin" href="//pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'media='.urlencode($product->image).'&description='.urlencode($product->title).'"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></div>';
+     echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode('http://'+$settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
      echo '<div class="lbluebg twhite boxheader">Artist Profile</div><div class="socialbox">';
      echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';
-     echo '<div class="span2 artistInfo "><b>'.$artist->name.'</b></div>';
-     echo '<div class="span2 artistInfo">'.$artist->location.'</div>';
-     echo '<div class="span2 artistInfo nomargin"><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.preg_replace($regex, '',$artist->website).'</a></div>';
-     echo '<div class="span2 artistInfo"><a class ="tlblue" href="http://www.twitter.com/'.$artist->twitter.'" target="_blank">'.$artist->twitter.'</a></div>';
-     echo '</div>';//end of artist profile
+     echo '<div class="span2"><div class=" artistInfo "><b>'.$artist->name.'</b></div>';
+     echo '<div class=" artistInfo">'.$artist->location.'</div>';
+     echo '<div class=" artistInfo "><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.preg_replace($regex, '',$artist->website).'</a></div>';
+     echo '<div class=" artistInfo"><a class ="tlblue" href="http://www.twitter.com/'.$artist->twitter.'" target="_blank">'.$artist->twitter.'</a></div>';
+     echo '</div></div>';//end of artist profile
      echo '</div>'; //end of row
      echo '</div>'; //end of container
      //if($next)

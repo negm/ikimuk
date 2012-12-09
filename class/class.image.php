@@ -65,7 +65,10 @@ class image {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO `image`(`primary`, `rollover`, `small`,`url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,$this->small,'$this->url','$this->title','$this->title',$this->product_id);";
+                $this->database->OpenLink();
+                $this->url = mysqli_real_escape_string($this->database->link, $this->url);
+                $this->title = mysqli_real_escape_string($this->database->link, $this->title);
+                $sSQL = "INSERT INTO `image`(`primary`, `rollover`, `small`,`url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,$this->small,'$this->url','$this->title','$this->title',$this->product_id);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

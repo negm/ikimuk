@@ -125,7 +125,9 @@ if($this->debug) {
 		//$this->SelectDB();
 
         // Clean SQL to prevent attacks
-        $query = stripslashes(mysqli_real_escape_string($this->link,$query));
+      
+        $query = stripslashes(mysqli_real_escape_string($this->link,$query));    
+        
 
         // Execute query.
 		$this->query = $query;

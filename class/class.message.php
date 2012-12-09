@@ -37,7 +37,14 @@ class message {
         return $result;
     }
     protected function log_message($result,$to,$subject,$body)
-    {$sSQL = "INSERT INTO `message_log`(`messageId`, `requestId`, `recepient`, `subject`, `body`) VALUES ('".$result["MessageId"]."','".$result["RequestId"]."','$to','$subject','$body')";
+    {
+     $this->database->OpenLink();
+     $result["MessageId"]= mysqli_real_escape_string($this->database->link, $result["MessageId"]);
+     $result["RequestId"]= mysqli_real_escape_string($this->database->link, $result["RequestId"]);
+     $to= mysqli_real_escape_string($this->database->link, $to);
+     $subject= mysqli_real_escape_string($this->database->link, $subject);
+     $body= mysqli_real_escape_string($this->database->link, $body);
+     $sSQL = "INSERT INTO `message_log`(`messageId`, `requestId`, `recepient`, `subject`, `body`) VALUES ('".$result["MessageId"]."','".$result["RequestId"]."','$to','$subject','$body')";
      $oResult = $this->database->query($sSQL);
     }
 }

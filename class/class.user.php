@@ -97,6 +97,9 @@ class user {
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
+                $this->database->OpenLink();
+                $this->fbid = mysqli_real_escape_string($this->database->link, $this->fbid);
+                $this->email = mysqli_real_escape_string($this->database->link, $this->email);
 		$sSQL = "INSERT INTO user (fbid, name, email) VALUES ($this->fbid,'$this->name','$this->email');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;

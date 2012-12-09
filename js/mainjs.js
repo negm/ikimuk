@@ -61,8 +61,6 @@ success:function(response){
 $("#results").html(response); //Result
 if(target.length > 1)
     window.location.href = target;
-else
-    location.reload(true);
  },
 error:function (xhr, ajaxOptions, thrownError){
 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
