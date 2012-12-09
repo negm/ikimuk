@@ -222,7 +222,8 @@ $(function() {
                {$("#address_g").addClass("alertr");$("#address").focus();  return false;}
             else
                 {
-                  $("#preorderForm").fadeOut(1000);$(".userInfo").fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
+                    
+                $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
               }
   }  
 });  

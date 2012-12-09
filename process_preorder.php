@@ -7,13 +7,15 @@
  */
 include_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
-require $_SERVER["DOCUMENT_ROOT"]."/class/class.competiton.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.artist.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.message.php";
 require_once('inc/facebook.php' );
 $settings = new settings();
 $message = new message();
 $product = new product();
+$artist = new artist();
 $competition = new competition();
 
 $param = $_POST;
@@ -66,19 +68,13 @@ $preorder->country = 'Lebanon';
 $preorder->insert();
 $_SESSION["validated_mobile"] = $preorder->phone;
 
-$product ->select([$param["design_id"]]);
+$product ->select(($param["design_id"]));
 if($product->id == null) {echo 'design error'; return;}
+$artist->select($product->artist_id);
+$competition->select($product->competition_id);
+$datestr = date("l jS \of F Y",  strtotime($competition->end_date));
 $subject = 'Your ikimuk preorder confirmation';
-$body ="Cheers, ".$_SESSION["user_name"]."‘Insert name’. Thank you for preordering! Your participation is what makes ikimuk possible.
-We’ll let you know if “title of design” by “artist” wins the competition./n/n
-So just to RECAP: The competition finishes on the 17th. You will receive this t-shirt only if it gets the most
-preorders./n/n
-If you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us
-at (76) 787 606./n/n
-Love,/n
-The folks at ikimuk/n/n
-Signature/n
-FB Twitter Youtube";
+$body ="Cheers, ".$_SESSION["user_name"].". Thank you for preordering! Your participation is what makes ikimuk possible.We’ll let you know if $product->title by $artist->name wins the competition.\n\nSo just to RECAP: The competition finishes on $datestr. You will receive this t-shirt only if it gets the most preorders.\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nSignature\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n www.youtube.com/user/ikimukTV";
 $result = $message->send($param["email"], $subject, $body);
 sleep(5);
 echo 'done';

@@ -153,7 +153,16 @@ include "block/breadcrumb.php";
 ?>
 </div>
 </div></div>
-</div></div>
+
+ <div id="orderComplete" class="span4 hidden">
+     <br>
+        <div class="preTitle">Preorder complete</div>
+        Thank you for preordering this  design! We will notify you if it  gets printed.<br/>
+        Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
+        
+    </div>
+</div>
+</div>
 <!-- Button to trigger modal -->
 
  
@@ -187,12 +196,7 @@ include "block/breadcrumb.php";
 </div>
 
 <div class="clear"></div>
-    <div id="orderComplete" class="span7 hidden">
-        <div class="preTitle">Preorder complete</div>
-        Thank you for preordering this  design! We will notify you if it  gets printed.<br/>
-        Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
-        
-    </div>
+   
 
 
 <?php

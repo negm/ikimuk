@@ -17,6 +17,7 @@ echo '<p>Unconfirmed in the current competition</p><div id="unconfirmed_incompet
       <th>User Email</th>
       <th>Mobile Number</th>
       <th>Address</th>
+      <th>product</th>
       <th>Size</th>
       <th>Status</th>
       <th>Comments</th>
@@ -31,6 +32,7 @@ while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
     echo "<td>$row_preorder->email</td>";
     echo "<td>$row_preorder->phone</td>";
     echo "<td>$row_preorder->address</td>";
+    echo '<td><a href="../design.php?product_id='.$row_preorder->product_id.'" class="thumb"><img src="'.$row_preorder->url.'" /></a></td>';
     echo " <td>$row_preorder->size</td>";
     echo " <td>$row_preorder->status</td>";
     echo " <td>$row_preorder->comments</td>";
