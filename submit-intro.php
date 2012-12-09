@@ -93,8 +93,8 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         <div class="socialIcons">
         <div class="span1 facebook"><a class="" href="https://www.facebook.com/ikimukofficial" target="_blank"></a></div>
         <div class="span1 twitter"><a  href="https://twitter.com/IkimukTweets" target="_blank"></a></div>
-        <div class="span1 contact"><a  href=""></a></div>
-        <div class="span1 youtube"><a  href=""></a></div>
+        <div class="span1 contact"><a  href="mailto:hello@ikimuk.com" target="_blank"></a></div>
+        <div class="span1 youtube"><a  href="http://www.youtube.com/user/ikimukTV" target="_blank"></a></div>
         </div>
   
 

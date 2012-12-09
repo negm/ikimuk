@@ -7,21 +7,15 @@
  */
 include_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.competiton.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.message.php";
 require_once('inc/facebook.php' );
 $settings = new settings();
 $message = new message();
-//$config = array(
-//    'appId' => $settings->app_id,
-//    'secret' => $settings->app_secret,
-//  );
-//$facebook = new Facebook($config);
-//$ret_obj = $facebook->api('/me/feed', 'POST',
-//                                    array(
-//                                      'message' => 'Offfffff'
-//                                 ));
-//print_r($ret_obj);
-//return;
+$product = new product();
+$competition = new competition();
+
 $param = $_POST;
 $preorder = new preorder();
 $preorder->user_id = $_SESSION["user_id"];
@@ -72,8 +66,19 @@ $preorder->country = 'Lebanon';
 $preorder->insert();
 $_SESSION["validated_mobile"] = $preorder->phone;
 
-$subject = 'Confirming Your preorder on Ikimuk';
-$body ="Hello ".$_SESSION["user_name"]." \n \n Your order has been received and we will contact you soon";
+$product ->select([$param["design_id"]]);
+if($product->id == null) {echo 'design error'; return;}
+$subject = 'Your ikimuk preorder confirmation';
+$body ="Cheers, ".$_SESSION["user_name"]."‘Insert name’. Thank you for preordering! Your participation is what makes ikimuk possible.
+We’ll let you know if “title of design” by “artist” wins the competition./n/n
+So just to RECAP: The competition finishes on the 17th. You will receive this t-shirt only if it gets the most
+preorders./n/n
+If you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us
+at (76) 787 606./n/n
+Love,/n
+The folks at ikimuk/n/n
+Signature/n
+FB Twitter Youtube";
 $result = $message->send($param["email"], $subject, $body);
 sleep(5);
 echo 'done';

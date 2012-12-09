@@ -7,7 +7,7 @@
 
 $ul_id='';
 $bc=explode("/",$_SERVER["PHP_SELF"]);
-echo '<div class="container" ><ul id="'.$ul_id.'" class=""><li class="span1"><a href="index.php">Home</a><span class="divid">/</span></li>';
+echo '<div class="container" ><ul id="'.$ul_id.'" class="brdc"><li class="span1"><a href="index.php">Home</a><span class="divid">/</span></li>';
 while(list($key,$val)=each($bc)){
  $dir='';
  if($key > 1){

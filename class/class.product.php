@@ -68,7 +68,9 @@ class product {
                 $this->image = $oRow->url;
                 }
                 else
-                {$this->database->result = Null;}
+                {$this->database->result = Null;
+                $this->id = null;
+                }
 	}
 	public function CurrentCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.

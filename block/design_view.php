@@ -76,7 +76,7 @@ else
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class= "span8"><div class="slider-wrapper theme-light">';
-     echo '<div class="wrapper"><div class="ribbon"><span>'.$daysLeft.' DAYS left</span></div></div>';
+     echo '<div class="wrapper"><div class="ribbon"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
     echo '<div id="slider" class="nivoSlider">';
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {
@@ -87,7 +87,7 @@ else
      echo '<div class="span4">';
      echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
      echo '<div class="lineb"></div><div class="clear"></div>'; 
-     echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> PREORDERED THIS DESIGN</div>';
+     echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
      ?>
     <div class="">(You only pay if T-shirt gets printed)</div>
@@ -100,12 +100,12 @@ else
     <a href="#" name="XXL" id="XXL" class="sizeIcon nomargin">XXL</a>
     </div>
     <?php
-     echo '<div class=" preorderButton "><a href="preorder.php?product_id='.$product->id.'" class="preorderButton"> Preorder Now</a></div>';
+     echo '<a href="preorder.php?product_id='.$product->id.'" class="preorderButton"><div class="preorderButton" href="preorder.php?product_id='.$product->id.'">PREORDER NOW</div></a>';
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->site_url_vars).'"></div>';
      echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
-     echo '<div class="span1" style="margin-top:10px;"><a class="" data-pin-config="above" data-pin-do="buttonPin" href="//pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'media='.$product->image.'&description='.$product->title.'"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></div>';
+     echo '<div class="span1" style="margin-top:10px;"><a  data-pin-config="above" data-pin-do="buttonPin" href="//pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'media='.urlencode($product->image).'&description='.urlencode($product->title).'"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
      echo '<div class="lbluebg twhite boxheader">Artist Profile</div><div class="socialbox">';
      echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';

@@ -168,6 +168,13 @@ $(function() {
     $('#address').popover({'trigger':'focus', 'title': 'Please write down your full address so we can deliver to your doorstep!'});
     $('#monum').popover({'trigger':'focus', 'placement':'bottom', 'title': 'Please fill in your 8-digit  Lebanese number!'});
     $('#vcode').popover({'trigger':'focus', 'title': 'The code you received via SMS!'});
+    
+    $("#tandcModal").click(function() 
+    {
+    $('#termsModal').modal(); return false; 
+    });
+    
+    
  });
  
  $(function() {  

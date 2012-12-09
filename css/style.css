@@ -1,6 +1,11 @@
 /* general helper classes */
+.footer{height: 60px;margin-top:10px;}
+#footer a {text-decoration: underline;}
+#footer-wrap {margin-top:20px;}
 body > img {display: none;}
 .alertr {color:red; font-size:12px;}
+.brdc {margin:10px 0;}
+.brdc >li{margin-left:10px;}
 .divid {display: inline; color:gray; margin-left: 10px;}
 .caption{display:none; background:#FFCC00; opacity:.9; position:absolute; 
 width: 300px;height: 190px!important;padding-right: 0px;color:#fff; 
@@ -19,6 +24,20 @@ display: block;background-repeat: no-repeat;}
 .youtube{background-image: url("../img/share_youtube_ikimuk.png");width:55px; height:55px;
 display: block;background-repeat: no-repeat;}
 .youtube:hover{background-image: url("../img/share_youtube_hover_ikimuk.png");}
+/*======================================================================================*/
+.facebook_footer{background-image: url("../img/footer_facebook_ikimuk.png");width:55px; height:55px;
+display: block;background-repeat: no-repeat;}
+.mright{margin-right: 10px!important;}
+.facebook_footer:hover{background-image: url("../img/footer_facebook_hover_ikimuk.png");}
+.twitter_footer{background-image: url("../img/footer_twitter_ikimuk.png");width:55px; height:55px;
+display: block;background-repeat: no-repeat;}
+.twitter_footer:hover{background-image: url("../img/footer_twitter_hover_ikimuk.png");}
+.contact_footer{background-image: url("../img/footer_contact_ikimuk.png");width:55px; height:55px;
+display: block;background-repeat: no-repeat;}
+.contact_footer:hover{background-image: url("../img/footer_contact_hover_ikimuk.png");}
+.youtube_footer{background-image: url("../img/footer_youtube_ikimuk.png");width:55px; height:55px;
+display: block;background-repeat: no-repeat;}
+.youtube_footer:hover{background-image: url("../img/footer_youtube_hover_ikimuk.png");}
 .socialIcons{height:60px; padding-top: 10px;}
 .nomargin{margin:0px!important;}
 .block {display: block;}
@@ -33,8 +52,8 @@ min-width: 60px;
 min-height: 60px;
 width: 60px;
 }
-a{text-decoration: none;cursor:pointer}
-a:hover{text-decoration: none;}
+a{text-decoration: inherit;cursor:pointer}
+a:hover{text-decoration: inherit;}
 .thumb-big img{ 
 min-width: 200px;
 max-height: 260px;
@@ -69,6 +88,7 @@ table {border: 1px;}
    -webkit-border-radius: 20px; 
    border-radius: 20px;
    float:left;
+   font-size: 21px;
    margin-right: 10px;
    margin-left: 0px;
 }
@@ -82,7 +102,7 @@ table {border: 1px;}
                 -5px 0 0 #34C8FF;
     margin: 0 5px;
     color:#fff;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     padding-top: 5px;
     position: absolute;
@@ -155,7 +175,8 @@ table {border: 1px;}
 .designBox{border:2px solid #44c6e3;  padding: 10px;}
 .designTitle{color:#FFC800; font-size: 18px;margin:10px 0  10px 0; display:inline-block; line-height:25px; }
 .preorderButton {color:#fff; background-color: #ED1E79; text-decoration:none; 
-font-size:16px; max-width: 300px; height:50px;text-align: center;line-height: 50px;}
+font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50px;font-weight: bold;}
+.preorderButton:hover {background: #FFC800;}
 .preorderCount{background-color: #e7f8fb; border:2px solid #44c6e3;  border-bottom-right-radius:10px; 
  border-bottom-left-radius:10px; margin:0px 5px;height:40px; text-align:center;
  padding-top:10px;border-top:0px;-moz-border-radius: 10px; -webkit-border-bottom-left-radius: 10px; 
@@ -185,10 +206,10 @@ font-size:16px; max-width: 300px; height:50px;text-align: center;line-height: 50
  border-top:0px;-moz-border-radius: 20px; -webkit-border-bottom-left-radius: 20px; 
  -webkit-border-bottom-right-radius: 20px; -khtml-border-radius: 20px; padding:10px;}
 .icon{padding:5px;}
-.countText{line-height: 40px;margin: 20px 0;}
-.price {font-size: 21px;}
-.socialbox{border: #808080 solid 1px; padding:10px; height: 125px;}
-.boxheader {margin-top: 40px; text-indent: 10px;line-height: 50px;} 
+.countText{line-height: 40px;margin: 20px 0;font-size: 16px;}
+.price {font-size: 18px;}
+.socialbox{border: #34c8ff solid 2px; padding:10px; height: 100px;}
+.boxheader {margin-top: 40px; text-indent: 20px;line-height: 50px;font-size: 18px; font-weight: bold;} 
 .designT{color:#FFC800; font-size: 18px; display:inline-block;}
 /*preorder page*/
 .userInfo{color:#4d4d4d; border:2px solid #44c6e3; font-size:14px;}
@@ -202,7 +223,8 @@ font-size:16px; max-width: 300px; height:50px;text-align: center;line-height: 50
 .ccode{width:30px; margin:0;}
 .inputContainer {padding:20px; background-color: #fff;}
 .sizeIcon{width:40px; height:40px;background-color: #808080; color:#fff;  text-decoration:none !important; text-align:center; line-height: 40px; margin:20px 20px 20px 0;display: inline-block;}
-.selected {background-color:#34C8FF;}
+.sizeIcon:hover{background-color:#34c8ff; color:#fff;}
+.selected,.selected:hover {background-color:#FFC800;}
 
 /* submit */
 .header {

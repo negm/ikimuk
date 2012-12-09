@@ -1,5 +1,6 @@
 <?php
 //include the S3 class
+require_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in_admin.php';
 if (!isset($_FILES['uploadfile']['name']) || !isset($_FILES['uploadfile']['tmp_name']))
 {
  header("Location: index.php");

@@ -44,7 +44,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     //echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 
     //          data-href="http://'.$settings->root.'/design.php?design_id='.$row['id'].'"></div></center>';
     echo '<div class="span4 countBox">Preorders ('.$row["preorders"].')</div>';
-    echo '<div class="span4 designTitle">'.$row["title"].'<b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$row["name"].'</b></div>';
+    echo '<a class="" href="design.php?product_id='.$row["id"].'" ><div class="span4 designTitle">'.$row["title"].'<b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$row["name"].'</b></div></a>';
     echo '</div>';
     if($count % 3 == 0)
         echo '</div><br>';
