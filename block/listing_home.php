@@ -51,7 +51,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     if($count % 3 == 0)
         echo '</div><br>';
  }  
- echo '</div>';
+ echo '</div></div>';
  ?>
 
 

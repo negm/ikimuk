@@ -92,7 +92,7 @@ else
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
      ?>
     <div class="">(You only pay if T-shirt gets printed)</div>
-    <div class="hidden" id="size_g"><small><br/>Please choose your Size!</small></div>
+    <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
     <div class="">
     <a href="#" name="S" id="s" class="sizeIcon">S</a>
     <a href="#" name="M" id="M" class="sizeIcon">M</a>
@@ -108,7 +108,7 @@ else
      echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
      echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode('http://'+$settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
-     echo '<div class="lbluebg twhite boxheader">Artist Profile</div><div class="socialbox">';
+     echo '<div class="lbluebg twhite boxheader">Designer Profile</div><div class="socialbox">';
      echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';
      echo '<div class="span2"><div class=" artistInfo "><b>'.$artist->name.'</b></div>';
      echo '<div class=" artistInfo">'.$artist->location.'</div>';

@@ -70,7 +70,7 @@ include "block/breadcrumb.php";
 <div class="span8">
 <div class="userInfo">
 <h1 class="preTitle">Shipping Info</h1>
-<div class="inputContainer">
+<div class="inputContainer center">
 <form id="preorderForm" class="appnitro"  method="post" action="">						
     <label class="description" for="element_1"><strong>Name </strong></label>
 <div>
@@ -82,7 +82,7 @@ include "block/breadcrumb.php";
 <input id="email" name="email" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_email"];?>"/> <br/><br/>
 </div><p class="guidelines" id="span2"></p> 
 <label for="element_9"><strong>Area/Region</strong></label>
-<p class="hidden" id="region_g"><small>Please choose an area!</small></p>
+<p class="hidden" id="region_g">Please choose an area!</p>
 <select class="span6" id="region" name="region"> 
     <option value="" selected="selected" >I live in..</option>
     <option value="Beirut" >Beirut</option>
