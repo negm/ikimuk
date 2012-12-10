@@ -65,7 +65,9 @@ else
         randomStart: false // Start on a random slide
  
     });
+    $(".ribbon").removeClass("hidden");
 });
+
     </script>
     
     <?php
@@ -74,7 +76,7 @@ else
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class= "span8"><div class="slider-wrapper theme-light">';
-     echo '<div class="wrapper"><div class="ribbon"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
+     echo '<div class="wrapper"><div class="ribbon hidden"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
     echo '<div id="slider" class="nivoSlider">';
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {

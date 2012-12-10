@@ -53,6 +53,16 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
   </div>
 </div>
 <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/BRC1rw2k4RDoDGCKQGOQ.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+
+
 </body>
 </html>
 <?php  print_gzipped_page(); ?>
