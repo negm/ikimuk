@@ -214,7 +214,8 @@ $(function() {
     type: "POST",  
     url: "process_preorder.php",  
     data: dataString,  
-    success: function(response) {  
+    success: function(response) {
+        
      if (response === "agreement error")
             {
                 $("#agreement_g").removeClass("hidden").addClass("alertr").focus();return false;
@@ -297,13 +298,15 @@ $(function(){
             return false;}
         else{var monum = $("#monum").val();       
                if (monum[0] === '0'){monum = monum.replace(/^0+/, '');}
-               var dataString = 'number=+'+$("#ccode").val().trim()+monum;
+               var dataString = 'number='+$("#ccode").val().trim()+monum;
+               alert(dataString);
                 $.ajax({
                 type: "POST",
                 url: "sms.php",
                 data: dataString,
                 success: function(response)
                  { 
+                     alert(response);
                     if ((response === 'done'))
                     {
                     //show the preoder form

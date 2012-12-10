@@ -123,12 +123,12 @@ include "block/breadcrumb.php";
 <label  for="element_3"><strong>Mobile number </strong></label>
 <p class="hidden" id="monum_g">Please fill in your 8-digit  Lebanese number!</p>
 <div class="input-append">
-<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="+961"/>
+<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="4" value="+961"/>
 <input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
 </div> <br>
 <p class="hidden" id="vcode_g2">Please check you mobile now!</p>
-<p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made two requests in less than 5 minutes! </p>
+<p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made 3 requests in less than 5 minutes! </p>
 <p class="hidden" id="vcode_g4">We could not complete your request now. please try again in a while! </p>
 <label for="vcode"><strong>Verification code </strong></label>
 <p class="hidden" id="vcode_g">Please enter the right verification  code you received </p>

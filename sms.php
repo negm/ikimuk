@@ -12,7 +12,7 @@
         }
         else 
             {
-            $phone = $_POST["number"];
+            $phone = '+'.trim($_POST["number"]);
      
             }
  //check if a code was sent in less than 5 minutes
@@ -44,7 +44,6 @@
         {
             
             echo "shit";
-            print_r ($_SESSION);
             return;
         }
         else
@@ -65,6 +64,8 @@
         
         // Step 2: Use sendText( $to, $from, $message ) method to send a message. 
 	$info = $nexmo_sms->sendText( $phone, 'Ikimuk', "Hello! Please use the following code to complete the preorder $random" );
+        echo $phone;
+        print_r($info);
         echo 'done';
 	// Step 3: Display an overview of the message
 	//echo $nexmo_sms->displayOverview($info);
