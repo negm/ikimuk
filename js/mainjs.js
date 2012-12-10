@@ -234,7 +234,7 @@ $(function() {
                }
            else
                 {
-                //preordered();  
+                preordered();  
                 $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
               }
   }  
