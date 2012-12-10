@@ -98,7 +98,7 @@ include "block/breadcrumb.php";
 <label class="description" for="element_2"><strong>Email </strong></label>
 <div>
 <input id="email" name="email" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_email"];?>"/> <br/><br/>
-</div><p class="guidelines" id="span2"></p> 
+</div> 
 <label for="element_9"><strong>Area/Region</strong></label>
 <p class="hidden" id="region_g">Please choose an area!</p>
 <select class="span6" id="region" name="region"> 
@@ -111,39 +111,42 @@ include "block/breadcrumb.php";
     <option value="South" >South</option>
 </select><br/><br/>
 <label class="description" for="element_2"><strong>Address </strong></label>
-<p id="address_g" class=" hidden">Please write down your full  address so we can deliver to your  doorstep!</p>
+<p id="address_g" class=" hidden">Do you live in an empty space box?If not, you gotta fill this up!</p>
 <input id="address" name="address" class="span6" type="text" maxlength="255" value=""/> <br/><br/>
 <input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; //unset($_SESSION["size"]);?>" />
 <input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />
 <?php if (!isset($_SESSION['validated_mobile'])) {?>
 <div class="">
+<label  class="tlarge"><strong>Verification</strong></label>
+<div class="line"></div>
+<p>Almost done! we are gonna send you SMS as soon as you give us your phone number just to make sure you are not a robot!</p><br>
 <label  for="element_3"><strong>Mobile number </strong></label>
 <p class="hidden" id="monum_g">Please fill in your 8-digit  Lebanese number!</p>
 <div class="input-append">
-<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="961"/> 
+<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="+961"/>
 <input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
-</div>
+</div> <br>
 <p class="hidden" id="vcode_g2">Please check you mobile now!</p>
 <p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made two requests in less than 5 minutes! </p>
 <p class="hidden" id="vcode_g4">We could not complete your request now. please try again in a while! </p>
 <label for="vcode"><strong>Verification code </strong></label>
 <p class="hidden" id="vcode_g">Please enter the right verification  code you received </p>
-<input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> 
-<p id=""><small>The code you received via SMS</small></p><br/>
+<input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> <br>
+<br/>
 </div>
 <?php }?>
 <p class="hidden" id="agreement_g"> You should read and agree on the terms</p>
 <label class="checkbox" >
     <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
-    I agree on Ikimuk's <a href="#myModal" role="button" style="color:#44c6e3" data-toggle="modal">Terms & Conditions</a>
+    I agree to ikimuk's <a href="#myModal" role="button" style="color:#44c6e3" data-toggle="modal">Terms & Conditions</a>
 </label>
 <label class="checkbox" >
     <input id="newsletter" name="newsletter" class="" type="checkbox" value="1" /> 
     Keep me in the loop, sign me up for your newsletter 
 </label>
 <input type="hidden" name="size" value="" id="size"/>
-<br><a id="preorderSubmit" class="offset1 span3 preorderButton" >Preorder</a><br>
+<br><a id="preorderSubmit" class="offset1 span3 preorderButton" >Preorder</a><br><br>
 </form>
 </div></div></div>
 <div class="clear"></div>
@@ -152,7 +155,7 @@ include "block/breadcrumb.php";
 <div class="preSummary">
 <h1 class="preTitle">Order Summary</h1>
 <div class="span4 pleft">
-  <?php echo '<div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
+  <?php echo '<br><div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
           '" ><img class="" src="'.$primary.'" /></a></div>';?></div>
 <div class="span3 artistInfo pleft">
     <?php
@@ -163,20 +166,20 @@ include "block/breadcrumb.php";
         }
         echo '<p>Size ('.$_SESSION["size"].')</p>';
         echo '<div class="lineb"></div>';
-        echo '<div>T-shirt<span class="right">'.$product->price.'.00$</span></div>';
-        echo '<div>Deilivery charge<span class="right">3.00$</span></div>';
+        echo '<div class="tnheight">T-shirt<span class="right">'.$product->price.'.00$</span></div>';
+        echo '<div class="tnheight">Deilivery charge<span class="right">3.00$</span></div>';
         echo '<div class="lineb"></div>';
-        echo '<div><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
+        echo '<div class="tnheight"><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
         unset($_SESSION["size"]);
 ?>
 </div>
 </div></div>
 
- <div id="orderComplete" class="span4 hidden">
+ <div id="orderComplete" class="span6 hidden">
      <br>
-        <div class="preTitle">Preorder complete</div>
-        Thank you for preordering this  design! We will notify you if it  gets printed.<br/>
-        Until then, <a href="index.php" style="color:#44c6e3">browse our other designs</a>
+        <div class="txlarge">Awesome, Preorder complete</div><br>
+        Thank you for preordering this  design! We will let you know if it wins the competition and gets printed .<br/><br/>
+        Until then, <a href="index.php" style="color:#44c6e3">why not check the other designs?</a>
         
     </div>
 </div>
@@ -213,7 +216,7 @@ include "block/breadcrumb.php";
   </div>
 </div>
 
-<div class="clear"></div>
+<div class="clear"></div><br><br>
    
 
 

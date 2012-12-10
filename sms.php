@@ -12,7 +12,7 @@
         }
         else 
             {
-            $phone = '+'.$_POST["number"];
+            $phone = $_POST["number"];
      
             }
  //check if a code was sent in less than 5 minutes

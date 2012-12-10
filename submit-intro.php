@@ -25,7 +25,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         </div>
     </div>
 </div>
-<br><br><br>
+<br><br>
 <div class=" container">
     <div class="row">
     <div class="span8">

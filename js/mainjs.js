@@ -183,8 +183,6 @@ $(function() {
   $("#preorderSubmit").click(function(e) {  
     // validate and process form here
     e.preventDefault();
-    tmp  = $("#preorderSubmit").att("href");
-    $("#preorderSubmit").att("href") = "";
     $("#preorderSubmit").html('<img src="img/ajax-loader.gif" />');
     var valid = true;
     $("*").removeClass("alertr");
@@ -283,14 +281,10 @@ $(function(){
      $("#address").focus();  valid = false;}
     if ($("#size").val()  ==="")
         {$("#size_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
-    if (!$("#agreement").is(':checked'))
-        {$("#agreement_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
     if ($("#monum").length > 0)
         {
             if ($("#monum").val().length < 8)
                 {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
-            if ($("#vcode").val().length < 4)
-                {$("#vcode_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
         }
     if (!valid){$('#verify').removeAttr("disabled").html("get SMS code"); return false;}
         if ($("#monum").val()==="" || $("#monum").val().trim().length <6 || $("#monum").val().trim().match(/[^\d]/))
