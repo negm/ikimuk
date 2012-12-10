@@ -34,7 +34,7 @@ if(!$product->database->result)
    header("Location: index.php"); 
 else
 {
-$pagetitle = "Preorder ".$product->title;
+$pagetitle = $product->title;
 $image->product_id = $design_id;
 $_SERVER["last_preorder_design_id"] = $design_id;
 $image->getBasicImage();
@@ -79,7 +79,8 @@ include_once "block/header.php";
 </script>
 <?php 
 include "block/top_area.php";
-include "block/breadcrumb.php";
+//include "block/breadcrumb.php";
+echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="design.php?product_id='.$product->id.'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
 ?>
 <div class="clear"></div>
 <div class="container">
@@ -179,7 +180,14 @@ include "block/breadcrumb.php";
      <br>
         <div class="txlarge">Awesome, Preorder complete</div><br>
         Thank you for preordering this  design! We will let you know if it wins the competition and gets printed .<br/><br/>
-        Until then, <a href="index.php" style="color:#44c6e3">why not check the other designs?</a>
+        Until then, <a href="index.php" class="tlblue">why not check the other designs?</a>
+        
+ </div>
+<div id="orderDuplicate" class="span6 hidden">
+     <br>
+        <div class="txlarge"></div><br>
+        Oops! Sorry, you can't preorder the same design twice.You can preorder another one if you'd like.<br/><br/>
+        For now, <a href="index.php" class="tlblue" >why not check the other designs?</a>
         
     </div>
 </div>

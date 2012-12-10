@@ -14,7 +14,7 @@ include "block/top_area.php";
     <div class="row">
         <div class="span8">
             <div class="graybgheader">
-            <h3 class="header tpink"> SUBMIT YOUR IDEA TO US</h3>
+            <h3 class="header tpink"> SUBMIT YOUR IDEA</h3>
             <div class="linep"></div><br>
             <p>ikimuk is here for you. Not only do you get to choose the designs, you get to create them too!<br>
 Have an awesome idea for a t-shirt? Follow these super simple steps! </p>

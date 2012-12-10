@@ -228,7 +228,11 @@ $(function() {
                {$("#vcode_g").removeClass("hidden").addClass("alertr").focus();return false;}
            if (response === "address error")
                {$("#address_g").removeClass("hidden").addClass("alertr");$("#address").focus();  return false;}
-            else
+           if (response === "already voted")
+               {
+                   $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderDuplicate").removeClass("hidden");return false; 
+               }
+           else
                 {
                 //preordered();  
                 $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
