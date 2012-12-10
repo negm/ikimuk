@@ -191,23 +191,42 @@ include "block/breadcrumb.php";
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Terms & Conditions</h3>
+    <h3 id="myModalLabel">Preorder Terms and Conditions</h3>
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
--You have the right to post or use the design for any non-commercial use (blog, portfolio, article, ...) as long as we are mentioned or credited as owners (in example: this design was made for)
-</br></br>
--By submitting a design, you acknowledge and declare that the Design you have submitted is your own original work, has not been previously published, and does not contain any trademarks, logos, copyrighted material, or any other intellectual property belonging to any third party, may, at its sole discretion, disqualify any entry that contains any material, which, in its sole discretion, deems to be profane or offensive. 
-</br></br>
--If your design is chosen we retain permanent full rights to that design for commercial use on apparel and other promotional products, and you will be known as the author of that work.
-</br></br>
--We reserve the right to make necessary minor adjustments or changes to submitted designs in order to conform artwork to manufacturing requirements.
-</br></br>
--You acknowledge that we reserve the right to decline to select a Design for consideration for any reason.
-</br></br>
--When you submit your design you agree that for 90 days we have exclusivity rights over it, you don't have the right to reproduce it, sell it or submit it to any third party, and that if after 90 days your design isn't selected you regain full rights over it
-</br></br>
--We retain the right to choose your design after 90 days only if the design hasn't been used for commercial use on any item or product.
+      <p>By clicking on the preorder button, you expressly and irrevocably accept the following terms and
+conditions, and hereby undertake and agree on the following:</p>
+
+<p>1. You are fully aware that by preordering a design, two possibilities may arise:
+a) If by the time the competition ends, the design you preordered has not won, the preorder will
+be cancelled;</p>
+<p>b) If by the time the competition ends, the design you preordered won, the preorder is
+confirmed and you are deemed having irrevocably bought the product. In such case, no
+cancellation of the preorder shall be made possible.</p>
+
+<p>2. Upon the end of the competition, a notification shall be sent to all those who preordered the selected
+design, and a confirmation of the address to which the product will be delivered shall be requested.</p>
+
+<p>3. Unless Force Majeure occurs, the delivery time will not exceed a period of three weeks following the
+end of the competition.
+Ikimuk.com shall not be liable for any delay or loss imputable to the carrier.</p>
+
+<p>4. Payment for the product shall take place on, and only on delivery.
+The payment can only be made by cash, and should be handed over to whoever is delivering the
+product.</p>
+
+<p>5. Once the results are definitive and the design selected, said design will be available in the online shop,
+and those who wish to obtain the product may order it therefrom.
+In such case, delivery time will not exceed, unless Force Majeure occurs, three weeks following the
+order taking place.</p>
+
+<p>6. Any conflict arising from this agreement shall be governed by and construed in accordance with
+Lebanese law and shall be subject to the exclusive jurisdiction of the competent court in Lebanon.</p>
+
+<p>By preordering or ordering a product from ikimuk.com, you acknowledge that you have read and fully
+understood these Terms and Conditions, and that you agree to be bound by them, and you wish to
+preorder and order your product from this website in accordance with them.</p>
 </br></br></br></br>
 </div>
   </div>
