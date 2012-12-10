@@ -65,14 +65,14 @@ include_once "block/header.php";
     function preordered()
   {
       FB.api(
-        '/me/ikimukapp:cook',
+        '/me/ikimukapp:design',
         'post',
-        { recipe: 'http://fbwerks.com:8000/zhen/cookie.html' },
+        { recipe: '<?php echo $settings->root.'design.php?product_id='.$design_id; ?>' },
         function(response) {
            if (!response || response.error) {
-              alert('Error occured');
+              //alert('Error occured'+response + response.error);
            } else {
-              alert('Cook was successful! Action ID: ' + response.id);
+              //alert('preorder was successful! Action ID: ' + response.id);
            }
         });
   }
@@ -156,7 +156,7 @@ include "block/breadcrumb.php";
 <h1 class="preTitle">Order Summary</h1>
 <div class="span4 pleft">
   <?php echo '<br><div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
-          '" ><img class="" src="'.$primary.'" /></a></div>';?></div>
+          '" ><img class="" src="'.$primary.'"  alt="'.$product->title.' ikimuk"/></a></div>';?></div>
 <div class="span3 artistInfo pleft">
     <?php
 

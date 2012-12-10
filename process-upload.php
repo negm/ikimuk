@@ -4,6 +4,9 @@ if (!isset($_FILES['uploadfileSubmit']['name']) || !isset($_FILES['uploadfileSub
 {
  header("Location: index.php");
 }
+$file_size = $_FILES['uploadfileSubmit']['size'];
+if ($file_size > 200*1024)
+{echo "size_error";return;}
 require_once 'class/settings.php';
 $settings = new settings();
 if (!class_exists('S3'))require_once('S3.php');

@@ -41,9 +41,9 @@ else
 
 <div class="logoBg">
 <div class="container">
-<div class="row">
-<a href="../index.php"><div class="span4 logo"></div></a>
-<div class="menu row"><ul><li class="offset4 twhite"><a href="../index.php">CHOOSE</a></li><li class="tgray">BUY</li><li class="tyellow"><a href="../submit-intro.php">SUBMIT</a></li><li class="twhite">ABOUT</li></ul></div>
+<div class="row"><br>
+<div class="span4"><a href="../index.php"><img src="../img/logo.png" alt="ikimuk logo"/></a></div>
+<div class="menu "><ul><li class="span4"><br><br><a class="twhite" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="tyellow" href="../submit-intro.php">Submit your design</a></li></ul></div>
 </div>
 </div>
 </div>

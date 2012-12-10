@@ -89,7 +89,7 @@ function CallAfterLogin(){
 function LoadingAnimate() //Show loading Image
 {
     $("#LoginButton").hide(); //hide login button once user authorize the application
-    $("#results").html('<img src="img/ajax-loader.gif" /> Please Wait Connecting...'); //show loading image while we process user
+    $("#results").html('<img src="img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
 }
  
 function ResetAnimate() //Reset User button
@@ -125,7 +125,7 @@ return false;
 $(function() {  
   $("#submit_design").click(function(e){
     e.preventDefault();
-    $("#submit_design").html('<img src="img/ajax-loader.gif" />');
+    $("#submit_design").html('<img src="img/ajax-loader-ikimuk.gif" />');
     var valid = true;
     $("*").removeClass("alertr");
     if($('#design_title').val().length <1){           
@@ -133,7 +133,7 @@ $(function() {
     if (!uploaded)
         {$("#img_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
      if(!valid)
-         return valid; 
+         {$("#submit_design").html("Submit your design");return valid; }
     // return false to cancel submit    
     var params = 'design_title='+ $('#design_title').val()+'&img_url='+
         $("#img_g").val()+'&comment='+$("#comment").val();
@@ -183,9 +183,9 @@ $(function() {
   $("#preorderSubmit").click(function(e) {  
     // validate and process form here
     e.preventDefault();
-    $("#preorderSubmit").html('<img src="img/ajax-loader.gif" />');
+    $("#preorderSubmit").html('<img src="img/ajax-loader-ikimuk.gif" />');
     var valid = true;
-    $("*").removeClass("alertr");
+    $(".alertr").addClass("hidden");
     if ($("#region").val() === "")
     {$("#region_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
     if ($("#address").val().length < 9){$("#address_g").removeClass("hidden").addClass("alertr");
@@ -226,7 +226,7 @@ $(function() {
                {$("#address_g").removeClass("hidden").addClass("alertr");$("#address").focus();  return false;}
             else
                 {
-                    
+                //preordered();  
                 $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
               }
   }  
@@ -272,7 +272,7 @@ $(function(){
     $("#verify").click(function(e) 
     {   e.preventDefault();
         $('#verify').attr("disabled","disabled");
-        $("#verify").html('<img src="img/ajax-loader.gif" />');
+        $("#verify").html('<img src="img/ajax-loader-ikimuk.gif" />');
         var valid = true;
     $("*").removeClass("alertr");
     if ($("#region").val() === "")

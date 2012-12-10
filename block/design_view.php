@@ -78,7 +78,7 @@ else
     echo '<div id="slider" class="nivoSlider">';
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {
-        echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="" />';
+        echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="'.$product->title.' ikimuk" />';
     }
      echo '</div></div>';
      echo '<div class="tlblue commentheader noindent">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
@@ -107,7 +107,7 @@ else
      echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
      echo '<div class="lbluebg twhite boxheader">Designer Profile</div><div class="socialbox">';
-     echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';
+     echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" alt="'.$artist->name.' ikimuk"/></div>';
      echo '<div class="span2"><div class=" artistInfo "><b>'.$artist->name.'</b></div>';
      echo '<div class=" artistInfo">'.$artist->location.'</div>';
      echo '<div class=" artistInfo "><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.preg_replace($regex, '',$artist->website).'</a></div>';

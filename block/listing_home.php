@@ -23,9 +23,9 @@ echo 'Your design is ready. Now all you have to do is pick a design challenge
     the rest have themes, timelines, and different stuff up for grabs.</div>';
 echo '<div class="triangles"></div>';
 echo '</div><div class="clear"></div>';*/
-echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="competition header"/></div></div>';
+echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
 echo '<div class="container center">';
-echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header"/></div></div>';
+echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header ikimuk"/></div></div>';
 echo '<div class="container center"><b class="tlblue tlarge">OUR FIRST COMPETITION </b> <b class="tpink tmedium">  (ends at 17/12/2012</b>)<div class="lineb"></div><br>';
 $count = 0;
 while($row= mysqli_fetch_assoc($product->database->result))
@@ -41,7 +41,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
         $primary = $row_image["url"];
     }
     echo '<div class="span4 wrapper"><a class="home_list" href="design.php?product_id='.$row["id"].'" >
-            <div class="caption"><b>PREORDER NOW</b></div><img class="" src="'.$primary.'" alt="'.$row["title"].'"/></a>';
+            <div class="caption"><b>PREORDER NOW</b></div><img class="" src="'.$primary.'" alt="'.$row["title"].' ikimuk"/></a>';
     //echo '<div class="preorderButton"><a id="'.$row["id"].'" href="preorder.php?product_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
     //echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 
     //          data-href="http://'.$settings->root.'/design.php?design_id='.$row['id'].'"></div></center>';

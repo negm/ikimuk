@@ -21,7 +21,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
             </div>
         </div>
         <div class="span4">
-            <img src="img/submission_guy.png" alt="submit illustration"/>
+            <img src="img/submission_guy.png" alt="submit illustration ikimuk"/>
         </div>
     </div>
 </div>

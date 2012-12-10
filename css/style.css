@@ -1,8 +1,9 @@
 /* general helper classes */
 .footer{height: 60px;margin-top:10px;}
+.tunderline {text-decoration: underline;}
 #footer a {text-decoration: underline;}
 .noindent{text-indent: 0px !important;}
-#footer-wrap {margin-top:20px;background-color: #E6E6E6;#}
+#footer-wrap {margin-top:20px;background-color: #E6E6E6;}
 body > img {display: none;}
 .alertr {color:red; font-size:12px;font-family: Helvatica,Arial,sans-serif;}
 .brdc {margin:10px 0;}
@@ -77,8 +78,10 @@ table {border: 1px;}
 .tpink {color: #ED1E79;}
 .tblack{color:#000;}
 .twhite{color:#fff;}
+.twhite:hover{color:#fff;}
 .tgray {color:#CCCCCC;}
 .tyellow {color:#FFC800 ;}
+.tyellow:hover {color:#FFC800}
 .breadcrumb {background-color: #fff!important;}
 .tnormal{font-weight:normal;}
 .tnheight{line-height: 20px;}
@@ -169,12 +172,11 @@ table {border: 1px;}
 /* header area */
 .log{float:left; width:100%;background-color: #FFC800; color:#000; text-align: right;padding:10px 0;}
 .logoBg{background-color: #34C8FF;padding-bottom: 20px;}
-.logo{float:left; width:314px; height:61px; display: block; margin:20px 0px 20px 60px; background-image: url('../img/logo.png');background-repeat: no-repeat;}
+.logo{float:left; width:300px; height:61px; display: block; margin:20px 0px 0px 60px; background-image: url('../img/logo.png');background-repeat: no-repeat;}
 /*.logo:hover{background-image: url('../img/logo_hover.png');}*/
 .topText{font-size: 20px; color: #fff; width:460px; margin-left:10px; text-align: center;}
 .fennec {position:relative;z-index:1;}
-.menu >ul >li {vertical-align: baseline; font-size: 28px; margin-right: 80px;display: inline; text-decoration: none;}
-
+.menu >ul >li {vertical-align: bottom; font-size: 28px; display: inline; text-decoration: none;}
 .compHeader {margin-bottom: 30px;}
 
 
@@ -253,7 +255,7 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
 }
 .subButton {color:#fff; background-color: #ED1E79; text-decoration:none; 
 font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50px;font-weight: bold;}
-.subButton:hover {background: #FFC800;}
+.subButton:hover {background: #FFC800; color:#fff;}
 .button{color:#fff; background-color: #34C8FF; border-width: 0px; height:30px;margin-left: -2px;font-weight: bold;}
 
 /* admin pages */
