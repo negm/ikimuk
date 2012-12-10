@@ -30,7 +30,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
     <div class="row">
     <div class="span8">
         <div class="preSummary">
-        <h1 class="preTitle">preorder Form</h1>
+            <h1 class="preTitle">Submission Form<span class="right tsmall">legal Stuff</span></h1>
         <div class="content">
 			<h3 class="titre">1-THE GREAT T-SHIRT IDEA</h3>
 				<p class="par">Come up with an idea for what you want on a t-shirt. Be as creative as you possibly can!</p>
@@ -61,14 +61,14 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
 
 
 			<h3 class="titre">5-LET THE BEST DESIGN WIN</h3>
-				<p class="soustitre">If your design gets the most preorders:</p>
+				<p class="par">If your design gets the most preorders:</p>
 
 				<p class="bullet">-It gets printed and sold!</p>	
 				<p class="bullet">-An upfront cash payment of 300$</p>
 				<p class="bullet">-Royalties of 3% on every T-shirt sold</p>
 				<p class="bullet">-You get the T-Shirt for free, and sent to your front door</p>
-
-				<p>Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get right back to you!</p>
+                                <br><br>
+				<p class="par">Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get right back to you!</p>
                                 <br>
                                 <a href="../submit.php"><div class ="subButton center">Submit a design</div></a>
 		</div>
@@ -82,7 +82,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         <p>Sign up to our newsletter to stay in the loop</p>
         <form action="http://ikimuk.us6.list-manage1.com/subscribe/post?u=57e5f439df736442cfc265f3e&amp;id=c47f3d4fcb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div class="input-append">
-        <input type="email" value="" name="EMAIL" class="span2" id="mce-EMAIL" placeholder="Your E-mail" required>
+        <input type="email" value="" name="EMAIL" class="" id="mce-EMAIL" placeholder="Your E-mail" required>
         <input type="submit" value="SIGN ME UP!" name="subscribe" id="mc-embedded-subscribe" class="button">
             </div>
         </form>

@@ -69,6 +69,7 @@ width: 260px;}
 .txlarge {font-size: 28px;}
 .tlarge {font-size: 21px;}
 .tmedium {font-size: 16px;}
+.tsmall {font-size: 12px;}
 a, ins {text-decoration: none; color:inherit;}
 body{font-family: 'Adelle';}
 table {border: 1px;}
@@ -85,7 +86,7 @@ table {border: 1px;}
 .lbluebg{background-color: #34C8FF;}
 .vlbluebg {background-color: #66CCFF;}
 .home_list > img {height:380px;}
-
+#mce-EMAIL{max-width:150px;}
 .circle { 
    width: 40px;
    height: 40px;
@@ -238,7 +239,7 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
 /* submit */
 .header {
    font-size: 15px;
-   line-height: 20px;
+   line-height: 30px;
    margin-bottom: 5px;
 }
 .graybg
@@ -325,7 +326,8 @@ ul{
 /* Sevag */
 
 .content{
-    padding-left:10px;
+    padding-left:20px;
+    padding-right:20px;
 }
 
 
@@ -334,7 +336,7 @@ ul{
     font-family: Helvetica, Arial, sans-serif;
     line-height: 21px;
     margin-top: 0px;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     color: #646464;
@@ -347,14 +349,16 @@ ul{
     font-family: Adelle, georgia, serif;
     font-size: 21px;
     color: #1E1E1E;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .deuxieme {
     margin-bottom: 0px;
     margin-top: 10px;
     color: #646464;
+    font-family: Helvatica, Arial, sans-serif;
+    font-size:14px; 
 }
 
 .soustitre {
@@ -363,12 +367,13 @@ ul{
     font-style: normal;
     margin-top: 20px;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .bullet {
     text-indent: 40px;
     margin-bottom: 0px;
     margin-top: 3px;
+    font-family: Helvatica, Arial, sans-serif;
     color: #646464;
 }
