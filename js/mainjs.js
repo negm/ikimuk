@@ -171,7 +171,7 @@ $(function() {
     $('#email').attr("readonly",true);
     $('#ccode').attr("readonly",true);
     $('#address').popover({'trigger':'focus', 'title': 'Please write down your full address so we can deliver to your doorstep!'});
-    $('#monum').popover({'trigger':'focus', 'placement':'bottom', 'title': 'Please fill in your 8-digit  Lebanese number!'});
+    $('#monum').popover({'trigger':'focus', 'placement':'bottom', 'html':'true','title': 'Please fill in your 8-digit<br>  Lebanese number!'});
     $('#vcode').popover({'trigger':'focus', 'title': 'The code you received via SMS!'});
     
     $("#tandcModal").click(function() 
@@ -199,7 +199,7 @@ $(function() {
         {$("#agreement_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
     if ($("#monum").length > 0)
         {
-            if ($("#monum").val().length < 8)
+            if ($("#monum").val().length < 7)
                 {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
             if ($("#vcode").val().length < 4)
                 {$("#vcode_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
