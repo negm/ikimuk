@@ -112,7 +112,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="i
     <option value="South" >South</option>
 </select><br/><br/>
 <label class="description" for="element_2"><strong>Address </strong></label>
-<p id="address_g" class=" hidden">Do you live in an empty space box?If not, you gotta fill this up!</p>
+<p id="address_g" class=" hidden">Do you live in an empty space box? If not, you gotta fill this up!</p>
 <input id="address" name="address" class="span6" type="text" maxlength="255" value=""/> <br/><br/>
 <input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; //unset($_SESSION["size"]);?>" />
 <input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />

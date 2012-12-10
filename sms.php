@@ -64,8 +64,6 @@
         
         // Step 2: Use sendText( $to, $from, $message ) method to send a message. 
 	$info = $nexmo_sms->sendText( $phone, 'Ikimuk', "Hello! Please use the following code to complete the preorder $random" );
-        echo $phone;
-        print_r($info);
         echo 'done';
 	// Step 3: Display an overview of the message
 	//echo $nexmo_sms->displayOverview($info);

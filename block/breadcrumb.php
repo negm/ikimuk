@@ -7,6 +7,9 @@
 
 $ul_id='';
 $bc=explode("/",$_SERVER["PHP_SELF"]);
+if (stristr($settings->site_url,"submit"))
+echo '<div class="container" ><ul id="'.$ul_id.'" class="brdc"><li class="span2"><a href="index.php">Submit a design</a><span class="divid">/</span></li>';
+else
 echo '<div class="container" ><ul id="'.$ul_id.'" class="brdc"><li class="span2"><a href="index.php">Preorder a T-shirt</a><span class="divid">/</span></li>';
 while(list($key,$val)=each($bc)){
  $dir='';
