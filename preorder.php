@@ -119,7 +119,7 @@ include "block/breadcrumb.php";
 <div class="">
 <label  class="tlarge"><strong>Verification</strong></label>
 <div class="line"></div>
-<p>Almost done! we are gonna send you SMS as soon as you give us your phone number just to make sure you are not a robot!</p><br>
+<p>Almost done! We are gonna send you an SMS as soon as you give us your phone number just to make sure you are not a robot!</p><br>
 <label  for="element_3"><strong>Mobile number </strong></label>
 <p class="hidden" id="monum_g">Please fill in your 8-digit  Lebanese number!</p>
 <div class="input-append">

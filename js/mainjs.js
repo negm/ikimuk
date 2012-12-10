@@ -69,6 +69,7 @@ error:function (xhr, ajaxOptions, thrownError){
  }
  
 function CallAfterLogin(){
+                
 		FB.login(function(response) {		
 		if (response.status === "connected") 
 		{
@@ -274,6 +275,7 @@ $(function(){
         $('#verify').attr("disabled","disabled");
         $("#verify").html('<img src="img/ajax-loader-ikimuk.gif" />');
         var valid = true;
+    $(".alertr").addClass("hidden");
     $("*").removeClass("alertr");
     if ($("#region").val() === "")
     {$("#region_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
@@ -283,7 +285,7 @@ $(function(){
         {$("#size_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
     if ($("#monum").length > 0)
         {
-            if ($("#monum").val().length < 8)
+            if ($("#monum").val().length < 7)
                 {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
         }
     if (!valid){$('#verify').removeAttr("disabled").html("get SMS code"); return false;}

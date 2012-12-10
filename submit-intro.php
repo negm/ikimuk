@@ -90,10 +90,10 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         <h3 class="grayTitle">Connect with us</h3>
         <div class="line"></div>
         <div>Sign up to our newsletter to stay in the loop</div><br>
-        <div class="span1 facebook nomargin"><aclass="" href="https://www.facebook.com/ikimukofficial" target="_blank"></a></div>
-        <div class="span1 twitter"><a  class="" href="https://twitter.com/IkimukTweets" target="_blank"></a></div>
-        <div class="span1 contact"><a  class="" href="mailto:hello@ikimuk.com" target="_blank"></a></div>
-        <div class="span1 youtube"><a  class="" href="http://www.youtube.com/user/ikimukTV" target="_blank"></a></div>  
+        <a class="" href="https://www.facebook.com/ikimukofficial" target="_blank"><div class="span1 facebook nomargin"></div></a>
+        <a  class="" href="https://twitter.com/IkimukTweets" target="_blank"><div class="span1 twitter"></div></a>
+        <a  class="" href="mailto:hello@ikimuk.com" target="_blank"><div class="span1 contact"></div></a>
+        <a  class="" href="http://www.youtube.com/user/ikimukTV" target="_blank"><div class="span1 youtube"></div></a>
         </div> 
         </div>
         <div class="socialIcons">
