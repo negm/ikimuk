@@ -13,7 +13,7 @@ include "block/top_area.php";
 <div class="container">
     <div class="row">
         <div class="span8">
-            <div class="graybg">
+            <div class="graybgheader">
             <h3 class="header tpink"> SUBMIT YOUR IDEA TO US</h3>
             <div class="linep"></div><br>
             <p>ikimuk is here for you. Not only do you get to choose the designs, you get to create them too!<br>
@@ -30,7 +30,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
     <div class="row">
     <div class="span8">
         <div class="preSummary">
-            <h1 class="preTitle">Submission Form<span class="right tsmall">legal Stuff</span></h1>
+            <h1 class="preTitle">Submission Form</h1>
         <div class="content">
 			<h3 class="titre">1-THE GREAT T-SHIRT IDEA</h3>
 				<p class="par">Come up with an idea for what you want on a t-shirt. Be as creative as you possibly can!</p>
@@ -76,8 +76,8 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         </div>
 
         <div class="span4">
-            <div class="graybg">
-        <h3 class="header">Newsletter</h3>
+        <div class="graybg">
+        <h3 class="grayTitle">Newsletter</h3>
         <div class="line"></div>
         <p>Sign up to our newsletter to stay in the loop</p>
         <form action="http://ikimuk.us6.list-manage1.com/subscribe/post?u=57e5f439df736442cfc265f3e&amp;id=c47f3d4fcb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -87,20 +87,23 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
             </div>
         </form>
         <br>
-        <h3 class="header">Connect with us</h3>
+        <h3 class="grayTitle">Connect with us</h3>
         <div class="line"></div>
-          </div> 
+        <div>Sign up to our newsletter to stay in the loop</div><br>
+        <div class="span1 facebook nomargin"><aclass="" href="https://www.facebook.com/ikimukofficial" target="_blank"></a></div>
+        <div class="span1 twitter"><a  class="" href="https://twitter.com/IkimukTweets" target="_blank"></a></div>
+        <div class="span1 contact"><a  class="" href="mailto:hello@ikimuk.com" target="_blank"></a></div>
+        <div class="span1 youtube"><a  class="" href="http://www.youtube.com/user/ikimukTV" target="_blank"></a></div>  
+        </div> 
         </div>
         <div class="socialIcons">
-        <div class="span1 facebook"><a class="" href="https://www.facebook.com/ikimukofficial" target="_blank"></a></div>
-        <div class="span1 twitter"><a  href="https://twitter.com/IkimukTweets" target="_blank"></a></div>
-        <div class="span1 contact"><a  href="mailto:hello@ikimuk.com" target="_blank"></a></div>
-        <div class="span1 youtube"><a  href="http://www.youtube.com/user/ikimukTV" target="_blank"></a></div>
+        
         </div>
   
 
     </div>
     </div>
+<br>
 <?php
 include 'block/footer.php';
 ?>

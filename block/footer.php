@@ -20,7 +20,7 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
 });
 </script>
 
-<footer class="graybg">
+<footer class="">
     <div class="container" >
         <div class="row" >
         <div class="offset4 footer">
