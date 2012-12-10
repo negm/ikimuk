@@ -61,6 +61,8 @@ success:function(response){
 $("#results").html(response); //Result
 if(target.length > 1)
     window.location.href = target;
+else
+    location.reload();
  },
 error:function (xhr, ajaxOptions, thrownError){
 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
@@ -69,7 +71,7 @@ error:function (xhr, ajaxOptions, thrownError){
  }
  
 function CallAfterLogin(){
-                
+                $('#loginModal').modal('hide');
 		FB.login(function(response) {		
 		if (response.status === "connected") 
 		{
