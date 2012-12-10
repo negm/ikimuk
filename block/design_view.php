@@ -66,6 +66,7 @@ else
  
     });
     $(".ribbon").removeClass("hidden");
+    $(".commentheader").removeClass("hidden");
 });
 
     </script>
@@ -83,7 +84,7 @@ else
         echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="'.$product->title.' ikimuk" />';
     }
      echo '</div></div>';
-     echo '<div class="tlblue commentheader noindent">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
+     echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
      echo '<div class="fb-comments" data-href="'.$settings->site_url_vars.'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
      echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
