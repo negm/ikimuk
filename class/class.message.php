@@ -14,7 +14,7 @@ class message {
         $this->database = new Database();
         $this->message = new SimpleEmailServiceMessage();
         $this->type= "";
-        $this->from= "noreply@ikimuk.com";
+        $this->from= "ikimuk <noreply@ikimuk.com>";
         $this->settings = new settings();
         
     }

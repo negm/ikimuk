@@ -21,8 +21,14 @@
         {
          if (time() - $_SESSION["sms_ts"] <= $five_minutes)
          {
-             echo "shit";
-             return;
+            if (isset($_SESSION["sms_count"]))
+            {
+                if ($_SESSION["sms_count"] > 2)
+                {
+                    echo "shit";
+                    return;
+                }
+            }
          }
          if (isset($_SESSION["sms_count"]))
          {

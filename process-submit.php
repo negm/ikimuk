@@ -32,7 +32,7 @@ else
     }
     
     $subject = 'Confirming Your submission on Ikimuk';
-    $body ="Cheers, ".$_SESSION["user_name"].". Thank you for submitting $submission->title to the competition, your design is up for review as we speak!\n\n.If your design doesn’t make it through, we’ll let you know the little tweaks you gotta make so that it does.In the meantime, why not check out the designs in this competition?\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nSignature\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n www.youtube.com/user/ikimukTV";
+    $body ="Cheers, ".$_SESSION["user_name"].". Thank you for submitting $submission->title to the competition, your design is up for review as we speak!\n\n.If your design doesn’t make it through, we’ll let you know the little tweaks you gotta make so that it does.In the meantime, why not check out the designs in this competition?\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nConnect with us,\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n http://www.youtube.com/user/ikimukTV";
     $result = $message->send($_SESSION["user_email"], $subject, $body);
     sleep(5);
     echo 'done';return;

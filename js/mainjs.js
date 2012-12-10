@@ -124,7 +124,8 @@ return false;
  var img_list = new Array();
 $(function() {  
   $("#submit_design").click(function(e){
-     e.preventDefault();
+    e.preventDefault();
+    $("#submit_design").html('<img src="img/ajax-loader.gif" />');
     var valid = true;
     $("*").removeClass("alertr");
     if($('#design_title').val().length <1){           
@@ -182,12 +183,14 @@ $(function() {
   $("#preorderSubmit").click(function(e) {  
     // validate and process form here
     e.preventDefault();
+    tmp  = $("#preorderSubmit").att("href");
+    $("#preorderSubmit").att("href") = "";
     $("#preorderSubmit").html('<img src="img/ajax-loader.gif" />');
     var valid = true;
     $("*").removeClass("alertr");
     if ($("#region").val() === "")
     {$("#region_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
-    if ($("#address").val().length < 9){$("#address_g").addClass("alertr");
+    if ($("#address").val().length < 9){$("#address_g").removeClass("hidden").addClass("alertr");
      $("#address").focus();  valid = false;}
     if ($("#size").val()  ==="")
         {$("#size_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
@@ -222,7 +225,7 @@ $(function() {
            if (response === "verification error")
                {$("#vcode_g").removeClass("hidden").addClass("alertr").focus();return false;}
            if (response === "address error")
-               {$("#address_g").addClass("alertr");$("#address").focus();  return false;}
+               {$("#address_g").removeClass("hidden").addClass("alertr");$("#address").focus();  return false;}
             else
                 {
                     
@@ -270,9 +273,30 @@ $(function(){
 $(function(){
     $("#verify").click(function(e) 
     {   e.preventDefault();
+        $('#verify').attr("disabled","disabled");
         $("#verify").html('<img src="img/ajax-loader.gif" />');
+        var valid = true;
+    $("*").removeClass("alertr");
+    if ($("#region").val() === "")
+    {$("#region_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
+    if ($("#address").val().length < 9){$("#address_g").removeClass("hidden").addClass("alertr");
+     $("#address").focus();  valid = false;}
+    if ($("#size").val()  ==="")
+        {$("#size_g").removeClass("hidden").addClass("alertr").focus();valid = false;}
+    if (!$("#agreement").is(':checked'))
+        {$("#agreement_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
+    if ($("#monum").length > 0)
+        {
+            if ($("#monum").val().length < 8)
+                {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
+            if ($("#vcode").val().length < 4)
+                {$("#vcode_g").removeClass("hidden").addClass("alertr").focus(); valid = false;}
+        }
+    if (!valid){$('#verify').removeAttr("disabled").html("get SMS code"); return false;}
         if ($("#monum").val()==="" || $("#monum").val().trim().length <6 || $("#monum").val().trim().match(/[^\d]/))
-            {$("#monum_g").removeClass("hidden").addClass("alertr").focus(); return false;}
+            {$("#monum_g").removeClass("hidden").addClass("alertr").focus();
+            $('#verify').removeAttr("disabled").html("get SMS code"); 
+            return false;}
         else{var monum = $("#monum").val();       
                if (monum[0] === '0'){monum = monum.replace(/^0+/, '');}
                var dataString = 'number=+'+$("#ccode").val().trim()+monum;
@@ -286,6 +310,7 @@ $(function(){
                     {
                     //show the preoder form
                      $("#vcode_g2").removeClass("hidden").addClass("alertr").focus();
+                     $('#verify').removeAttr("disabled").html("Resend"); 
                      return false;
                      }
                      else 
@@ -293,11 +318,13 @@ $(function(){
                      {
                        //Either received more than 5 messages or requested a new code in less than 5 minutes
                      $("#vcode_g3").removeClass("hidden").addClass("alertr").focus();
+                     $('#verify').removeAttr("disabled").html("get SMS code"); 
                      return false;
                       }
                       else
                       {
                      $("#vcode_g4").removeClass("hidden").addClass("alertr").focus();
+                     $('#verify').removeAttr("disabled").html("get SMS code"); 
                      return false;
                       }
                   } 
@@ -305,6 +332,7 @@ $(function(){
                 
                 
             }
+     $('#verify').removeAttr("disabled"); 
     return false;
     }
     

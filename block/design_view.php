@@ -41,14 +41,12 @@ else
     $daysLeft = floor((strtotime($competition->end_date) - time())/(60*60*24));
     include "block/header.php";
     
-    echo '<meta property="og:site_name" content="Ikimuk" />';
+    
     echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
-    echo '<meta property="og:description" content="Cool T-shirt Design">';
-    echo '<meta property="og:determiner" content="a" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->site_url_vars.'" />';
-    echo '<meta property="og:type" content="ikimukapp:design" />';
+    
     ?>
  <script type="text/javascript">
     $(window).load(function() {
@@ -91,7 +89,7 @@ else
      echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
      ?>
-    <div class="">(You only pay if T-shirt gets printed)</div>
+    <div class="">(REMEMBER: You only pay if this T-shirt design gets the most preorders)</div>
     <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
     <div class="">
     <a href="#" name="S" id="s" class="sizeIcon">S</a>
@@ -106,7 +104,7 @@ else
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->site_url_vars).'"></div>';
      echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
-     echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode('http://'+$settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
+     echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
      echo '<div class="lbluebg twhite boxheader">Designer Profile</div><div class="socialbox">';
      echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" /></div>';

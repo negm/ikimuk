@@ -13,6 +13,7 @@ require_once 'class/class.artist.php';
 require_once 'class/class.image.php';
 $image = new image();
 $product = new product();
+$settings = new settings();
 $artist = new artist();
 if (!isset($_GET["product_id"]))
 {
@@ -55,9 +56,26 @@ while ($row_image = mysqli_fetch_assoc($image->database->result))
   }
 }
 include_once "block/header.php";
+ echo '<meta property="og:title" content="'.$product->title.'" />';
+    echo '<meta property="og:image" content="'.$product->image.'" />';
+    echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
+    echo '<meta property="og:url" content="'.$settings->root.'design.php?product_id='.$design_id.'" />';
 ?>
 <script>
-    //$(document).ready(function() {$('#preorderForm').ajaxForm(preorder_options);})
+    function preordered()
+  {
+      FB.api(
+        '/me/ikimukapp:cook',
+        'post',
+        { recipe: 'http://fbwerks.com:8000/zhen/cookie.html' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('Cook was successful! Action ID: ' + response.id);
+           }
+        });
+  }
 </script>
 <?php 
 include "block/top_area.php";
@@ -93,29 +111,29 @@ include "block/breadcrumb.php";
     <option value="South" >South</option>
 </select><br/><br/>
 <label class="description" for="element_2"><strong>Address </strong></label>
-<p id="address_g"><small>Please write down your full  address so we can deliver to your  doorstep!</small></p>
+<p id="address_g" class=" hidden">Please write down your full  address so we can deliver to your  doorstep!</p>
 <input id="address" name="address" class="span6" type="text" maxlength="255" value=""/> <br/><br/>
 <input id="size" name="size" type="hidden" value="<?echo $_SESSION["size"]; //unset($_SESSION["size"]);?>" />
 <input id="design_id" name="design_id" type="hidden" value="<?echo $design_id;?>" />
 <?php if (!isset($_SESSION['validated_mobile'])) {?>
 <div class="">
-<p class="hidden" id="monum_g"><small>Please fill in your 8-digit  Lebanese number!</small></p>
 <label  for="element_3"><strong>Mobile number </strong></label>
+<p class="hidden" id="monum_g">Please fill in your 8-digit  Lebanese number!</p>
 <div class="input-append">
 <input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="3" value="961"/> 
 <input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
 </div>
-<p class="hidden" id="vcode_g2"><small>Please check you mobile now! </small></p>
-<p class="hidden" id="vcode_g3"><small>You either requested more than five verification SMSz or made two requests in less than 5 minutes! </small></p>
-<p class="hidden" id="vcode_g4"><small>We could not complete your request now. please try again in a while! </small></p>
+<p class="hidden" id="vcode_g2">Please check you mobile now!</p>
+<p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made two requests in less than 5 minutes! </p>
+<p class="hidden" id="vcode_g4">We could not complete your request now. please try again in a while! </p>
 <label for="vcode"><strong>Verification code </strong></label>
-<p class="hidden" id="vcode_g"><small>Please enter the right verification  code you received </small></p>
+<p class="hidden" id="vcode_g">Please enter the right verification  code you received </p>
 <input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> 
 <p id=""><small>The code you received via SMS</small></p><br/>
 </div>
 <?php }?>
-<p class="hidden" id="agreement_g"><small> You should read and agree on the terms</small></p>
+<p class="hidden" id="agreement_g"> You should read and agree on the terms</p>
 <label class="checkbox" >
     <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
     I agree on Ikimuk's <a href="#myModal" role="button" style="color:#44c6e3" data-toggle="modal">Terms & Conditions</a>
@@ -133,10 +151,10 @@ include "block/breadcrumb.php";
     <div class="clear"></div>
 <div class="preSummary">
 <h1 class="preTitle">Order Summary</h1>
-<div class="span4">
+<div class="span4 pleft">
   <?php echo '<div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
           '" ><img class="" src="'.$primary.'" /></a></div>';?></div>
-<div class="span3 artistInfo">
+<div class="span3 artistInfo pleft">
     <?php
 
         if($artist)

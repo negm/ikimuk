@@ -74,7 +74,7 @@ $artist->select($product->artist_id);
 $competition->select($product->competition_id);
 $datestr = date("l jS \of F Y",  strtotime($competition->end_date));
 $subject = 'Your ikimuk preorder confirmation';
-$body ="Cheers, ".$_SESSION["user_name"].". Thank you for preordering! Your participation is what makes ikimuk possible.We’ll let you know if $product->title by $artist->name wins the competition.\n\nSo just to RECAP: The competition finishes on $datestr. You will receive this t-shirt only if it gets the most preorders.\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nSignature\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n www.youtube.com/user/ikimukTV";
+$body ="Cheers, ".$_SESSION["user_name"].". Thank you for preordering! Your participation is what makes ikimuk possible.We’ll let you know if $product->title by $artist->name wins the competition.\n\nSo just to RECAP: The competition finishes on $datestr. You will receive this t-shirt only if it gets the most preorders.\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nConnect with us,\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n http://www.youtube.com/user/ikimukTV";
 $result = $message->send($param["email"], $subject, $body);
 sleep(5);
 echo 'done';

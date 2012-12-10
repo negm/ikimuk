@@ -60,6 +60,8 @@ min-width: 200px;
 max-height: 260px;
 width: 260px;}
 .right{float:right;}
+.pright{padding-right: 10px;}
+.pleft{padding-left: 10px;}
 .line{background:#000;border-bottom:2px solid #000;}
 .linep{background:#ED1E79;border-bottom:2px solid #ED1E79;}
 .linew{background:#fff;border-bottom:2px solid #fff; margin-bottom: 10px;}
