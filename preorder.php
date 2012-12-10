@@ -179,15 +179,15 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="i
  <div id="orderComplete" class="span6 hidden">
      <br>
         <div class="txlarge">Awesome, Preorder complete</div><br>
-        Thank you for preordering this  design! We will let you know if it wins the competition and gets printed .<br/><br/>
-        Until then, <a href="index.php" class="tlblue">why not check the other designs?</a>
+        Thank you for preordering this  design! We will let you know if it wins the competition and gets printed.<br/><br/>
+        Until then, <a href="index.php" class="tlblue">why not check out the other designs?</a>
         
  </div>
 <div id="orderDuplicate" class="span6 hidden">
      <br>
         <div class="txlarge"></div><br>
         Oops! Sorry, you can't preorder the same design twice.You can preorder another one if you'd like.<br/><br/>
-        For now, <a href="index.php" class="tlblue" >why not check the other designs?</a>
+        For now, <a href="index.php" class="tlblue" >why not check out the other designs?</a>
         
     </div>
 </div>

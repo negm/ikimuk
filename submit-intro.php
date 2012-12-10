@@ -5,7 +5,7 @@
  * and open the template in the editor.
  * 
  */
-$pagetitle = "Submit Guidlines";
+$pagetitle = "Submit Guidelines";
 include "block/header.php";
 include "block/top_area.php";
 ?>

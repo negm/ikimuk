@@ -30,7 +30,7 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
             <a href="mailto:hello@ikimuk.com" target="_blank" class="contact_footer span1"></a>
         </div>
         <div class="span4 clear"></div>
-        <div class="offset3">For more information see our <a id="tandcModal">Terms & Conditions</a></div>
+        <!--<div class="offset3">For more information see our <a id="tandcModal">Terms & Conditions</a></div>-->
         <br><div class="text_footer centert">Crafted with &#x2764; for you</div>
         <div class="centert">&copy; 2012 ikimuk.com</div>
         </div>
