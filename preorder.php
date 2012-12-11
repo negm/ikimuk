@@ -70,9 +70,9 @@ include_once "block/header.php";
         { design: '<?php echo $settings->root.'design.php?product_id='.$design_id; ?>' },
         function(response) {
            if (!response || response.error) {
-              //alert('Error occured'+response + response.error);
+             console.log("action wasn't posted to facebook"+response.error)
            } else {
-              //alert('preorder was successful! Action ID: ' + response.id);
+              console.log('preorder was successful! Action ID: ' + response.id);
            }
         });
   }
