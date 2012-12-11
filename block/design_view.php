@@ -87,7 +87,7 @@ else
      echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
      echo '<div class="fb-comments" data-href="'.$settings->site_url_vars.'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
-     echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
+     echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></div>';
      echo '<div class="lineb"></div><div class="clear"></div>'; 
      echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';

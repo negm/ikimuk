@@ -45,9 +45,9 @@ else
 <div class="span4"><a href="../index.php"><img src="../img/logo.png" alt="ikimuk logo"/></a></div>
 <?php
 if (stristr($settings->site_url,"submit"))
-echo '<div class="menu "><ul><li class="span4"><br><br><a class="twhite" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="tyellow" href="../submit-intro.php">Submit your design</a></li></ul></div>';
+echo '<div class="menu "><ul><li class="span4"><br><br><a class="twhite menuhover" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="tyellow menuhover" href="../submit-intro.php">Submit your Design</a></li></ul></div>';
 else
-    echo '<div class="menu "><ul><li class="span4"><br><br><a class="tyellow" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="twhite" href="../submit-intro.php">Submit your design</a></li></ul></div>';
+    echo '<div class="menu "><ul><li class="span4"><br><br><a class="tyellow menuhover" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="twhite menuhover" href="../submit-intro.php">Submit your Design</a></li></ul></div>';
 
     ?>
 </div>

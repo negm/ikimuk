@@ -78,7 +78,7 @@ $this->prodction = true;
     //redirect("maintanance.html");
 //}
 
-$this->fbPermissions = 'publish_stream,email'; 
+$this->fbPermissions = 'publish_stream,email,publish_actions'; 
 $this->nexmo_key = 'f20b967a';
 $this->nexmo_secret = '9d3daa40';
 }

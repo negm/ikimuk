@@ -44,31 +44,34 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
 					<p class="bullet"> -Your file should be in high resolution (300 dpi)</p>
 					<p class="bullet"> -Canvas size of 40cm x 60cm </p>
 					<p class="bullet"> -Maximum of 6 colors (with each color on a separate layer)</p>
-					<p class="bullet"> -Submit a jpeg web version of your design</p>
+					
 
 
 			<h3 class="titre">3- SUBMIT IT!</h3>
 				<p class="par">As soon as you’ve checked the guidelines, it’s time to send it to us. We will let you know if your design made it through to the contest via email!</p>
-				
-				<h4 class="soustitre">You will only receive a rejection if:</h4>
-					<p class="bullet">-Your design has copyright infringement or is a duplicate submission</p>
+                                        <p class="bullet">-Submit a JPEG web version of your design</p>
+                                        <p class="bullet">-We will confirm receipt of your design</p>
+                                        <p class="bullet">-You will know if you made it through to the contest within 72 hours</p>
+				<h4 class="soustitre">You will be rejected if you:</h4>
+                                        <p class="bullet">-Your design has copyright infringement or is a duplicate submission</p>
 					<p class="bullet">-Your design has offensive or inappropriate content </p>
 					<p class="bullet">-The file you sent is damaged or the design needs more work </p>
 
 
-			<h3 class="titre">4-PROMOTE, PROMOTE</h3>
-				<p class="par">If your design made it through to the contest, get your friends to preorder it so that your design gets the attention it deserves.</p>
+			<h3 class="titre">4-PROMOTE, PROMOTE, PROMOTE</h3>
+				<p class="par">If your design makes it through to the contest, push your fans, friends, family and complete strangers to preorder it. Wrap up your preorder count to win.</p>
 
 
-			<h3 class="titre">5-LET THE BEST DESIGN WIN</h3>
+			<h3 class="titre">5-THE MOST POPULAR DESIGN WINS</h3>
 				<p class="par">If your design gets the most preorders:</p>
 
-				<p class="bullet">-It gets printed and sold!</p>	
-				<p class="bullet">-An upfront cash payment of 300$</p>
-				<p class="bullet">-Royalties of 3% on every T-shirt sold</p>
-				<p class="bullet">-You get the T-Shirt for free, and sent to your front door</p>
+				<p class="bullet">-It gets printed and delivered within a week</p>	
+				<p class="bullet">-It joins our exclusive catalog of available designs for sale</p>
+				<p class="bullet">-You receive a $300 award</p>
+				<p class="bullet">-You also receive 3% royalties on every T-shirt sold</p>
+                                <p class="bullet">-You get your design on a T-shirt for free, delivered to your front door</p>
                                 <br><br>
-				<p class="par">Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get right back to you!</p>
+				<p class="par">Good luck and remember you can submit as many designs as you want! For further clarification please contact us</p>
                                 <br>
                                 <a href="../submit.php"><div class ="subButton center">Submit a design</div></a>
 		</div>

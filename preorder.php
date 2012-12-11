@@ -163,12 +163,12 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="i
 
         if($artist)
         {
-        echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$artist->name.'</b></div>';
+        echo '<div class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></div>';
         }
         echo '<p>Size ('.$_SESSION["size"].')</p>';
         echo '<div class="lineb"></div>';
         echo '<div class="tnheight">T-shirt<span class="right">'.$product->price.'.00$</span></div>';
-        echo '<div class="tnheight">Deilivery charge<span class="right">3.00$</span></div>';
+        echo '<div class="tnheight">Delivery charge<span class="right">3.00$</span></div>';
         echo '<div class="lineb"></div>';
         echo '<div class="tnheight"><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
         unset($_SESSION["size"]);

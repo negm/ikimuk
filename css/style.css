@@ -11,7 +11,7 @@ body > img {display: none;}
 .divid {display: inline; color:gray; margin-left: 10px;font-family: Helvetica,Arial,sans-serif;}
 .caption{display:none; background:#FFCC00; opacity:.9; position:absolute; 
 width: 300px;height: 190px!important;padding-right: 0px;color:#fff; 
-text-align: center; vertical-align: middle; font-size: 18px; 
+text-align: center; vertical-align: middle; font-size: 20px; 
 padding-top: 190px; font-weight: bold;}
 .facebook{background-image: url("../img/share_facebook_ikimuk.png");width:55px; height:55px;
 display: block;background-repeat: no-repeat;}
@@ -78,10 +78,8 @@ table {border: 1px;}
 .tpink {color: #ED1E79;}
 .tblack{color:#000;}
 .twhite{color:#fff;}
-.twhite:hover{color:#fff;}
 .tgray {color:#CCCCCC;}
 .tyellow {color:#FFC800 ;}
-.tyellow:hover {color:#FFC800}
 .breadcrumb {background-color: #fff!important;}
 .tnormal{font-weight:normal;}
 .tnheight{line-height: 20px;}
@@ -170,13 +168,15 @@ table {border: 1px;}
 }
 
 /* header area */
-.log{float:left; width:100%;background-color: #FFC800; color:#000; text-align: right;padding:10px 0;}
+.log{float:left; width:100%;background-color: #FFC800; color:#000; text-align: right;padding:5px 0;}
 .logoBg{background-color: #34C8FF;padding-bottom: 20px;}
 .logo{float:left; width:300px; height:61px; display: block; margin:20px 0px 0px 60px; background-image: url('../img/logo.png');background-repeat: no-repeat;}
 /*.logo:hover{background-image: url('../img/logo_hover.png');}*/
 .topText{font-size: 20px; color: #fff; width:460px; margin-left:10px; text-align: center;}
 .fennec {position:relative;z-index:1;}
 .menu >ul >li {vertical-align: bottom; font-size: 28px; display: inline; text-decoration: none;}
+.menu >ul >li:hover {color:#ED1E79;}
+.menuhover:hover {color:#ED1E79;}
 .compHeader {margin-bottom: 30px;}
 
 
