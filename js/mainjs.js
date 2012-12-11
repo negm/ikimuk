@@ -23,14 +23,14 @@ addLoadEvent(function() {
     
     caption.width(image.width());
     caption.height(image.height());
-    caption.fadeIn(350);
+    caption.stop(true, true).fadeIn(350);
 }).mouseleave(function(){
      var image= $(this).find('img'),
         caption = $(this).find('div');
     
     caption.width(image.width());
     caption.height(image.height());
-    caption.fadeOut(350);
+    caption.stop(true, true).fadeOut(350);
 });
 });
 

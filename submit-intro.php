@@ -89,7 +89,7 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
         <br>
         <h3 class="grayTitle">Connect with us</h3>
         <div class="line"></div>
-        <div>Sign up to our newsletter to stay in the loop</div><br>
+        <br>
         <a class="" href="https://www.facebook.com/ikimukofficial" target="_blank"><div class="span1 facebook nomargin"></div></a>
         <a  class="" href="https://twitter.com/IkimukTweets" target="_blank"><div class="span1 twitter"></div></a>
         <a  class="" href="mailto:hello@ikimuk.com" target="_blank"><div class="span1 contact"></div></a>
