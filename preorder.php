@@ -128,7 +128,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="i
 <input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
 <a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
 </div> <br>
-<p class="hidden" id="vcode_g2">Please check you mobile now!</p>
+<p class="hidden" id="vcode_g2">Please check your mobile now!</p>
 <p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made 3 requests in less than 5 minutes! </p>
 <p class="hidden" id="vcode_g4">We could not complete your request now. please try again in a while! </p>
 <label for="vcode"><strong>Verification code </strong></label>
