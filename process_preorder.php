@@ -64,6 +64,9 @@ if (strlen(trim($param["design_id"])) < 1 )
 $preorder->product_id = $param["design_id"];
 if ($preorder->alreadyPreordered())
 {echo 'already voted'; return;}
+if (!isset($param["region"]))
+{echo 'region error';return;}
+$preorder->region = $param["region"];
 $preorder->newsletter = $param["newsletter"];
 $preorder->country = 'Lebanon';
 $preorder->insert();
