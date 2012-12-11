@@ -18,6 +18,7 @@ class submissions {
 	public $database;
         public $title;
         public $comment;
+        public $newsletter;
         public $user_id;
 	
 	// Class Constructor
@@ -51,6 +52,7 @@ class submissions {
 		$this->id = $oRow->id; // Primary Key
                 $this->title = $oRow->title;
                 $this->user_id = $oRow->user_id;
+                $this->newsletter = $oRow->newsletter;
                 }
 	
 	public function insert() {
@@ -58,7 +60,8 @@ class submissions {
                 $this->database->OpenLink();
                 $this->title = mysqli_real_escape_string($this->database->link, $this->title);
                 $this->comment = mysqli_real_escape_string($this->database->link, $this->comment);
-		$sSQL = "INSERT INTO submissions (user_id,title,comments) VALUES ($this->user_id,'$this->title','$this->comment');";
+                $this->newsletter = mysqli_real_escape_string($this->database->link, $this->newsletter);
+		$sSQL = "INSERT INTO submissions (user_id,title,comments,newsletter) VALUES ($this->user_id,'$this->title','$this->comment',$this->newsletter);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;
 	}

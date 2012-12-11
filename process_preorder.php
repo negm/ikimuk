@@ -64,6 +64,7 @@ if (strlen(trim($param["design_id"])) < 1 )
 $preorder->product_id = $param["design_id"];
 if ($preorder->alreadyPreordered())
 {echo 'already voted'; return;}
+$preorder->newsletter = $param["newsletter"];
 $preorder->country = 'Lebanon';
 $preorder->insert();
 $_SESSION["validated_mobile"] = $preorder->phone;

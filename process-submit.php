@@ -11,6 +11,7 @@ if (!isset($_POST["design_title"])|| !isset($_SESSION["user_id"]) || !isset($_PO
 $submission->title = $_POST["design_title"];
 $submission->comment = $_POST["comment"];
 $submission->user_id = $_SESSION["user_id"];
+$submission->newsletter = $_POST["newsletter"];
 $img_arr = explode(',',$_POST["img_url"]);
 if(count($img_arr) <1)
 {

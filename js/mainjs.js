@@ -127,6 +127,10 @@ return false;
  var img_list = new Array();
 $(function() {  
   $("#submit_design").click(function(e){
+    if($("#newsletter").is(':checked'))
+        newsletetr_val = 1;
+    else
+        newsletetr_val = 0;
     e.preventDefault();
     $("#submit_design").html('<img src="img/ajax-loader-ikimuk.gif" />');
     var valid = true;
@@ -139,7 +143,7 @@ $(function() {
          {$("#submit_design").html("Submit your design");return valid; }
     // return false to cancel submit    
     var params = 'design_title='+ $('#design_title').val()+'&img_url='+
-        $("#img_g").val()+'&comment='+$("#comment").val();
+        $("#img_g").val()+'&comment='+$("#comment").val()+'&newsletter='+newsletetr_val;
     $.ajax({  
     type: "POST",  
     url: "process-submit.php",  
@@ -185,6 +189,10 @@ $(function() {
  $(function() {  
   $("#preorderSubmit").click(function(e) {  
     // validate and process form here
+    if($("#newsletter").is(':checked'))
+        newsletetr_val = 1;
+    else
+        newsletetr_val = 0;
     e.preventDefault();
     $("#preorderSubmit").html('<img src="img/ajax-loader-ikimuk.gif" />');
     var valid = true;
@@ -209,7 +217,7 @@ $(function() {
     var dataString = 'address='+$("#address").val()+'&size='+$("#size").val()+
         '&name='+$("#name").val()+'&email='+$("#email").val()+'&ccode='+$("#ccode").val()
         +'&monum='+$("#monum").val()+'&vcode='+$("#vcode").val()+'&design_id='+$("#design_id").val()
-        +'&agreement='+$("#agreement").val();
+        +'&agreement='+$("#agreement").val()+'&newsletter='+newsletetr_val;
     $.ajax({  
     type: "POST",  
     url: "process_preorder.php",  
@@ -234,7 +242,7 @@ $(function() {
                }
            else
                 {
-                preordered();  
+                 preordered();  
                 $("#preorderForm").fadeOut(1000);$(".userInfo").parent().fadeOut(1000);$("#orderComplete").removeClass("hidden");return false; 
               }
   }  
@@ -314,6 +322,7 @@ $(function(){
                     //show the preoder form
                      $("#vcode_g2").removeClass("hidden").addClass("alertr").focus();
                      $('#verify').removeAttr("disabled").html("Resend"); 
+                     $("#vcode").focus();
                      return false;
                      }
                      else 

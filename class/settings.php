@@ -32,7 +32,7 @@ if ($_SERVER["SERVER_PORT"] != "80")
 } 
 else 
 {
-    $this->site_url_vars = $pageURL.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    $this->site_url_vars = $this->pageURL.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
     $this->pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["PHP_SELF"];
 }
 $this->site_url= $this->pageURL; 
