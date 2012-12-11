@@ -45,7 +45,7 @@ ob_implicit_flush(0);
 <title><? echo $pagetitle; ?></title>
 <meta name="title" content="Ikimuk">
 <meta name="description" content="Browse our collection of amazing graphic t-shirt designs.  The best tees on the planet." />
-<meta name="keywords" content="browse, catalog, collection, best, amazing, variety, guys, girls, men&#039;s, women&#039;s, salethreadless, t-shirts, tee shirts, tshirts, clothing, design, art, arab, gulf, lebanon, خليج ,عرب, ملابس , موضة , شباب" />
+<meta name="keywords" content="browse, catalog, collection, best, amazing, variety, guys, girls, men&#039;s, women&#039;s, t-shirts, tee shirts, tshirts, clothing, design, art, arab, gulf, lebanon, خليج ,عرب, ملابس , موضة , شباب" />
 <meta property="og:site_name" content="Ikimuk" />
 <meta property="og:description" content="Cool T-shirt Design">
 <meta property="og:type" content="ikimukapp:design" />
