@@ -59,8 +59,10 @@ error_log($sRet, 3, $this->logfile);
 // Return full debug info if in debug mode.
 if($this->debug) {
             return("<hr>" . $sRet);
+            //header("location: index.php");
         }
-        return("<hr>Requested page has encountered an error, please try again later.");
+        //return("<hr>Requested page has encountered an error, please try again later.");
+        header("location: index.php");
     }
 
     public function SetSettings($strHost, $strUser, $strPass, $strDatabase) {

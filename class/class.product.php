@@ -49,6 +49,8 @@ class product {
 	//Select functions
         public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
+                $this->database->OpenLink();
+                $mID = mysqli_real_escape_string($this->database->link, $mID);
 		$sSQL = "SELECT product . * , image.url FROM product INNER JOIN image ON image.product_id = product.id WHERE product.id =$mID AND image.`primary` =1;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
@@ -112,6 +114,7 @@ class product {
 	}
 	
 	function update($mID) {
+                $mID = mysqli_real_escape_string($this->database->link, $mID);
 		$sSQL = "UPDATE product SET (id = '$this->id') WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
