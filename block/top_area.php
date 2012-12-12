@@ -18,7 +18,7 @@ header('Location: '.$_SERVER['PHP_SELF']);
 <body>
 <div class="log">
 <div class="container">
-    <div class="offset4 span4">Sorry we only deliver in Lebanon for now</div>
+    <div class="offset4 span4">This awesomeness is only in Lebanon for now!</div>
 <?php
 if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 {

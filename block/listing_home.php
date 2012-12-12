@@ -5,7 +5,7 @@
  * 1- Retrieve desings listed in the current active competition 
  * 2- for each design get the pictures (primary and rollover)
  */
-$pagetitle = "Awesome t-shirts designed by you!";
+$pagetitle = "ikimuk together we create!";
 require_once "class/class.product.php";
 require_once "class/class.image.php";
 require_once 'class/settings.php';
@@ -16,13 +16,6 @@ $settings = new settings();
 include "block/header.php";
 include "block/top_area.php";
 unset($_SESSION["size"]);
-/*echo '<div class= "container openingContainer center"><div class="span8">';
-echo '<h2 class="tlblue">YOUR PREORDER MAKES THE T-SHIRTS</h2>';
-echo 'Your design is ready. Now all you have to do is pick a design challenge 
-    to submit to. The Threadless challenge is our big, ongoing, challenge. All 
-    the rest have themes, timelines, and different stuff up for grabs.</div>';
-echo '<div class="triangles"></div>';
-echo '</div><div class="clear"></div>';*/
 echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
 echo '<div class="container center">';
 echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header ikimuk"/></div></div>';

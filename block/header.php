@@ -42,9 +42,9 @@ ob_implicit_flush(0);
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" href="img/favicon.ico">
-<title><? echo $pagetitle; ?></title>
+<title><?php echo $pagetitle; ?></title>
 <meta name="title" content="Ikimuk">
-<meta name="description" content="Browse our collection of amazing graphic t-shirt designs.  The best tees on the planet." />
+<meta name="description" content="Preorder your favorite T-shirt designs from leading artists in the Arab World." />
 <meta name="keywords" content="browse, catalog, collection, best, amazing, variety, guys, girls, men&#039;s, women&#039;s, t-shirts, tee shirts, tshirts, clothing, design, art, arab, gulf, lebanon, خليج ,عرب, ملابس , موضة , شباب" />
 <meta property="og:site_name" content="Ikimuk" />
 <meta property="og:description" content="Cool T-shirt Design">

@@ -14,8 +14,6 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];  if (d.getElementById(id)) {return;}
      js = d.createElement('script'); js.id = id; js.async = true;  js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref); }(document));
-
-//!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 });
 </script>
@@ -52,8 +50,8 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: 'channel.php', sta
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" defer></script>
+<script type="text/javascript" defer>
   var uvOptions = {};
   (function() {
     var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
