@@ -9,7 +9,7 @@ if ($file_size > 200*1024)
 {echo "size_error";return;}
 require_once 'class/settings.php';
 $settings = new settings();
-if (!class_exists('S3'))require_once('S3.php');
+if (!class_exists('S3'))require_once($_SERVER["DOCUMENT_ROOT"].'/inc/S3.php');
 //AWS access info
 if (!defined('awsAccessKey')) define('awsAccessKey', $settings->awsAccessKey);
 if (!defined('awsSecretKey')) define('awsSecretKey', $settings->awsSecretKey);

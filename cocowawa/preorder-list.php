@@ -13,6 +13,7 @@ echo '<p>Unconfirmed in the current competition</p><div id="unconfirmed_incompet
   <tbody>
     <!-- Results table headers -->
     <tr>
+      <th>id</th>  
       <th>User Name</th>
       <th>User Email</th>
       <th>Mobile Number</th>
@@ -20,14 +21,15 @@ echo '<p>Unconfirmed in the current competition</p><div id="unconfirmed_incompet
       <th>product</th>
       <th>Size</th>
       <th>Status</th>
-      <th>Comments</th>
-      <th></th>
+      <th>Date</th>
+      <!--<th></th>-->
     </tr>
     
 <?php 
 while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
 {
     echo '<tr>';
+    echo "<td>$row_preorder->id</td>";
     echo "<td>$row_preorder->name</td>";
     echo "<td>$row_preorder->email</td>";
     echo "<td>$row_preorder->phone</td>";
@@ -35,8 +37,8 @@ while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
     echo '<td><a href="../design.php?product_id='.$row_preorder->product_id.'" class="thumb"><img src="'.$row_preorder->url.'" /></a></td>';
     echo " <td>$row_preorder->size</td>";
     echo " <td>$row_preorder->status</td>";
-    echo " <td>$row_preorder->comments</td>";
-    echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
+    echo "<td> $row_preorder->preorder_date</td>";
+    //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
 }
 echo '</div>';//unconfirmed in competition
