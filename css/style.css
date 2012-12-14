@@ -225,7 +225,7 @@ font-size:21px; max-width: 300px; height:50px;text-align: center;line-height: 50
 .designT{color:#FFC800; font-size: 18px; display:inline-block; line-height: 20px;}
 /*preorder page*/
 .userInfo{color:#4d4d4d; border:2px solid #34C8FF; font-size:14px;margin-top:10px;}
-.preSummary{background-color:#fff; border:2px solid #34C8FF; padding-bottom: 20px;min-height:450px; margin-top:10px;}
+.preSummary{background-color:#fff; border:2px solid #34C8FF; padding-bottom: 20px;min-height:490px; margin-top:10px;}
 .preTitle{background-color: #34C8FF;color:#fff;text-indent:20px; margin: 0px; font-size: 18px;}
 .preSummary img { margin-left: auto; margin-right:auto; padding: 5px;}
 .button_text {background-color: #808080; color:#fff; font-size:18px; 
