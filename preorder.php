@@ -59,26 +59,7 @@ include_once "block/header.php";
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->root.'design.php?product_id='.$design_id.'" />';
-?>
-<script>
-    function preordered()
-  {
-      FB.api(
-        '/me/ikimukapp:preorder',
-        'post',
-        { design: '<?php echo $settings->root.'design.php?product_id='.$design_id; ?>' },
-        function(response) {
-           if (!response || response.error) {
-             console.log("action wasn't posted to facebook"+response.error)
-           } else {
-              console.log('preorder was successful! Action ID: ' + response.id);
-           }
-        });
-  }
-</script>
-<?php 
 include "block/top_area.php";
-//include "block/breadcrumb.php";
 echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="design.php?product_id='.$product->id.'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
 ?>
 <div class="clear"></div>
