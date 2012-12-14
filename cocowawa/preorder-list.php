@@ -7,7 +7,7 @@ include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
 include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
 $preorders_list = new preorder();
 $preorders_list->unconfirmed_incompetition();
-echo '<p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
+echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
 ?>
 <table class="span12 tbl">
   <tbody>
@@ -41,7 +41,7 @@ while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
 }
-echo '</div>';//unconfirmed in competition
+echo '</div></div>';//unconfirmed in competition
 ?>
  </tbody>
 </table>
