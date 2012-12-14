@@ -18,6 +18,7 @@ include "block/top_area.php";
 unset($_SESSION["size"]);
 echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
 echo '<div class="container center">';
+echo '<h1 class= "centert">ONGOING COMPETITION</h1>';
 echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header ikimuk"/></div></div>';
 echo '<div class="container center"><b class="tlblue tlarge">OUR FIRST COMPETITION </b> <b class="tpink tmedium">  (ends on 17/12/2012</b>)<div class="lineb"></div><br>';
 $count = 0;
