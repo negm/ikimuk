@@ -28,6 +28,7 @@ echo '<div class="container"><p>Unconfirmed in the current competition</p><div i
 <?php 
 while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
 {
+    $row_preorder->email = trim($row_preorder->email);
     echo '<tr>';
     echo "<td>$row_preorder->id</td>";
     echo "<td>$row_preorder->name</td>";
