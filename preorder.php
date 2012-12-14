@@ -5,7 +5,6 @@
  * State the different verification cases here
  * 
  */
-
 include 'block/logged_in.php';
 require_once 'class/settings.php';
 require_once 'class/class.product.php';

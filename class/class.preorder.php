@@ -50,6 +50,8 @@ class preorder {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
+            $this->database->OpenLink();
+            $mID = mysqli_real_escape_string($this->database->link,$mID);
 		$sSQL = "SELECT * FROM preorder WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
@@ -58,16 +60,24 @@ class preorder {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
+        public function activePreorders($user_id)
+                {
+                $this->database->OpenLink();
+                $user_id = mysqli_real_escape_string($this->database->link,$user_id);
+                $sSQL="SELECT preorder.*, image.url, product.title as product_title FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id". 
+      " INNER JOIN STATUS ON preorder.status_id = status.id WHERE user_id = $user_id AND image.`small` =1 AND status_id in (1,2)";
+                $this->database->Query($sSQL);
+                } 
 	public function unconfirmed_incompetition() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT u.*,p.*,s.status,im.url  FROM preorder p INNER JOIN status s ON p.status_id = s.id INNER JOIN user u ON p.user_id = u.id INNER JOIN product pr ON p.product_id = pr.id INNER JOIN image im ON pr.id = im.product_id WHERE status_id = 1 AND `primary`=1;";
-		$this->database->query($sSQL);
+		$this->database->Query($sSQL);
 		}
 	        
         public function alreadyPreordered() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM preorder WHERE user_id = $this->user_id AND product_id = $this->product_id;";
-		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->Query($sSQL);
 		if ($this->database->rows > 0 )
                     return true;
                 else return false;
@@ -84,15 +94,27 @@ class preorder {
                 $this->size= mysqli_real_escape_string($this->database->link, $this->size);
                 $this->newsletter= mysqli_real_escape_string($this->database->link, $this->newsletter);
 		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,size,newsletter) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address','$this->size',$this->newsletter)";
-		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->Query($sSQL);
 		$this->id = $this->database->lastinsertid;
                 if ($this->id)
-                $sSQL = "update product set preorders=preorders+1 where id=$this->product_id";
-                $this->database->query($sSQL);
+                {$sSQL = "update product set preorders=preorders+1 where id=$this->product_id";
+                $this->database->Query($sSQL);
                 $sSQL = "update user set validated_mobile ='$this->phone' where id=$this->user_id";
-                $this->database->query($sSQL);
+                $this->database->Query($sSQL);
+                }
+                else {return;}
 	}
-	
+	public function cancel($preorder_id) {
+            $this->database->OpenLink();
+            $preorder_id = mysqli_real_escape_string($this->database->link, $preorder_id);
+            $sSQL = "UPDATE preorder SET status_id = 3 where id = $preorder_id;";
+            $oResult  =$this->database->Query($sSQL);
+            if ($this->database->rows > 0)
+                {$sSQL = "update product set preorders=preorders-1 where id=$this->product_id";
+                $this->database->Query($sSQL);
+                }
+            else {return;}
+            }
 	function update($mID) {
 		$sSQL = "UPDATE preorder SET (id = '$this->id') WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);

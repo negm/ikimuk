@@ -45,9 +45,9 @@ class user {
 		$this->id = $mValue;
 	}
 	
-	public function select($mID) { // SELECT Function
+	public function select() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM user WHERE id = $mID;";
+		$sSQL = "SELECT * FROM user WHERE id = $this->id;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
@@ -87,7 +87,9 @@ class user {
 	}
 	public function getPreorderHistory($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT *, product.title as product_title FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id INNER JOIN STATUS ON preorder.status_id = status.id WHERE user_id =$mID AND image.`primary` =1";
+                $this->database->OpenLink();
+                
+		$sSQL = "SELECT preorder.*, product.title as product_title FROM preorder INNER JOIN product ON preorder.product_id = product.id INNER JOIN image ON image.product_id = product.id INNER JOIN STATUS ON preorder.status_id = status.id WHERE user_id =$mID AND image.`primary` =1";
 		$oResult = $this->database->query($sSQL);
 		//$oResult = $this->database->result;
 		//$oRow = mysqli_fetch_object($oResult);

@@ -218,7 +218,7 @@ $(function() {
         }
     if (!valid){$("#preorderSubmit").html('Preorder');return false;}
     
-    var dataString = 'address='+$("#address").val()+'&size='+$("#size").val()+
+    var dataString = 'action=add&address='+$("#address").val()+'&size='+$("#size").val()+
         '&name='+$("#name").val()+'&email='+$("#email").val()+'&ccode='+$("#ccode").val()
         +'&monum='+$("#monum").val()+'&vcode='+$("#vcode").val()+'&design_id='+$("#design_id").val()
         +'&agreement='+$("#agreement").val()+'&newsletter='+newsletetr_val+'&region='+$('#region').val();

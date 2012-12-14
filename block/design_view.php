@@ -92,7 +92,7 @@ else
      echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
      ?>
-    <div class="">(REMEMBER: You only pay if this T-shirt design gets the most preorders)</div>
+    <div class="">(REMEMBER: Your pre-order is only confirmed if this T-shirt design gets the most preorders)</div>
     <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
     <div class="">
     <a href="#" name="S" id="s" class="sizeIcon">S</a>

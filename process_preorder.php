@@ -11,7 +11,18 @@ require $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.artist.php";
 require $_SERVER["DOCUMENT_ROOT"]."/class/class.message.php";
-require_once('inc/facebook.php' );
+require_once($_SERVER["DOCUMENT_ROOT"]."/inc/facebook.php" );
+if (isset($_POST["action"]))
+{
+    if ($_POST["action"] == 'add')
+        return addPreorder();
+    if ($_POST["action"] == 'cancel')
+        return cancelPreorder();
+    else
+        return 'leave in peace bro :)';
+}
+function addPreorder()
+{
 $settings = new settings();
 $message = new message();
 $product = new product();
@@ -21,51 +32,48 @@ $competition = new competition();
 $param = $_POST;
 $preorder = new preorder();
 $preorder->user_id = $_SESSION["user_id"];
-//if (isset($_SESSION["last_preorder_design_id"]))
-//{$param["design_id"]= $_SESSION["last_preorder_design_id"];}
-//else{echo 'design error'.$_SESSION["last_preorder_design_id"]; return;}
 if (!$param["name"] || strlen(trim($param["name"])) < 5)
-{echo 'name error'; return;}
+{return 'name error'; }
 if (!$param["email"] || strlen(trim($param["email"])) < 9 )
-{echo 'email error'; return;}
+{return 'email error'; }
 if (!isset($_SESSION["validated_mobile"]))
 {
 if (!$param["ccode"] || strlen(trim($param["ccode"])) < 1 )
-{echo 'country coode error'; return;}
+{return 'country coode error'; }
 if (!$param["monum"] || strlen(trim($param["monum"])) < 6 || strlen(trim($param["monum"])) > 8 )
-{echo 'mobile error'; return;}
+{return 'mobile error'; }
 if (!$param["vcode"] || strlen(trim($param["vcode"])) < 4 ||trim($param["vcode"])!= $_SESSION["sms_code"])
-{echo 'verification error'; return;}
+{return 'verification error'; }
 $preorder->phone = $param["ccode"].$param["monum"];
 }
  else {
  $preorder->phone = $_SESSION["validated_mobile"];
  }
 if (!$param["address"] || strlen(trim($param["address"])) < 4 )
-{echo 'address error'; return;}
+{return 'address error'; }
 $preorder->address = $param["address"];
 if (isset($param["size"]))
 {
 if (!$param["size"] || strlen(trim($param["size"])) < 1 )
-{echo 'size error'; return;}
+{return 'size error'; }
 $preorder->size = $param["size"];
 }
 else
-{echo 'size error'; return;}
+{return 'size error'; }
 if (isset($param["agreement"]))
 {
 if (!$param["agreement"] )
-{echo 'agreement error'; return;}
+{return 'agreement error'; }
 }
 else
-{echo 'agreement error'; return;}
+{return 'agreement error'; }
 if (strlen(trim($param["design_id"])) < 1 )
-{echo 'design error'; return;}
+{return 'design error'; }
 $preorder->product_id = $param["design_id"];
 if ($preorder->alreadyPreordered())
-{echo 'already voted'; return;}
+{return 'already voted'; }
 if (!isset($param["region"]))
-{echo 'region error';return;}
+{return 'region error';}
 $preorder->region = $param["region"];
 $preorder->newsletter = $param["newsletter"];
 $preorder->country = 'Lebanon';
@@ -73,13 +81,25 @@ $preorder->insert();
 $_SESSION["validated_mobile"] = $preorder->phone;
 
 $product ->select(($param["design_id"]));
-if($product->id == null) {echo 'design error'; return;}
+if($product->id == null) {return 'design error'; }
 $artist->select($product->artist_id);
 $competition->select($product->competition_id);
 $datestr = date("l jS \of F Y",  strtotime($competition->end_date));
 $subject = 'Your ikimuk preorder confirmation';
 $body ="Cheers, ".$_SESSION["user_name"].". Thank you for preordering! Your participation is what makes ikimuk possible.We’ll let you know if $product->title by $artist->name wins the competition.\n\nSo just to RECAP: The competition finishes on $datestr. You will receive this t-shirt only if it gets the most preorders.\n\nIf you ever need anything, hit us up via email at hello@ikimuk.com, tweet us at @ikimuktweets or call us at (76) 787 606.\n\nLove,\nThe folks at ikimuk\n\nConnect with us,\n https://www.facebook.com/ikimukofficial \n http://www.twitter.com/@ikimukTweets \n http://www.youtube.com/user/ikimukTV";
-$result = $message->send($param["email"], $subject, $body);
+$result = $message->send($_SESSION["user_email"], $subject, $body);
 sleep(5);
-echo 'done';
+postToFB($product->id, $settings->app_id, $settings->app_secret);
+return 'done';
+}
+
+function postToFB($product_id,$api_key,$api_secret)
+{
+$facebook = new Facebook(array(
+'appId'=>$api_key,
+'secret'=>$api_secret
+));
+$params = array('design'=>'http://beta.ikimuk.com/design.php?product_id='.$product_id,'access_token'=>$_SESSION["access_token"]);
+$out = $facebook->api('/me/ikimukapp:preorder','post',$params);
+}
 ?>
