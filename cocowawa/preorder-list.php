@@ -13,7 +13,7 @@ echo '<div class="container"><p>Unconfirmed in the current competition</p><div i
   <tbody class="tbl">
     <!-- Results table headers -->
     <tr>
-      <th>id</th>  
+      <th></th>  
       <th>User Name</th>
       <th>User Email</th>
       <th>Mobile Number</th>
@@ -26,11 +26,12 @@ echo '<div class="container"><p>Unconfirmed in the current competition</p><div i
     </tr>
     
 <?php 
+$count=1;
 while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
 {
     $row_preorder->email = trim($row_preorder->email);
     echo '<tr>';
-    echo "<td>$row_preorder->id</td>";
+    echo "<td>$count</td>";
     echo "<td>$row_preorder->name</td>";
     echo "<td>$row_preorder->email</td>";
     echo "<td>$row_preorder->phone</td>";
@@ -41,6 +42,7 @@ while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
     echo "<td> $row_preorder->preorder_date</td>";
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
+    $count+=1;
  }
 
     
