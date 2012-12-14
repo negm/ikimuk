@@ -10,7 +10,7 @@ $preorders_list->unconfirmed_incompetition();
 echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
 ?>
 <table class="span12 tbl">
-  <tbody>
+  <tbody class="tbl">
     <!-- Results table headers -->
     <tr>
       <th>id</th>  
@@ -40,8 +40,9 @@ while($row_preorder =  mysqli_fetch_object($preorders_list->database->result))
     echo "<td> $row_preorder->preorder_date</td>";
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
-}
-echo '</div></div>';//unconfirmed in competition
+ }
+
+    
+echo '</tbody></table> </div></div>';//unconfirmed in competition
 ?>
- </tbody>
-</table>
+ 
