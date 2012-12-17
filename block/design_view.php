@@ -132,5 +132,6 @@ else
 
 
 }
+unset($_SESSION["size"]);
 ?>
     </div>

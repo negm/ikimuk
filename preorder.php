@@ -150,7 +150,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
         echo '<div class="tnheight">Delivery charge<span class="right">3.00$</span></div>';
         echo '<div class="lineb"></div>';
         echo '<div class="tnheight"><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
-        unset($_SESSION["size"]);
+        
 ?>
 </div>
 </div></div>
