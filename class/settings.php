@@ -69,14 +69,6 @@ else
 $this->root = $_SERVER['HTTP_HOST'].'/';
 $this->prodction = true;
 }
-//$mysqli = new mysqli($database['host'], $database['username'], $database['password'], $database['database']);
-
-/* check connection */
-//if (mysqli_connect_errno()) 
-//{
-  //  log("Connect failed: %s\n", mysqli_connect_error());
-    //redirect("maintanance.html");
-//}
 
 $this->fbPermissions = 'publish_stream,email,publish_actions'; 
 $this->nexmo_key = 'f20b967a';

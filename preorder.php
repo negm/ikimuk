@@ -16,14 +16,14 @@ $settings = new settings();
 $artist = new artist();
 if (!isset($_GET["product_id"]))
 {
- header("Location: index.php");
+ header("Location: /index.php");
 }
 else
 {
 $design_id = $_GET["product_id"];
 if(!isset($_SESSION['size']) )
 {
-header("Location: design.php?product_id=$design_id");
+header("Location: /design/$design_id");
 }
 if(!isset($_SESSION['sms_code']) )
 {$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
@@ -33,7 +33,7 @@ if(!$product->database->result)
    header("Location: index.php"); 
 else
 {
-$pagetitle = $product->title;
+$pagetitle = "ikimuk: ".$product->title;
 $image->product_id = $design_id;
 $_SERVER["last_preorder_design_id"] = $design_id;
 $image->getBasicImage();
@@ -60,7 +60,7 @@ include_once "block/header.php";
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->root.'design.php?product_id='.$design_id.'" />';
 include "block/top_area.php";
-echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="design.php?product_id='.$product->id.'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
+echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="/design/'.$product->id.'/'.$product->title .'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
 ?>
 <div class="clear"></div>
 <div class="container">

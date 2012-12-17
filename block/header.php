@@ -50,19 +50,19 @@ ob_implicit_flush(0);
 <meta property="og:description" content="Cool T-shirt Design">
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
-<link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/default/default.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/light/light.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/light/light.css" type="text/css" media="screen" />
 <!--<link rel="stylesheet" href="../css/bar/bar.css" type="text/css" media="screen" />-->
-<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
-<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/jquery.form.js"></script>
-<script type="text/javascript" src="../js/jquery.nivo.slider.js"></script>
-<script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
-<script type="text/javascript" src="../js/ajaxupload.3.5.js"></script>
-<script type="text/javascript" src="../js/mainjs.js"></script>
+<link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="/js/ajaxupload.3.5.js"></script>
+<script type="text/javascript" src="/js/mainjs.js"></script>
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }
@@ -71,7 +71,7 @@ ob_implicit_flush(0);
 <!--[if gt IE 7]><style>
 .gainlayout { zoom: 1; }
 </style><![endif]-->
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/html5.js"></script>
 <![endif]-->  

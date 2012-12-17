@@ -11,7 +11,7 @@ class message {
     private $settings;
     public function __construct() 
     {
-        $this->database = new Database();
+        $this->database = new database();
         $this->message = new SimpleEmailServiceMessage();
         $this->type= "";
         $this->from= "ikimuk <noreply@ikimuk.com>";

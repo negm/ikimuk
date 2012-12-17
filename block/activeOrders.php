@@ -39,6 +39,6 @@ if ($preorder->database->rows > 0)
 }
 else
 {//show the other view
-   echo '<div><p>You have not made any activity yet</p><a href="index.php">Check our latest designs</a></div>';
+   echo '<div><p>You have not made any activity yet</p><a href="/index.php">Check our latest designs</a></div>';
 }
 ?>

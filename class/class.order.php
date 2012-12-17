@@ -19,7 +19,7 @@ class order {
 	
 	// Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -52,7 +52,7 @@ class order {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO order () VALUES ();";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

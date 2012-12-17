@@ -30,7 +30,7 @@ $image->selectByProduct($mID);
 if ($product->database->result === NULL || $image->database->result === NULL)
 {
   //Something went wrong either redirect or show something
-   header("Location: index.php");
+   header("Location: /index.php");
 }
 else
 {
@@ -77,7 +77,10 @@ else
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class= "span8"><div class="slider-wrapper theme-light">';
-     echo '<div class="wrapper"><div class="ribbon hidden"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
+    if ($daysLeft >=0)
+    echo '<div class="wrapper"><div class="ribbon hidden"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
+    else
+    echo '<div class="wrapper"><div class="ribbon hidden"><span><b><small>Compe-<br>tition Ended</small></b></span></div></div>';
     echo '<div id="slider" class="nivoSlider">';
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {
@@ -91,6 +94,8 @@ else
      echo '<div class="lineb"></div><div class="clear"></div>'; 
      echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
      echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
+      if ($daysLeft >=0)
+      {
      ?>
     <div class="">(REMEMBER: Your pre-order is only confirmed if this T-shirt design gets the most preorders)</div>
     <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
@@ -102,7 +107,9 @@ else
     <a href="#" name="XXL" id="XXL" class="sizeIcon nomargin">XXL</a>
     </div>
     <?php
-     echo '<a href="preorder.php?product_id='.$product->id.'" class="preorderButton"><div class="preorderButton" href="preorder.php?product_id='.$product->id.'">PREORDER NOW</div></a>';
+   
+     echo '<a href="/preorder/'.$product->id.'/'.str_replace(" ","-",trim($product->title)).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
+      }
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->site_url_vars).'"></div>';

@@ -23,7 +23,7 @@ class submissions {
 	
 	// Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -63,7 +63,7 @@ class submissions {
                 $this->newsletter = mysqli_real_escape_string($this->database->link, $this->newsletter);
 		$sSQL = "INSERT INTO submissions (user_id,title,comments,newsletter) VALUES ($this->user_id,'$this->title','$this->comment',$this->newsletter);";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

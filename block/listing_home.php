@@ -16,11 +16,11 @@ $settings = new settings();
 include "block/header.php";
 include "block/top_area.php";
 unset($_SESSION["size"]);
-echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
+echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="/img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
 echo '<div class="container center">';
 echo '<h2 class= "centert ogcomp">ONGOING COMPETITION</h2>';
-echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="img/header_comp_ikimuk.png" alt="competition header ikimuk"/></div></div>';
-echo '<div class="container center"><b class="tlblue tlarge">OUR FIRST COMPETITION </b> <b class="tpink tmedium">  (ends on 17/12/2012</b>)<div class="lineb"></div><br>';
+echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="/img/header_comp_ikimuk.jpg" alt="competition header ikimuk"/></div></div>';
+echo '<div class="container center"><b class="tlblue tlarge">OUR SECOND COMPETITION </b> <b class="tpink tmedium">  (ends on 02/01/2013</b>)<div class="lineb"></div><br>';
 $count = 0;
 while($row= mysqli_fetch_assoc($product->database->result))
 {   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));
@@ -34,7 +34,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
         if ($row_image["small"])
         $primary = $row_image["url"];
     }
-    echo '<div class="span4 wrapper"><a class="home_list" href="design.php?product_id='.$row["id"].'" >
+    echo '<div class="span4 wrapper"><a class="home_list" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" >
             <div class="caption"><b>PREORDER NOW</b></div><img class="" src="'.$primary.'" alt="'.$row["title"].' ikimuk"/></a>';
     //echo '<div class="preorderButton"><a id="'.$row["id"].'" href="preorder.php?product_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
     //echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 

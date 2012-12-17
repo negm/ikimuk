@@ -23,7 +23,7 @@ class competition {
 	
 	// Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -57,7 +57,7 @@ class competition {
 	}
 	public function selectActive() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM competition WHERE end_date > Now() LIMIT 1;";
+		$sSQL = "SELECT * FROM competition WHERE end_date > Now();";
 		$this->database->query($sSQL);
 		
 		
@@ -66,7 +66,7 @@ class competition {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO competition () VALUES ();";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

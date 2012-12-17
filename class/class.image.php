@@ -26,7 +26,7 @@ class image {
 
         // Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
                 $this->primary=0;
                 $this->rollover=0;
                 $this->small =0;
@@ -70,7 +70,7 @@ class image {
                 $this->title = mysqli_real_escape_string($this->database->link, $this->title);
                 $sSQL = "INSERT INTO `image`(`primary`, `rollover`, `small`,`url`, `title`, `desc`, `product_id`) VALUES ($this->primary,$this->rollover,$this->small,'$this->url','$this->title','$this->title',$this->product_id);";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

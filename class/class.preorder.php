@@ -30,7 +30,7 @@ class preorder {
 
         // Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -95,7 +95,7 @@ class preorder {
                 $this->newsletter= mysqli_real_escape_string($this->database->link, $this->newsletter);
 		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,size,newsletter) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address','$this->size',$this->newsletter)";
 		$oResult = $this->database->Query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
                 if ($this->id)
                 {$sSQL = "update product set preorders=preorders+1 where id=$this->product_id";
                 $this->database->Query($sSQL);

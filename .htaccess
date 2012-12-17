@@ -99,10 +99,11 @@ DirectoryIndex index.php index.html index.htm
 
   # Pass all requests not referring directly to files in the filesystem to
   # index.php. Clean URLs are handled in drupal_environment_initialize().
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !=/favicon.ico
-  RewriteRule ^ index.php [L]
+  
+  RewriteRule ^design/([0-9]+)$ design.php?product_id=$1
+  RewriteRule ^design/([0-9]+)/([^.]+)$ design.php?product_id=$1&design_title=$2
+  RewriteRule ^preorder/([0-9]+)$ preorder.php?product_id=$1
+  RewriteRule ^preorder/([0-9]+)/([^.]+)$ preorder.php?product_id=$1&design_title=$2
 
   # Rules to correctly serve gzip compressed CSS and JS files.
   # Requires both mod_rewrite and mod_headers to be enabled.

@@ -27,7 +27,7 @@ class user {
 
         // Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -104,7 +104,7 @@ class user {
                 $this->email = mysqli_real_escape_string($this->database->link, $this->email);
 		$sSQL = "INSERT INTO user (fbid, name, email) VALUES ($this->fbid,'$this->name','$this->email');";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

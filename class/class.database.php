@@ -12,7 +12,7 @@
 * 	Hussein Negm
 */
 require_once ($_SERVER["DOCUMENT_ROOT"]."/class/settings.php"); 
-class Database {
+class database {
 public $host;           // Hostname / Server
 public $password;       // MySQL Password
 public $user;           // MySQL Username
@@ -24,7 +24,7 @@ public $rows;
 public $debug;          // Whether to print debug (testing) info (default 0)
 private $logfile;       // Where to log errors (optional)
 public $persistentconn; // Whether to use persistent connections.
-public $lastinsertid;   // ID of last record inserted, if we ever did.
+public $lastInsertId;   // ID of last record inserted, if we ever did.
 public function __construct() 
 {
 // Method : begin
@@ -39,7 +39,7 @@ $this->rows = 0;
 $this->link = NULL;
 $this->debug = !$setting->prodction; //this should be set to false on production
 $this->persistentconn = FALSE;
-$this->lastinsertid = -1;
+$this->lastInsertId = -1;
 // **********************************************
 }
 public function __destruct() {
@@ -147,7 +147,7 @@ if($this->debug) {
 		}
 
         if(stristr($query, "INSERT") != FALSE) {
-            $this->lastinsertid = mysqli_insert_id($this->link);
+            $this->lastInsertId = mysqli_insert_id($this->link);
         }
 
         // Close the connection after we're done executing query.

@@ -19,7 +19,7 @@ class preorder_profile_history {
 	
 	// Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -52,7 +52,7 @@ class preorder_profile_history {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO preorder_profile_history () VALUES ();";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

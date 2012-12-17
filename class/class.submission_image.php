@@ -21,7 +21,7 @@ class submission_image {
 
         // Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -57,7 +57,7 @@ class submission_image {
                 $this->url = mysqli_real_escape_string($this->database->link, $this->url);
                 $sSQL = "INSERT INTO submission_image (submission_id,url) VALUES ($this->submission_id, '$this->url');";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

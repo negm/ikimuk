@@ -53,7 +53,7 @@ function AjaxResponse()
 var myData = 'connect= 1';
 jQuery.ajax({
 type: "POST",
-url: "process_facebook.php",
+url: "/process_facebook.php",
 dataType:"html",
 data:myData,
 cache: false,
@@ -147,10 +147,10 @@ $(function() {
          {$("#submit_design").html("Submit your design");return valid; }
     // return false to cancel submit    
     var params = 'design_title='+ $('#design_title').val()+'&img_url='+
-        $("#img_g").val()+'&comment='+$("#comment").val()+'&newsletter='+newsletetr_val;
+        $("#img_url").val()+'&comment='+$("#comment").val()+'&newsletter='+newsletetr_val;
     $.ajax({  
     type: "POST",  
-    url: "process-submit.php",  
+    url: "/process-submit.php",  
     data: params,  
     success: function(response) {  
      if (response === 'done')
@@ -224,7 +224,7 @@ $(function() {
         +'&agreement='+$("#agreement").val()+'&newsletter='+newsletetr_val+'&region='+$('#region').val();
     $.ajax({  
     type: "POST",  
-    url: "process_preorder.php",  
+    url: "/process_preorder.php",  
     data: dataString,  
     success: function(response) {
         
@@ -262,12 +262,13 @@ return false;
     //$("#size").val(this.name);
 	jQuery.ajax({
 	type: "POST",
-	url: "process-size.php",
+	url: "/process-size.php",
 	dataType:"html",
 	data:size,
 	cache: false,
 	success:function(response){
         if (response === 'done'){         
+        
 	$(".sizeIcon").removeClass("selected");
         $(sid).addClass("selected");
         return false;}

@@ -28,7 +28,7 @@ class product {
 
         // Class Constructor
 	public function __construct() {
-		$this->database = new Database();
+		$this->database = new database();
 	}
 	
 	// Class Destructor
@@ -110,7 +110,7 @@ class product {
                 
 		$sSQL = "INSERT INTO `product`(`title`, `artist_id`, `competition_id`, `price`, `desc`) VALUES ('$this->title',$this->artist_id,$this->competition_id,$this->price,'$this->desc');";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

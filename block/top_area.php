@@ -30,7 +30,7 @@ if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 }
 else
 {
-	echo '<b>Hi '. $_SESSION['user_name'].'!</b> <a href="../index.php?logout=1">Log Out</a>.';
+	echo '<b>Hi '. $_SESSION['user_name'].'!</b> <a href="/index.php?logout=1">Log Out</a>.';
         
 }
 ?>
@@ -42,12 +42,12 @@ else
 <div class="logoBg">
 <div class="container">
 <div class="row"><br>
-<div class="span4"><a href="../index.php"><img src="../img/logo.png" alt="ikimuk logo"/></a></div>
+<div class="span4"><a href="/index.php"><img src="/img/logo.png" alt="ikimuk logo"/></a></div>
 <?php
 if (stristr($settings->site_url,"submit"))
-echo '<div class="menu "><ul><li class="span4"><br><br><a class="twhite menuhover" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="tyellow menuhover" href="../submit-intro.php">Submit your Design</a></li></ul></div>';
+echo '<div class="menu "><ul><li class="span4"><br><br><a class="twhite menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="tyellow menuhover" href="/submit-intro.php">Submit your Design</a></li></ul></div>';
 else
-    echo '<div class="menu "><ul><li class="span4"><br><br><a class="tyellow menuhover" href="../index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="twhite menuhover" href="../submit-intro.php">Submit your Design</a></li></ul></div>';
+    echo '<div class="menu "><ul><li class="span4"><br><br><a class="tyellow menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span4"><br><br><a class="twhite menuhover" href="/submit-intro.php">Submit your Design</a></li></ul></div>';
 
     ?>
 </div>
