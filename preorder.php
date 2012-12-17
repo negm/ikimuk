@@ -135,7 +135,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
 <div class="preSummary">
 <h1 class="preTitle">Order Summary</h1>
 <div class="span4 pleft">
-  <?php echo '<br><div class="span3 thumb-big center"><a class="" href="design.php?product_id='.$design_id.
+  <?php echo '<br><div class="span3 thumb-big center"><a class="" href="design/'.$design_id."/$product->title".
           '" ><img class="" src="'.$primary.'"  alt="'.$product->title.' ikimuk"/></a></div>';?></div>
 <div class="span3 artistInfo pleft">
     <?php
