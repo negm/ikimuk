@@ -80,7 +80,13 @@ class product {
 		$this->database->query($sSQL);
 		
 	}
-	public function GetNextInCompetitionID() { // SELECT Function
+	public function PastCompetitionDesigns() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT pr.*,artist.name, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id WHERE competition.end_date < NOW() ;";
+		$this->database->query($sSQL);
+		
+	}
+        public function GetNextInCompetitionID() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT id FROM `product` WHERE competition_id = $this->competition_id AND id=$this->id+1";
 		$oResult = $this->database->query($sSQL);

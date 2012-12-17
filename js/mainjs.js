@@ -92,7 +92,7 @@ function CallAfterLogin(){
 function LoadingAnimate() //Show loading Image
 {
     $("#LoginButton").hide(); //hide login button once user authorize the application
-    $("#results").html('<img src="img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
+    $("#results").html('<img src="/img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
 }
  
 function ResetAnimate() //Reset User button
@@ -136,7 +136,7 @@ $(function() {
     else
         newsletetr_val = 0;
     e.preventDefault();
-    $("#submit_design").html('<img src="img/ajax-loader-ikimuk.gif" />');
+    $("#submit_design").html('<img src="/img/ajax-loader-ikimuk.gif" />');
     var valid = true;
     $("*").removeClass("alertr");
     if($('#design_title').val().length <1){           
@@ -198,7 +198,7 @@ $(function() {
     else
         newsletetr_val = 0;
     e.preventDefault();
-    $("#preorderSubmit").html('<img src="img/ajax-loader-ikimuk.gif" />');
+    $("#preorderSubmit").html('<img src="/img/ajax-loader-ikimuk.gif" />');
     var valid = true;
     $(".alertr").addClass("hidden");
     if ($("#region").val() === "")
@@ -292,7 +292,7 @@ $(function(){
     $("#verify").click(function(e) 
     {   e.preventDefault();
         $('#verify').attr("disabled","disabled");
-        $("#verify").html('<img src="img/ajax-loader-ikimuk.gif" />');
+        $("#verify").html('<img src="/img/ajax-loader-ikimuk.gif" />');
         var valid = true;
     $(".alertr").addClass("hidden");
     $("*").removeClass("alertr");
@@ -317,7 +317,7 @@ $(function(){
                var dataString = 'number='+$("#ccode").val().trim()+monum;
                 $.ajax({
                 type: "POST",
-                url: "sms.php",
+                url: "/sms.php",
                 data: dataString,
                 success: function(response)
                  { 
