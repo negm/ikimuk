@@ -53,7 +53,7 @@ else
     $(window).load(function() {
         $('#slider').nivoSlider({
         effect: 'slideInLeft', // Specify sets like: 'fold,fade,sliceDown'
-        animSpeed: 150, // Slide transition speed
+        animSpeed: 350, // Slide transition speed
         pauseTime: 4000, // How long each slide will show
         startSlide: 0, // Set starting Slide (0 index)
         directionNav: true, // Next & Prev navigation

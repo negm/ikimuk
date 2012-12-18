@@ -45,5 +45,5 @@ while($row= mysqli_fetch_assoc($product->database->result))
         echo '</div><br>';
  }  
  echo '</div></div></div><br>';
- include '/block/footer.php';
+ include 'block/footer.php';
  ?>
