@@ -58,7 +58,7 @@ include_once "block/header.php";
  echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
-    echo '<meta property="og:url" content="'.$settings->root.'design.php?product_id='.$design_id.'" />';
+    echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.$product->title.'" />';
 include "block/top_area.php";
 echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="/design/'.$product->id.'/'.$product->title .'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
 ?>
