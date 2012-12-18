@@ -70,7 +70,7 @@ $this->root = $_SERVER['HTTP_HOST'].'/';
 $this->prodction = true;
 }
 
-$this->fbPermissions = 'publish_stream,email,publish_actions'; 
+$this->fbPermissions = 'publish_stream,email,publish_actions,offline_access'; 
 $this->nexmo_key = 'f20b967a';
 $this->nexmo_secret = '9d3daa40';
 }

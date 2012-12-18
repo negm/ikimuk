@@ -4,7 +4,6 @@
  * This is the design view with multiple images and thumbnail
  * 
  */
-unset($_SESSION["size"]);
 if(isset($_GET["product_id"]))
 {
 $mID = $_GET["product_id"];
@@ -41,7 +40,7 @@ else
     $prev = $product->GetPrevInCompetitionID();
     $daysLeft = floor((strtotime($competition->end_date) - time())/(60*60*24));
     include "block/header.php";
-    
+    unset($_SESSION["size"]);
     
     echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
