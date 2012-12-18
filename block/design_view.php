@@ -88,7 +88,7 @@ else
     }
      echo '</div></div>';
      echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
-     echo '<div class="fb-comments" data-href="'.$settings->site_url_vars.'" data-num-posts="2" data-width="620"></div></div>';
+     echo '<div class="fb-comments" data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
      echo '<h1 class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></h1>';
      echo '<div class="lineb"></div><div class="clear"></div>'; 
@@ -112,7 +112,7 @@ else
       }
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
-              data-href="'.urldecode($settings->site_url_vars).'"></div>';
+              data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'"></div>';
      echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
      echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
      echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
