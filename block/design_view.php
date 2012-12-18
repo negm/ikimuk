@@ -4,6 +4,7 @@
  * This is the design view with multiple images and thumbnail
  * 
  */
+unset($_SESSION["size"]);
 if(isset($_GET["product_id"]))
 {
 $mID = $_GET["product_id"];
@@ -132,6 +133,6 @@ else
 
 
 }
-unset($_SESSION["size"]);
+
 ?>
     </div>
