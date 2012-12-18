@@ -227,7 +227,6 @@ $(function() {
     url: "/process_preorder.php",  
     data: dataString,  
     success: function(response) {
-        alert(response);
      if (response === "agreement error")
             {
                 
