@@ -227,9 +227,10 @@ $(function() {
     url: "/process_preorder.php",  
     data: dataString,  
     success: function(response) {
-        
+        alert(response);
      if (response === "agreement error")
             {
+                
                 $("#agreement_g").removeClass("hidden").addClass("alertr").focus();return false;
             }
           if (response === "mobile error")
