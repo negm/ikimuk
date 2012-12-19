@@ -25,6 +25,7 @@ echo '<div class="container"><p>Unconfirmed in the current competition</p><div i
       <th>Design Title</th>
       <th>Inspiration</th>
       <th>Image</th>
+      <th>Date</th>
       <!--<th></th>-->
     </tr>
     <?php 
@@ -40,6 +41,7 @@ while($row_preorder =  mysqli_fetch_object($submissions_list->database->result))
     echo "<td>$row_preorder->title</td>";
     echo "<td>$row_preorder->comments</td>";
     echo '<td class="thumb"><img src="'.$row_preorder->url.'" /></td>';
+    echo "<td>$row_preorder->date_added</td>";
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
     $count+=1;
