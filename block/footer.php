@@ -12,7 +12,7 @@
             <a href="mailto:hello@ikimuk.com" target="_blank" class="contact_footer span1"></a>
         </div>
         <div class="span4 clear"></div>
-        <!--<div class="offset3">For more information see our <a id="tandcModal">Terms & Conditions</a></div>-->
+        <div class="offset3">For more information see our <a id="tandcModal">Terms & Conditions</a></div>
         <br><div class="text_footer centert">Crafted with &#x2764; for you</div>
         <div class="centert">&copy; 2012 ikimuk.com</div>
         </div>
@@ -24,11 +24,11 @@
 <div id="termsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <center><h3 id="myModalLabel">Terms and Condition</h3></center>
+    <center><h3 id="myModalLabel">General Website Terms and Conditions</h3></center>
     
   </div>
   <div class="modal-body">
-  Terms and shit :D
+  <?php include "/block/GeneralTerms";?>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

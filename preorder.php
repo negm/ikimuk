@@ -182,39 +182,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
-      <p>By clicking on the preorder button, you expressly and irrevocably accept the following terms and
-conditions, and hereby undertake and agree on the following:</p>
-
-<p>1. You are fully aware that by preordering a design, two possibilities may arise:
-a) If by the time the competition ends, the design you preordered has not won, the preorder will
-be cancelled;</p>
-<p>b) If by the time the competition ends, the design you preordered won, the preorder is
-confirmed and you are deemed having irrevocably bought the product. In such case, no
-cancellation of the preorder shall be made possible.</p>
-
-<p>2. Upon the end of the competition, a notification shall be sent to all those who preordered the selected
-design, and a confirmation of the address to which the product will be delivered shall be requested.</p>
-
-<p>3. Unless Force Majeure occurs, the delivery time will not exceed a period of three weeks following the
-end of the competition.
-Ikimuk.com shall not be liable for any delay or loss imputable to the carrier.</p>
-
-<p>4. Payment for the product shall take place on, and only on delivery.
-The payment can only be made by cash, and should be handed over to whoever is delivering the
-product.</p>
-
-<p>5. Once the results are definitive and the design selected, said design will be available in the online shop,
-and those who wish to obtain the product may order it therefrom.
-In such case, delivery time will not exceed, unless Force Majeure occurs, three weeks following the
-order taking place.</p>
-
-<p>6. Any conflict arising from this agreement shall be governed by and construed in accordance with
-Lebanese law and shall be subject to the exclusive jurisdiction of the competent court in Lebanon.</p>
-
-<p>By preordering or ordering a product from ikimuk.com, you acknowledge that you have read and fully
-understood these Terms and Conditions, and that you agree to be bound by them, and you wish to
-preorder and order your product from this website in accordance with them.</p>
-</br></br></br></br>
+      <?php include '/block/PreorderTerms';?>
 </div>
   </div>
   <div class="modal-footer">
