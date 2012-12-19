@@ -108,7 +108,7 @@ include "block/breadcrumb.php";
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Terms & Conditions</h3>
+    <h3 id="myModalLabel">TERMS AND CONDITIONS FOR SUBMISSION OF DESIGNS</h3>
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
