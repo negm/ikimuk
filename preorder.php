@@ -182,7 +182,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
-      <?php include '/block/PreorderTerms';?>
+      <?php include  $_SERVER["DOCUMENT_ROOT"].'/block/PreorderTerms';?>
 </div>
   </div>
   <div class="modal-footer">

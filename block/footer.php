@@ -28,7 +28,7 @@
     
   </div>
   <div class="modal-body">
-  <?php include "/block/GeneralTerms";?>
+  <?php include  $_SERVER["DOCUMENT_ROOT"]."/block/GeneralTerms";?>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
