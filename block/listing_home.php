@@ -20,7 +20,7 @@ echo '<div class="container compHeader center"><div class="row"><br><img  class=
 echo '<div class="container center">';
 echo '<h2 class= "centert ogcomp">ONGOING COMPETITION</h2>';
 echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="/img/header_comp_ikimuk.jpg" alt="competition header ikimuk"/></div></div>';
-echo '<div class="container center"><b class="tlblue tlarge">OUR SECOND COMPETITION </b> <b class="tpink tmedium">  (ends on 02/01/2013</b>)<div class="lineb"></div><br>';
+echo '<div class="container center"><b class="tlblue tlarge">OUR SECOND COMPETITION </b> <b class="tpink tmedium">  (ends on 07/01/2013</b>)<div class="lineb"></div><br>';
 $count = 0;
 while($row= mysqli_fetch_assoc($product->database->result))
 {   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));
