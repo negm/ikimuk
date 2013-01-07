@@ -18,7 +18,7 @@ include_once '../block/header.php';
 var btnUpload=$('#upload_img');
 var status=$('#status');
 new AjaxUpload(btnUpload, {
-action: 'process-upload.php',
+action: 'process_upload.php',
 name: 'uploadfile',
 onSubmit: function(file, ext){
 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 

@@ -38,18 +38,55 @@ DirectoryIndex index.php index.html index.htm
 <IfModule mod_expires.c>
   # Enable expirations.
   ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType image/x-icon "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+  ExpiresByType text/css "access plus 604800 seconds"
+  ExpiresByType text/javascript "access plus 216000 seconds"
+  ExpiresByType application/x-javascript "access plus 216000 seconds"
+  ExpiresByType text/html "access plus 600 seconds"
+  ExpiresByType application/xhtml+xml "access plus 600 seconds"
+</IfModule>
+# Rules to correctly serve gzip compressed CSS and JS files.
+  # Requires both mod_rewrite and mod_headers to be enabled.
+  <IfModule mod_headers.c>
+    # Serve gzip compressed CSS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.css $1\.css\.gz [QSA]
 
-  # Cache all files for 2 weeks after access (A).
-  ExpiresDefault A1209600
+    # Serve gzip compressed JS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
 
-  <FilesMatch \.php$>
-    # Do not allow PHP scripts to be cached unless they explicitly send cache
-    # headers themselves. Otherwise all scripts would have to overwrite the
-    # headers set by mod_expires if they want another caching behavior. This may
-    # fail if an error occurs early in the bootstrap process, and it may cause
-    # problems if a non-Drupal PHP file is installed in a subdirectory.
-    ExpiresActive Off
-  </FilesMatch>
+    # Serve correct content types, and prevent mod_deflate double gzip.
+    RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
+    RewriteRule \.js\.gz$ - [T=text/javascript,E=no-gzip:1]
+
+    <FilesMatch "(\.js\.gz|\.css\.gz)$">
+      # Serve correct encoding type.
+      Header set Content-Encoding gzip
+      # Force proxies to cache gzipped & non-gzipped css/js files separately.
+      Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\\.(ico|jpe?g|png|gif|swf)$">
+    Header set Cache-Control "max-age=2692000, public"
+    </FilesMatch>
+    <FilesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=2692000, public"
+    </FilesMatch>
+    <FilesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=216000, private"
+    </FilesMatch>
+    <FilesMatch "\\.(x?html?|php)$">
+    Header set Cache-Control "max-age=600, private, must-revalidate"
+    </FilesMatch>
+    Header unset ETag
+    Header unset Last-Modified
 </IfModule>
 
 # Various rewrite rules.
@@ -104,29 +141,4 @@ DirectoryIndex index.php index.html index.htm
   RewriteRule ^design/([0-9]+)/([^.]+)$ design.php?product_id=$1&design_title=$2
   RewriteRule ^preorder/([0-9]+)$ preorder.php?product_id=$1
   RewriteRule ^preorder/([0-9]+)/([^.]+)$ preorder.php?product_id=$1&design_title=$2
-
-  # Rules to correctly serve gzip compressed CSS and JS files.
-  # Requires both mod_rewrite and mod_headers to be enabled.
-  <IfModule mod_headers.c>
-    # Serve gzip compressed CSS files if they exist and the client accepts gzip.
-    RewriteCond %{HTTP:Accept-encoding} gzip
-    RewriteCond %{REQUEST_FILENAME}\.gz -s
-    RewriteRule ^(.*)\.css $1\.css\.gz [QSA]
-
-    # Serve gzip compressed JS files if they exist and the client accepts gzip.
-    RewriteCond %{HTTP:Accept-encoding} gzip
-    RewriteCond %{REQUEST_FILENAME}\.gz -s
-    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
-
-    # Serve correct content types, and prevent mod_deflate double gzip.
-    RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
-    RewriteRule \.js\.gz$ - [T=text/javascript,E=no-gzip:1]
-
-    <FilesMatch "(\.js\.gz|\.css\.gz)$">
-      # Serve correct encoding type.
-      Header set Content-Encoding gzip
-      # Force proxies to cache gzipped & non-gzipped css/js files separately.
-      Header append Vary Accept-Encoding
-    </FilesMatch>
-  </IfModule>
 </IfModule>

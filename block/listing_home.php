@@ -34,13 +34,10 @@ while($row= mysqli_fetch_assoc($product->database->result))
         if ($row_image["small"])
         $primary = $row_image["url"];
     }
-    echo '<div class="span4 wrapper"><a class="home_list" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" >
-            <div class="caption"><b>PREORDER NOW</b></div><img class="" src="'.$primary.'" alt="'.$row["title"].' ikimuk"/></a>';
-    //echo '<div class="preorderButton"><a id="'.$row["id"].'" href="preorder.php?product_id='.$row["id"].'" class="preorderButton"> Preorder </a></div>';
-    //echo '<center><div class="fb-like" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false" 
-    //          data-href="http://'.$settings->root.'/design.php?design_id='.$row['id'].'"></div></center>';
-    echo '<div class="span4 countBox">Preorders ('.$row["preorders"].')</div>';
-    echo '<a class="" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" ><div class="span4 designTitle">'.$row["title"].'<br><b class ="tblack tnormal"> by </b><b class="tlblue tnormal">'.$row["name"].'</b></div></a>';
+    echo '<div class="span4 wrapper" itemscope itemtype="http://schema.org/CreativeWork" ><a itemprop="url" class="home_list" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" >
+            <div class="caption"><b>PREORDER NOW</b></div><img itemprop="image" class="" src="'.$primary.'" alt="'.$row["title"].' ikimuk"/></a>';
+    echo '<div itemprop="contentRating" class="span4 countBox">Preorders ('.$row["preorders"].')</div>';
+    echo '<a class="" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" ><div class="span4 designTitle" itemprop="name">'.$row["title"].'<br><b class ="tblack tnormal"> by </b><b itemprop="author" class="tlblue tnormal">'.$row["name"].'</b></div></a>';
     echo '</div>';
     if($count % 3 == 0)
         echo '</div><br>';

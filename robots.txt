@@ -30,7 +30,7 @@ Disallow: /process_facebook.php
 Disallow: /process_preorder.php
 Disallow: /process-size.php
 Disallow: /process-submit.php
-Disallow: /process-upload.php
+Disallow: /process_upload.php
 
 # Paths (clean URLs)
 

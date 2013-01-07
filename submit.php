@@ -8,7 +8,7 @@ $(function(){
 var btnUploadSubmit=$('#upload');
 var status=$('#status');
 new AjaxUpload(btnUploadSubmit, {
-action: 'process-upload.php',
+action: 'process_upload.php',
 name: 'uploadfileSubmit',
 onSubmit: function(file, ext){
 $("#img_size_g").removeClass("alertr").addClass("hidden");

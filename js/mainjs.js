@@ -53,7 +53,7 @@ function AjaxResponse()
 var myData = 'connect= 1';
 jQuery.ajax({
 type: "POST",
-url: "/process_facebook.php",
+url: "/process_user.php",
 dataType:"html",
 data:myData,
 cache: false,
