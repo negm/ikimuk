@@ -34,7 +34,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
         if ($row_image["small"])
         $primary = $row_image["url"];
     }
-    echo '<div class="span4 wrapper" itemscope itemtype="http://schema.org/CreativeWork" ><a itemprop="url" class="home_list" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" >
+    echo '<div class="span4 wrapper" itemscope itemtype="http://schema.org/CreativeWork" ><a itemprop="url" class="home_list" href="/design/'.$row["id"].'/'.str_replace(".","",str_replace(" ","-",trim($row["title"]))).'" >
             <div class="caption"><b>PREORDER NOW</b></div><img itemprop="image" class="" src="'.$primary.'" alt="'.$row["title"].' ikimuk"/></a>';
     echo '<div itemprop="contentRating" class="span4 countBox">Preorders ('.$row["preorders"].')</div>';
     echo '<a class="" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" ><div class="span4 designTitle" itemprop="name">'.$row["title"].'<br><b class ="tblack tnormal"> by </b><b itemprop="author" class="tlblue tnormal">'.$row["name"].'</b></div></a>';
