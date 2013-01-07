@@ -108,7 +108,7 @@ else
     </div>
     <?php
    
-     echo '<a href="/preorder/'.$product->id.'/'.str_replace(" ","-",trim($product->title)).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
+     echo '<a href="/preorder/'.$product->id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title))).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
       }
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
