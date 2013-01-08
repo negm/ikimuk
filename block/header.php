@@ -65,11 +65,11 @@ ob_implicit_flush(0);
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/js/jquery.nivo.slider.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
-<script type="text/javascript" src="/js/ajaxupload.3.5.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }

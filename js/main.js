@@ -255,6 +255,8 @@ return false;
      
   });  
 });  
+
+$(document).ready(function() {
  $(function(){
     $(".sizeIcon").click(function(e) {
         e.preventDefault();
@@ -282,6 +284,8 @@ error:function (xhr, ajaxOptions, thrownError){
     }
  });
    }  );})
+   
+ });
 
 $(function(){
     $(".preorderButton").click(function() {
