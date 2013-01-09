@@ -76,7 +76,7 @@ class product {
 	}
 	public function CurrentCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT pr.*,artist.name, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id WHERE competition.end_date > NOW() order by `order`;";
+		$sSQL = "SELECT pr.*,artist.name, image.url, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id INNER JOIN image ON image.product_id = pr.id WHERE competition.end_date > NOW() AND competition.start_date < NOW() AND image.small = 1 order by `order`;";
 		$this->database->query($sSQL);
 		
 	}
@@ -107,6 +107,19 @@ class product {
                 return $oRow->id;
                 }
                 else {return null;}
+	}
+         public function selectByCompetition($competitionID) { // SELECT Function
+		// Execute SQL Query to get record.
+                $this->database->OpenLink();
+                $competitionID = mysqli_real_escape_string($this->database->link, $competitionID);
+		$sSQL = "SELECT pr.*,artist.name, image.url, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id INNER JOIN image ON image.product_id = pr.id WHERE competition.id = $competitionID AND image.small = 1 order by `order`;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+                if ($this->database->rows <1)
+		{
+                $this->database->result = Null;
+                $this->id = null;
+                }
 	}
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert

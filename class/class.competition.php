@@ -17,6 +17,7 @@ class competition {
 	public $id; // Primary Key
 	public $title;
         public $desc;
+        public $competition_header;
         public $end_date;
         public $start_date;
         public $database;
@@ -52,6 +53,7 @@ class competition {
 		$this->id = $oRow->id; // Primary Key
                 $this->title = $oRow->title;
                 $this->desc = $oRow->desc;
+                $this->competition_header = $oRow->competition_header;
                 $this->end_date = $oRow->end_date;
                 $this->start_date = $oRow->start_date;
 	}
@@ -59,9 +61,14 @@ class competition {
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM competition WHERE end_date > Now();";
 		$this->database->query($sSQL);
-		
-		
+                
 	}
+        
+       public function getCompletedCompetitions()
+       {
+           $sSQL = "SELECT * FROM competition WHERE end_date < Now();";
+           $this->database->query($sSQL);
+       }
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
 		$sSQL = "INSERT INTO competition () VALUES ();";
