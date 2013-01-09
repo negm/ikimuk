@@ -19,7 +19,7 @@ $settings = new settings();
 include "block/header.php";
 include "block/top_area.php";
 unset($_SESSION["size"]);
-echo '<div class="container center">';
+echo '<br><br><div class="container center">';
 $count = 0;
 while($row_competition= mysqli_fetch_object($competition->database->result))
 {

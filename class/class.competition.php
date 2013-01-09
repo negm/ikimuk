@@ -66,7 +66,7 @@ class competition {
         
        public function getCompletedCompetitions()
        {
-           $sSQL = "SELECT * FROM competition WHERE end_date < Now();";
+           $sSQL = "SELECT * FROM competition WHERE end_date < Now() order by end_date desc;";
            $this->database->query($sSQL);
        }
 	public function insert() {
