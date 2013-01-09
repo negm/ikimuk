@@ -48,7 +48,7 @@ ob_implicit_flush(0);
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
-<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="shortcut icon" href="/img/favicon.ico">
 <title><?php echo $pagetitle; ?></title>
 <meta name="title" content="Ikimuk">
 <meta name="description" content="Preorder your favorite T-shirt designs from leading artists in the Arab World." />
