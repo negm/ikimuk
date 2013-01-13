@@ -60,7 +60,7 @@ include "block/breadcrumb.php";
 <h3 class="tlarge tnheight">ADD IMAGES</h3>
 <div class="line"></div>
 <p>Choose the file(s) to display your design. Submit a JPG version for your design
-    (RGB mode not CMYK), 620 px wide x 500 px tall. Maximum file size 250 KB.</p>
+    (RGB mode not CMYK), 300 px wide x 450 px tall. Maximum file size 250 KB.</p>
 <ul id="files" class ="thumb"></ul>
 <p class="hidden" id="img_g">You forgot to upload your design</p>
 <p class="hidden" id="img_size_g">The file is larger than 250k</p>
