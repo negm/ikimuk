@@ -4,189 +4,356 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
   <loc>http://beta.ikimuk.com/</loc>
   <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/index.php</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/submit-intro.php</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/competitions.php</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/32/Chu-Zombie-Ana-?</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/33/Love-Me</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/35/Heart-Felt</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/23/Munchy-Brains</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/24/Zombee</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/25/Zombie-Thrills</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/26/Zombie-Within</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/27/Rise</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/28/Fear-and-Loathing-in-Beirut</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/29/Zombie-Love</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/30/Pond</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/31/Undead-Fun</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/16/Fata-El-Jahim</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=16</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/17/Chabl'n</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=17</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/18/Ghowwar-and-Abu-Antar-Zombie-Slayers</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/22/Lackadaisical</loc>
+  <loc>http://beta.ikimuk.com/design.php?product_id=18</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/19/The-Denial-Twist</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=19</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/22/Lackadaisical</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=22</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/21/Retired-Captain-Majed</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=21</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/20/Amy's-Line</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design.php?product_id=20</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/9/Lunch</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=9</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/11/HypnoCat</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=11</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/12/Apocalypticass</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=12</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/13/Blue</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=13</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/14/Drole-de-Mine</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=14</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/15/Soldier-Blues</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=15</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/1/The-Unpopular-Tomato</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=1</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/2/I'm-a-Fruit-Damn-it-!</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=2</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/3/Tomato-Mashed-Potato</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=3</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/4/Emo-Onion</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=4</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/5/Bad-News-of-The-Day</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=5</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/6/VEDGZILLA</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=6</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/7/Peace-Children-of-Earth</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=7</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design/8/You-Ain't-Got-Fruit-On-Me</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://beta.ikimuk.com/design.php?product_id=8</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/16</loc>
+  <loc>http://beta.ikimuk.com/design/32</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/17</loc>
+  <loc>http://beta.ikimuk.com/design/33</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/18</loc>
+  <loc>http://beta.ikimuk.com/design/35</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/22</loc>
+  <loc>http://beta.ikimuk.com/design/23</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/19</loc>
+  <loc>http://beta.ikimuk.com/design/24</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/21</loc>
+  <loc>http://beta.ikimuk.com/design/25</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://beta.ikimuk.com/design/20</loc>
+  <loc>http://beta.ikimuk.com/design/26</loc>
   <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/27</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/28</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/29</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/30</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beta.ikimuk.com/design/31</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 </urlset>
