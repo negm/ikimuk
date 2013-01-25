@@ -5,11 +5,11 @@
  * and open the template in the editor.
  */
 $pagetitle = "Submissions";
-include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submissions.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.user.php';
-include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
-include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
+include "/block/logged_in_admin.php";
+require_once '/class/class.submissions.php';
+require_once '/class/class.user.php';
+include '/block/header.php';
+include '/block/top_area.php';
 $submissions_list = new submissions();
 $submissions_list->selectAllSubmissions();
 echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';

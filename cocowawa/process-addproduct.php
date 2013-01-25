@@ -1,7 +1,7 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
+include "/block/logged_in_admin.php";
+require_once '/class/class.product.php';
+require_once '/class/class.image.php';
 $product = new product();
 //print_r($_POST);
 //return;

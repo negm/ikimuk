@@ -1,13 +1,13 @@
 <?php
 //include the S3 class
-require_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in_admin.php';
+require_once '/block/logged_in_admin.php';
 if (!isset($_FILES['uploadfile']['name']) || !isset($_FILES['uploadfile']['tmp_name']))
 {
  header("Location: index.php");
 }
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
+require_once '/class/settings.php';
 $settings = new settings();
-if (!class_exists('S3'))require_once($_SERVER["DOCUMENT_ROOT"].'/inc/S3.php');
+if (!class_exists('S3'))require_once('/inc/S3.php');
 //AWS access info
 if (!defined('awsAccessKey')) define('awsAccessKey', $settings->awsAccessKey);
 if (!defined('awsSecretKey')) define('awsSecretKey', $settings->awsSecretKey);

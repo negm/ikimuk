@@ -90,6 +90,7 @@ else
      echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
      echo '<div class="fb-comments" data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
+     //echo '';
      echo '<h1 class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></h1>';
      echo '<div class="lineb"></div><div class="clear"></div>'; 
      echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
@@ -100,15 +101,20 @@ else
     <div class="">(REMEMBER: Your pre-order is only confirmed if this T-shirt design gets the most preorders)</div>
     <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
     <div class="">
-    <a href="#" name="S" id="s" class="sizeIcon">S</a>
-    <a href="#" name="M" id="M" class="sizeIcon">M</a>
-    <a href="#" name="L" id="L" class="sizeIcon">L</a>
-    <a href="#" name="XL" id="XL" class="sizeIcon">XL</a>
-    <a href="#" name="XXL" id="XXL" class="sizeIcon nomargin">XXL</a>
+    <label>Men</label>
+    <a href="#" name="M_S" id="M_S" class="sizeIcon">S</a>
+    <a href="#" name="M_M" id="M_M" class="sizeIcon">M</a>
+    <a href="#" name="M_L" id="M_L" class="sizeIcon">L</a>
+    <a href="#" name="M_XL" id="M_XL" class="sizeIcon">XL</a>
+    <a href="#" name="M_XXL" id="M_XXL" class="sizeIcon nomargin">XXL</a>
+    <label class="tmedium">Women</label>
+    <a href="#" name="W_S" id="W_S" class="sizeIcon">S</a>
+    <a href="#" name="W_M" id="W_M" class="sizeIcon">M</a>
+    <a href="#" name="W_L" id="W_L" class="sizeIcon">L</a>
+    <a href="#" name="W_XL" id="W_XL" class="sizeIcon">XL</a>
     </div>
     <?php
-   
-     echo '<a href="/preorder/'.$product->id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title))).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
+   echo '<a href="/preorder/'.$product->id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title))).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
       }
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 

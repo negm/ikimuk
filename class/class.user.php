@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
+require_once("/class/class.database.php");
 
 // Begin Class "user"
 class user {
@@ -19,6 +19,7 @@ class user {
 	public $fbid;
         public $name;
         public $email;
+        public $password;
         public $validated_mobile;
         public $role_id;
         public $image;
@@ -47,7 +48,7 @@ class user {
 	
 	public function select() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM user WHERE id = $this->id;";
+            	$sSQL = "SELECT * FROM user WHERE id = $this->id;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
@@ -97,7 +98,7 @@ class user {
 		// Assign results to class.
 		//$this->id = $oRow->id; // Primary Key
 	}
-	public function insert() {
+	public function insert_fb() {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();
                 $this->fbid = mysqli_real_escape_string($this->database->link, $this->fbid);
@@ -105,9 +106,58 @@ class user {
 		$sSQL = "INSERT INTO user (fbid, name, email) VALUES ($this->fbid,'$this->name','$this->email');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;
+                $this->validated_mobile = "";
+                $this->role_id = 2;
 	}
-	
-	function update($mID) {
+	public function insert() {
+		$this->id = NULL; // Remove primary key value for insert
+                $this->database->OpenLink();
+                $this->password = mysqli_real_escape_string($this->database->link, $this->password);
+                $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+                $this->name = mysqli_real_escape_string($this->database->link, $this->name);
+		$sSQL = "INSERT INTO user (name, email,password) VALUES ('$this->name','$this->email','$this->password');";
+		$oResult = $this->database->query($sSQL);
+		$this->id = $this->database->lastInsertId;
+                $this->validated_mobile = "";
+                $this->role_id = 2;
+	}
+        public function login()
+        {
+            $this->database->OpenLink();
+            $this->password = mysqli_real_escape_string($this->database->link, $this->password);
+            $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+            $sSQL = "select * FROM user WHERE email='$this->email' AND password='$this->password';";
+            $oResult = $this->database->query($sSQL);
+            $oResult = $this->database->result;
+            $oRow = mysqli_fetch_object($oResult);
+            if ($this->database->rows == 1)
+            {
+                $this->id = $oRow->id;
+                $this->name            = $oRow->name;
+                $this->email           = $oRow->email;
+                $this->validated_mobile= $oRow->validated_mobile;
+                $this->role_id         = $oRow->role_id;
+                $this->image           = $oRow->image;
+                $this->newsletter      = $oRow->newsletter;
+                $this->points          = $oRow->points;
+                return true;
+                
+                }
+            else
+                return false;
+        }
+        public function is_email_used()
+        {
+            $this->database->OpenLink();
+            $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+            $sSQL = "SELECT * FROM user WHERE email='$this->email'";
+            $this->database->query($sSQL);
+            if ($this->database->rows == 1)
+                return true;
+            else
+                return false;
+        }
+        function update($mID) {
 		$sSQL = "UPDATE user SET (id = '$this->id') WHERE id = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}

@@ -1,7 +1,7 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"]."/inc/ses.php");
-require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
+require_once("/inc/ses.php");
+require_once("/class/class.database.php");
 // Begin Class "competition"
 class message {
     public $message;

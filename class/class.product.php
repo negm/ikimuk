@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
+require_once("/class/class.database.php");
 
 // Begin Class "product"
 class product {
@@ -78,7 +78,11 @@ class product {
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT pr.*,artist.name, image.url, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id INNER JOIN image ON image.product_id = pr.id WHERE competition.end_date > NOW() AND competition.start_date < NOW() AND image.small = 1 order by `order`;";
 		$this->database->query($sSQL);
-		
+	}
+        public function CurrentShopDesigns() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT pr.*,artist.name, image.url FROM `product` pr INNER JOIN artist ON pr.artist_id = artist.id INNER JOIN image ON image.product_id = pr.id WHERE pr.`shop` = 1 AND image.small = 1 order by `order`;";
+		$this->database->query($sSQL);
 	}
 	public function PastCompetitionDesigns() { // SELECT Function
 		// Execute SQL Query to get record.

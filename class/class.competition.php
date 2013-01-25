@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
+require_once("/class/class.database.php");
 
 // Begin Class "competition"
 class competition {
@@ -47,6 +47,21 @@ class competition {
 		$sSQL = "SELECT * FROM competition WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
+		$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+		$this->id = $oRow->id; // Primary Key
+                $this->title = $oRow->title;
+                $this->desc = $oRow->desc;
+                $this->competition_header = $oRow->competition_header;
+                $this->end_date = $oRow->end_date;
+                $this->start_date = $oRow->start_date;
+	}
+        public function selectCurrentCompetition() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM competition WHERE start_date < Now() AND end_date > Now();";
+		$this->database->query($sSQL);          
+                $oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.

@@ -16,6 +16,7 @@ public $awsAccessKey;
 public $awsSecretKey;
 public $submissionBucketName = 'submission-pics';
 public $imageBucketName = 'product-pics';
+public $salt = '$6$rounds=5000$z@3dSa890LkWsiU<$';
 public $prodction;
 public function __construct() 
 {

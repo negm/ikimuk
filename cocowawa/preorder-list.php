@@ -1,10 +1,10 @@
 <?php
 $pagetitle = "Preorders";
-include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.preorder.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.user.php';
-include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
-include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
+include "/block/logged_in_admin.php";
+require_once '/class/class.preorder.php';
+require_once '/class/class.user.php';
+include '/block/header.php';
+include '/block/top_area.php';
 $preorders_list = new preorder();
 $preorders_list->unconfirmed_incompetition();
 echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
