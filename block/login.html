@@ -1,0 +1,86 @@
+<div id="login" class="modal hide fade modal-bg" data-backdrop="static">
+		<form method="post" id="form_login">
+			<div class="modal-header">
+				<!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+				<h3 class="tdblue">USER LOGIN <span class="pull-right tsmall">Not a member? <a class="tlblue" href="#popup_register" data-dismiss="modal" data-toggle="modal">Join Us</a></span></h3>
+                                
+			</div>
+			<div class="modal-body">
+				<div class="alert alert-error hide fade in" id="error"></div>
+				<fieldset>
+                                <label>E-mail</label>
+                                <input type="email" name="email" id="email" placeholder="Email"  class="required" />
+				<label>Password</label>
+                                <input type="password" name="password" id="password" placeholder="Password"/>
+                                <label></label>
+                                <button type="submit" class="button" id="login_button" value="Login" data-loading-text="Loading..." >Login</button>
+                                </fieldset>
+                                <br><b>OR</b>
+                                <center><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></center>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				
+			</div>
+		</form>
+    
+	</div>
+
+
+	<div id="popup_password_reset" class="modal hide" data-backdrop="static">
+		<form method="post">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Password reset</h3>
+			</div>
+			<div class="modal-body">
+				<div class="alert alert-error hide fade in"></div>
+				Please enter the email address you used to register.<br /><br />
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-envelope"></i></span>
+					<input type="email" name="email" id="password_reset_email" placeholder="Email" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<input type="submit" class="btn btn-primary" id="password_reset_button" value="Continue" data-loading-text="Loading...">
+			</div>
+		</form>
+	</div>
+	<div id="popup_register" class="modal hide" data-backdrop="static">
+		<form method="post" id="form_register">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Register as a user</h3>
+			</div>
+			<div class="modal-body">
+				<div class="alert alert-error hide fade in"></div>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-list-alt"></i></span>
+					<input type="text" name="first_name" id="register_first_name" placeholder="First name" class="input-small" maxlength="50" />
+					<input type="text" name="last_name" id="register_last_name"  placeholder="Last name"  class="input-small"  maxlength="50" style="margin-left: 11px;border-radius: 4px;" />
+				</div>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-envelope"></i></span>
+					<input type="email" name="email" id="register_email" placeholder="Email" />
+				</div>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-asterisk"></i></span>
+					<input type="password" name="password" id="register_password" placeholder="Password" />
+				</div>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-asterisk"></i></span>
+					<input type="password" name="password_confirmation" id="confirm_password" placeholder="Confirm password" />
+				</div>
+				<div class="clear"></div>
+				<label class="checkbox">
+                                    <span class="checkbox"><input name="policy_agreement" type="checkbox" id="register_policy" value="1" />I agree to the <a href="/terms.php" target="_blank">Terms</a> and <a href="/privacy.php" target="_blank">Privacy Policy</a></span>
+                                </label>
+				<div class="clear"></div>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<input type="submit" class="btn btn-primary" value="Register" id="register_button" data-loading-text="Loading...">
+			</div>
+		</form>
+	</div>

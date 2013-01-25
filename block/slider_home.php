@@ -1,0 +1,8 @@
+<?php
+
+/*
+ * The homepage slider
+ */
+
+
+?>
