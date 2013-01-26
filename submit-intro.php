@@ -108,5 +108,5 @@ Have an awesome idea for a t-shirt? Follow these super simple steps! </p>
     </div>
 <br>
 <?php
-include 'block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"].'block/footer.php';
 ?>

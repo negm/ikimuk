@@ -43,8 +43,8 @@ else{
 });
 });</script>
 <?php
-include "block/top_area.php";
-include "block/breadcrumb.php";
+include $_SERVER["DOCUMENT_ROOT"]."block/top_area.php";
+include $_SERVER["DOCUMENT_ROOT"]."block/breadcrumb.php";
 ?>
 <div class="container">
     <div class="row">
@@ -112,7 +112,7 @@ include "block/breadcrumb.php";
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
-        <?php include  '/block/SubmissionTerms';?>
+        <?php include  $_SERVER["DOCUMENT_ROOT"].'/block/SubmissionTerms';?>
     </div>
   </div>
   <div class="modal-footer">
@@ -120,5 +120,5 @@ include "block/breadcrumb.php";
   </div>
 </div><br>
 <?php
-include 'block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"].'block/footer.php';
 ?>

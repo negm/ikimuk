@@ -54,12 +54,12 @@ while ($row_image = mysqli_fetch_assoc($image->database->result))
         $artist = null;
   }
 }
-include_once "block/header.php";
+include_once $_SERVER["DOCUMENT_ROOT"]."block/header.php";
  echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.$product->title.'" />';
-include "block/top_area.php";
+include $_SERVER["DOCUMENT_ROOT"]."block/top_area.php";
 echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="/design/'.$product->id.'/'.$product->title .'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
 ?>
 <div class="clear"></div>
@@ -182,7 +182,7 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
   </div>
   <div class="modal-body">
     <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
-      <?php include  '/block/PreorderTerms';?>
+      <?php include  $_SERVER["DOCUMENT_ROOT"].'/block/PreorderTerms';?>
 </div>
   </div>
   <div class="modal-footer">
@@ -195,5 +195,5 @@ echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/
 
 
 <?php
-include 'block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"].'block/footer.php';
 ?>

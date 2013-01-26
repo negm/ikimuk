@@ -67,7 +67,7 @@ else
 <span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else $_SESSION["item_count"]; ?></span>
 <!-- Modal -->
 
-<?php include "/block/login.html"; ?>
+<?php include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

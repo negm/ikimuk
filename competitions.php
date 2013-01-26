@@ -15,8 +15,8 @@ $competition = new competition();
 $competition->getCompletedCompetitions();
 $image= new image();
 $settings = new settings();
-include "block/header.php";
-include "block/top_area.php";
+include $_SERVER["DOCUMENT_ROOT"]."block/header.php";
+include $_SERVER["DOCUMENT_ROOT"]."block/top_area.php";
 unset($_SESSION["size"]);
 echo '<br><br><div class="container center">';
 $count = 0;
@@ -61,5 +61,5 @@ while($row= mysqli_fetch_assoc($product->database->result))
  $count=0;
 }
  echo '</div></div></div><br>';
- include 'block/footer.php';
+ include $_SERVER["DOCUMENT_ROOT"].'block/footer.php';
  ?>

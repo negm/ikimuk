@@ -22,7 +22,7 @@
             <div class="span4">
                 <div id="footer-tweet">
                 <ul class="tweet_list">
-                    <span class="tweet_text"><?php include("/process_twitter.php"); echo latestTweet();?></span>
+                    <span class="tweet_text"><?php include($_SERVER["DOCUMENT_ROOT"]."/process_twitter.php"); echo latestTweet();?></span>
                 </ul>
                 </div>
                 <div class="follow">
