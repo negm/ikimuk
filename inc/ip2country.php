@@ -3,7 +3,7 @@
 
 
 *********************************************************/
-require_once "/class/settings.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
 class ip2country {
         private $settings;
 	public $mysql_host;
