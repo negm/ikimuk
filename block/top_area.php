@@ -1,5 +1,5 @@
 <?php
-include_once ('/class/settings.php');
+include_once ($_SERVER["DOCUMENT_ROOT"].'/class/settings.php');
 $settings = new settings();
 if(isset($_GET["logout"]) && $_GET["logout"]==1)
 {

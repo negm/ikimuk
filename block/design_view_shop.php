@@ -12,11 +12,11 @@ else
 {
     header("Location: index.php");
 }
-require_once 'class/class.product.php';
-require_once 'class/class.image.php';
-require_once 'class/class.artist.php';
-require_once 'class/class.competition.php';
-require_once 'class/settings.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.competition.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $regex = '/(?<!href=["\'])http:\/\//';
 $product = new product();
 $image = new image();

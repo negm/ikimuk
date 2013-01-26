@@ -1,6 +1,6 @@
 <?php 
-require_once("/class/settings.php"); //Include configuration file.
-require_once ("/class/class.user.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/settings.php"); //Include configuration file.
+require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.user.php");
 session_start(); 
 
 /*

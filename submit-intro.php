@@ -6,8 +6,8 @@
  * 
  */
 $pagetitle = "Submit Guidelines";
-include "block/header.php";
-include "block/top_area.php";
+include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
+include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 ?>
 <br><br>
 <div class="container">

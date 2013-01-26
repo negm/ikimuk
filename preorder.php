@@ -5,11 +5,11 @@
  * State the different verification cases here
  * 
  */
-include 'block/logged_in.php';
-require_once 'class/settings.php';
-require_once 'class/class.product.php';
-require_once 'class/class.artist.php';
-require_once 'class/class.image.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
 $image = new image();
 $product = new product();
 $settings = new settings();
@@ -30,7 +30,7 @@ if(!isset($_SESSION['sms_code']) )
 
 $product->select($design_id);
 if(!$product->database->result)
-   header("Location: index.php"); 
+   header("Location: /index.php"); 
 else
 {
 $pagetitle = "ikimuk: ".$product->title;

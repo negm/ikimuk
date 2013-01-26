@@ -7,9 +7,9 @@ if (!isset($_FILES['uploadfileSubmit']['name']) || !isset($_FILES['uploadfileSub
 $file_size = $_FILES['uploadfileSubmit']['size'];
 if ($file_size > 200*1024)
 {echo "size_error";return;}
-require_once 'class/settings.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $settings = new settings();
-if (!class_exists('S3'))require_once('/inc/S3.php');
+if (!class_exists('S3'))require_once($_SERVER["DOCUMENT_ROOT"].'/inc/S3.php');
 //AWS access info
 if (!defined('awsAccessKey')) define('awsAccessKey', $settings->awsAccessKey);
 if (!defined('awsSecretKey')) define('awsSecretKey', $settings->awsSecretKey);

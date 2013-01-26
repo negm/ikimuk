@@ -1,8 +1,8 @@
 <?php
-include "block/logged_in.php";
-require_once '/class/class.submissions.php';
-require_once '/class/class.submission_image.php';
-require_once '/class/class.message.php';
+include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in.php";
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submissions.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submission_image.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.message.php';
 $submission = new submissions();
 $message = new message();
 $sub_img = new submission_image();

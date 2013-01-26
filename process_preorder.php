@@ -5,13 +5,13 @@
  * and open the template in the editor.
  * 
  */
-include_once '/block/logged_in.php';
-require "/class/class.preorder.php";
-require "/class/class.competition.php";
-require "/class/class.product.php";
-require "/class/class.artist.php";
-require "/class/class.message.php";
-require_once("/inc/facebook.php" );
+include_once $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.artist.php";
+require $_SERVER["DOCUMENT_ROOT"]."/class/class.message.php";
+require_once($_SERVER["DOCUMENT_ROOT"]."/inc/facebook.php" );
 Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
 Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
 if (isset($_POST["action"]))

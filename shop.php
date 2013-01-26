@@ -1,4 +1,4 @@
         <?php
-        include "block/listing_shop.php";
-        include "block/footer.php";
+        include $_SERVER["DOCUMENT_ROOT"]."/block/listing_shop.php";
+        include $_SERVER["DOCUMENT_ROOT"]."/block/footer.php";
         ?>

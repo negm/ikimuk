@@ -49,8 +49,8 @@
         else
             $random = $_SESSION["sms_code"];
         
-        require_once 'class/settings.php';
-	require_once ( "inc/NexmoMessage.php" );
+        require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
+	require_once ( $_SERVER["DOCUMENT_ROOT"]."/inc/NexmoMessage.php" );
         $settings = new settings();
         
 

@@ -4,10 +4,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include "class/class.user.php";
-include "class/class.preorder.php";
-include "class/settings.php";
-{header("Location: index.php");}
+include $_SERVER["DOCUMENT_ROOT"]."/class/class.user.php";
+include $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
+include $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
+{header("Location: /index.php");}
 $user = new user();
 $preorder = new preorder();
 $user->id = $_SESSION["user_id"];

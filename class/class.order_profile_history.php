@@ -9,7 +9,7 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("/class/class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 
 // Begin Class "order_profile_history"
 class order_profile_history {

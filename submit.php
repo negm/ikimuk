@@ -1,7 +1,7 @@
 <?php
-include "block/logged_in.php";
+include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in.php";
 $pagetitle = "Submit your design";
-include_once 'block/header.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
 ?>
 <script>//upload ajax
 $(function(){

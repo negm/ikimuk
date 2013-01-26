@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 $pagetitle = "Profile";
-include 'block/logged_in_admin.php';
-include 'block/header.php';
-include 'block/top_area.php';
-include "block/activeOrders.php";
-include 'block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in_admin.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
+include $_SERVER["DOCUMENT_ROOT"]."/block/activeOrders.php";
+include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
 ?>

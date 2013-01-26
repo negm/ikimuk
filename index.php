@@ -3,6 +3,6 @@
         
         //include "block/breadcrumb.php";
         
-        include "block/listing_home.php";
-        include "block/footer.php";
+        include $_SERVER["DOCUMENT_ROOT"]."/block/listing_home.php";
+        include $_SERVER["DOCUMENT_ROOT"]."/block/footer.php";
         ?>

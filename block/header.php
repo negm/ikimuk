@@ -6,7 +6,7 @@ if (!isset($_SESSION))
 }
 if (!isset($_SESSION["country_name"]))
 {
-    include "/inc/ip2country.php";
+    include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
     $ip2c=new ip2country();
     $_SESSION["country_name"] = $ip2c->get_country_name();
 }

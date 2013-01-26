@@ -6,10 +6,10 @@
  * 2- for each design get the pictures (primary and rollover)
  */
 $pagetitle = "ikimuk together we create!";
-require_once "class/class.product.php";
-require_once "class/class.image.php";
-require_once "class/class.competition.php";
-require_once 'class/settings.php';
+require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.image.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $product = new product();
 $competition = new competition();
 $competition->getCompletedCompetitions();
