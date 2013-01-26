@@ -6,6 +6,6 @@
  */
         
         
-        include "block/design_view.php";
+        include "block/design_view_shop.php";
         include "block/footer.php";
 ?>

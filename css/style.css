@@ -1,10 +1,11 @@
 /*         Menu              */
-.menu {color:#000;display: inline-block; text-align: center; vertical-align: middle;font-size: 20px;}
+.menu {color:#000;text-align: center; vertical-align: middle;font-size: 20px;}
 .menu li {border-left:2px #000 solid;width:150px;}
 .menu li:last-child {border-right: 2px #000 solid;}
 .menu li .active {background-color: #fff}
 
 /* general helper classes */
+.btn {height:30px !important; line-height: 30px;}
 .tlblue {color:#2989CA;}
 .tdblue {color:#203E76;}
 .tpink {color: #ED1E79;}

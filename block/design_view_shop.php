@@ -101,6 +101,7 @@ else
     <div class="">(REMEMBER: Your pre-order is only confirmed if this T-shirt design gets the most preorders)</div>
     <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
     <div class="">
+    <form method="post" id="add_to_cart">
     <label>Men</label>
     <a href="#" name="M_S" id="M_S" class="sizeIcon">S</a>
     <a href="#" name="M_M" id="M_M" class="sizeIcon">M</a>
@@ -112,9 +113,17 @@ else
     <a href="#" name="W_M" id="W_M" class="sizeIcon">M</a>
     <a href="#" name="W_L" id="W_L" class="sizeIcon">L</a>
     <a href="#" name="W_XL" id="W_XL" class="sizeIcon">XL</a>
+    <input name ="size" type="hidden" value="" id="size">
+    <input name="cut" type="hidden" value="" id="cut">
+    <input name="product_title" type="hidden" value="<?php echo $product->title;?>" id="product_title">
+    <input name="product_id" type="hidden" value="<?php echo $product->id;?>" id="product_id">
+    <input name="price" type="hidden" value="<?php echo $product->price;?>" id="price">
+     <input type="submit"class="button" id="add_to_cart_submit" value="add to cart">  
+     </form>
     </div>
     <?php
-   echo '<a href="/preorder/'.$product->id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title))).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
+   echo '';
+   echo '';
       }
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 

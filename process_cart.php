@@ -38,14 +38,33 @@ function add_to_cart()
 {
     //if already in cart then increment number and update subtotal
     //if not in cart then add it and update subtotal
+    $error="";
+    if (!isset($_POST["price"]) || !isset($_POST["product_id"]) || !isset($_POST["product_title"]) || !isset($_POST["size"]) ||
+            !isset($_POST["cut"]))
+    {
+        $error="invalid request";
+        $cart=null;
+        $item_count=0;
+    }
+    else
+    {
+    $product_id = $_POST["product_id"];
+    $product_title = $_POST["product_title"];
+    $size = $_POST["size"];
+    $cut = $_POST["cut"];
+    $quantity = 1;
+    $price = $_POST["price"];
     $found = false;
     if (isset($_SESSION["cart"]))
     {
+        $error .= "hereee";
        $cart = $_SESSION["cart"];
+       $item_count = $_SESSION["item_count"];
      foreach ($cart as $key=> $cart_item)
     {
      if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"])
      {
+          $error .= "hereee";
          $cart[$key]["quantity"]+= $quantity;
          $cart[$key]["subtotal"] = $quantity*$cart[$key]["price"];
          $_SESSION["subtotal"] += $quantity*$cart[$key]["price"];
@@ -54,20 +73,26 @@ function add_to_cart()
     }
      if (!$found)
     {
-        $cart[] = array ("product_id"=> $product_id, "quantity"=> $quantity,"size"=>$size, "cut"=>$cut, "price"=>$price,
+        $cart[] = array ("product_id"=> $product_id, "product_title" => $product_title, "quantity"=> $quantity,"size"=>$size, "cut"=>$cut, "price"=>$price,
             "subtotal"=>$price*$quantity, "subtotal"=>$price*$quantity );
         $_SESSION["subtotal"] += $quantity*$price;
+        $_SESSION["item_count"] += 1;
     }
-    $_SESSION["itme_count"] += 1;
     }
     else{
+        $item_count = 0;
         $cart = array();
-        $cart[] = array ("product_id"=> $product_id, "quantity"=> $quantity,"size"=>$size, "cut"=>$cut, "price"=>$price,
+        $cart[] = array ("product_id"=> $product_id,"product_title"=>$product_title, "quantity"=> $quantity,"size"=>$size, "cut"=>$cut, "price"=>$price,
             "subtotal"=>$price*$quantity, "subtotal"=>$price*$quantity );
         $_SESSION["subtotal"] = $quantity*$price;
-        $_SESSION["itme_count"] = 1;
+        $_SESSION["item_count"] = 1;
     }
-   
+    }
+     $_SESSION["cart"]= $cart;
+     $_SESSION["item_count"]= $item_count;
+    $cart_content = cart_content(); 
+   $json_response = json_encode( array("cart_content" =>$cart_content, "subtotal"=>$_SESSION["subtotal"],"item_count"=>$_SESSION["item_count"], "error"=>$error));
+   echo($json_response);
     
 }
 function remove_from_cart()
@@ -137,6 +162,7 @@ function update_cart()
     $_SESSION["item_count"]= $item_count;
     $cart_content = cart_content();
     $json_response = json_encode( array("cart_content" =>$cart_content, "subtotal"=>$subtotal,"item_count"=>$item_count, "error"=>$error));
+    return $json_response;
 }
 
 function cart_content()
@@ -147,9 +173,9 @@ function cart_content()
     $cart= $_SESSION["cart"];
     foreach ($cart as $cart_item)
     {
-     $output .= "";
+     $output .= $cart_item["size"].$cart_item["cut"].$cart_item["price"].$cart_item["quantity"];
     }
-    
+    return $output;
 }
 
 ?>

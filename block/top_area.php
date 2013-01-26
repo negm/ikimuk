@@ -53,7 +53,7 @@ else
 <div class="span4"><a href="/index.php"><img src="/img/logo.png" alt="ikimuk logo"/></a></div>
 <?php
 if (stristr($settings->site_url,"submit"))
-echo '<div class="menu "><ul><li class="span3"><a class="active menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="tyellow menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="twhite menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
+echo '<div class="menu"><ul><li class="span3"><a class="active menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="tyellow menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="twhite menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
 else
     if(stristr($settings->site_url,"competitions"))
     echo '<div class="menu "><ul><li class="span3"><a class="twhite menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="twhite menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="active menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
@@ -64,7 +64,7 @@ else
 </div>
 </div>
 </div>
-
+<span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else $_SESSION["item_count"]; ?></span>
 <!-- Modal -->
 
 <?php include "/block/login.html"; ?>

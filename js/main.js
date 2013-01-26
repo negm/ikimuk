@@ -3,7 +3,7 @@
  */
 var target="";
 var user_name="";
-//Login
+//Login ------====================================================================
 $(function() {
 $( "#form_login" ).validate(
             {rules: {
@@ -176,7 +176,43 @@ function ResetAnimate() //Reset User button
 }
 
 /*-------------------------------------------------------------------------------------*/
-
+//--------------cart -------------------------------------
+$(function() {
+    $("#add_to_cart_submit").click(function(e) {
+     if ($('#size').val()=="")
+         {$("#size_g").removeClass("hidden").addClass("alertr").focus();return false; }
+    var myData = 'action=add&'+$("#add_to_cart").serialize();
+    jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    //dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        alert(myData);
+        alert(response);
+        var json = $.parseJSON(response);
+        alert(json);
+       /* if ((json.error).length >5)
+            {
+                $('#error').html("Incorrect email/password").show();
+                $('#error').html(response.error).show();
+                return false;
+            }
+        else */
+            {
+                //update number of items next to cart
+                $('#item_count').html(json.item_count);
+                return false;
+            }
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+  return false;
+});});
 // Caption Overlay
 function addLoadEvent(func) {
   var oldonload = window.onload;
@@ -379,14 +415,16 @@ $(document).ready(function() {
 	jQuery.ajax({
 	type: "POST",
 	url: "/process_size.php",
-	dataType:"html",
+	//dataType:"json",
 	data:size,
 	cache: false,
 	success:function(response){
-        if (response === 'done'){         
-        
+        var json = $.parseJSON(response);
+        if (json.error == ""){
 	$(".sizeIcon").removeClass("selected");
         $(sid).addClass("selected");
+        $('#size').val(json.size);
+        $('#cut').val(json.cut);
         return false;}
         else{return false;}
 
