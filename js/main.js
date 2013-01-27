@@ -5,7 +5,7 @@ var target="";
 var user_name="";
 //Login ------====================================================================
 $(function() {
-$( "#form_login" ).validate(
+$("#form_login").validate(
             {rules: {
                 email: {              //input name: email
                     required: true,   //required boolean: true/false
@@ -189,30 +189,64 @@ $(function() {
     data:myData,
     cache: false,
     success:function(response){
-        alert(myData);
-        alert(response);
         var json = $.parseJSON(response);
-        alert(json);
-       /* if ((json.error).length >5)
+        if ((json.error).length >3)
             {
-                $('#error').html("Incorrect email/password").show();
-                $('#error').html(response.error).show();
+               // $('#error').html("Incorrect email/password").show();
+                //$('#error').html(response.error).show();
                 return false;
             }
-        else */
+        else 
             {
                 //update number of items next to cart
                 $('#item_count').html(json.item_count);
                 return false;
             }
-    
  },
 error:function (xhr, ajaxOptions, thrownError){
 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
     }
  });
   return false;
-});});
+});
+
+   $("#add_to_cart_submit").click(function(e) {
+     if ($('#size').val()=="")
+         {$("#size_g").removeClass("hidden").addClass("alertr").focus();return false; }
+    var myData = 'action=add&'+$("#add_to_cart").serialize();
+    jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    //dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        var json = $.parseJSON(response);
+        if ((json.error).length >3)
+            {
+               // $('#error').html("Incorrect email/password").show();
+                //$('#error').html(response.error).show();
+                return false;
+            }
+        else 
+            {
+                //update number of items next to cart
+                $('#item_count').html(json.item_count);
+                return false;
+            }
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+  return false;
+});
+
+
+
+
+
+});
 // Caption Overlay
 function addLoadEvent(func) {
   var oldonload = window.onload;

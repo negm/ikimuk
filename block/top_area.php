@@ -64,7 +64,7 @@ else
 </div>
 </div>
 </div>
-<span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else $_SESSION["item_count"]; ?></span>
+<span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span>
 <!-- Modal -->
 
 <?php include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>

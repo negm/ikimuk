@@ -74,7 +74,7 @@ ob_implicit_flush(0);
 <link rel="stylesheet" href="/css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/light/light.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
-<!--<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>-->
+<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
