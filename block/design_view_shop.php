@@ -39,7 +39,7 @@ else
     $next = $product->GetNextInCompetitionID();
     $prev = $product->GetPrevInCompetitionID();
     $daysLeft = floor((strtotime($competition->end_date) - time())/(60*60*24));
-    include "block/header.php";
+    include $_SERVER["DOCUMENT_ROOT"]."block/header.php";
     unset($_SESSION["size"]);
     
     echo '<meta property="og:title" content="'.$product->title.'" />';
@@ -72,8 +72,8 @@ else
     </script>
     
     <?php
-    include "block/top_area.php";
-    include "block/breadcrumb.php";
+    include $_SERVER["DOCUMENT_ROOT"]."block/top_area.php";
+    include $_SERVER["DOCUMENT_ROOT"]."block/breadcrumb.php";
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class= "span8"><div class="slider-wrapper theme-light">';

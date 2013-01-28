@@ -16,7 +16,8 @@ class ip2country {
 	private $ip='';
 	private $country_code='';
 	private $country_name='';
-	private $con=false;
+        public  $delivery_charge='';
+        private $con=false;
         
         public function __construct() {
 		$this->settings = new settings();
@@ -68,7 +69,7 @@ class ip2country {
 		if(!$this->con)
 		$this->mysql_con();
                 $this->ip_num = mysqli_escape_string($this->con, $this->ip_num);
-		$sq="SELECT country_code,country_name FROM ".$this->table_name. " WHERE ". $this->ip_num." BETWEEN begin_ip_num AND end_ip_num";
+		$sq="SELECT country_code,country_name,delivery_charge FROM ".$this->table_name. ",country WHERE ". $this->ip_num." BETWEEN begin_ip_num AND end_ip_num AND ip2country.country_name = country.country_name";
 		$r= mysqli_query($this->con, $sq);
 
 		if(!$r)
@@ -78,6 +79,7 @@ class ip2country {
 		$this->close();
 		$this->country_name=$row['country_name'];
 		$this->country_code=$row['country_code'];
+                $this->delivery_charge = $row["delivery_charge"];
 		return $row['country_code'];
 	}
 
