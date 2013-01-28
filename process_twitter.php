@@ -6,7 +6,7 @@
  */
 function latestTweet()
 {
-require_once ('/inc/codebird.php');
+require_once $_SERVER["DOCUMENT_ROOT"].('/inc/codebird.php');
 Codebird::setConsumerKey('siuqD954HVxelmypLKWnA', 'to0MbPCCxiGMHqT65ttkhpVc1ybj0eAhtGOgzWNrWpE'); // static, see 'Using multiple Codebird instances'
 $cb = Codebird::getInstance();
 $cb->setToken('947973235-4Yu2YnqZ4FT6pc4OsxE3r1v3esnAgU34tUyFwo9y', 'RW0e1RmX2CtLGliB4cqT9LMs7kaQgNu2eSnLsCz5eM');
