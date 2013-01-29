@@ -4,12 +4,15 @@ if (!isset($_SESSION))
 {
     session_start ();
 }
-if (!isset($_SESSION["country_name"]))
+//if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
 {
     include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
     $ip2c=new ip2country();
-    $_SESSION["country_name"] = $ip2c->get_country_name();
+    $_SESSION["country_name"] = $ip2c->get_country_name('93.126.186.244');
+    
 }
+print_r($_SERVER);
+echo $_SESSION["country_name"];
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // last request was more than 30 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 

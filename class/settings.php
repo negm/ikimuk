@@ -17,6 +17,7 @@ public $awsSecretKey;
 public $submissionBucketName = 'submission-pics';
 public $imageBucketName = 'product-pics';
 public $salt = '$6$rounds=5000$z@3dSa890LkWsiU<$';
+public $beta_base = 'http://beta.ikimuk.com/';
 public $prodction;
 public function __construct() 
 {
@@ -53,6 +54,23 @@ if (strpos($this->site_url,'localhost'))
  $this->root = "http://localhost:8080/";
  $this->prodction = false;
 
+}
+else
+if (strpos($this->site_url,'staging'))
+{
+ $this->config = array (
+      'database' => 'ikimuk',
+      'username' => 'root',
+      'password' => 'sqp.2012.sql++',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    );
+ $this->app_id		= "140388549312943"; 
+ $this->app_secret	= "d69fc7d02813ea962a959258e22adfde";
+$this->root = $_SERVER['HTTP_HOST'].'/';
+$this->prodction = true;
 }
 else
 {
