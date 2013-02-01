@@ -262,7 +262,23 @@ a{text-decoration: none;}
            .social_twitter .twitter_balloon{
                margin-top:25px;
                width:100%;
-               height:52px;
+               height:45px;
+               background-color: #282828;
+               opacity:0.95;
+           }
+           .twitter_balloon .balloon_tweet{
+               color:#F4F4F4;
+               font-size:14px;
+               padding-left: 10px;
+               padding-top: 5px;
+           }
+           .twitter_balloon .balloon_tweet a{color:#0088E2;}
+           .twitter_balloon .balloon_tweet a:hover{color:#F4F4F4;}
+           .social_twitter .empty_space{
+               height:7px;
+               width:100%;
+               background: url(../images/ikimuk_arrow_down_black_7.png) no-repeat;
+               background-position: 90px 0px;
            }
            .social_twitter .twitter_plugin{
                width:100%;
@@ -397,7 +413,7 @@ a{text-decoration: none;}
            }
            .competition_section .competition_banner{
                width:940px;
-               height:175px;
+               height:150px;
                background-color:#93278F;
                margin-top:15px;
            }
@@ -476,3 +492,9 @@ a{text-decoration: none;}
     -khtml-border-radius:10px;
     border-radius: 10px 0 0 10px;
 }
+    .round_corners{
+   -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    }

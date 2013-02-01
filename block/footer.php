@@ -20,10 +20,10 @@
                                            <input type="text" name="email" value="Enter your e-mail"/>  
                                   
                               </div>
-                              <button class="subscribe_link">
+                              <div class="subscribe_link">
                                   
                                   subscribe
-                              </button>
+                              </div>
                               </div>   
                           </div>
                           <!--End of mail container-->
@@ -46,7 +46,13 @@
                        
                        
                       <div class="social_twitter">
-                          <div class="twitter_balloon"><?php include($_SERVER["DOCUMENT_ROOT"]."/process_twitter.php"); echo latestTweet();?></div>
+                          
+                          <div class="twitter_balloon round_corners">
+                          
+                          
+                         <div class="balloon_tweet"><?php include($_SERVER["DOCUMENT_ROOT"]."/process_twitter.php"); echo latestTweet();?></div>
+                          </div>
+                          <div class="empty_space"></div>
                           <div class="twitter_plugin"> <a href="https://twitter.com/ikimukTweets" class="twitter-follow-button" data-show-count="true">Follow @ikimukTweets</a>
                       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
                       </div>
