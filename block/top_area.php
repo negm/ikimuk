@@ -24,51 +24,158 @@ header('Location: '.$_SERVER['PHP_SELF']);
   js.src = "//connect.facebook.net/en_US/all.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="log">
-<div class="container">
-    <div class="offset4 span4">Yes we deliver in <?php if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"]) < 2)echo 'your country'; else echo $_SESSION["country_name"];?> now!</div>
+<div class="header">
+<!--Start of Upper Section--> 
+<div class="upper">
+     
+     <!--Start of Upper Content-->
+                <div class="upper_content">
+                    
+                    
+                    <div class="header_title">
+                        We deliver internationally including <?php if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"]) < 2)echo 'your country'; else echo $_SESSION["country_name"];?> 
+                    </div>
+                    
+                    
+                    <div class="control_section">                          
 <?php
 if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 {
 ?>
-    <b id="results"> </b>
-    <div id="LoginButton">
-        <a href="#login" data-toggle="modal" class="btn btn-primary pull-right">Login</a>
+   <div class="header_button login">Login</div>
+   <div class="header_button joinus">Join Us</div>
 <?php
 }
 else
-{
-	echo '<div class="pull-right"><b>Hi '. $_SESSION['user_name'].'!</b> <a href="/index.php?logout=1">Log Out</a></div>';
-        
-}
-?>
-</div>
-</div>
-</div>
+{?>
+    
+	 <div class="login_menu">
+             <div class="login_header">
+                  <div class="login_arrow"></div>
+                       <div class="login_name">Sevag Malkedjian</div>
+                            <div class="login_avatar"><img src="images/avatar_30.png"/></div>
+             </div> 
+                       <div class="menu_drop">
+                            <div class="empty_space"></div>
+                       <div class="menu_entry"><span class="profile">My Profile</span></div>
+                       <div class="menu_h_line"></div>
+                       <div class="menu_entry"><span class="logout">Log Out</span></div>
+                       </div>
+         </div>
+   
+<?php } ?>
 
-
-<div class="logoBg">
-<div class="container">
-<div class="row"><br>
-<div class="span4"><a href="/index.php"><img src="/img/logo.png" alt="ikimuk logo"/></a></div>
-<?php
-if (stristr($settings->site_url,"submit"))
-echo '<div class="menu"><ul><li class="span3"><a class="active menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="tyellow menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="twhite menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
-else
-    if(stristr($settings->site_url,"competitions"))
-    echo '<div class="menu "><ul><li class="span3"><a class="twhite menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="twhite menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="active menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
-    else
-    echo '<div class="menu "><ul><li class="span3"><a class="active menuhover" href="/index.php">Preorder a T-shirt</a></li><li class="span3"><a class="twhite menuhover" href="/submit-intro.php">Submit your Design</a></li><li class="span2"><a class="twhite menuhover" href="/competitions.php">Previous Competition</a></li></ul></div>';
-
-    ?>
+                    </div>
+                   
+                    
+                </div>
+<!--End of Upper content-->
+     </div>
+      <!--End of Upper section-->           
+            
+            <!--Start of lower section-->
+            <div class="lower">
+                
+                <!--Start of upper content-->
+                <div class="lower_content">
+                    
+                    <div class="logo_content">
+                    <div class="lower_logo">
+                        <a href="http://www.ikimuk.com">  <img src="images/ikimuk_logo_beta.png" alt="logo"/> </a>
+                    </div>
+                    </div>
+                
+                    
+                         <div class="lower_menu">
+                             
+                             <div class="pipe"></div>
+                             
+                             <!--Start of Menu element-->
+                             <div class="menu_element">
+                                 <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
+                                 <input type="hidden" name="flag" value="selected"/>
+                                 <!--This to set a link to go for when the user click-->
+                                 <input type="hidden" name="link" value="preorder/index.php"/>
+                                 
+                                 <div class="menu_content">
+                                     
+                                     <div class="preorder">
+                                     <div class="line"> pre-order </div>
+                                     <div class="line"> a </div>
+                                     <div class="line">t-shirt</div>
+                                     </div>
+                                     
+                                 </div>
+                             </div>
+                             <!--End of menu element-->
+                             
+                             <div class="pipe"></div>
+                             
+                              <!--Start of Menu element-->
+                             <div class="menu_element">
+                                   <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
+                                 <input type="hidden" name="flag" value="unselected"/>
+                                 <!--This to set a link to go for when the user click-->
+                                 <input type="hidden" name="link" value="shop/index.php"/>
+                                 
+                                 <div class="menu_content">
+                                 <div class="shop">
+                                     <div class="line"> shop </div>
+                                     </div>
+                                 </div>
+                             </div>
+                              <!--End of menu element-->
+                              
+                             <div class="pipe"></div>
+                             
+                              <!--Start of Menu element-->
+                             <div class="menu_element">
+                                   <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
+                                 <input type="hidden" name="flag" value="unselected"/>
+                                 <!--This to set a link to go for when the user click-->
+                                 <input type="hidden" name="link" value="submit/index.php"/>
+                                 
+                                 <div class="menu_content">
+                                  <div class="submit">
+                                     <div class="line"> submit </div>
+                                     <div class="line"> your </div>
+                                     <div class="line">design</div>
+                                     </div>
+                                 </div>
+                             </div>
+                              <!--End of menu element-->
+                              
+                             <div class="pipe"></div>
+                             
+                              <!--Start of Menu element-->
+                             <div class="menu_element">
+                                   <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
+                                 <input type="hidden" name="flag" value="unselected"/>
+                                 <!--This to set a link to go for when the user click-->
+                                 <input type="hidden" name="link" value="competition/index.php"/>
+                                 
+                                 <div class="menu_content">
+                                  <div class="competition">
+                                     <div class="line"> previous </div>
+                                     <div class="line"> competition </div>
+                                     </div>
+                                 </div>
+                             </div>
+                               <!--End of menu element-->
+                               
+                             <div class="pipe"></div>
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
 </div>
-</div>
-</div>
-<span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span>
+     
 <!-- Modal -->
 
-<?php include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
-<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<?php //include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
+<!--<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <center><h3 id="myModalLabel">Connect Using Facebook</h3></center>
@@ -80,5 +187,5 @@ else
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
-</div>
+</div>-->
 

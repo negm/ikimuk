@@ -48,12 +48,29 @@ function add_to_cart()
     }
     else
     {
-    $product_id = $_POST["product_id"];
-    $product_title = $_POST["product_title"];
+    include (__DIR__."/class/class.product.php");
+    $product = new product();
+    //$product->id = $_POST["product_id"];
+    $product->select($_POST["product_id"]);
+    if ($product->id == null)
+    {
+        $error = "invalid request";
+        $cart = null;
+        if (isset($_SESSION["item_count"]))
+            $item_count = $_SESSION["item_count"];
+        else 
+            $item_count = 0;
+        
+    }
+    else
+        {
+    
+    $product_id = $product->id;
+    $product_title = $product->title;
     $size = $_POST["size"];
     $cut = $_POST["cut"];
     $quantity = 1;
-    $price = $_POST["price"];
+    $price = $product->price;
     $found = false;
     if (isset($_SESSION["cart"]))
     {
@@ -84,6 +101,7 @@ function add_to_cart()
             "subtotal"=>$price*$quantity, "subtotal"=>$price*$quantity );
         $_SESSION["subtotal"] = $quantity*$price;
         $item_count = 1;
+    }
     }
     }
      $_SESSION["cart"]= $cart;

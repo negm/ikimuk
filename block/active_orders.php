@@ -6,8 +6,8 @@
  */
 include $_SERVER["DOCUMENT_ROOT"]."/class/class.user.php";
 include $_SERVER["DOCUMENT_ROOT"]."/class/class.preorder.php";
-include $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
-{header("Location: /index.php");}
+include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
+//{header("Location: /index.php");}
 $user = new user();
 $preorder = new preorder();
 $user->id = $_SESSION["user_id"];
@@ -22,18 +22,11 @@ if ($preorder->database->rows > 0)
     echo '<div id="products_container" class="container">';
     while ($row = mysqli_fetch_assoc($preorder->database->result))
     {
+     print_r($row);
      echo '<div class="row">';
      echo '<a class="span3 thumb-big" href="../design.php?product_id='.$row["product_id"].'"> <img src="'.$row["url"].'" alt="'.$row["product_title"].'" /></a>';
      echo '<';
      echo '</div>';
-    //print_r($row);
-    /*
-      [id] => 5 [user_id] => 1 [product_id] => 6 [phone] =>
-     *  96179148999 [country] => Lebanon [region] => Beirut 
-     * [address] => lasdklashasdklh [size] => XXL [price] => 0 
-     * [newsletter] => 1 [status_id] => 1 [comments] => 
-     * [last_modified] => 2012-12-11 09:34:28 [product_title] => VEDGZILLA 
-     */
     }
     echo '</div>';
 }

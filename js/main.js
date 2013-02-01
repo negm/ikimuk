@@ -511,6 +511,7 @@ $(function(){
                 data: dataString,
                 success: function(response)
                  { 
+                     alert(response);
                     if ((response === 'done'))
                     {
                     //show the preoder form

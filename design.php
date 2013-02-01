@@ -6,6 +6,6 @@
  */
         
         
-        include $_SERVER["DOCUMENT_ROOT"]."/block/design_view_shop.php";
+        include $_SERVER["DOCUMENT_ROOT"]."/block/design_view.php";
         include $_SERVER["DOCUMENT_ROOT"]."/block/footer.php";
 ?>

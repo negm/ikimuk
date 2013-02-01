@@ -1,0 +1,478 @@
+/*Reset CSS*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-weight:normal}
+ul , ol , li { list-style:none; list-style-type:none;}
+body , html { width:100%; height:100%; position:relative;}
+a{text-decoration: none;}
+/*End Of REset CSS*/
+
+/*Start of Header Section*/
+           .header{
+               float:left;
+               height:140px;
+               width:100%; 
+           } 
+           .header .upper{
+               height:40px;
+               width:100%;
+               background-color: #FAC913;
+           }
+           
+           .upper .upper_content{
+               width:940px;
+               height:100%;
+               margin:0 auto;
+           }
+           .upper_content .header_title{
+               float:left;
+               margin-left:310px;
+               color:#323232;
+               padding-top:10px;
+               font-size:14px;
+           }
+           .upper_content .control_section{
+               margin-top:5px;
+               float:right;
+           }
+           .control_section .header_button{
+               cursor:pointer;
+               padding-top:5px;
+               background-color: #E13E5D;
+               color:#FFFFFF;
+               text-align: center;
+               width:60px;
+               height:25px;
+               float:right;
+               margin-left: 10px;
+           }
+           .control_section .header_button:hover{opacity:0.7;}
+           .control_section .login_menu{  
+               z-index: 10;   
+               color: #323232;
+               float: right;
+               margin-left: 10px;
+               width: 200px;
+               position:absolute;
+               margin-left:-200px;
+           }
+           .login_menu .login_header{
+               width:100%;
+               float:right;
+               height:30px;
+               display:none;
+           }
+           .login_header .login_arrow{
+               cursor:pointer;
+               width:10px;
+               height:100%;
+               float:right;
+               background: url(../images/ikimuk_arrow_down_black.png) no-repeat;
+               background-position:right 15px;
+           }
+           .login_header .login_name{
+               height:100%;
+               float:right;
+               margin-right:5px;
+               font-size:16px;
+               padding-top:5px;
+           }
+           .login_header .login_avatar{
+               width:30px;
+               height:100%;
+               float:right;
+               margin-right:5px;
+           }
+           .login_menu .menu_drop{display:none;}
+           .login_menu .empty_space{
+               width:160px;
+               float:right;
+               height:10px;
+               background: url(../images/ikimuk_arrow_up_black.png) no-repeat;
+               background-position:135px bottom;
+           }
+           .login_menu .menu_entry{
+               background-color: #FAC913;
+               width:160px;
+               float:right;
+               height:30px;
+               cursor:pointer;
+           }
+           .login_menu .menu_entry:hover{background-color: #F7F7F7;}
+           .menu_entry span{
+               position:absolute;
+               margin-top:4px;
+               padding-left:6px;
+           }
+           .login_menu .menu_h_line{
+               border-bottom: 1px solid #646464;
+               width: 160px;
+               float:right;
+           }
+           
+           
+           
+           
+           .header .lower{
+               height:100px;
+               width:100%;
+               background-color: #45BCD2;
+           }
+           .lower .lower_content{
+               width:940px;
+               height:100%;
+               margin:0 auto;
+           }
+           .lower_content .logo_content{
+               width:319px;
+               height:100%;
+               float:left;
+           }
+           .logo_content .lower_logo{
+               float:left;
+               width:300px;
+               height:62px;
+               margin-top:20px;
+               cursor: pointer;
+           }
+           .lower_content .lower_menu{
+               width:621px;
+               height:100%;
+               float:left;
+           }
+           .lower_menu .pipe{
+               border-right: 1px solid #F7F7F7;
+               height:100%;
+               float:left;
+           }
+           .lower_menu .menu_element{
+               width:154px;
+               height:100%;
+               float:left;
+               cursor: pointer;
+           }
+           .menu_element_over{
+               background-image:url(../images/menu_bottom_hover.png);
+               background-position: bottom;
+               background-repeat: no-repeat;
+           }
+           .menu_element .menu_content{
+               text-transform: uppercase;
+               text-align: center;
+               width:100%;
+               color:#FFFFFF;
+               font-size: 18px;
+           }
+           .menu_content .line{width:100%;}
+           .menu_content .preorder{margin-top:20px;}
+           .menu_content .shop{margin-top:40px;}
+           .menu_content .submit{margin-top:20px;}
+           .menu_content .competition{margin-top:30px;}
+           /*End of header section*/
+           
+           /*Start of footer section */
+           .footer{
+               float:left;
+               height:275px;
+               width:100%;
+               background-color: #CCCCCC;
+               border-top: 1px solid #646464;  
+           } 
+           .footer .footer_content{
+               width:940px;
+               height:100%;
+               margin:0 auto;
+           }
+
+           .footer_content .footer_social{
+               width:940px;
+               height:100px;
+               margin-top:20px;
+           }
+           
+           .footer_social .social_mail{
+               float:left;
+               height:100%;
+               width:305px;
+           }
+           .social_mail .mail_title{width:100%;}
+           .mail_title .blue_part{
+               text-transform:uppercase;
+               color:#003A79;
+               font-size:18px;
+           }
+           .mail_title .black_part{
+               color:#282828;
+               font-size:14px;
+           }
+           .social_mail .mail_subscribe{
+               background:url(../images/ikimuk_newsletter_footer.png) no-repeat;
+               width:300px;
+               height:70px;
+               margin-top: 10px;
+           }
+           
+           .mail_subscribe .subscribe_container{
+               margin-top:20px;
+               margin-left:10px;
+               position:absolute;
+           }
+           .subscribe_container .input_field{
+               float:left;
+               width:150px;
+               height:30px;
+               font-size: 18px;
+               color:#646464;
+           }
+           .input_field input{
+               padding-left:10px;
+               width:140px;
+               height:30px;
+               font-size: 16px;
+               color:#646464;
+               border:0;
+               background-color: #F4F8FB;
+               background:url(../images/left_border_input.png) no-repeat;
+           }
+           .subscribe_container .subscribe_link{
+               padding-top:7px;
+               background-color: #2989CA;
+               cursor:pointer;
+               color:white;
+               font-size:14px;
+               text-align: center;
+               width:130px;
+               height:23px;
+               float:left;
+               text-transform: uppercase;
+           }
+            .subscribe_container .subscribe_link:hover{opacity:0.7;}
+           
+           .footer_social .social_facebook{
+               float:left;
+               height:100%;
+               width:265px;
+               padding-top:35px;
+               margin-left:40px;
+           }
+           .footer_social .social_twitter{
+               float:left;
+               height:100%;
+               width:305px;
+               margin-left: 20px;
+           }
+           .social_twitter .twitter_balloon{
+               margin-top:25px;
+               width:100%;
+               height:52px;
+           }
+           .social_twitter .twitter_plugin{
+               width:100%;
+               height:20px;
+           }
+
+           .footer_content .horizontal_line{
+               border-bottom: 1px solid #646464;
+               width:940px;
+               margin-top: 20px;
+           }
+           
+           .footer_content .footer_links{
+               margin-top:15px;
+               padding-left: 30px;
+               text-transform: uppercase;
+               height:13px;
+           }
+           .footer_links .pipe{
+               border-right: 1px solid #646464;
+               height:13px;
+               float:left;
+               margin-left: 5px;
+               margin-right: 5px;
+           }
+           
+           .footer_link{float:left;}
+           .footer_link a{
+               color:#646464;
+               font-size:11px;
+           }
+           .footer_link a:hover{color:#FFFFFF}
+           
+           
+           .footer_content .round_links{
+               width:280px;
+               margin:0 auto;
+               height:40px;
+               margin-top:15px;
+           }
+           .round_links .round_link{
+               float:left;
+               width:40px;
+               height:40px;
+           }
+           .round_links .empty_space{
+               float:left;
+               width:20px;
+               height:40px;
+           }
+           .footer_content .copyright{
+               min-width:220px;
+               margin:0 auto;
+               margin-top:15px;
+               color:#646464;
+               font-size:10px;
+           }
+           /*End of footer section*/
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           /*Start of Body section*/
+           .body{
+               float:left;
+               min-height:440px;
+               width:100%;
+               padding-top:20px;
+               padding-bottom:40px;
+               background-color: #F7F7F7;
+           } 
+           .body .body_content{
+               width:940px;
+               height:100%;
+               margin:0 auto;
+           }
+           
+           .body_content .cart_section{
+               height:30px;
+               clear:both;
+               width:100%;
+           }
+           .cart_section .cart_content{
+               float:right;
+               width:140px;
+               height:30px;
+               background-color: #90278E;
+           }
+           .cart_content .cart_icon{
+               float:left;
+               background:url(../images/ikimuk_cart_icon.png) no-repeat;
+               background-position: 2px 5px;
+               width:30px;
+               height:30px;
+               border-right: 2px solid #C893C7;
+           }
+           .cart_content .cart_details{
+               float:left;
+               color:#FFFFFF;
+               padding-left:15px;
+               padding-top:4px;
+               font-weight: bold;
+           }
+
+           .body_content .slider{
+               width:940px;
+               height:460px;
+               background-color: #B6E0DD;
+               margin-top: 20px;
+           }
+           .body_content .horizontal_line{
+               border-bottom: 1px solid #646464;
+               width:940px;
+               margin-top: 40px;
+           }
+           
+           .body_content .competition_section{
+               width:940px;
+               margin-top: 40px;
+           }
+           .competition_section .competition_header{
+               width:100%;
+               text-transform:uppercase;
+               color:#003A79;
+               font-size:26px;
+           }
+           .competition_section .competition_banner{
+               width:940px;
+               height:175px;
+               background-color:#93278F;
+               margin-top:15px;
+           }
+           .competition_section .competition_container{
+               margin-top: 20px;
+               width:940px;
+               min-height:400px;
+           }
+           .competition_container .entry{
+               margin-bottom: 27px;
+               width:220px;
+               height:370px;
+               float:left;
+               background-color: #F7F7F7;
+           }
+           .entry .avatar{
+               width:218px;
+               float:left;
+               height: 278px;
+               border:1px solid #8B8B8B;
+               overflow: hidden;
+           }
+           .entry .pre_order{
+               float:left;
+               width:100%;
+               height: 30px;
+               background-color: #E13E5D;
+               color:#FFFFFF;
+               font-size:14px;
+           }
+           .pre_order .pre_order_content{
+               padding-top:5px;
+               width:100%;
+               text-align: center;
+           }
+           .entry .details{
+               float:left;
+               width:100%;
+               height: 60px;
+           }
+           .details .description{
+               width:100%;
+               color:#2989CA;
+               font-size:14px;
+               padding-top:5px;
+           }
+           .details .author{
+               color:#2989CA;
+               font-size:14px;
+           }
+           .entry .avatar_transparent{
+               display:none;
+               background-color: #E13E5D;
+               position: relative;
+               width:220px;
+               height: 280px;
+               cursor: pointer;
+               opacity:0;
+           }
+           .avatar_transparent .transparent_text{
+               position:absolute;
+               width:100%;
+               text-align:center;
+               margin-top:130px;
+               text-transform: uppercase;
+               color:#FFFFFF;
+               font-size: 18px;
+           }
+           /*End of body section*/
+           
+           
+
+    .left_rounded_corners {
+     -moz-border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius:10px;
+    border-radius: 10px 0 0 10px;
+}

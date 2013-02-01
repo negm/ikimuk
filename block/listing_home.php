@@ -16,28 +16,104 @@ $settings = new settings();
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 unset($_SESSION["size"]);
-echo '<div class="container compHeader center"><div class="row"><br><img  class="span12" src="/img/header_steps_ikimuk.png" alt="steps header ikimuk"/></div></div>';
-echo '<div class="container center">';
-echo '<h2 class= "centert ogcomp">ONGOING COMPETITION</h2>';
-echo '<div class="container compHeader center"><div class="row"><img  class="span12" src="https://s3.amazonaws.com/competition-header/Header_Preorder_Zombie.png" alt="competition header ikimuk"/></div></div>';
-echo '<div class="container center"><b class="tlblue tlarge">OUR FOURTH COMPETITION </b> <b class="tpink tmedium">  (ends on 04/02/2013</b>)<div class="lineb"></div><br>';
-$count = 0;
+?>
+<div class="body">
+ <div class="body_content">
+                 
+                 <!--Start of Cart section-->
+                 <div class="cart_section">
+                     <div class="cart_content">
+                         <div class="cart_icon"></div>
+                         <div class="cart_details">
+                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
+                         </div>
+                     </div>
+                 </div>
+                  <!--end of Cart section-->
+                 
+                 
+                 
+                 <div class="slider"> 
+                         <div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item"><img src="images/bootstrap_1.png"/></div>
+        <div class="item"><img src="images/bootstrap_2.png"/></div>
+       
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+                     <script>    $('.carousel').carousel({
+    interval: 2000
+    });</script>
+                 </div>
+                 
+                  
+                 <div class="horizontal_line">  
+                 </div>
+                 
+                 
+                 <!--Start of competition section-->
+                 <div class="competition_section">
+                     
+                     
+                     <div class="competition_header">
+                         competition no
+                         <span class="competition_no">12</span>
+                         (ends
+                         <span class="competition_end_date">02/03/2013</span>)
+                     </div>
+                     
+                     
+                     <div class="competition_banner">
+                         <!--to be removed and replaced with image-->
+                         <img  class="" src="https://s3.amazonaws.com/competition-header/Header_Preorder_Zombie.png" alt="competition header ikimuk"/>
+                     </div>
+                     <!--Start of competition container-->
+                       <div class="competition_container">
+
+<?php
+$count = 1;
 while($row= mysqli_fetch_assoc($product->database->result))
-{   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));
-    if($count % 4 == 0)
-        echo '<div class="row">';
-    $count++;
-    echo '<div class="span3 wrapper" itemscope itemtype="http://schema.org/CreativeWork" ><a itemprop="url" class="home_list" href="/design/'.$row["id"].'/'.str_replace(".","",str_replace(" ","-",trim($row["title"]))).'" >
-            <div class="caption"><b>VIEW DESIGN</b></div><img itemprop="image" class="" src="'.$row["url"].'" alt="'.$row["title"].' ikimuk"/></a>';
-    echo '<div itemprop="contentRating" class="span3 countBox">Preorders ('.$row["preorders"].')</div>';
-    echo '<a class="" href="/design/'.$row["id"].'/'.str_replace(" ","-",trim($row["title"])).'" ><div class="span4 designTitle" itemprop="name">'.$row["title"].'<br><b class ="tblack tnormal"> by </b><b itemprop="author" class="tlblue tnormal">'.$row["name"].'</b></div></a>';
-    echo '</div>';
-    if($count % 4 == 0)
-        echo '</div><br>';
- }  
- echo '</div></div></div><br>';
- unset($_SESSION["size"]);
- ?>
+{   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));?>
+    <div class="entry" style="<?php if($count%4!=0) echo "margin-right:20px;".$count%4; $count++;?>">
+    <!--Used to set a link when clicking-->
+    <input type="hidden" name="user_id" value="/design/<?php echo $row["id"]."/".str_replace(" ","-",trim($row["title"])); ?>"/>
+    
+    <div class="avatar">
+                                 <img src="<?php echo $row["url"]?>"/>
+    </div>
+    
+    <div class="pre_order">     
+        <div class="pre_order_content">
+            Pre-Orders(<span class="pre_order_count"><?php echo $row["preorders"];?></span>)    
+        </div>    
+    </div>
+    
+    <div class="details">
+                                 <div class="description"><?php echo $row["title"];?></div>
+                                 <div class="author">by <span class="author_name"><?php echo $row["name"];?></span></div>
+                             </div>
+                             
+                             
+                             <div class="avatar_transparent">
+                                 <div class="transparent_text">
+                                  pre-order now   
+                                 </div>
+                             </div>
+                             
+                             
+                                  </div>
+                             <!--End of entry-->
+ <?php } ?>
+</div>
+                     <!--End of competition container-->
 
-
-            
+</div>
+<!--End of competition section-->
+                 
+                 
+                 
+             </div>

@@ -49,6 +49,12 @@ class product {
 	//Select functions
         public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
+                if (!is_numeric($mID))
+                {
+                  $this->database->result = null;
+                  $this->id = null;
+                  return;
+                }
                 $this->database->OpenLink();
                 $mID = mysqli_real_escape_string($this->database->link, $mID);
 		$sSQL = "SELECT product . * , image.url FROM product INNER JOIN image ON image.product_id = product.id WHERE product.id =$mID AND image.`primary` =1;";

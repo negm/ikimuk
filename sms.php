@@ -67,6 +67,7 @@
         echo 'done';
 	// Step 3: Display an overview of the message
 	//echo $nexmo_sms->displayOverview($info);
+        print_r($info);
         
         //Step 4: 
         //Set session variables

@@ -8,7 +8,7 @@ if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
 {
     include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
     $ip2c=new ip2country();
-    $_SESSION["country_name"] = $ip2c->get_country_name('93.126.186.244');
+    $_SESSION["country_name"] = $ip2c->get_country_name();
 }
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // last request was more than 30 minutes ago
@@ -49,7 +49,8 @@ function print_gzipped_page() {
 ob_start();
 ob_implicit_flush(0);
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta charset="utf-8">
@@ -69,7 +70,12 @@ ob_implicit_flush(0);
 <meta property="og:description" content="Cool T-shirt Design">
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
-<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+<script src="/js/jquery-1.8.2.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/javascript.js"></script>
+<link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/light/light.css" type="text/css" media="screen" />
@@ -82,7 +88,7 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>-->
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }
@@ -91,7 +97,7 @@ ob_implicit_flush(0);
 <!--[if gt IE 7]><style>
 .gainlayout { zoom: 1; }
 </style><![endif]-->
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+<!--<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />-->
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/html5.js"></script>
 <![endif]-->  

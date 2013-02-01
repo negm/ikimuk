@@ -23,6 +23,10 @@ if ($_POST["action"]== "signup")
 {
     signup();
 }
+if ($_POST["action"]== "change_password")
+{
+    change_password();
+}
 else
 {
     //header("Location: /index.php");
@@ -189,6 +193,53 @@ function signup()
     return; 
 }
 
+}
+
+function change_password()
+{
+    if (!isset($_POST["password"]) || !isset($_POST["password_confirmation"]) )
+    {
+         $error = "Please complete all the required fields";
+        $result = json_encode(array("error"=>$error));
+        print_r($result);
+        return;
+    }
+    if ($_POST["password"] != $_POST["password_confirmation"])
+    {
+         $error = "Password and confirmation don't match";
+        $result = json_encode(array("error"=>$error));
+        print_r($result);
+        return;
+    }
+    if (!isset($_SESSION["logged_in"])|| !$_SESSION["logged_in"])
+    {
+         $error = "user is not logged in";
+        $result = json_encode(array("error"=>$error));
+        print_r($result);
+        return;
+    }
+    $password= $_POST["password"];
+    $settings = new settings();
+    $user = new user();
+    $user->id = $_SESSION['user_id'];
+    $password = crypt($password, $settings->salt);
+    $user->password = $password;
+    if ($user->change_password())
+    {
+         $error = "";
+        $result = json_encode(array("error"=>$error));
+        print_r($result);
+        return;
+    }
+    else
+    {
+         $error = "process failed";
+        $result = json_encode(array("error"=>$error));
+        print_r($result);
+        return;
+    }
+    
+    
 }
 function login_user($user)
 {	/*

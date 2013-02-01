@@ -146,6 +146,18 @@ class user {
             else
                 return false;
         }
+        public function change_password()
+        {
+            $this->database->OpenLink();
+            $this->password = mysqli_real_escape_string($this->database->link, $this->password);
+            $sSQL = "UPDATE user SET password=$this->password WHERE id=$this->id;";
+            $oResult = $this->database->query($sSQL);
+            if ($this->database->rows > 0)
+                return true;
+            else
+                return false;
+        }
+         
         public function is_email_used()
         {
             $this->database->OpenLink();

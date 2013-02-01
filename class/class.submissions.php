@@ -59,6 +59,11 @@ class submissions {
             $sSQL = "select * from `submissions` INNER JOIN `submission_image` sim ON sim.submission_id = submissions.id INNER JOIN `user` ON submissions.user_id = user.id";
             $oResult = $this->database->query($sSQL);
         }
+        public function selectUserSubmissions()
+        {
+            $sSQL = "SELECT * FROM `submissions` s INNER JOIN `submission_image` si ON s.id = si.submission_id WHERE user_id = $this->user_id";
+            $oResult = $this->database->query($sSQL);
+        }
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();
