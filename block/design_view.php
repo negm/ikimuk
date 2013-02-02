@@ -6,7 +6,7 @@
  */
 if(isset($_GET["product_id"]))
 {
-$mID = $_GET["product_id"];
+$mID = (int)$_GET["product_id"];
 }
 else
 {

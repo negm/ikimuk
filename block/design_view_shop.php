@@ -6,13 +6,13 @@
  */
 if(isset($_GET["product_id"]))
 {
-$mID = $_GET["product_id"];
+$mID = (int)$_GET["product_id"];
 }
 else
 {
     header("Location: index.php");
 }
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
+require_once __DIR__.'../class/class.product.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.competition.php';
