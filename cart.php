@@ -3,8 +3,10 @@
 /*
  * View the cart content and remove/update items
  */
+include $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
+include $_SERVER["DOCUMENT_ROOT"]."/inc/KLogger.php";
 session_start();
-if (!isset($_SESSION["cart"]))
+if (!isset($_SESSION["cart"]) ||$_SESSION["cart"]== null)
 {
     $cart = null;
     $item_count = 0;
@@ -12,19 +14,233 @@ if (!isset($_SESSION["cart"]))
 }
 else
 {
+    validate_cart_items ();
     $cart = $_SESSION["cart"];
     $item_count = $_SESSION["item_count"];
     $subtotal = $_SESSION["subtotal"];
 }
-if ($cart == null)
+function validate_cart_items()
 {
-    //the cart is empty
-}
-else
-{
-    foreach ($cart as $key =>$item)
+    $subtotal = 0;
+    $item_count = 0;
+    $cart = $_SESSION["cart"];
+    $product = new product();
+     foreach ($cart as $key=> $cart_item)
     {
-        print_r($item);
+     $product->id = $cart_item["product_id"];
+     $product->select($cart_item["product_id"]);
+     if ($product->id == null)
+     {
+        unset($cart[$key]);
+     }
+     else
+     {
+         $cart[$key]["price"]= $product->price;
+         $cart[$key]["subtotal"]= $product->price*$cart_item["quantity"];
+         $cart[$key]["product_title"]=$product->title;
+         $cart[$key]["url"] = $product->image;
+         $cart[$key]["artist_name"]=$product->artist_name;
+         $subtotal += $cart[$key]["subtotal"];
+         $item_count += 1;
+     }
     }
+    $_SESSION["cart"]= $cart;
+    $_SESSION["item_count"]=$item_count;
+    $_SESSION["subtotal"]=$subtotal;
 }
+
+$pagetitle = "ikimuk | Cart";
+include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
+include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 ?>
+ <div class="body">
+             
+              <!--start of body content-->
+             <div class="body_content cart_section">
+                 <?php $NUM_OF_ITEM=$item_count; ?>
+                  <!--Start of Cart section-->
+                 <div class="cart_section">
+                     <div class="cart_content">
+                         <div class="cart_icon"></div>
+                         <div class="cart_details">
+                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
+                         </div>
+                     </div>
+                 </div>
+                  <!--end of Cart section-->
+                 
+                  <!--start of Cart section content-->
+             <div class="cart_section_content">
+                 <div class="cart_section_header">items in your cart</div>
+                 
+                 <?php if($NUM_OF_ITEM!=0){ ?>
+                                       <div class="cart_table">
+                          <div class="std_block block_expandable">
+                              
+                              <!--Start of cart table header-->
+                              <div class="std_block_header">
+                                  <div class="header_content cart_header">
+                                      <div class="cart_preview">Preview</div>
+                                      <div class="cart_title">Title</div>
+                                      <div class="cart_description">Description</div>
+                                      <div class="cart_price">Price</div>
+                                      <div class="cart_quantity">Quantity</div>
+                                      <div class="cart_total">Total</div>
+                                  </div>
+                              </div>
+                                <!--End of cart table header-->
+                              
+                                  <!--Start of cart table body-->
+                              <div class="std_block_body">
+                                  
+                                  
+                                  <?php  foreach($cart as $key => $cart_item){ ?>
+                                  
+                                  <!--Start of cart section section-->
+                                  <div class="cart_entry">
+                                      
+                                      <!--Start of cart entry content-->
+                                      <div class="cart_entry_content">
+                                          
+                                           <!--Avatar section-->
+                                      <div class="cart_entry_avatar">
+                                          <img src="<?php echo $cart_item["url"]; ?>"/>
+                                      </div>
+                                      
+                                      <!--Title section-->
+                                      <div class="cart_entry_title">
+                                          <div class="cart_title_content"><?php echo $cart_item["product_title"]; ?><br/>by <?php echo $cart_item["artist_name"];?></div>
+                                          <div class="cart_remove">
+                                              <input type="hidden" name="product_id" id="product_id" value="<?php echo $cart_item["product_id"]; ?>">
+                                              <input type="hidden" name="size" id="size" value="<?php echo $cart_item["size"]; ?>">
+                                              <input type="hidden" name="cut" id="cut" value="<?php echo $cart_item["cut"]; ?>">
+                                              <a href="#">Remove</a></div>
+                                      </div>
+                                      
+                                      
+                                      <!--Description section-->
+                                      <div class="cart_entry_description">
+                                          (<?php echo $cart_item["size"];?>) <br/>White ikimuk T-Shirt
+                                      </div>
+                                      
+                                      
+                                      <!--Price section-->
+                                      <div class="cart_entry_price">
+                                        <input type="hidden" name="price" value="<?php echo $cart_item["price"]; ?>"/>
+                                        $<span><?php echo  number_format($cart_item["price"],2); ?></span>
+                                      </div>
+                                      
+                                      
+                                      <!--Quantity section-->
+                                         <div class="cart_entry_quantity">
+                                          <div class="item_quantity">
+                                              <input type="text" name="item_quantity" value="<?php echo $cart_item["quantity"];?>"/>
+                                              <input type="hidden" name="product_id" id="product_id" value="<?php echo $cart_item["product_id"]; ?>">
+                                              <input type="hidden" name="size" id="size" value="<?php echo $cart_item["size"]; ?>">
+                                              <input type="hidden" name="cut" id="cut" value="<?php echo $cart_item["cut"]; ?>">
+                                          </div>
+                                          <div class="item_update">
+                                             Update 
+                                          </div>
+                                         </div>
+                                      
+                                          
+                                      <!--Total section-->
+                                      <div class="cart_entry_total">
+                                       <input type="hidden" name="cart_total" value="<?php echo $cart_item["subtotal"];?>"/>
+                                       $<span class="cart_total"><?php echo number_format($cart_item["subtotal"],2); ?></span>
+                                      </div>
+                                          
+                                          
+                                      </div>
+                                       <!--End of cart entry content-->
+                                      
+                                      
+                                  </div>
+                                  <!--End of cart section section-->
+                                  
+                                  <?php } ?>
+                                             </div>
+                                    <!--End of cart table header-->
+                          </div>
+                      </div>
+                 
+                 
+                 
+                    <!--start of cart bottom-->
+                   <div class="cart_bottom">
+                       
+                       
+                       <div class="cart_panel">
+                           <img src="images/samouray.png"/>
+                       </div>
+                       
+                       
+                          <!--start of cart payment-->
+                       <div class="cart_payment">
+                           
+                           <!--Subtotal section-->
+                           <div class="line_payment subtotal">
+                                <span class="type">Subtotal:</span>
+                                <span class="payment_subtotal">$<?php echo  number_format($_SESSION["subtotal"],2); ?></span>
+                                <input type="hidden" name="payment_subtotal" value="<?php echo number_format($_SESSION["subtotal"],2); ?>"/>
+                           </div>
+                           
+                           <!--shipment section-->
+                           <div class="line_payment shipment">
+                               <span class="type">Shipping Estimate:</span>
+                                <span class="payment_shipment"><?php echo number_format($_SESSION["delivery_charge"],2); ?></span>
+                                <input type="hidden" name="payment_shipment" value="<?php echo number_format($_SESSION["delivery_charge"],2);?>"/>
+                           </div>
+                           
+                           <!--total section-->
+                            <div class="line_total">
+                               <span class="type">Estimate Total:</span>
+                                <span class="payment_total">$0.00</span>
+                                <input type="hidden" name="payment_total" value="0"/>
+                           </div>
+                           
+                          <!--Start payment section-->
+                            <div class="payment_process">
+                                
+                                <div class="payment_type">
+                                    <div class="payment_visa"><img src="images/ikimuk_visa.png"/></div>
+                                    <div class="payment_master"><img src="images/ikimuk_master.png"/></div>
+                                </div>
+                                
+                                
+                                
+                           <div class="payment_checkout">
+                               <div class="payment_checkout_text">checkout</div>
+                           </div>
+                            
+                       </div>
+                           <!--End of payment section section-->
+                           
+      
+                       </div>
+                   <!--End of cart payment-->
+                   
+
+                   </div>
+                    <!--End of cart bottom-->
+                 <?php } //end if num diffrent of 0
+                 else{//show the empty cart
+                 ?>
+                    <div class="no_item_cart">
+                        <span>No Items found in your shopping cart!</span>
+                    </div>
+                    
+                    
+                    
+                    
+                    <?php } ?>
+             </div>       
+              <!--end of Cart section content-->
+            
+             </div>
+              <!--end of body content-->
+              
+        </div>
+        <!--End of body class-->
+<?php include $_SERVER["DOCUMENT_ROOT"]."/block/footer.php"; ?>                                

@@ -85,26 +85,26 @@
                   <!--Start of round links-->
                   <div class="round_links">
                       <div class="round_link">
-                          <a href="https://www.facebook.com/ikimukofficial" target="_BLANK" >  <img src="images/ikimuk_facebook_footer.png" alt="facebook"/></a>
+                          <a href="https://www.facebook.com/ikimukofficial" target="_BLANK" >  <img src="/images/ikimuk_facebook_footer.png" alt="facebook"/></a>
                       </div>
                       <div class="empty_space"></div>
                       
                       <div class="round_link">
-                          <a href="https://twitter.com/IkimukTweets" target="_BLANK" >    <img src="images/ikimuk_twitter_footer.png" alt="twitter"/></a>
+                          <a href="https://twitter.com/IkimukTweets" target="_BLANK" >    <img src="/images/ikimuk_twitter_footer.png" alt="twitter"/></a>
                       </div>
                       <div class="empty_space"></div>
                       
                       <div class="round_link">
-                           <a href="http://www.youtube.com/user/ikimukTV" target="_BLANK" >   <img src="images/ikimuk_youtube_footer.png" alt="youtube"/></a>
+                           <a href="http://www.youtube.com/user/ikimukTV" target="_BLANK" >   <img src="/images/ikimuk_youtube_footer.png" alt="youtube"/></a>
                       </div>
                       <div class="empty_space"></div>
                       
                       <div class="round_link">
-                           <a href="mailto:hello@ikimuk.com" target="_BLANK" >   <img src="images/ikimuk_contact_footer.png" alt="contact"/></a>
+                           <a href="mailto:hello@ikimuk.com" target="_BLANK" >   <img src="/images/ikimuk_contact_footer.png" alt="contact"/></a>
                       </div>
                       <div class="empty_space"></div>
                       <div class="round_link">
-                          <a href="http://www.tumblr.com" target="_BLANK" >    <img src="images/ikimuk_tumblr_footer.png" alt="tumblr"/></a>
+                          <a href="http://www.tumblr.com" target="_BLANK" >    <img src="/images/ikimuk_tumblr_footer.png" alt="tumblr"/></a>
                       </div>
                       <div class="empty_space"></div>
                   </div>
@@ -123,12 +123,12 @@
 
 <!--Used to store the images in the cache, to be used for high speed swap-->
 <div style="display:none">
-<img src="images/ikimuk_facebook_footer.png"/>
-<img src="images/ikimuk_twitter_footer.png"/>
-<img src="images/ikimuk_youtube_footer.png"/>
-<img src="images/ikimuk_contact_footer.png"/>
-<img src="images/ikimuk_tumblr_footer.png"/>
-<img src="images/ikimuk_logo_beta_hover.png"/>
+<img src="/images/ikimuk_facebook_footer.png"/>
+<img src="/images/ikimuk_twitter_footer.png"/>
+<img src="/images/ikimuk_youtube_footer.png"/>
+<img src="/images/ikimuk_contact_footer.png"/>
+<img src="/images/ikimuk_tumblr_footer.png"/>
+<img src="/images/ikimuk_logo_beta_hover.png"/>
 </div>
 
 <script>

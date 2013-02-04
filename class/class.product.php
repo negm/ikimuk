@@ -25,6 +25,7 @@ class product {
         public $preorders;
         public $views;
         public $image;
+        public $artist_name;
 
         // Class Constructor
 	public function __construct() {
@@ -57,7 +58,7 @@ class product {
                 }
                 $this->database->OpenLink();
                 $mID = mysqli_real_escape_string($this->database->link, $mID);
-		$sSQL = "SELECT product . * , image.url FROM product INNER JOIN image ON image.product_id = product.id WHERE product.id =$mID AND image.`primary` =1;";
+		$sSQL = "SELECT p . * , i.url, a.name FROM product p INNER JOIN image i ON i.product_id = p.id INNER JOIN artist a ON p.artist_id = a.id WHERE p.id =$mID AND i.`primary` =1;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
                 if ($this->database->rows >0)
@@ -74,6 +75,7 @@ class product {
                 $this->preorders = $oRow->preorders;
                 $this->views = $oRow->views;
                 $this->image = $oRow->url;
+                $this->artist_name = $oRow->name;
                 }
                 else
                 {$this->database->result = Null;

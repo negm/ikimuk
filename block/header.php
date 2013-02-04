@@ -9,6 +9,7 @@ if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
     include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
     $ip2c=new ip2country();
     $_SESSION["country_name"] = $ip2c->get_country_name();
+    $_SESSION["delivery_charge"] = $ip2c->delivery_charge;
 }
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // last request was more than 30 minutes ago
@@ -55,7 +56,7 @@ ob_implicit_flush(0);
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
-<link rel="shortcut icon" href="/img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 <title><?php echo $pagetitle; ?></title>
 <meta name="title" content="Ikimuk">
 <meta name="description" content="Preorder your favorite T-shirt designs from leading artists in the Arab World." />
@@ -71,11 +72,7 @@ ob_implicit_flush(0);
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
 <script src="/js/jquery-1.8.2.min.js"></script>
-<script src="/js/bootstrap.js"></script>
-<script src="/js/javascript.js"></script>
-<link href="/css/styles.css" rel="stylesheet" type="text/css"/>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+<!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />-->
 <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/light/light.css" type="text/css" media="screen" />
@@ -88,7 +85,12 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>-->
+<script type="text/javascript" src="/js/main.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/javascript.js"></script>
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }

@@ -81,7 +81,7 @@ function add_to_cart()
      if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"])
      {
          $cart[$key]["quantity"]+= $quantity;
-         $cart[$key]["subtotal"] = $quantity*$cart[$key]["price"];
+         $cart[$key]["subtotal"] = $cart[$key]["quantity"]*$cart[$key]["price"];
          $_SESSION["subtotal"] += $quantity*$cart[$key]["price"];
          $found = true;        
      }
@@ -118,8 +118,11 @@ function remove_from_cart()
     //remove the product
     //empty the cart
     //retrun 
-    
-    if(!isset($_SESSION["cart"]))
+    $product_id = (int)$_POST["product_id"];
+    $size = $_POST["size"];
+    $cut = $_POST["cut"];
+    $error= null;
+    if(!isset($_SESSION["cart"])||$_SESSION["cart"] == null)
         $error = "cart is empty";
     else
         {
@@ -138,6 +141,8 @@ function remove_from_cart()
     $_SESSION["subtotal"]= $subtotal;
     $_SESSION["item_count"]-= 1;
         }
+   $json_response = json_encode(array("item_count"=>$_SESSION["item_count"], "error"=>$error));
+   print_r($json_response);
 }
 function update_cart()
 {
@@ -148,11 +153,17 @@ function update_cart()
     //return
     $subtotal = 0;
     $item_count = 0;
-    if ($quantity < 0)
+    $quantity = $_POST["quantity"];
+    $product_id = $_POST["product_id"];
+    $size = $_POST["size"];
+    $cut = $_POST["cut"];
+    $cart = null;
+    $error = null;
+    if ($quantity < 0 || !is_numeric($quantity))
         $error = "quantity cannot be negative";
     else 
        if ($quantity == 0)
-        remove_from_cart ();
+        remove_from_cart();
     else 
         if(!isset($_SESSION["cart"]))
         {$error = "cart is empty";
@@ -160,7 +171,6 @@ function update_cart()
         }
         else{
              $cart= $_SESSION["cart"];
-             $subtotal = $_SESSION["subtotal"];
              $item_count=$_SESSION["item_count"];
              foreach ($cart as $key => $cart_item)
              {
@@ -176,9 +186,8 @@ function update_cart()
     $_SESSION["cart"]= $cart;
     $_SESSION["subtotal"] = $subtotal;
     $_SESSION["item_count"]= $item_count;
-    $cart_content = cart_content();
-    $json_response = json_encode( array("cart_content" =>$cart_content, "subtotal"=>$subtotal,"item_count"=>$item_count, "error"=>$error));
-    return $json_response;
+    $json_response = json_encode( array("quantity"=> $quantity, "subtotal"=>$subtotal,"item_count"=>$item_count, "error"=>$error));
+    print_r ($json_response);
 }
 
 function cart_content()

@@ -1,6 +1,9 @@
 $(document).ready(function(){ 
 
-    
+//Load the carousel slider
+$('.carousel').carousel({
+    interval: 2000
+});
     
 //Check if the email is valid    
 function isValidEmailAddress(emailAddress) {
@@ -157,7 +160,161 @@ if(type&&version<9);//If version less than 9, do nothing
     });
     
     
+////////////////////////////Specific shop section/////////////////////////
+
+//Cart set mouse enter
+$(".selection_container_block .cart_no").mouseenter(function(){
+    var flag=$(this).find("input[name='flag']").val();
+    if(flag=="selected"){return;}
     
+     $(this).delay(0).animate({
+        opacity:1
+    },100);   
+});
+//Cart set mouse leave
+$(".selection_container_block .cart_no").mouseleave(function(){
+    var flag=$(this).find("input[name='flag']").val();
+    if(flag=="selected"){return;}
+    
+     $(this).delay(0).animate({
+        opacity:0.3
+    },100);   
+});
+
+//Cart set mouse click
+$(".selection_container_block .cart_no").click(function(){
+    var flag=$(this).find("input[name='flag']").val();
+    if(flag=="selected"){return;} 
+$(".selection_container_block .cart_no").css("opacity",0.3);
+$(".selection_container_block .cart_no").find("input[name='flag']").val("unselected");
+$(this).find("input[name='flag']").val("selected");
+$(this).css("opacity",1);    
+});
+
+//Add to Cart on click
+$(".cart_size_selection .add_to_cart").click(function(){
+  var flag=true;
+  $(".selection_container_block .cart_no").each(function(){      //check which item is clicked
+    if( $(this).find("input[name='flag']").val() == 'selected' ){ 
+       alert($(this).find("input[name='size']").val());
+       flag=false;//determine that an element is selected.
+    }
+}); 
+  if(flag)alert("please select an item first"); 
+});
+
+////////////////////////////Cart shop section/////////////////////////
+ 
+ //Function to refresh total price
+function refresh_cart_prices(){
+  
+ var sub_total=0;
+   $(".std_block_body .cart_entry").each(function(){      //Loop over all items and get its line price.
+  sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
+}); 
+
+ $(".cart_payment .line_payment .payment_subtotal").text("$"+sub_total.toFixed(2));//update the subtotal text
+ $(".cart_payment .subtotal").find("input[name='payment_subtotal']").val(sub_total);//update the subtotal hidden field
+ 
+ var shipment=parseFloat($(".cart_payment .shipment").find("input[name='payment_shipment']").val());//read the shipment value
+ var total=parseFloat(sub_total+shipment);//add the values of subtotal and shipment.
+ 
+  $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
+  $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
+ 
+}
+
+$(".std_block_body .cart_entry:last").css("border",0);//remove the border from the last cart entry
+refresh_cart_prices();//refresh all prices at startup
+
+
+
+
+//Update button clicked
+$(".cart_entry_quantity .item_update").click(function(){
+  
+ var unit_price=parseFloat($(this).parent().parent().find(".cart_entry_price").find("input[name='price']").val());//Get Item Price
+ var qty=parseInt($(this).parent().find(".item_quantity").find("input[name='item_quantity']").val());//Get item quantity inserted
+ 
+ if(isNaN(qty)||qty<0){
+ qty=0;//assign 0 for non-number or less than zero quantity.
+ }
+   var id = $(this).parent().children('.item_quantity').children('#product_id').val();
+   var size = $(this).parent().children('.item_quantity').children('#size').val();
+   var cut = $(this).parent().children('.item_quantity').children('#cut').val();
+   var myData = "action=update&product_id="+id+"&size="+size+"&cut="+cut+"&quantity="+qty
+   alert(myData);
+  jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    //dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        if (response.quantity == 0)
+            {
+                location.reload();
+            }
+        else
+            {
+                $('#item_count').html(response.item_count);
+            }
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+
+  $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
+ 
+ var line_total=unit_price*qty;
+ 
+ $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
+ $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
+refresh_cart_prices();
+
+});
+
+
+
+//When the remove link clicked
+$(".cart_remove a").click(function(){
+    var myData = "action=remove&product_id="+$(this).parent().children('#product_id').val()+"&size="+$(this).parent().children('#size').val()+"&cut="+$(this).parent().children('#cut').val();
+   jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        if (response.item_count == 0)
+            {
+                location.reload();
+            }
+        else
+            {
+                $('#item_count').html(response.item_count);
+            }
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+    $(this).parent().parent().parent().parent().remove();//remove the element
+    $(".std_block_body .cart_entry:last").css("border",0);//remove border from last element
+    refresh_cart_prices();//refresh the prices
+    return false;
+});
+
+//when the checkout button clicked
+$(".payment_process .payment_checkout").click(function(){
+    alert("checkout clicked");
+     refresh_cart_prices();
+});
+
+
     
     
     

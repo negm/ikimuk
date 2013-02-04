@@ -106,4 +106,9 @@ $facebook = new Facebook(array(
 $params = array('design'=>'http://beta.ikimuk.com/design.php?product_id='.$product_id,'access_token'=>$_SESSION["access_token"]);
 $out = $facebook->api('/me/ikimukapp:preorder','post',$params);
 }
+
+function add_preorder()
+{
+    
+}
 ?>
