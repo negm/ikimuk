@@ -116,4 +116,4 @@ while($row= mysqli_fetch_assoc($product->database->result))
                  
                  
                  
-             </div>
+             </div> </div>
