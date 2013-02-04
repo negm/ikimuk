@@ -72,14 +72,11 @@ ob_implicit_flush(0);
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
 <script src="/js/jquery-1.8.2.min.js"></script>
-<!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />-->
-<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/light/light.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
@@ -88,9 +85,9 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="/js/main.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/javascript.js"></script>
-<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }
