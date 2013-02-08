@@ -25,7 +25,7 @@ onComplete: function(file, response){
 status.text('');
 //Add uploaded file to list
 if(response != "error" && response != "size_error"){
-$('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" /><br />'+file).addClass('success');
+$('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" />').addClass('success');
 $('#upload').html('Upload another file');
 img_list.push(response);
 $('#img_url').val(img_list);
@@ -103,7 +103,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       <!--Start of Add Images-->
                        <div class="add_images">
                         <div class="std_block">
-                              
+                              <input type="hidden" id="img_url">
                               <!--Start of cart table header-->
                               <div class="std_block_header">
                                   <div class="header_content">
