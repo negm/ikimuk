@@ -82,10 +82,11 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
-<script src="/js/bootstrap.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/javascript.js"></script>
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/js/main.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 
 <!--[if lt IE 7]><style>

@@ -1,26 +1,144 @@
-/* 
- * main JS file
- */
-var target="";
-var user_name="";
-//Login ------====================================================================
-$(function() {
-$("#form_login").validate(
-            {rules: {
-                email: {              //input name: email
-                    required: true,   //required boolean: true/false
-                    email: true       //required boolean: true/false
-                },
-                password: {            //input name: message
-                    required: true
-                }
-            },
-            messages: {               //messages to appear on error
-                email: "Enter a valid email.",
-                password: "Password can't be empty"
-                  },
-            submitHandler: function(form) {
-                   var myData = 'action=login&'+$('#form_login').serialize();
+//from ali
+$(document).ready(function(){
+// Login + Join
+// 
+    //////////////////////////Join US part///////////////////////////////////////////////
+    
+    //Check if the email is valid    
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+    return pattern.test(emailAddress);
+}
+    
+     //reset inputs     
+        function reset_member_login(){
+           $(".login").find(".line_error").text("");
+           $(".login").find("input[type='text']").css("border-color","#CCCCCC");
+            $(".login").find("input[type='password']").css("border-color","#CCCCCC"); 
+          }
+ 
+
+    
+    //close link, mouse enter,out and click
+    $(".member_header .member_close a").mouseenter(function(){
+        $(this).find("img").attr("src","images/ikimuk_close.png"); 
+    });
+    $(".member_header .member_close a").mouseleave(function(){
+        $(this).find("img").attr("src","images/ikimuk_disabled_close.png"); 
+    });
+    $(".member_header .member_close a").click(function(){
+        reset_member_login();
+         $(".login").find("input[type='text']").val("");
+    });
+//Check if input is empty and display an error message    
+function check_input_member(variable,message)
+{
+    if(variable.val().length==0)
+        { 
+        variable.parent().parent().find(".line_error").text(message);         
+        variable.css("border-color","#EF2C21");
+            return 1; //is empty  
+        }
+        return 0;
+}
+     function reset_member_join(){
+           $(".join").find(".line_error").text("");
+           $(".join").find("input[type='text']").css("border-color","#CCCCCC");
+           $(".join").find("input[type='password']").css("border-color","#CCCCCC");  
+        }
+
+ //Join Button clicked
+        $(".join .member_join input[name='join']").click(function(){ 
+            reset_member_join();//reset fields
+        //Get objects
+          var full_name=$(".join").find("input[name='full_name']");
+          var email=$(".join").find("input[name='email']");
+          var password=$(".join").find("input[name='password']");
+          var confirm_password=$(".join").find("input[name='confirm_password']");
+       var flag=0;
+       flag+=check_input_member(full_name,"Name field is empty");  
+       if(check_input_member(email,"Email field is empty"))flag++;
+       else
+          if(!isValidEmailAddress(email.val())){//check if email is valid
+              flag++;
+             email.parent().parent().find(".line_error").text("Invalid Email");
+          }
+           if(check_input_member(password,"Password is empty"))flag++;
+       else
+           {   
+               if(password.val().length<6)  {//check the password strength
+                   flag++;
+                   password.parent().parent().find(".line_error").text("Password should be at least 6 character");
+               }
+             else
+               if(!(password.val()===confirm_password.val()))//check password combination
+                   {flag++;confirm_password.parent().parent().find(".line_error").text("No combination");  }
+                   
+           }
+      if(flag==0){
+         
+    var myData = 'action=signup&full_name='+full_name.val()+"&email="+email.val()+"&password="
+    +password.val()+"&confirm_password="+confirm_password.val();
+    jQuery.ajax({
+    type: "POST",
+    url: "/process_user.php",
+    dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        if ((response.error).length >5)
+            {
+                $('#error').html("Incorrect email/password").show();
+                $('#error').html(response.error).show();
+                return false;
+            }
+            else {
+                if(target.length > 1)
+        window.location.href = target;
+    else
+        location.reload();
+            }
+            return false;
+    
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+     }
+            
+    });
+    
+    
+ ////////////Login
+ //
+ //
+   $(".login .member_join input[name='join']").click(function(){ 
+            reset_member_login();//reset all fields
+          var email=$(".login").find("input[name='email']");//get email object
+          var password=$(".login").find("input[name='password']");//get password object
+        
+ var flag=0;
+       if(check_input_member(email,"Email field is empty"))flag++;//email field is empty
+       else
+          if(!isValidEmailAddress(email.val())){//check if valid email
+              flag++;
+             email.parent().parent().find(".line_error").text("Email not valid");
+          }
+
+
+          if(check_input_member(password,"Password field is empty"))flag++;//check if password field is empty
+          else
+              if(password.val().length<6){//password count less than six
+                  flag++;
+                  password.parent().parent().find(".line_error").text("Password must be at least 6 character");
+              }
+          
+          
+          
+     if(flag==0){
+                       var myData = 'action=login&email='+email.val()+"&password="+password.val();
     jQuery.ajax({
     type: "POST",
     url: "/process_user.php",
@@ -44,12 +162,166 @@ error:function (xhr, ajaxOptions, thrownError){
 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
     }
  });
+     }
+            
+    });
+    
+////////////////////////////Cart shop section/////////////////////////
+ 
+ //Function to refresh total price
+function refresh_cart_prices(){
+  
+ var sub_total=0;
+   $(".std_block_body .cart_entry").each(function(){      //Loop over all items and get its line price.
+  sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
+}); 
+
+ $(".cart_payment .line_payment .payment_subtotal").text("$"+sub_total.toFixed(2));//update the subtotal text
+ $(".cart_payment .subtotal").find("input[name='payment_subtotal']").val(sub_total);//update the subtotal hidden field
+ 
+ var shipment=parseFloat($(".cart_payment .shipment").find("input[name='payment_shipment']").val());//read the shipment value
+ var total=parseFloat(sub_total+shipment);//add the values of subtotal and shipment.
+ 
+  $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
+  $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
+ 
+}
+
+$(".std_block_body .cart_entry:last").css("border",0);//remove the border from the last cart entry
+refresh_cart_prices();//refresh all prices at startup
+
+
+
+
+
+
+
+//when the checkout button clicked
+$(".payment_process .payment_checkout").click(function(){
+    alert("checkout clicked");
+     refresh_cart_prices();
+});
+
+
+
+//When the remove link clicked
+$(".cart_remove a").click(function(){
+    var myData = "action=remove&product_id="+$(this).parent().children('#product_id').val()+"&size="+$(this).parent().children('#size').val()+"&cut="+$(this).parent().children('#cut').val();
+   jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        if (response.item_count == 0)
+            {
+                location.reload();
+            }
+        else
+            {
+                $('#item_count').html(response.item_count);
+            }
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+    $(this).parent().parent().parent().parent().remove();//remove the element
+    $(".std_block_body .cart_entry:last").css("border",0);//remove border from last element
+    refresh_cart_prices();//refresh the prices
+    return false;
+});
+
+
+//Update button clicked
+$(".cart_entry_quantity .item_update").click(function(){
+  
+ var unit_price=parseFloat($(this).parent().parent().find(".cart_entry_price").find("input[name='price']").val());//Get Item Price
+ var qty=parseInt($(this).parent().find(".item_quantity").find("input[name='item_quantity']").val());//Get item quantity inserted
+ 
+ if(isNaN(qty)||qty<0){
+ qty=0;//assign 0 for non-number or less than zero quantity.
+ }
+   var id = $(this).parent().children('.item_quantity').children('#product_id').val();
+   var size = $(this).parent().children('.item_quantity').children('#size').val();
+   var cut = $(this).parent().children('.item_quantity').children('#cut').val();
+   var myData = "action=update&product_id="+id+"&size="+size+"&cut="+cut+"&quantity="+qty
+   alert(myData);
+  jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    //dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        if (response.quantity == 0)
+            {
+                location.reload();
+            }
+        else
+            {
+                $('#item_count').html(response.item_count);
+            }
+    
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+
+  $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
+ 
+ var line_total=unit_price*qty;
+ 
+ $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
+ $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
+refresh_cart_prices();
+
+});
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+/* 
+ * main JS file
+ */
+var target="";
+var user_name="";
+//Login ------====================================================================
+$(function() {
+$("#form_login").validate(
+            {rules: {
+                email: {              //input name: email
+                    required: true,   //required boolean: true/false
+                    email: true       //required boolean: true/false
+                },
+                password: {            //input name: message
+                    required: true
+                }
+            },
+            messages: {               //messages to appear on error
+                email: "Enter a valid email.",
+                password: "Password can't be empty"
+                  },
+            submitHandler: function(form) {
+    
   return false;
 }
             });
             
 //Signup
-$( "#form_register" ).validate(
+/*$( "#form_register" ).validate(
             {rules: {
 			firstname: "required",
 			lastname: "required",
@@ -87,33 +359,10 @@ $( "#form_register" ).validate(
 			policy_agreement: "Please read the Privacy Policy and Terms"
 		},
             submitHandler: function(form) {
-                   var myData = 'action=signup&'+$('#form_register').serialize();
-    jQuery.ajax({
-    type: "POST",
-    url: "/process_user.php",
-    dataType:"json",
-    data:myData,
-    cache: false,
-    success:function(response){
-        if ((response.error).length >5)
-            {
-                $('#error').html("Incorrect email/password").show();
-                $('#error').html(response.error).show();
-                return false;
-            }
-    if(target.length > 1)
-        window.location.href = target;
-    else
-        location.reload();
-    
- },
-error:function (xhr, ajaxOptions, thrownError){
-//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
-    }
- });
+
   return false;
 }
-            });
+            });*/
 
 });
  

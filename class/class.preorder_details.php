@@ -21,6 +21,7 @@ class preorder_details {
         public $size;
         public $cut;
         public $price;
+        public $quantity;
 
         // Class Constructor
 	public function __construct() {
@@ -61,6 +62,7 @@ class preorder_details {
                 $this->price = mysqli_real_escape_string($this->database->link, $this->price);
                 $this->product_id = mysqli_real_escape_string($this->database->link, $this->product_id);
                 $this->preorder_id = mysqli_real_escape_string($this->database->link, $this->preorder_id);
+                $this->quantity = mysqli_real_escape_string($this->database->link, $this->quantity);
 		$sSQL = "INSERT INTO `preorder_details`(`preorder_id`, `product_id`, `size`, `cut`, `price`) VALUES ($this->preorder_id,$this->product_id,$this->size,$this->cut,$this->price);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastinsertid;

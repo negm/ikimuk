@@ -5,7 +5,7 @@
  * and for faster implementation :D
  */
 
-$size_enum = array("s"=>1, "m"=>2, "l"=>3, "xl"=>4, "xxl"=>5);
+$size_enum = array("xxs"=>1,"xs"=>2,"s"=>4, "m"=>5, "l"=>6, "xl"=>7, "xxl"=>8);
 $cuts = array("men"=>1, "women"=>2);
 
 ?>

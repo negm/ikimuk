@@ -42,8 +42,8 @@ header('Location: '.$_SERVER['PHP_SELF']);
 if(!isset($_SESSION['logged_in'])|| !$_SESSION['logged_in'])
 {
 ?>
-   <div class="header_button login">Login</div>
-   <div class="header_button joinus">Join Us</div>
+   <a href="#login" data-toggle="modal"><div class="header_button loginsss">Login</div></a>
+   <a href="#join" data-toggle="modal"><div class="header_button joinussss">Join Us</div></a>
 <?php
 }
 else
@@ -52,14 +52,14 @@ else
 	 <div class="login_menu">
              <div class="login_header">
                   <div class="login_arrow"></div>
-                       <div class="login_name">Sevag Malkedjian</div>
+                       <div class="login_name"><?php echo $_SESSION["user_name"]; ?></div>
                             <div class="login_avatar"><img src="images/avatar_30.png"/></div>
              </div> 
                        <div class="menu_drop">
                             <div class="empty_space"></div>
                        <div class="menu_entry"><span class="profile">My Profile</span></div>
                        <div class="menu_h_line"></div>
-                       <div class="menu_entry"><span class="logout">Log Out</span></div>
+                       <a href="/index.php?logout=1"><div class="menu_entry"><span class="logout">Log Out</span></div></a>
                        </div>
          </div>
    
@@ -173,7 +173,7 @@ else
 </div>
      
 <!-- Modal -->
-
+<?php include $_SERVER["DOCUMENT_ROOT"]."/block/authentication.html";?>
 <?php //include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
 <!--<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

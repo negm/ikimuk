@@ -1,16 +1,12 @@
 $(document).ready(function(){ 
 
 //Load the carousel slider
+if($('.carousel').length>0)
 $('.carousel').carousel({
-    interval: 2000
+    interval: 5000
 });
     
-//Check if the email is valid    
-function isValidEmailAddress(emailAddress) {
-    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-    return pattern.test(emailAddress);
-}
-    
+
     
     
 // check wich menu item has flag equal to selected and set it as selected
@@ -104,20 +100,7 @@ if(type&&version<9);//If version less than 9, do nothing
         $(this).find("img").attr("src",src);
         
     });
-    
-    //Login button clicked
-       $(".control_section .login").click(function(){
-        $(".control_section .login_menu").css("display","block");
-        $(".control_section .login_menu .login_header").css("display","block");
-        $(".control_section .header_button").css("display","none");
-     });
-     
-     //Join Us clicked
-     $(".control_section .joinus").click(function(){
-         alert("joinus clicked");
-     });
-    
-    //Subscribe link clicked
+       //Subscribe link clicked
     $(".subscribe_container .subscribe_link").click(function(){   
         var emailaddress=$(".input_field input").val();
         if( !isValidEmailAddress( emailaddress ) ) {alert("is not a valid email");}
@@ -146,35 +129,32 @@ if(type&&version<9);//If version less than 9, do nothing
         $(".menu_drop").css("display","none");  
     });
     
-    
-    //menu entry clicked
-    $(".menu_entry").click(function(){ 
-        var flag=$(this).find("span").hasClass("logout");//check if the logout is clicked
-        if(flag){
-        $(".control_section .login_menu").css("display","none");//hide the login menu
-        $(".control_section .login_menu .login_header").css("display","none");//hide the login header
-        $(".control_section .header_button").css("display","block");//show the header  buttons
-        }
-     else
-         alert("profile clicked"); 
-    });
-    
-    
 ////////////////////////////Specific shop section/////////////////////////
 
 //Cart set mouse enter
 $(".selection_container_block .cart_no").mouseenter(function(){
-    var flag=$(this).find("input[name='flag']").val();
-    if(flag=="selected"){return;}
+var cell_category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+var cell_size=$(this).find("input[name='size']").val();//Get cell size
+
+var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
+var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
+    if(category==cell_category)
+        if(size==cell_size)return; //check if the cell over is the same selected
     
      $(this).delay(0).animate({
         opacity:1
-    },100);   
+    },100); 
 });
+
 //Cart set mouse leave
 $(".selection_container_block .cart_no").mouseleave(function(){
-    var flag=$(this).find("input[name='flag']").val();
-    if(flag=="selected"){return;}
+var cell_category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+var cell_size=$(this).find("input[name='size']").val();//Get cell size
+
+var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
+var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
+    if(category==cell_category)
+        if(size==cell_size)return; //check if the cell over is the same selected
     
      $(this).delay(0).animate({
         opacity:0.3
@@ -183,136 +163,216 @@ $(".selection_container_block .cart_no").mouseleave(function(){
 
 //Cart set mouse click
 $(".selection_container_block .cart_no").click(function(){
-    var flag=$(this).find("input[name='flag']").val();
-    if(flag=="selected"){return;} 
-$(".selection_container_block .cart_no").css("opacity",0.3);
-$(".selection_container_block .cart_no").find("input[name='flag']").val("unselected");
-$(this).find("input[name='flag']").val("selected");
-$(this).css("opacity",1);    
-});
 
-//Add to Cart on click
+    var category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+    var size=$(this).find("input[name='size']").val();//Get cell size
+    $(".selection_container_block .cart_no").css("opacity",0.3);//reset all cells
+    $(this).css("opacity",1);//set opacity to 1 for the new selected cell
+    
+    $(".add_to_cart").find("input[name='category']").val(category);//set selected cell category
+    $(".add_to_cart").find("input[name='size']").val(size);//set selected cell size
+    
+});
 $(".cart_size_selection .add_to_cart").click(function(){
-  var flag=true;
-  $(".selection_container_block .cart_no").each(function(){      //check which item is clicked
-    if( $(this).find("input[name='flag']").val() == 'selected' ){ 
-       alert($(this).find("input[name='size']").val());
-       flag=false;//determine that an element is selected.
-    }
-}); 
-  if(flag)alert("please select an item first"); 
+    var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
+    var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
+    if(category=="")alert("please choose an element");//check if the user didn't click on any cell
+    else{  alert(category);alert(size);}
+  
+});
+////////////checkout section///////////////////////////
+
+///country list value changed
+$('.combo .country_list').change(function(){
+    var val=$('.combo .country_list option:selected').text();
+    $('.combo .select_country').text(val);
+});
+///code list value changed
+$('.combo .code_list').change(function(){
+    var val=$('.combo .code_list option:selected').text();
+    $('.combo .country_code').text(val);
 });
 
-////////////////////////////Cart shop section/////////////////////////
- 
- //Function to refresh total price
-function refresh_cart_prices(){
-  
- var sub_total=0;
-   $(".std_block_body .cart_entry").each(function(){      //Loop over all items and get its line price.
-  sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
-}); 
+//combo box focus on
+$('.combo select').focus(function(){
+    $(this).parent().addClass("combo_highlight");
+});
+//combo boxx foxus out
+$('.combo select').focusout(function(){
+    $(this).parent().removeClass("combo_highlight");
+});
 
- $(".cart_payment .line_payment .payment_subtotal").text("$"+sub_total.toFixed(2));//update the subtotal text
- $(".cart_payment .subtotal").find("input[name='payment_subtotal']").val(sub_total);//update the subtotal hidden field
- 
- var shipment=parseFloat($(".cart_payment .shipment").find("input[name='payment_shipment']").val());//read the shipment value
- var total=parseFloat(sub_total+shipment);//add the values of subtotal and shipment.
- 
-  $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
-  $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
- 
+//validate input, variable,message displayed in case of error, 0=input combo box,1=input text
+function check_input(variable,message,flag)
+{
+    
+    if(variable.val().length==0)
+        { 
+        variable.parent().parent().find(".line_error").text(message);
+            if(flag){   
+            variable.css("border-color","#EF2C21");
+        }
+        else{ 
+            variable.parent().css("border-color","#EF2C21");
+        }
+            return 1;
+            
+        }
+        return 0;
 }
 
-$(".std_block_body .cart_entry:last").css("border",0);//remove the border from the last cart entry
-refresh_cart_prices();//refresh all prices at startup
+//Reset all input fields
+function reset_fields()
+{
+ $(".line_input input").css("border-color","#CCCCCC");   
+ $(".line_input select").parent().css("border-color","#CCCCCC");
+ $(".line_error").text(""); 
+}
 
-
-
-
-//Update button clicked
-$(".cart_entry_quantity .item_update").click(function(){
+//payment checkout clicked
+$(".payment_checkout input[name='place']").click(function(){
+    
+    reset_fields();//reset all fields
+    
+    //get needed variables
+     var country=$(".line_input select[name='country']");  
+     var first_name=$(".line_input input[name='first_name']");   
+     var last_name=$(".line_input input[name='last_name']");
+     var address=$(".line_input input[name='address']");
+     var city=$(".line_input input[name='city']");
+     var region=$(".line_input input[name='region']");
+     var zip=$(".line_input input[name='zip']");
+     var code=$(".line_input select[name='code']");
+     var tel=$(".line_input input[name='tel']");
+     
+     var flag=0;
+          //check all required fields
+         flag+=check_input(country,"Please Select a Country",0);
+         flag+=check_input(first_name,"Please enter first name",1);
+         flag+=check_input(last_name,"Please enter last name",1);
+         flag+=check_input(address,"Please enter an address",1);
+         flag+=check_input(city,"Please enter a city",1);
+         flag+=check_input(region,"Please enter a region",1);
+      //   flag+=check_input(zip,"Please enter zip code",1);
+         flag+=check_input(code,"Please enter country code",0);
+         flag+=check_input(tel,"Please enter a tel no.",1);
+         
+         //check if terms is checked
+         var agree=$(".terms_conditions input[name='agree']").is(":checked");
+         if(!agree){flag++;$(".agreement").find(".line_error").text("You have to agree our terms and conditions");}
+         
+         //determine if the user allow subscribe
+         var subscribe=$(".newsletter input[name='subscribe']").is(":checked");
+         
+         
+         if(flag==0)
+             {
+                 alert("everything gonna fine");
+             }
   
- var unit_price=parseFloat($(this).parent().parent().find(".cart_entry_price").find("input[name='price']").val());//Get Item Price
- var qty=parseInt($(this).parent().find(".item_quantity").find("input[name='item_quantity']").val());//Get item quantity inserted
- 
- if(isNaN(qty)||qty<0){
- qty=0;//assign 0 for non-number or less than zero quantity.
- }
-   var id = $(this).parent().children('.item_quantity').children('#product_id').val();
-   var size = $(this).parent().children('.item_quantity').children('#size').val();
-   var cut = $(this).parent().children('.item_quantity').children('#cut').val();
-   var myData = "action=update&product_id="+id+"&size="+size+"&cut="+cut+"&quantity="+qty
-   alert(myData);
-  jQuery.ajax({
-    type: "POST",
-    url: "/process_cart.php",
-    //dataType:"json",
-    data:myData,
-    cache: false,
-    success:function(response){
-        if (response.quantity == 0)
-            {
-                location.reload();
-            }
-        else
-            {
-                $('#item_count').html(response.item_count);
-            }
+});
+
+   $(function () {
+  var msie6 = $.browser == 'msie' && $.browser.version < 7;
+  if (!msie6) { 
+      
+    var top = $('.cart_summary').offset().top;//detectthe height from window to the container
     
- },
-error:function (xhr, ajaxOptions, thrownError){
-//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
-    }
- });
+    $(window).scroll(function (event) {
+      var y = $(this).scrollTop();  //Get Scroll height 
+      if (y >= top) { //The container is upper the window
+          
+       var cart_height=$('.cart_summary').offset().top+$('.cart_summary').height();//Get height from top window to bottom container
+       
+       var left_height=$('.checkout_column_left').height();//Get Left container height.
+       
+         var diff=left_height-cart_height;
+         if(diff>0)diff=0;
+         
+         $('.cart_summary').css("position","fixed");//set cart div to fixed position
+         
+         var option = { top: diff };//set top position
+          $('.cart_summary').animate(
+                option, 
+                { queue:false, duration: "slow" }); 
+   }
+      else { 
+          $('.cart_summary').css("position","relative");//reset it to relative
+      }
+      
+      
+    });
+  }
+}); 
+//////////////////////////////////////Login+Join US Section//////////////////////////
 
-  $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
+       
+
  
- var line_total=unit_price*qty;
- 
- $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
- $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
-refresh_cart_prices();
-
-});
-
-
-
-//When the remove link clicked
-$(".cart_remove a").click(function(){
-    var myData = "action=remove&product_id="+$(this).parent().children('#product_id').val()+"&size="+$(this).parent().children('#size').val()+"&cut="+$(this).parent().children('#cut').val();
-   jQuery.ajax({
-    type: "POST",
-    url: "/process_cart.php",
-    dataType:"json",
-    data:myData,
-    cache: false,
-    success:function(response){
-        if (response.item_count == 0)
-            {
-                location.reload();
-            }
-        else
-            {
-                $('#item_count').html(response.item_count);
-            }
     
- },
-error:function (xhr, ajaxOptions, thrownError){
-//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
-    }
- });
-    $(this).parent().parent().parent().parent().remove();//remove the element
-    $(".std_block_body .cart_entry:last").css("border",0);//remove border from last element
-    refresh_cart_prices();//refresh the prices
-    return false;
+    
+    
+
+  
+//////////////////////////////////Submit Section//////////////////////////////////////////////////
+$(".theme_content .theme_avatar").mouseenter(function(){
+    $(this).parent().find(".theme_transparent").css("display","block");
+   var type=$.browser.msie;//check browser if IE
+    var version=parseInt($.browser.version);//Get Browser version
+if(type&&version<9);//If version less than 9, do nothing
+else{ 
+         $(this).parent().find(".theme_transparent").delay(0).animate({
+        opacity:0.9
+    },300);  //make opacity for the floating div   
+}
+
+});
+$(".theme_transparent").mouseleave(function(){
+    $(this).css("display","none");
+   var type=$.browser.msie;//check browser if IE
+    var version=parseInt($.browser.version);//Get Browser version
+if(type&&version<9);//If version less than 9, do nothing
+        else
+        $(this).css("opacity",0);
+});
+   
+/////////////////////////////////////Submit Design Section///////////////////////////////////////////////
+$(".submit_personal_design input[name=submit_design]").click(function(){
+ 
+ reset_fields();//reset fields from error
+
+//Get need variable and values
+  var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
+  var title=$(".info_body").find(".line_input").find("input[name='design_title']");
+  var details=$(".info_body").find(".line_input").find("textarea[name='design_details']").val();
+  var city=$(".self_info_body").find(".line_input").find("input[name='city']");
+  var website_blog_1=$(".self_info_body").find(".line_input").find("input[name='website_blog_1']").val();
+  var website_blog_2=$(".self_info_body").find(".line_input").find("input[name='website_blog_2']").val();
+  var agree=$(".agreement_submit_section").find(".agreement").find(".terms_conditions").find("input[name='agree']").is(":checked");
+  
+  //check if there are any error and diplay it
+  var flag=0;
+  flag+=check_input(title,"please enter a title",1);
+  flag+=check_input(city,"please enter your city",1);
+  if(!agree)
+      {flag++;$(this).parent().parent().find(".line_error").text("Please Accept Our terms and conditions");}
+  
+  
+  if(flag==0)alert("Everyt thing gonna fine");
+  
 });
 
-//when the checkout button clicked
-$(".payment_process .payment_checkout").click(function(){
-    alert("checkout clicked");
-     refresh_cart_prices();
-});
+
+
+
+
+
+
+
+
+
+
+
 
 
     

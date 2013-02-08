@@ -127,36 +127,34 @@ function login()
 
 function signup()
 {
-    if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["first_name"])
-          || !isset($_POST["last_name"]) || !isset($_POST["policy_agreement"])
-          || !isset($_POST["password_confirmation"])
-          ||strlen($_POST["email"])<1 || strlen($_POST["password"])<1 
-          ||strlen($_POST["first_name"])<1 || strlen($_POST["last_name"])<1 )
+    if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["full_name"])
+          || !isset($_POST["confirm_password"])||strlen($_POST["email"])<1
+            || strlen($_POST["password"])<1  || strlen($_POST["full_name"])<1 )
       {
          $error = "Please complete all the required fields";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
     }
-    if ($_POST["password"] != $_POST["password_confirmation"])
+    if ($_POST["password"] != $_POST["confirm_password"])
     {
          $error = "Password and password confirmation don't match";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
     }
-     if ($_POST["policy_agreement"]!= 1)
+     /*if ($_POST["policy_agreement"]!= 1)
     {
         $error = "Please read and agree to the privacy policy";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
-    }
+    }*/
     try{
     $email = $_POST["email"];
     if(filter_var($email,FILTER_VALIDATE_EMAIL) === false)
     {
-        $error = "Invalid Email";
+        $error = "Invalid Email".$email;
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
@@ -165,7 +163,7 @@ function signup()
     $settings = new settings();
     $user = new user();
     $password = crypt($password, $settings->salt);
-    $name = $_POST["first_name"].' '.$_POST["last_name"];
+    $name = $_POST["full_name"];
     $user->name = $name;
     $user->email = $email;
     $user->password = $password;
