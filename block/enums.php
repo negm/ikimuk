@@ -6,6 +6,6 @@
  */
 
 $size_enum = array("xxs"=>1,"xs"=>2,"s"=>4, "m"=>5, "l"=>6, "xl"=>7, "xxl"=>8);
-$cuts = array("men"=>1, "women"=>2);
+$cut_enum = array("men"=>1, "women"=>2);
 
 ?>

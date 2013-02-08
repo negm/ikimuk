@@ -64,6 +64,26 @@ class user {
                 $this->newsletter      = $oRow->newsletter;
                 $this->points          = $oRow->points;
 	}
+        public function select_by_email() { // SELECT Function
+		// Execute SQL Query to get record.
+            	$this->database->OpenLink();
+                $this->email = mysqli_escape_string($this->database->link, $this->email);
+                $sSQL = "SELECT * FROM user WHERE email = $this->email;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+		$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+		$this->id = $oRow->id; // Primary Key
+                $this->fbid            = $oRow->fbid;
+                $this->name            = $oRow->name;
+                $this->email           = $oRow->email;
+                $this->validated_mobile= $oRow->validated_mobile;
+                $this->role_id         = $oRow->role_id;
+                $this->image           = $oRow->image;
+                $this->newsletter      = $oRow->newsletter;
+                $this->points          = $oRow->points;
+	}
         public function selectbyfb() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM user WHERE fbid = $this->fbid;";
@@ -157,7 +177,36 @@ class user {
             else
                 return false;
         }
-         
+        public function insert_reset_code()
+        {
+            $code = uniqid($this->id, true);
+            $expire_date = time()+24*60*60;
+            $sSQL="INSERT INTO `password_reset` (code, expire_date, user_id) VALUES($code,$expire_date,$this->id);";
+            $this->database->query($sSQL);
+            return $code;
+        }
+        public function check_reset_code($code)
+        {
+            $sSQL = "SELECT * from `password_reset` pwd INNER JOIN `user` u ON pwd.user_id = u.id WHERE pwd.code=$code AND expire_date > now();";
+            $oResult = $this->database->query($sSQL);
+            $oResult = $this->database->result;
+            if ($this->database->rows == 1)
+            {
+                 $this->id = $oRow->user_id;
+                $this->name            = $oRow->name;
+                $this->email           = $oRow->email;
+                $this->validated_mobile= $oRow->validated_mobile;
+                $this->role_id         = $oRow->role_id;
+                $this->image           = $oRow->image;
+                $this->newsletter      = $oRow->newsletter;
+                $this->points          = $oRow->points;
+                return true;
+            }
+            else
+                return false;
+            
+        }
+
         public function is_email_used()
         {
             $this->database->OpenLink();

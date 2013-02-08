@@ -14,4 +14,11 @@ foreach ($details as $key=>$detail )
     print_r($details);
     $size = "s";
     echo $size_enum[$size];
+    
+    
+    echo "<br>".uniqid()."<br>";
+    echo uniqid("xxx")."<br>";
+    echo uniqid(true)."<br>";
+    echo uniqid("xxx",true)."<br>";
+    echo date(DATE_RSS,time()+24*60*60);
 ?>

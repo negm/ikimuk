@@ -65,7 +65,7 @@
                        </div>
                        
                        <div class="member_facebook">
-                           <a href="#">   <img src="images/ikimuk_connect_with_facebook.png"/></a>
+                           <a href="#"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
                        
                        

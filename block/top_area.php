@@ -173,7 +173,7 @@ else
 </div>
      
 <!-- Modal -->
-<?php include $_SERVER["DOCUMENT_ROOT"]."/block/authentication.html";?>
+<?php include $_SERVER["DOCUMENT_ROOT"]."/block/authentication.php";?>
 <?php //include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
 <!--<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

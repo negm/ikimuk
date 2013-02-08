@@ -59,7 +59,7 @@ a{text-decoration: none;color:#5DA5D5;}
                width:100%;
                float:right;
                height:30px;
-               /*display:none;*/
+              /* display:none;*/
            }
            .login_header .login_arrow{
                cursor:pointer;
@@ -637,7 +637,6 @@ a{text-decoration: none;color:#5DA5D5;}
         background-color: #2989CA;
         color:#FFFFFF;
         font-size: 18px;
-        border:0;
     }
     .add_to_cart input:hover{background-color: #E13E5D}
     

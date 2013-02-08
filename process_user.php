@@ -1,6 +1,7 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/class/settings.php"); //Include configuration file.
 require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.user.php");
+require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.message.php");
 session_start(); 
 
 /*
@@ -26,6 +27,10 @@ if ($_POST["action"]== "signup")
 if ($_POST["action"]== "change_password")
 {
     change_password();
+}
+if ($_POST["action"]== "reset_password")
+{
+    reset_password();
 }
 else
 {
@@ -238,6 +243,33 @@ function change_password()
     }
     
     
+}
+function reset_password()
+{
+    $error = null;
+    if (!isset($_POST["email"]))
+    {
+    $error = "No email provided";
+    }
+    else
+    {
+        $user= new user();
+        $settings = new settings();
+        $user->email = $_POST["email"];
+        $user->select_by_email();
+        if ($user->id == null)
+        {
+            $error = "Incorrect email";
+        }
+        else
+        {
+            $code = $user->insert_reset_code();
+            $message = new message();
+            $message_body="Hello $user->name \n use the following link to reset your password $settings->root/reset_password.php?code=$code";
+            $message->send($user->email, "Password Reset", $message_body);
+        }
+        
+    }
 }
 function login_user($user)
 {	/*
