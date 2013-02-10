@@ -1,6 +1,14 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in.php";
+include $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
+include $_SERVER["DOCUMENT_ROOT"]."/class/class.artist.php";
 $pagetitle = "Submit your design";
+$active_menu = "submit";
+$competition = new competition();
+$competition->select_open_submission();
+$artist = new artist();
+$artist->user_id = $_SESSION["user_id"];
+$artist->select_by_user_id();
 include_once $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
 ?>
 <script>//upload ajax
@@ -51,14 +59,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                  
                                  
                  <!--Start of Cart section-->
-                 <div class="cart_section">
-                     <div class="cart_content">
-                         <div class="cart_icon"></div>
-                         <div class="cart_details">
-                             CART(<span class="cart_count">0</span>)
-                         </div>
-                     </div>
-                 </div>
+                 <?php include $_SERVER["DOCUMENT_ROOT"]."/block/cart_count.php";?>
                   <!--end of Cart section-->
                   
                   
@@ -85,14 +86,16 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                            
                                   <!--Start of submit body-->
                               <div class="std_block_body type_body">
-                                  <div class="type_select">
-                                  <input type="radio" name="competition_type" value="zombie" checked="checked"/>
-                                  For the Love Of Zombies Submit before 21/01/2013
-                                  </div>
-                                  <div class="type_select">
-                                  <input type="radio" name="competition_type" value="hakwaji"/>
-                                  HAKWAJI submit before 01/02/2013
-                                  </div>
+                                  
+                                  <?php 
+                                  while ($row_competition = mysqli_fetch_assoc($competition->database->result))
+                                  {
+                                  echo '<div class="type_select"><input type="radio" name="competition_type" value="'
+                                      .$row_competition["id"].'" checked="checked"/>   '.$row_competition["title"].
+                                          "  submit before ".date("d/m/Y", strtotime($row_competition["submission_deadline"])).'</div>';
+                                         }
+                                      ?>
+                                 
                               </div>
                                     <!--End of submit body-->
                           </div> 
@@ -190,7 +193,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                       <div class="line_info">   
                                       <div class="line_header">City</div>
                                       <div class="line_input">
-                                            <input type="text" class="round_corners" name="city"/>
+                                            <input type="text" class="round_corners" name="city" value="<?php echo $artist->location;?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>
@@ -199,7 +202,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                      <div class="line_info">   
                                       <div class="line_header">Website, Blog Or Portfolio</div>
                                       <div class="line_input">
-                                            <input type="text" class="round_corners" name="website_blog_1"/>
+                                            <input type="text" class="round_corners" name="website_blog_1" value="<?php echo $artist->website;?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>
@@ -208,7 +211,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                   <div class="line_info">   
                                       <div class="line_header">Website, Blog Or Portfolio</div>
                                       <div class="line_input">
-                                           <input type="text" class="round_corners" name="website_blog_2"/>
+                                           <input type="text" class="round_corners" name="website_blog_2" value="<?php echo $artist->twitter;?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>

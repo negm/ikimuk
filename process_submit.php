@@ -28,6 +28,7 @@ $submission->title = $_POST["design_title"];
 $submission->comment = $_POST["comment"];
 $submission->user_id = $_SESSION["user_id"];
 $submission->newsletter = $_POST["newsletter"];
+$submission->competition_id = $_POST["competition"];
 $img_arr = explode(',',trim($_POST["img_url"]));
 if(count($img_arr) <1)
 {
@@ -53,12 +54,14 @@ else
     $result = $message->send($_SESSION["user_email"], $subject, $body);
 }
 $artist = new artist();
-$artist->location = $_POST["city"];
 $artist->user_id = $_SESSION["user_id"];
+$artist->location = $_POST["city"];
 $artist->name = $_SESSION["user_name"];
 $artist->website = $_POST["website_blog_1"];
 $artist->twitter = $_POST["website_blog_2"];
-$artist->insert();
+$artist->select_by_user_id();
+if ($artist->id == null)
+    $artist->insert();
 }
 }
 /*

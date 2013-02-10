@@ -78,7 +78,12 @@ class competition {
 		$this->database->query($sSQL);
                 
 	}
-        
+        public function select_open_submission() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM competition WHERE submission_open =1;";
+		$this->database->query($sSQL);
+                
+	}
        public function getCompletedCompetitions()
        {
            $sSQL = "SELECT * FROM competition WHERE end_date < Now() order by end_date desc;";

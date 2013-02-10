@@ -77,7 +77,7 @@ class artist {
 	}
         public function select_by_user_id() { // SELECT Function
 		// Execute SQL Query to get record.
-                if (!is_numeric($mID))
+                if (!is_numeric($this->user_id))
                 {
                     $this->id = null;
                     $this->database->result = null;
@@ -104,7 +104,8 @@ class artist {
                 $this->user_id   =$oRow->user_id;
                 }
                 else
-                {$this->database->result = Null;}
+                {   $this->id = null;
+                    $this->database->result = Null;}
 	}
         public function selectAll()
         {
@@ -114,8 +115,7 @@ class artist {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO artist (name, website,location,twitter,user_id)
-                    VALUES ('$this->name', '$this->website', '$this->location','$this->twitter',$this->user_id );";
+		$sSQL = "INSERT INTO artist (name, website,location,twitter,user_id) VALUES ('$this->name', '$this->website', '$this->location','$this->twitter',$this->user_id );";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;
                 

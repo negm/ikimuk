@@ -20,6 +20,7 @@ class submissions {
         public $comment;
         public $newsletter;
         public $user_id;
+        public $competition_id;
 	
 	// Class Constructor
 	public function __construct() {
@@ -53,6 +54,7 @@ class submissions {
                 $this->title = $oRow->title;
                 $this->user_id = $oRow->user_id;
                 $this->newsletter = $oRow->newsletter;
+                $this->competition_id = $oRow->competiton;
                 }
 	public function selectAllSubmissions()
         {
@@ -70,7 +72,8 @@ class submissions {
                 $this->title = mysqli_real_escape_string($this->database->link, $this->title);
                 $this->comment = mysqli_real_escape_string($this->database->link, $this->comment);
                 $this->newsletter = mysqli_real_escape_string($this->database->link, $this->newsletter);
-		$sSQL = "INSERT INTO submissions (user_id,title,comments,newsletter) VALUES ($this->user_id,'$this->title','$this->comment',$this->newsletter);";
+                $this->competition_id = mysqli_real_escape_string($this->database->link, $this->competition_id);
+		$sSQL = "INSERT INTO submissions (competition_id,user_id,title,comments,newsletter) VALUES ($this->competition_id,$this->user_id,'$this->title','$this->comment',$this->newsletter);";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;
 	}

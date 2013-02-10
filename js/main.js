@@ -287,7 +287,7 @@ refresh_cart_prices();
     var cut=$(".add_to_cart").find("input[name='category']").val();//Get selected category
     var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
     if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
-    else{  alert(cut);alert(size);
+    else{  
         var myData = 'action=add&cut='+cut+"&size="+size+"&product_id="+$("#product_id").val();
         alert(myData)
     jQuery.ajax({
@@ -298,12 +298,10 @@ refresh_cart_prices();
     cache: false,
     success:function(response){
         //var json = $.parseJSON(response);
-        alert(response)
-        alert(response.error)
-        alert(response.item_count)
+        
         if ((response.error).length >3)
             {
-                alert(response.error)
+                //alert(response.error)
                 return false;
             }
         else 
@@ -322,15 +320,11 @@ error:function (xhr, ajaxOptions, thrownError){
   
     });
 
-
-});
-
-
 /////////////////////////////////////Submit Design Section///////////////////////////////////////////////
 $(".submit_personal_design input[name=submit_design]").click(function(){
  
  reset_fields();//reset fields from error
-
+alert("shit")
 //Get need variable and values
   var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
   var title=$(".info_body").find(".line_input").find("input[name='design_title']");
@@ -351,14 +345,16 @@ $(".submit_personal_design input[name=submit_design]").click(function(){
   
   
   if(flag==0){
-      var params = 'design_title='+title.val()+'&img_url='+
-        img_list.val()+'&comment='+details+'&newsletter='+newsletetr+"&city="+city.val()
-        +"&website_blog_1="+website_blog_1+"&website_blog_2="+website_blog_2;
+      var params = 'action=add_submission&design_title='+title.val()+'&img_url='+
+        img_list.val()+'&comment='+details+'&newsletter='+newsletter+"&city="+city.val()
+        +"&website_blog_1="+website_blog_1+"&website_blog_2="+website_blog_2+"&competition="+competition_type;
+    alert(params);
     $.ajax({  
     type: "POST",  
     url: "/process_submit.php",  
     data: params,  
     success: function(response) {  
+        alert(response)
      if (response === 'done')
             {
                 $(".preSummary").fadeOut(1000);
@@ -378,6 +374,38 @@ $(".submit_personal_design input[name=submit_design]").click(function(){
   }
   
 });
+//Reset all input fields
+function reset_fields()
+{
+ $(".line_input input").css("border-color","#CCCCCC");   
+ $(".line_input select").parent().css("border-color","#CCCCCC");
+ $(".line_error").text(""); 
+}
+
+//validate input, variable,message displayed in case of error, 0=input combo box,1=input text
+function check_input(variable,message,flag)
+{
+    
+    if(variable.val().length==0)
+        { 
+        variable.parent().parent().find(".line_error").text(message);
+            if(flag){   
+            variable.css("border-color","#EF2C21");
+        }
+        else{ 
+            variable.parent().css("border-color","#EF2C21");
+        }
+            return 1;
+            
+        }
+        return 0;
+}
+
+
+//end of document ready
+});
+
+
 
 /* 
  * main JS file

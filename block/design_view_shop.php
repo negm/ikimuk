@@ -9,18 +9,9 @@
     <div class="body">
 
              <div class="body_content specific_shop">
-                 
-                 <!--Start of Cart section-->
-                 <div class="cart_section">
-                     <div class="cart_content">
-                         <div class="cart_icon"></div>
-                         <div class="cart_details">
-                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
-                         </div>
-                     </div>
-                 </div>
+                  <!--Start of Cart section-->
+                <?php include $_SERVER["DOCUMENT_ROOT"]."/block/cart_count.php"; ?>
                   <!--end of Cart section-->
-                  
                   <div class="shop_container">
                       
                       

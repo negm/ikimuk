@@ -196,32 +196,7 @@ $('.combo select').focusout(function(){
     $(this).parent().removeClass("combo_highlight");
 });
 
-//validate input, variable,message displayed in case of error, 0=input combo box,1=input text
-function check_input(variable,message,flag)
-{
-    
-    if(variable.val().length==0)
-        { 
-        variable.parent().parent().find(".line_error").text(message);
-            if(flag){   
-            variable.css("border-color","#EF2C21");
-        }
-        else{ 
-            variable.parent().css("border-color","#EF2C21");
-        }
-            return 1;
-            
-        }
-        return 0;
-}
 
-//Reset all input fields
-function reset_fields()
-{
- $(".line_input input").css("border-color","#CCCCCC");   
- $(".line_input select").parent().css("border-color","#CCCCCC");
- $(".line_error").text(""); 
-}
 
 //payment checkout clicked
 $(".payment_checkout input[name='place']").click(function(){
