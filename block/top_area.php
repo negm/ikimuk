@@ -53,7 +53,7 @@ else
              <div class="login_header">
                   <div class="login_arrow"></div>
                        <div class="login_name"><?php echo $_SESSION["user_name"]; ?></div>
-                            <div class="login_avatar"><img src="images/avatar_30.png"/></div>
+                            <div class="login_avatar"><img src="/images/avatar_30.png"/></div>
              </div> 
                        <div class="menu_drop">
                             <div class="empty_space"></div>
@@ -81,7 +81,7 @@ else
                     
                     <div class="logo_content">
                     <div class="lower_logo">
-                        <a href="http://www.ikimuk.com">  <img src="images/ikimuk_logo_beta.png" alt="logo"/> </a>
+                        <a href="/">  <img src="/images/ikimuk_logo_beta.png" alt="logo"/> </a>
                     </div>
                     </div>
                 
@@ -95,7 +95,7 @@ else
                                  <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                                  <input type="hidden" name="flag" value="selected"/>
                                  <!--This to set a link to go for when the user click-->
-                                 <input type="hidden" name="link" value="preorder/index.php"/>
+                                 <input type="hidden" name="link" value="/"/>
                                  
                                  <div class="menu_content">
                                      
@@ -116,7 +116,7 @@ else
                                    <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                                  <input type="hidden" name="flag" value="unselected"/>
                                  <!--This to set a link to go for when the user click-->
-                                 <input type="hidden" name="link" value="shop/index.php"/>
+                                 <input type="hidden" name="link" value="/shop.php"/>
                                  
                                  <div class="menu_content">
                                  <div class="shop">
@@ -133,7 +133,7 @@ else
                                    <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                                  <input type="hidden" name="flag" value="unselected"/>
                                  <!--This to set a link to go for when the user click-->
-                                 <input type="hidden" name="link" value="submit/index.php"/>
+                                 <input type="hidden" name="link" value="/submit-intro.php"/>
                                  
                                  <div class="menu_content">
                                   <div class="submit">
@@ -152,7 +152,7 @@ else
                                    <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                                  <input type="hidden" name="flag" value="unselected"/>
                                  <!--This to set a link to go for when the user click-->
-                                 <input type="hidden" name="link" value="competition/index.php"/>
+                                 <input type="hidden" name="link" value="/competitions.php"/>
                                  
                                  <div class="menu_content">
                                   <div class="competition">
@@ -174,18 +174,4 @@ else
      
 <!-- Modal -->
 <?php include $_SERVER["DOCUMENT_ROOT"]."/block/authentication.php";?>
-<?php //include $_SERVER["DOCUMENT_ROOT"]."/block/login.html"; ?>
-<!--<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <center><h3 id="myModalLabel">Connect Using Facebook</h3></center>
-    
-  </div>
-  <div class="modal-body">
-  <center><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></center>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>-->
 

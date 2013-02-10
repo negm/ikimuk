@@ -14,18 +14,17 @@
                           
                           
                           <!--start of mail container-->
+                          <form action="http://ikimuk.us6.list-manage1.com/subscribe/post?u=57e5f439df736442cfc265f3e&amp;id=c47f3d4fcb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                           <div class="mail_subscribe">
                               <div class="subscribe_container">
                               <div class="input_field">
-                                           <input type="text" name="email" value="Enter your e-mail"/>  
+                                           <input type="email" name="email" value="Enter your e-mail" required/>  
                                   
                               </div>
-                              <div class="subscribe_link">
-                                  
-                                  subscribe
-                              </div>
+                              <input type="submit" class="subscribe_link" value="subscribe">
                               </div>   
                           </div>
+                          </form>
                           <!--End of mail container-->
                       </div>
                        <!--end of social mail section--> 

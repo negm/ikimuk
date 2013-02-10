@@ -39,8 +39,7 @@ function add_to_cart()
     //if already in cart then increment number and update subtotal
     //if not in cart then add it and update subtotal
     $error="";
-    if (!isset($_POST["price"]) || !isset($_POST["product_id"]) || !isset($_POST["product_title"]) || !isset($_POST["size"]) ||
-            !isset($_POST["cut"]))
+    if (!isset($_POST["product_id"]) || !isset($_POST["size"]) || !isset($_POST["cut"]))
     {
         $error="invalid request";
         $cart=null;

@@ -20,10 +20,10 @@ $(".menu_element").each(function(){
     
   //Logo Mouse Over/Out  
     $(".lower_logo").mouseenter(function(){
-        $(this).find("img").attr("src","images/ikimuk_logo_beta_hover.png");
+        $(this).find("img").attr("src","/images/ikimuk_logo_beta_hover.png");
     });
         $(".lower_logo").mouseleave(function(){
-         $(this).find("img").attr("src","images/ikimuk_logo_beta.png");
+         $(this).find("img").attr("src","/images/ikimuk_logo_beta.png");
     });
     
     
@@ -133,7 +133,7 @@ if(type&&version<9);//If version less than 9, do nothing
 
 //Cart set mouse enter
 $(".selection_container_block .cart_no").mouseenter(function(){
-var cell_category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+var cell_category=$(this).parent().parent().hasClass("male_part") ? "m":"w";//Get cell category
 var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
 var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
@@ -148,7 +148,7 @@ var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
 
 //Cart set mouse leave
 $(".selection_container_block .cart_no").mouseleave(function(){
-var cell_category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+var cell_category=$(this).parent().parent().hasClass("male_part") ? "m":"w";//Get cell category
 var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
 var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
@@ -164,7 +164,7 @@ var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
 //Cart set mouse click
 $(".selection_container_block .cart_no").click(function(){
 
-    var category=$(this).parent().parent().hasClass("male_part") ? "male":"female";//Get cell category
+    var category=$(this).parent().parent().hasClass("male_part") ? "m":"w";//Get cell category
     var size=$(this).find("input[name='size']").val();//Get cell size
     $(".selection_container_block .cart_no").css("opacity",0.3);//reset all cells
     $(this).css("opacity",1);//set opacity to 1 for the new selected cell
@@ -173,13 +173,7 @@ $(".selection_container_block .cart_no").click(function(){
     $(".add_to_cart").find("input[name='size']").val(size);//set selected cell size
     
 });
-$(".cart_size_selection .add_to_cart").click(function(){
-    var category=$(".add_to_cart").find("input[name='category']").val();//Get selected category
-    var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
-    if(category=="")alert("please choose an element");//check if the user didn't click on any cell
-    else{  alert(category);alert(size);}
-  
-});
+
 ////////////checkout section///////////////////////////
 
 ///country list value changed
@@ -336,46 +330,5 @@ if(type&&version<9);//If version less than 9, do nothing
         $(this).css("opacity",0);
 });
    
-/////////////////////////////////////Submit Design Section///////////////////////////////////////////////
-$(".submit_personal_design input[name=submit_design]").click(function(){
- 
- reset_fields();//reset fields from error
-
-//Get need variable and values
-  var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
-  var title=$(".info_body").find(".line_input").find("input[name='design_title']");
-  var details=$(".info_body").find(".line_input").find("textarea[name='design_details']").val();
-  var city=$(".self_info_body").find(".line_input").find("input[name='city']");
-  var website_blog_1=$(".self_info_body").find(".line_input").find("input[name='website_blog_1']").val();
-  var website_blog_2=$(".self_info_body").find(".line_input").find("input[name='website_blog_2']").val();
-  var agree=$(".agreement_submit_section").find(".agreement").find(".terms_conditions").find("input[name='agree']").is(":checked");
-  
-  //check if there are any error and diplay it
-  var flag=0;
-  flag+=check_input(title,"please enter a title",1);
-  flag+=check_input(city,"please enter your city",1);
-  if(!agree)
-      {flag++;$(this).parent().parent().find(".line_error").text("Please Accept Our terms and conditions");}
-  
-  
-  if(flag==0)alert("Everyt thing gonna fine");
-  
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
     
 });

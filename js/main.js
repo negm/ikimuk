@@ -281,96 +281,109 @@ refresh_cart_prices();
 
 });
     
+    
+    
+    $(".cart_size_selection .add_to_cart").click(function(){
+    var cut=$(".add_to_cart").find("input[name='category']").val();//Get selected category
+    var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
+    if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
+    else{  alert(cut);alert(size);
+        var myData = 'action=add&cut='+cut+"&size="+size+"&product_id="+$("#product_id").val();
+        alert(myData)
+    jQuery.ajax({
+    type: "POST",
+    url: "/process_cart.php",
+    dataType:"json",
+    data:myData,
+    cache: false,
+    success:function(response){
+        //var json = $.parseJSON(response);
+        alert(response)
+        alert(response.error)
+        alert(response.item_count)
+        if ((response.error).length >3)
+            {
+                alert(response.error)
+                return false;
+            }
+        else 
+            {
+                //update number of items next to cart
+                $('#item_count').html(response.item_count);
+                return false;
+            }
+ },
+error:function (xhr, ajaxOptions, thrownError){
+//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+    }
+ });
+    
+        }
+  
+    });
+
+
 });
 
 
+/////////////////////////////////////Submit Design Section///////////////////////////////////////////////
+$(".submit_personal_design input[name=submit_design]").click(function(){
+ 
+ reset_fields();//reset fields from error
 
-
-
-
-
-
-
-
+//Get need variable and values
+  var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
+  var title=$(".info_body").find(".line_input").find("input[name='design_title']");
+  var details=$(".info_body").find(".line_input").find("textarea[name='design_details']").val();
+  var city=$(".self_info_body").find(".line_input").find("input[name='city']");
+  var website_blog_1=$(".self_info_body").find(".line_input").find("input[name='website_blog_1']").val();
+  var website_blog_2=$(".self_info_body").find(".line_input").find("input[name='website_blog_2']").val();
+  var agree=$(".agreement_submit_section").find(".agreement").find(".terms_conditions").find("input[name='agree']").is(":checked");
+  var newsletter=$(".agreement_submit_section").find(".newsletter").find("input[name='subscribe']").is(":checked");
+  var img_list = $("#img_url");
+  //check if there are any error and diplay it
+  var flag=0;
+  flag+=check_input(title,"please enter a title",1);
+  flag+=check_input(city,"please enter your city",1);
+  flag+=check_input(img_list,"Please Upload at least one image",1);
+  if(!agree)
+      {flag++;$(this).parent().parent().find(".line_error").text("Please Accept Our terms and conditions");}
+  
+  
+  if(flag==0){
+      var params = 'design_title='+title.val()+'&img_url='+
+        img_list.val()+'&comment='+details+'&newsletter='+newsletetr+"&city="+city.val()
+        +"&website_blog_1="+website_blog_1+"&website_blog_2="+website_blog_2;
+    $.ajax({  
+    type: "POST",  
+    url: "/process_submit.php",  
+    data: params,  
+    success: function(response) {  
+     if (response === 'done')
+            {
+                $(".preSummary").fadeOut(1000);
+                $('#title_msg').html( $('#design_title').val());
+                $("#orderComplete").removeClass("hidden");
+                return false;
+            }
+        else
+            { $(".preSummary").fadeOut(1000);
+                $('#title_msg').html( $('#design_title').val());
+                $("#submitFailed").removeClass("hidden");
+                return false;}
+            
+       }
+       
+      });  
+  }
+  
+});
 
 /* 
  * main JS file
  */
 var target="";
 var user_name="";
-//Login ------====================================================================
-$(function() {
-$("#form_login").validate(
-            {rules: {
-                email: {              //input name: email
-                    required: true,   //required boolean: true/false
-                    email: true       //required boolean: true/false
-                },
-                password: {            //input name: message
-                    required: true
-                }
-            },
-            messages: {               //messages to appear on error
-                email: "Enter a valid email.",
-                password: "Password can't be empty"
-                  },
-            submitHandler: function(form) {
-    
-  return false;
-}
-            });
-            
-//Signup
-/*$( "#form_register" ).validate(
-            {rules: {
-			firstname: "required",
-			lastname: "required",
-			password: {
-				required: true,
-				minlength: 8
-			},
-			password_confirmation: {
-				required: true,
-				minlength: 8,
-				equalTo: "#register_password"
-			},
-			email: {
-				required: true,
-				email: true
-				},
-			policy_agreement: "required"
-		},
-		messages: {
-			firstname: "Enter your firstname",
-			lastname: "Enter your lastname",
-			password: {
-				required: "Provide a password",
-				rangelength: jQuery.format("Enter at least {0} characters")
-			},
-			password_confirmation: {
-				required: "Repeat your password",
-				minlength: jQuery.format("Enter at least {0} characters"),
-				equalTo: "Enter the same password as above"
-			},
-			email: {
-				required: "Please enter a valid email address",
-				minlength: "Please enter a valid email address"
-				},
-			policy_agreement: "Please read the Privacy Policy and Terms"
-		},
-            submitHandler: function(form) {
-
-  return false;
-}
-            });*/
-
-});
- 
-  $(document).ready(function() {
-//Signup
-
-
-});
 //Facebook login
 function AjaxResponse()
 {
@@ -426,37 +439,12 @@ function ResetAnimate() //Reset User button
 
 /*-------------------------------------------------------------------------------------*/
 //--------------cart -------------------------------------
+
 $(function() {
     $("#add_to_cart_submit").click(function(e) {
      if ($('#size').val()=="")
          {$("#size_g").removeClass("hidden").addClass("alertr").focus();return false; }
-    var myData = 'action=add&'+$("#add_to_cart").serialize();
-    jQuery.ajax({
-    type: "POST",
-    url: "/process_cart.php",
-    dataType:"json",
-    data:myData,
-    cache: false,
-    success:function(response){
-        //var json = $.parseJSON(response);
-        if ((response.error).length >3)
-            {
-               // $('#error').html("Incorrect email/password").show();
-                //$('#error').html(response.error).show();
-                alert(response.error)
-                return false;
-            }
-        else 
-            {
-                //update number of items next to cart
-                $('#item_count').html(response.item_count);
-                return false;
-            }
- },
-error:function (xhr, ajaxOptions, thrownError){
-//$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
-    }
- });
+    
   return false;
 });
 
@@ -531,58 +519,13 @@ function moveOnMax(field,nextFieldID){
 ///////////////////////////////////////upload & submit
  var uploaded = false;
  var img_list = new Array();
-$(function() {  
-  $("#submit_design").click(function(e){
-    if($("#newsletter").is(':checked'))
-        newsletetr_val = 1;
-    else
-        newsletetr_val = 0;
-    e.preventDefault();
-    $("#submit_design").html('<img src="/img/ajax-loader-ikimuk.gif" />');
-    var valid = true;
-    $("*").removeClass("alertr");
-    if($('#design_title').val().length <1){           
-     $("#title_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
-    if (!uploaded)
-        {$("#img_g").removeClass("hidden").addClass("alertr").focus();  valid = false;}
-     if(!valid)
-         {$("#submit_design").html("Submit your design");return valid; }
-    // return false to cancel submit    
-    var params = 'design_title='+ $('#design_title').val()+'&img_url='+
-        $("#img_url").val()+'&comment='+$("#comment").val()+'&newsletter='+newsletetr_val;
-    $.ajax({  
-    type: "POST",  
-    url: "/process_submit.php",  
-    data: params,  
-    success: function(response) {  
-     if (response === 'done')
-            {
-                $(".preSummary").fadeOut(1000);
-                $('#title_msg').html( $('#design_title').val());
-                $("#orderComplete").removeClass("hidden");
-                return false;
-            }
-        else
-            { $(".preSummary").fadeOut(1000);
-                $('#title_msg').html( $('#design_title').val());
-                $("#submitFailed").removeClass("hidden");
-                return false;}
-            
-       }
-       
-      });   
-      return false;
-  });}) 
+$
  ////////////////preorder
      var size="";
     $(document).ready(function() {
    // put all your jQuery goodness in here.
     $('#name').attr("readonly",true);
-    //$('#email').attr("readonly",true);
     $('#ccode').attr("readonly",true);
-   // $('#address').popover({'trigger':'focus', 'title': 'Please write down your full address so we can deliver to your doorstep!'});
-    //$('#monum').popover({'trigger':'focus', 'placement':'bottom', 'html':'true','title': 'Please fill in your 8-digit<br>  Lebanese number!'});
-    //$('#vcode').popover({'trigger':'focus', 'title': 'The code you received via SMS!'});
     
     
  });

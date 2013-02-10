@@ -22,6 +22,7 @@ class artist {
         public $location;
         public $twitter;
         public $facebook;
+        public $user_id;
 
         // Class Constructor
 	public function __construct() {
@@ -45,7 +46,15 @@ class artist {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM artist WHERE id = $mID;";
+		if (!is_numeric($mID))
+                {
+                    $this->id = null;
+                    $this->database->result = null;
+                    return false;
+                }
+                $this->database->OpenLink();
+                $mID = mysqli_escape_string($this->database->link, $mID);
+                $sSQL = "SELECT * FROM artist WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
@@ -61,6 +70,38 @@ class artist {
                 $this->location   =$oRow->location;
                 $this->twitter    =$oRow->twitter ;
                 $this->facebook   =$oRow->facebook;
+                $this->user_id   =$oRow->user_id;
+                }
+                else
+                {$this->database->result = Null;}
+	}
+        public function select_by_user_id() { // SELECT Function
+		// Execute SQL Query to get record.
+                if (!is_numeric($mID))
+                {
+                    $this->id = null;
+                    $this->database->result = null;
+                    return false;
+                }
+                 $this->database->OpenLink();
+                $this->user_id = mysqli_escape_string($this->database->link, $this->user_id);
+		$sSQL = "SELECT * FROM artist WHERE user_id = $this->user_id;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+		$oRow = mysqli_fetch_object($oResult);
+		
+                if ($this->database->rows >0){
+		// Assign results to class.
+                
+		$this->id = $oRow->id; // Primary Key
+                
+		$this->name       =$oRow->name    ;
+                $this->image      =$oRow->image   ;
+                $this->website    =$oRow->website ;
+                $this->location   =$oRow->location;
+                $this->twitter    =$oRow->twitter ;
+                $this->facebook   =$oRow->facebook;
+                $this->user_id   =$oRow->user_id;
                 }
                 else
                 {$this->database->result = Null;}
@@ -73,7 +114,8 @@ class artist {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
-		$sSQL = "INSERT INTO artist () VALUES ();";
+		$sSQL = "INSERT INTO artist (name, website,location,twitter,user_id)
+                    VALUES ('$this->name', '$this->website', '$this->location','$this->twitter',$this->user_id );";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;
                 

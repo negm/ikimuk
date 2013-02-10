@@ -11,7 +11,7 @@
     
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
-                                <img src="images/ikimuk_disabled_close.png"/></a>
+                                <img src="/images/ikimuk_disabled_close.png"/></a>
                            </div>
                          
                  <div class="member_unjoin">
@@ -102,7 +102,7 @@
     
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
-                                <img src="images/ikimuk_disabled_close.png"/></a>
+                                <img src="/images/ikimuk_disabled_close.png"/></a>
                            </div>
                          
                  <div class="member_unjoin">
@@ -189,7 +189,7 @@
                        </div>
                        
                        <div class="member_facebook">
-                           <a href="#">   <img src="images/ikimuk_connect_with_facebook.png"/></a>
+                           <a href="#"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
                        
                        

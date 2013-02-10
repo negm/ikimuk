@@ -4,149 +4,257 @@
  * This is the design view with multiple images and thumbnail
  * 
  */
-if(isset($_GET["product_id"]))
-{
-$mID = (int)$_GET["product_id"];
-}
-else
-{
-    header("Location: index.php");
-}
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.competition.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
-$regex = '/(?<!href=["\'])http:\/\//';
-$product = new product();
-$image = new image();
-$competition = new competition();
-$artist = new artist();
-$settings = new settings();
-$product->select($mID);
-$competition->select($product->competition_id);
-$artist->select($product->artist_id);
-$image->selectByProduct($mID);
-if ($product->database->result === NULL || $image->database->result === NULL)
-{
-  //Something went wrong either redirect or show something
-   header("Location: /index.php");
-}
-else
-{
     //show the goodies :D  
-    $pagetitle = $product->title;
-    $next = $product->GetNextInCompetitionID();
-    $prev = $product->GetPrevInCompetitionID();
-    $daysLeft = floor((strtotime($competition->end_date) - time())/(60*60*24));
-    include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
-    unset($_SESSION["size"]);
-    
-    echo '<meta property="og:title" content="'.$product->title.'" />';
-    echo '<meta property="og:image" content="'.$product->image.'" />';
-    echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
-    echo '<meta property="og:url" content="'.$settings->site_url_vars.'" />';
-    
-    ?>
- <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider({
-        effect: 'slideInLeft', // Specify sets like: 'fold,fade,sliceDown'
-        animSpeed: 350, // Slide transition speed
-        pauseTime: 4000, // How long each slide will show
-        startSlide: 0, // Set starting Slide (0 index)
-        directionNav: true, // Next & Prev navigation
-        controlNav: true, // 1,2,3... navigation
-        controlNavThumbs: true, // Use thumbnails for Control Nav
-        pauseOnHover: true, // Stop animation while hovering
-        manualAdvance: false, // Force manual transitions
-        prevText: 'Prev', // Prev directionNav text
-        nextText: 'Next', // Next directionNav text
-        randomStart: false // Start on a random slide
- 
-    });
-    $(".ribbon").removeClass("hidden");
-    $(".commentheader").removeClass("hidden");
-});
+   ?>
+    <div class="body">
 
-    </script>
-    
-    <?php
-    include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
-    include $_SERVER["DOCUMENT_ROOT"]."/block/breadcrumb.php";
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class= "span8"><div class="slider-wrapper theme-light">';
-    if ($daysLeft >=0)
-    echo '<div class="wrapper"><div class="ribbon hidden"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
-    else
-    echo '<div class="wrapper"><div class="ribbon hidden"><span><b><small>Compe-<br>tition Ended</small></b></span></div></div>';
-    echo '<div id="slider" class="nivoSlider">';
+             <div class="body_content specific_shop">
+                 
+                 <!--Start of Cart section-->
+                 <div class="cart_section">
+                     <div class="cart_content">
+                         <div class="cart_icon"></div>
+                         <div class="cart_details">
+                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
+                         </div>
+                     </div>
+                 </div>
+                  <!--end of Cart section-->
+                  
+                  <div class="shop_container">
+                      
+                      
+                      <!--Start Of left side section-->
+                 <div class="shop_left_section">
+                     
+                     <!--Start of shop slider-->
+                     <div class="shop_slider">
+                         <div id="wrapper">
+
+        <div class="slider-wrapper theme-light">
+            <div id="slider" class="nivoSlider">
+      <?php
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {
         echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="'.$product->title.' ikimuk" />';
-    }
-     echo '</div></div>';
-     echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
-     echo '<div class="fb-comments" data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'" data-num-posts="2" data-width="620"></div></div>';
-     echo '<div class="span4">';
-     //echo '';
-     echo '<h1 class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></h1>';
-     echo '<div class="lineb"></div><div class="clear"></div>'; 
-     echo '<div class="countText tlblue"><b class="circle span1 centert twhite">'.$product->preorders.' </b> <b>PREORDERED THIS DESIGN</b></div>';
-     echo '<div class="price">PRICE: '.$product->price.'.00$</div>';
-      if ($daysLeft >=0)
-      {
-     ?>
-    <div class="">(REMEMBER: Your pre-order is only confirmed if this T-shirt design gets the most preorders)</div>
-    <div class="hidden" id="size_g"><br/>Please choose your Size!</div>
-    <div class="">
-    <form method="post" id="add_to_cart">
-    <label>Men</label>
-    <a href="#" name="M_S" id="M_S" class="sizeIcon">S</a>
-    <a href="#" name="M_M" id="M_M" class="sizeIcon">M</a>
-    <a href="#" name="M_L" id="M_L" class="sizeIcon">L</a>
-    <a href="#" name="M_XL" id="M_XL" class="sizeIcon">XL</a>
-    <a href="#" name="M_XXL" id="M_XXL" class="sizeIcon nomargin">XXL</a>
-    <label class="tmedium">Women</label>
-    <a href="#" name="W_S" id="W_S" class="sizeIcon">S</a>
-    <a href="#" name="W_M" id="W_M" class="sizeIcon">M</a>
-    <a href="#" name="W_L" id="W_L" class="sizeIcon">L</a>
-    <a href="#" name="W_XL" id="W_XL" class="sizeIcon">XL</a>
-    <input name ="size" type="hidden" value="" id="size">
-    <input name="cut" type="hidden" value="" id="cut">
-    <input name="product_title" type="hidden" value="<?php echo $product->title;?>" id="product_title">
-    <input name="product_id" type="hidden" value="<?php echo $product->id;?>" id="product_id">
-    <input name="price" type="hidden" value="<?php echo $product->price;?>" id="price">
-     <input type="submit"class="button" id="add_to_cart_submit" value="add to cart">  
-     </form>
+    }?>
+     </div>
+        </div>
     </div>
-    <?php
-   echo '';
-   echo '';
-      }
-     echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
-     echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
-              data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'"></div>';
-     echo '<div class="span1"><a href="https://twitter.com/share" class="twitter-share-button" data-via="ikimukTweets" data-count="vertical" data-url="'.urlencode($settings->site_url_vars).'" data-text="'.$product->title.'  '.  urldecode($settings->site_url_vars).'">Tweet</a></div>';
-     echo '<div class="span1" style="margin-top:10px;"><a href="http://pinterest.com/pin/create/button/?url='.urlencode($settings->site_url_vars).'&media='.urlencode($product->image).'&description='.urlencode($product->title).'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></div>';
-     echo '</div><div class="clear"></div><div class="clear"></div>';//end of social box
-     echo '<div class="lbluebg twhite boxheader">Designer Profile</div><div class="socialbox">';
-     echo '<div class="span1 thumb nomargin"><img src = "'.$artist->image.'" alt="'.$artist->name.' ikimuk"/></div>';
-     echo '<div class="span2"><div class=" artistInfo "><b>'.$artist->name.'</b></div>';
-     echo '<div class=" artistInfo">'.$artist->location.'</div>';
-     echo '<div class=" artistInfo "><a class ="tlblue" href="'.$artist->website.'" target="_blank">'.preg_replace($regex, '',$artist->website).'</a></div>';
-     echo '<div class=" artistInfo"><a class ="tlblue" href="http://www.twitter.com/'.$artist->twitter.'" target="_blank">'.$artist->twitter.'</a></div>';
-     echo '</div></div>';//end of artist profile
-     echo '</div>'; //end of row
-     echo '</div>'; //end of container
-     //if($next)
-         //echo '<div class="preorderButton span4"><a href="design.php?product_id='.$next.'" class="preorderButton"> Next </a></div>';
-     //if($prev)
-         //echo '<div class="preorderButton span4"><a href="design.php?product_id='.$prev.'" class="preorderButton"> Prev </a></div>';
+</div>
+<!--End of shop slider-->
+<!--Start of facebook comment section-->
+<div class="shop_facebook">
+<div class="std_block block_expandable">
+<div class="std_block_header"><div class="header_content">Did your comments, toughts, support, be nice</div></div>
+<div class="std_block_body">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-width="620" data-num-posts="4" data-href="http://www.elnashra.com/news/show/576619" data-colorscheme="light"></div>
+</div>
+</div>
+</div>
+                      <!--End of facebook commment section-->
+</div>
+                       <!--End Of left side section-->
+                       <!--Start of right side section-->
+<div class="shop_right_section">
+<div class="cart_block">
+<div class="std_block">
+<div class="std_block_body">
+<div class="cart_body">
+<div class="cart_body_header">
+<div class="cart_description"> <?php echo $product->title;?></div>
+<div class="car_author">by <?php echo $artist->name;?></div>
+</div>
+<div class="cart_body_details">
+The original Funkalicious design was created by Christopher Golebiowski in 2006. Since its launch, Funkalicious has appeared as a tank top, water bottle, kids tee, and even a giant parade float.
+</div>
+<div class="cart_size_selection">
+<div class="size_selection_header">GUY's regular fit- $<?php echo number_format($product->price,2);?></div>
+<div class="selection_container male_part">
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="s"/>
+<div>S</div>
+</div>
+<div class="cart_left">
+999 Left
+</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="m"/>
+<div>M</div>
+</div>
+<div class="cart_left">
+999 Left
+</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="l"/>
+<div>L</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="xl"/>
+<div>XL</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="xxl"/>
+<div>XXL</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+</div>
+<div class="size_selection_header">GIRL's regular fit- $<?php echo number_format($product->price,2);?></div>
+<div class="selection_container female_part">
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="s"/>
+<div>S</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="m"/>
+<div>M</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="l"/>
+<div>L</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="xl"/>
+<div>XL</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+<div class="empty_space"></div>
+<div class="selection_container_block">
+<div class="cart_no">
+<input type="hidden" name="size" value="xxl"/>
+<div>XXL</div>
+</div>
+<div class="cart_left">999 Left</div>
+</div>
+</div>
+<div class="add_to_cart">
+<input type="hidden" name="category" value=""/>
+<input type="hidden" name="size" value=""/>
+<input type="hidden" name="product_id" id="product_id" value="<?php echo $product->id;?>"/>
+<input type="hidden" name="price" id="price" value="<?php echo $product->price;?>"/>
+<input type="button" name="add_to_cart" value="ADD TO CART"/>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<!--Start of share block-->
+<div class="share_block">
+<div class="std_block">
+<div class="std_block_header"><div class="header_content">Share with friends</div></div>
+<div class="std_block_body">
+<!--Start of share content-->
+<div class="share_content">
+<!--Start of facebook share-->
+<div class="share_facebook">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=410515992368816";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="http://stackoverflow.com/questions/9516467/facebook-like-button-count-not-working-unless-logged-in" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+</div>
+<!--End of facebook share-->
+<!--Start of google share-->                             
+<div class="share_google">
+<g:plus annotation='vertical-bubble' action="share"></g:plus>
+<script type="text/javascript">
+      window.___gcfg = {
+        lang: 'en-US'
+      };
 
-
-}
-
-?>
-    </div>
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+</div>
+<!--End of google share-->  
+<!--Start of twitter share-->  
+<div class="share_twitter">
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="vertical">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<!--End of twitter share-->  
+</div>
+<!--End of share content-->
+</div>
+<!--End of standard body block-->
+</div>
+<!--End of standard block-->
+</div>
+<!--End of share block-->
+<!--Start of Profile block-->
+<div class="profile_block">
+<div class="std_block">
+<div class="std_block_header"><div class="header_content">Designer Profile</div></div>
+<div class="std_block_body shop_profile">
+<div class="profile_avatar"><img src="<?php echo $artist->image;?>"/></div>
+<div class="profile_name"><?php echo $artist->name;?></div>
+<div class="profile_location">
+<img src="/images/ikimuk_balloon_gray.png"/>
+<?php echo $artist->location;?>
+</div>
+<div class="profile_website">
+<img src="/images/ikimuk_bag_gray.png"/>
+<?php echo $artist->website;?>
+</div>
+<div class="profile_twitter">
+<img src="/images/ikimuk_twitter_gray.png"/>
+<a href="http://twitter.com/"<?php echo $artist->twitter;?>><?php echo $artist->twitter;?></a>
+</div>
+</div>
+</div></div>
+<!--End of Profile block-->
+</div>
+<!--End of right side section-->
+</div>
+<!--End of shop container-->
+</div>
+<!--End of body content-->
+</div>
+<!--End of class body-->

@@ -4,44 +4,8 @@
  * This is the design view with multiple images and thumbnail
  * 
  */
-if(isset($_GET["product_id"]))
-{
-$mID = (int)$_GET["product_id"];
-}
-else
-{
-    header("Location: index.php");
-}
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.competition.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
-$regex = '/(?<!href=["\'])http:\/\//';
-$product = new product();
-$image = new image();
-$competition = new competition();
-$artist = new artist();
-$settings = new settings();
-$product->select($mID);
-$competition->select($product->competition_id);
-$artist->select($product->artist_id);
-$image->selectByProduct($mID);
-if ($product->database->result === NULL || $image->database->result === NULL)
-{
-  //Something went wrong either redirect or show something
-   header("Location: /index.php");
-}
-else
-{
-    //show the goodies :D  
-    $pagetitle = $product->title;
-    $next = $product->GetNextInCompetitionID();
-    $prev = $product->GetPrevInCompetitionID();
-    $daysLeft = floor((strtotime($competition->end_date) - time())/(60*60*24));
-    include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
-    unset($_SESSION["size"]);
-    
+
+
     echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
@@ -71,22 +35,41 @@ else
 
     </script>
     
-    <?php
-    include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
-    include $_SERVER["DOCUMENT_ROOT"]."/block/breadcrumb.php";
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class= "span8"><div class="slider-wrapper theme-light">';
-    if ($daysLeft >=0)
-    echo '<div class="wrapper"><div class="ribbon hidden"><span><b>'.$daysLeft.'</b><br> DAYS left</span></div></div>';
-    else
-    echo '<div class="wrapper"><div class="ribbon hidden"><span><b><small>Compe-<br>tition Ended</small></b></span></div></div>';
-    echo '<div id="slider" class="nivoSlider">';
+    <div class="body">
+
+             <div class="body_content specific_shop">
+                 
+                 <!--Start of Cart section-->
+                 <div class="cart_section">
+                     <div class="cart_content">
+                         <div class="cart_icon"></div>
+                         <div class="cart_details">
+                             CART(<span class="cart_count">0</span>)
+                         </div>
+                     </div>
+                 </div>
+                  <!--end of Cart section-->
+                  
+                  <div class="shop_container">
+                      
+                      
+                      <!--Start Of left side section-->
+                 <div class="shop_left_section">
+                     
+                     <!--Start of shop slider-->
+                     <div class="shop_slider">
+                         <div id="wrapper">
+
+        <div class="slider-wrapper theme-light">
+            <div id="slider" class="nivoSlider">
+      <?php
     while ($image_row = mysqli_fetch_assoc($image->database->result))
     {
         echo '<img src="'.$image_row["url"].'" data-thumb="'.$image_row["url"].'" alt="'.$product->title.' ikimuk" />';
-    }
-     echo '</div></div>';
+    }?>
+     </div>
+        </div>
+    </div>
      echo '<div class="tlblue commentheader noindent hidden">DROP YOUR COMMENTS<div class="lineb"></div></div><br>';
      echo '<div class="fb-comments" data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'" data-num-posts="2" data-width="620"></div></div>';
      echo '<div class="span4">';
@@ -115,7 +98,7 @@ else
     </div>
     <?php
    echo '<a href="/preorder/'.$product->id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title))).'" class="preorderButton"><div class="preorderButton" >PREORDER NOW</div></a>';
-      }
+      
      echo '<div class=" lbluebg twhite boxheader">Share with friends</div><div class="  socialbox">';
      echo '<div class="span1 fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial" 
               data-href="'.urldecode($settings->root.'design.php?product_id='.$product->id).'"></div>';
@@ -137,7 +120,6 @@ else
          //echo '<div class="preorderButton span4"><a href="design.php?product_id='.$prev.'" class="preorderButton"> Prev </a></div>';
 
 
-}
 
 ?>
     </div>

@@ -102,7 +102,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       
                       <!--Start of Add Images-->
                        <div class="add_images">
-                        <div class="std_block">
+                        <div class="std_block block_expandable">
                               <input type="hidden" id="img_url">
                               <!--Start of cart table header-->
                               <div class="std_block_header">
