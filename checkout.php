@@ -9,9 +9,14 @@ session_start();
 include (__DIR__."/class/class.product.php");
 $product = new product();
 if(isset($_SESSION["cart"]))
-    validate_cart_items ();
+{validate_cart_items ();
+$cart=$_SESSION["cart"];
+}
+
 else
-    $_SESSION["cart"]=null;
+{  $_SESSION["cart"]=null;
+    header("Location: /cart.php");
+}
 
 function validate_cart_items()
 {
@@ -51,14 +56,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
  <div class="body_content checkout_section">
                  
                  <!--Start of Cart section-->
-                 <div class="cart_section">
-                     <div class="cart_content">
-                         <div class="cart_icon"></div>
-                         <div class="cart_details">
-                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
-                         </div>
-                     </div>
-                 </div>
+                 <?php include $_SERVER["DOCUMENT_ROOT"]."/block/cart_count.php"; ?>
                   <!--end of Cart section-->
              
                
@@ -328,23 +326,22 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                             <div class="std_block block_expandable">  
                                 
                               <div class="std_block_header">
-                                  <div class="header_content">3. Shipping Method <div style="float:right;margin-right:20px;font-size:14px;"><a href="#">Edit</a></div></div>
+                                  <div class="header_content">3. Shipping Method <div style="float:right;margin-right:20px;font-size:14px;"><a href="/cart.php">Edit</a></div></div>
                               </div>
                                             
                                                         
                               <div class="std_block_body summary_content">
                                   
-                                  <?php for($i=0;$i<2;$i++){ ?>
+                                   <?php  foreach($cart as $key => $cart_item){ ?>
                                   
                                   <div class="summary_line">
-                                      <div class="summary_avatar"><img src="images/ikimuk_summary_thumbnail_(60x60).png"/></div>
+                                      <div class="summary_avatar"><img src="<?php echo $cart_item["url"]; ?>"/></div>
                                        <div class="summary_description">
-                                           L'amour de petit fennec de 
-                                           <br/>Dexabajaux
-                                           <br/>(1) * (S) Small
+                                           <?php echo $cart_item["product_title"]; ?>
+                                           <br/>(<?php echo $cart_item["quantity"]; ?>) * (<?php echo $cart_item["size"]; ?>)
                                        </div>
                                        <div class="summary_price">
-                                           $ 225.00
+                                           $ <?php echo  number_format($cart_item["subtotal"],2); ?>
                                        </div>
                                         <div></div>
            
@@ -355,11 +352,11 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                   <div class="summary_sub_total">
                                       <div class="sub_total_line">
                                           <span class="sub_type">Subtotal:</span>
-                                          <span class="sub_value">$ 75.00</span>
+                                          <span class="sub_value">$ <?php echo  number_format($_SESSION["subtotal"],2); ?></span>
                                       </div>
                                        <div class="sub_total_line">
                                           <span class="sub_type">Aramex Shipping:</span>
-                                          <span class="sub_value">$ 3.00</span>
+                                          <span class="sub_value">$ <?php echo  number_format($_SESSION["delivery_charge"],2); ?></span>
                                       </div>
                                       
                                   </div>
@@ -368,7 +365,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                    <div class="summary_total">
                                       <div class="total_line">
                                           <span class="sub_type">Aramex Shipping:</span>
-                                          <span class="sub_value">$ 3.00</span>
+                                          <span class="sub_value">$ <?php echo  number_format($_SESSION["delivery_charge"],2); ?></span>
                                       </div>
                                   </div>
                                   

@@ -86,6 +86,7 @@ ob_implicit_flush(0);
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/javascript.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 

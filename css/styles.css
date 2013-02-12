@@ -4,9 +4,8 @@ ul , ol , li { list-style:none; list-style-type:none;}
 body , html { width:100%; height:100%; position:relative;}
 a{text-decoration: none;color:#5DA5D5;}
  *{font-family: Times New Roman;}
- input[type="button"], input[type="submit"]{border:0px;}
 /*End Of REset CSS*/
-
+input[type="submit"] {border:0px;}
 /*Start of Header Section*/
            .header{
                float:left;
@@ -60,7 +59,7 @@ a{text-decoration: none;color:#5DA5D5;}
                width:100%;
                float:right;
                height:30px;
-              /* display:none;*/
+               /*display:none;*/
            }
            .login_header .login_arrow{
                cursor:pointer;
@@ -235,6 +234,7 @@ a{text-decoration: none;color:#5DA5D5;}
                background:url(../images/left_border_input.png) no-repeat;
            }
            .subscribe_container .subscribe_link{
+               
                background-color: #2989CA;
                cursor:pointer;
                color:white;
@@ -242,7 +242,6 @@ a{text-decoration: none;color:#5DA5D5;}
                text-align: center;
                width:130px;
                height:30px;
-               line-height: 30px;
                float:left;
                text-transform: uppercase;
            }
@@ -262,9 +261,9 @@ a{text-decoration: none;color:#5DA5D5;}
                margin-left: 20px;
            }
            .social_twitter .twitter_balloon{
-               margin-top:25px;
+               margin-top:7px;
                width:100%;
-               height:45px;
+               height:67px;
                background-color: #282828;
                opacity:0.95;
            }
@@ -619,7 +618,6 @@ a{text-decoration: none;color:#5DA5D5;}
         text-align: center;
         color:#2989CA;
         font-size:10px;
-        display: none;
     }
     .selection_container .empty_space{
         float:left;

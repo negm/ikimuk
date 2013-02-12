@@ -115,6 +115,11 @@ class artist {
 	
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
+                $this->database->OpenLink();
+                $this->name = mysqli_escape_string($this->database->link, $this->name);
+                $this->website = mysqli_escape_string($this->database->link, $this->website);
+                $this->location = mysqli_escape_string($this->database->link, $this->location);
+                $this->twitter = mysqli_escape_string($this->database->link, $this->twitter);
 		$sSQL = "INSERT INTO artist (name, website,location,twitter,user_id) VALUES ('$this->name', '$this->website', '$this->location','$this->twitter',$this->user_id );";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;

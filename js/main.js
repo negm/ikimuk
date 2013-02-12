@@ -198,7 +198,8 @@ refresh_cart_prices();//refresh all prices at startup
 
 //when the checkout button clicked
 $(".payment_process .payment_checkout").click(function(){
-    alert("checkout clicked");
+    //alert("checkout clicked");
+    window.location.href = '/checkout.php';
      refresh_cart_prices();
 });
 
@@ -345,9 +346,12 @@ alert("shit")
   
   
   if(flag==0){
-      var params = 'action=add_submission&design_title='+title.val()+'&img_url='+
-        img_list.val()+'&comment='+details+'&newsletter='+newsletter+"&city="+city.val()
-        +"&website_blog_1="+website_blog_1+"&website_blog_2="+website_blog_2+"&competition="+competition_type;
+      var params = 'action=add_submission&design_title='+ encodeURIComponent(title.val())+'&img_url='+
+         encodeURIComponent(img_list.val())+'&comment='+ encodeURIComponent(details)
+         +'&newsletter='+newsletter+"&city="+ encodeURIComponent(city.val())
+        +"&website_blog_1="+ encodeURIComponent(website_blog_1)+"&website_blog_2="+ 
+        encodeURIComponent(website_blog_2)+"&competition="+competition_type;
+    params = encodeURI(params);
     alert(params);
     $.ajax({  
     type: "POST",  

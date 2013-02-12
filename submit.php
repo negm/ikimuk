@@ -193,7 +193,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                       <div class="line_info">   
                                       <div class="line_header">City</div>
                                       <div class="line_input">
-                                            <input type="text" class="round_corners" name="city" value="<?php echo $artist->location;?>"/>
+                                          <input type="text" class="round_corners" name="city" value="<?php echo htmlentities(urldecode($artist->location)) ;?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>
@@ -202,7 +202,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                      <div class="line_info">   
                                       <div class="line_header">Website, Blog Or Portfolio</div>
                                       <div class="line_input">
-                                            <input type="text" class="round_corners" name="website_blog_1" value="<?php echo $artist->website;?>"/>
+                                            <input type="text" class="round_corners" name="website_blog_1" value="<?php echo htmlentities(urldecode($artist->website));?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>
@@ -211,7 +211,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                   <div class="line_info">   
                                       <div class="line_header">Website, Blog Or Portfolio</div>
                                       <div class="line_input">
-                                           <input type="text" class="round_corners" name="website_blog_2" value="<?php echo $artist->twitter;?>"/>
+                                          <input type="text" class="round_corners" name="website_blog_2" value="<?php echo htmlentities(urldecode($artist->twitter)) ;?>"/>
                                       </div>
                                       <div class="line_error"></div>
                                       </div>

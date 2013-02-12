@@ -19,6 +19,8 @@ public $imageBucketName = 'product-pics';
 public $salt = '$6$rounds=5000$z@3dSa890LkWsiU<$';
 public $beta_base = 'http://beta.ikimuk.com/';
 public $prodction;
+public $audi_access_code="1E5AADCC";
+public $audi_secure_hash="345F4F2AAB7FAE45B7DAD1DC025D47A9";
 public function __construct() 
 {
  $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';
