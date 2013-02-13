@@ -148,8 +148,7 @@ error:function (xhr, ajaxOptions, thrownError){
     success:function(response){
         if ((response.error).length >5)
             {
-                $('#error').html("Incorrect email/password").show();
-                $('#error').html(response.error).show();
+                email.parent().parent().find(".line_error").text("Incorrect Email/password");
                 return false;
             }
     if(target.length > 1)
@@ -197,7 +196,7 @@ refresh_cart_prices();//refresh all prices at startup
 
 
 //when the checkout button clicked
-$(".payment_process .payment_checkout").click(function(){
+$(".payment_process .payment_checkout input[name='checkout']").click(function(){
     //alert("checkout clicked");
     window.location.href = '/checkout.php';
      refresh_cart_prices();
@@ -325,7 +324,6 @@ error:function (xhr, ajaxOptions, thrownError){
 $(".submit_personal_design input[name=submit_design]").click(function(){
  
  reset_fields();//reset fields from error
-alert("shit")
 //Get need variable and values
   var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
   var title=$(".info_body").find(".line_input").find("input[name='design_title']");
@@ -359,17 +357,14 @@ alert("shit")
     data: params,  
     success: function(response) {  
         alert(response)
-     if (response === 'done')
+     if (response != 'shit')
             {
-                $(".preSummary").fadeOut(1000);
-                $('#title_msg').html( $('#design_title').val());
-                $("#orderComplete").removeClass("hidden");
+                alert("we made it bro :)")
                 return false;
             }
         else
-            { $(".preSummary").fadeOut(1000);
-                $('#title_msg').html( $('#design_title').val());
-                $("#submitFailed").removeClass("hidden");
+            { 
+                 alert("we got shit all over the place bro")
                 return false;}
             
        }

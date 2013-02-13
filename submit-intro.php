@@ -124,8 +124,15 @@ right back to you!
  </div>
                                   <!--End of submit content-->
                                            
-                                      <div class="submit_button">
-                                          <input type="submit" value="submit your design"/>
+                                       <div class="submit_button">
+                                   <?php if (isset($_SESSION["logged_in"])&& $_SESSION["logged_in"]){ ?>
+                                           <form action="/submit.php" method="post">
+                                           <input type="submit" value="submit your design"/>
+                                           </form>
+                                <?php }else{ ?>
+                               <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="dummy_button">submit your design</div></a>
+                               <?php } ?>
+                                         
                                       </div>       
                                       
                                      

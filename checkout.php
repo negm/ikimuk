@@ -6,7 +6,10 @@
  * the shupping cost
  */
 session_start();
-include (__DIR__."/class/class.product.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/class/class.product.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/class/class.ip2nationcountries.php");
+$countries = new ip2nationcountries();
+$countries->select_all_countries();
 $product = new product();
 if(isset($_SESSION["cart"]))
 {validate_cart_items ();
@@ -65,7 +68,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                               <div class="checkout_section_content">
                  <div class="checkout_section_header">checkout</div>
                  
-                 
+                  <form method="post" action="/payment.php">
                  <div class="checkout_column_left">
                      
                      <div class="shipping_info">
@@ -83,7 +86,14 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                       <div class="full_line">
                                       <div class="line_header">Country</div>
                                         <div class="line_input">
-                                           <input class="round_corners" type="text"/>
+                                           
+                                            <select name="country">
+                                            <?php 
+                                            while ($country = mysqli_fetch_object($countries->database->result))
+                                                echo '<option value="'.$country->country_code.'">'.$country->country_name.'</option>';
+                                            ?>    
+                                           <!--<input class='round_corners" type="text"/>-->
+                                           </select>
                                         </div>
                                           <div class="line_error">Error Message</div>
                                       </div>
@@ -123,7 +133,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                           <div class="full_line">
                                            <div class="line_header">Address</div>
                                         <div class="line_input">
-                                              <input class="round_corners" type="text"/>
+                                              <input class="round_corners" name="address" type="text"/>
                                         </div>
                                           <div class="line_error">Error Message</div>
                                           </div>
@@ -137,7 +147,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                         <div class="half_line">
                                              <div class="line_header">City</div>
                                         <div class="line_input">
-                                            <input class="round_corners" type="text"/>
+                                            <input class="round_corners" name="city" type="text"/>
                                         </div>
                                           <div class="line_error">Error Message</div>
                                         </div>
@@ -146,7 +156,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                         <div class="half_line" style="margin-left:20px;">
                                             <div class="line_header">State, Region or Province</div>
                                         <div class="line_input">
-                                              <input class="round_corners" type="text"/>
+                                              <input class="round_corners" name="region" type="text"/>
                                         </div>
                                           <div class="line_error">Error Message</div> 
                                         </div>
@@ -199,7 +209,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                         <div class="half_line" style="margin-left:20px;">
                                             <div class="line_header">Telephone Number</div>
                                         <div class="line_input">
-                                              <input class="round_corners" type="text"/>
+                                              <input class="round_corners" name="phone" type="text"/>
                                         </div>
                                           <div class="line_error">Error Message</div> 
                                         </div>
@@ -250,7 +260,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                          </div>
                          
                          <div class="newsletter">
-                             <input type="checkbox"/>Keep me in the loop, sign me up for your newsletter
+                             <input type="checkbox" name="newsletter"/>Keep me in the loop, sign me up for your newsletter
                          </div>
                          
                          
@@ -267,7 +277,8 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 
                                 
                            <div class="payment_checkout">
-                               <input type="button" name="place" value="PLACE ORDER"/>
+                               <input type="submit" name="place" value="PLACE ORDER"/>
+                               
                                  <div class="gateway">
                                  You will be redirected to Bank Audi's payment gateway 
                              </div>
@@ -278,38 +289,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                          </div>
                          
                          
-                         
-                             
-                         
-                         
-                         
-                     </div>
+                      </div>
                      
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                 </div>
-                 
+                  </div>
+                 </form>
                  
                  
                  

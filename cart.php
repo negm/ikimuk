@@ -204,7 +204,11 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 
                                 
                            <div class="payment_checkout">
-                               <div class="payment_checkout_text">checkout</div>
+                               <?php if (isset($_SESSION["logged_in"])&& $_SESSION["logged_in"]){ ?>
+                               <input type="button" name="checkout" value="CHECKOUT">
+                               <?php }else{ ?>
+                               <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="">Checkout</div></a>
+                               <?php } ?>
                            </div>
                             
                        </div>

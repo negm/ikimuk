@@ -1,6 +1,4 @@
 <?php
-include_once ($_SERVER["DOCUMENT_ROOT"].'/class/settings.php');
-$settings = new settings();
 if(isset($_GET["logout"]) && $_GET["logout"]==1)
 {
 //User clicked logout button, distroy all session variables.
@@ -33,7 +31,7 @@ header('Location: '.$_SERVER['PHP_SELF']);
                     
                     
                     <div class="header_title">
-                        We deliver internationally including <?php if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"]) < 2)echo 'your country'; else echo $_SESSION["country_name"];?> 
+                        We deliver internationally including <?php if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"]) < 2)echo "your country"; else echo $_SESSION["country_name"];?> 
                     </div>
                     
                     

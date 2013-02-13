@@ -42,7 +42,7 @@ uploaded = true;
 }
 if (response === "size_error")
     {
-        $("#img_size_g").removeClass("hidden").addClass("alertr").focus();  return false;
+        $("#img_url").parent().parent().find(".line_error").text("Image is larger than 250 KB");  return false;
     }
 else{
 //$('<li></li>').appendTo('#files').text(file).addClass('error');
@@ -106,7 +106,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       <!--Start of Add Images-->
                        <div class="add_images">
                         <div class="std_block block_expandable">
-                              <input type="hidden" id="img_url">
+                              
                               <!--Start of cart table header-->
                               <div class="std_block_header">
                                   <div class="header_content">
@@ -123,6 +123,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                    <ul id="files" class="thumb"></ul>
                                    <div class="upload_holder">
                                     <input type="button" id="upload" value="UPLOAD FILE" style=""/>
+                                    <div class="line_info">
+                                    <input type="hidden" id="img_url">
+                                    <div class="line_error"></div></div>
                                    </div>
                                       
                                       </div>

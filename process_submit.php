@@ -35,10 +35,8 @@ if(count($img_arr) <1)
 $error = "No images submitted";
 }
  else {
-     echo "shirz";
   $submission->insert();
-  
-if ($submission->id == NULL)
+  if ($submission->id == NULL)
 {$error = "Error processing submission";}
 else
 {

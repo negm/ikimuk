@@ -5,7 +5,44 @@ body , html { width:100%; height:100%; position:relative;}
 a{text-decoration: none;color:#5DA5D5;}
  *{font-family: Times New Roman;}
 /*End Of REset CSS*/
+/* HUSSEIN CSS*/
+.thumb img {
+min-width: 60px;
+min-height: 60px;
+width: 60px;
+}
 input[type="submit"] {border:0px;}
+input[type="text"], input[type="email"]{padding-left: 5px;}
+.payment_checkout a div
+{
+
+text-align: center;
+line-height: 50px;
+background-color: #2989CA;
+color: #FFFFFF;
+font-size: 18px;
+width: 100%;
+height: 100%;
+cursor: pointer;
+}
+.payment_checkout a div:hover{
+    background-color: #E13E5D;text-decoration: none;
+}
+.dummy_button {
+width: 300px;
+color: #FFFFFF;
+border: 0;
+height: 50px;
+background-color: #2A89CB;
+font-size: 18px;
+text-transform: uppercase;
+cursor: pointer;
+}
+.dummy_button:hover{background-color: #E13E5D;text-decoration: none;}
+
+
+
+
 /*Start of Header Section*/
            .header{
                float:left;
@@ -618,6 +655,7 @@ input[type="submit"] {border:0px;}
         text-align: center;
         color:#2989CA;
         font-size:10px;
+        display:none;
     }
     .selection_container .empty_space{
         float:left;
