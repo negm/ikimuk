@@ -1,5 +1,7 @@
 <?php
     // Include this function on your pages
+include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
+$settings = new settings();
 if (!isset($_SESSION))
 {
     session_start ();

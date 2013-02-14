@@ -21,6 +21,9 @@ public $beta_base = 'http://beta.ikimuk.com/';
 public $prodction;
 public $audi_access_code="1E5AADCC";
 public $audi_secure_hash="345F4F2AAB7FAE45B7DAD1DC025D47A9";
+public $first_goal= 50;
+public $second_goal = 75;
+public $third_goal = 100;
 public function __construct() 
 {
  $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';

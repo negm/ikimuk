@@ -1,4 +1,4 @@
-  <!-- Start of Login part-->
+<!-- Start of Login part-->
 <div id="login" class="modal hide fade member" data-backdrop="static">
                                    
     
