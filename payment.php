@@ -14,7 +14,7 @@ $order_id = place_order();
 if (!$order_id) {
     header("Location: /checkout.php");
 } else {
-    $return_url = $settings->root . "/payment.php?xrf=" . $_SESSION["csrf_code"] . "&action=py";
+    $return_url = $settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"] . "&action=py";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
     $vpc_secure = strtoupper(md5($settings->audi_access_code .
                     $_SESSION["total"] . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
@@ -68,7 +68,9 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	        $hashValidated = "<b>INVALID HASH</b>";
 	        $errorExists = true;
 	    }
+            echo "zeeeee";
 	} 
+        echo "weeee";
       //update order
     $order = new order();
     if ($_GET["vpc_TxnResponseCode"] == 0)
