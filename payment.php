@@ -81,7 +81,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $order->id = $_GET["merchTxnRef"];
         $order->confirm_order();
     }
-        
+       */ 
 }
 
 function place_order() {
@@ -205,7 +205,7 @@ function getResponseDescription($responseCode) {
     }
     return $result;
     
-    */
+    
 }
 
 ?>
