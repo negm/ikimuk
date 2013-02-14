@@ -29,7 +29,9 @@ if (!$order_id) {
 }
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
-    //validate response
+    echo "we got back";
+    print_r($_GET);
+   /* //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
 	$vpc_Txn_Secure_Hash = addslashes($_GET["vpc_SecureHash"]);
@@ -202,6 +204,8 @@ function getResponseDescription($responseCode) {
         default : $result = "Unable to be determined";
     }
     return $result;
+    
+    */
 }
 
 ?>
