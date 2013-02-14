@@ -23,8 +23,8 @@ if (!$order_id) {
             . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id) .
             "&orderInfo=" . urlencode($order_info) . "&returnURL=" . urlencode($return_url) . "&vpc_SecureHash=" . $vpc_secure;
 //    echo $vpc_secure . '<br>' . $redirect_url;
-    //header("Location: " . $redirect_url);
-    echo $redirect_url;
+    header("Location: " . $redirect_url);
+    //echo $redirect_url;
 }
 }
 if (isset($_GET["vpc_TxnResponseCode"]))
