@@ -21,4 +21,6 @@ foreach ($details as $key=>$detail )
     echo uniqid(true)."<br>";
     echo uniqid("xxx",true)."<br>";
     echo date(DATE_RSS,time()+24*60*60);
+    
+    header("Location: http://google.com");
 ?>

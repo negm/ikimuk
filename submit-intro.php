@@ -1,81 +1,80 @@
 <?php
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  * 
  */
 $pagetitle = "Submit Guidelines";
-include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
-include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
- <div class="body">
-             <div class="body_content submit">
-                 
-                 <!--Start of Cart section-->
-                 <div class="cart_section">
-                     <div class="cart_content">
-                         <div class="cart_icon"></div>
-                         <div class="cart_details">
-                             CART(<span class="cart_count">0</span>)
-                         </div>
-                     </div>
-                 </div>
-                  <!--end of Cart section-->
-                  
-                  <div class="submit_header">
-                      Participate in ikimuk design competition. our current themes are: 
-                  </div>
-                  
-                  
-                  <!--Start of Submit theme section-->
-                  <div class="submit_theme">
-                      
-                     <div class="theme_content">
-                    
-                          <div class="theme_label"></div>
-                          <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
-                          <div class="theme_avatar"><img src="images/submit_photo.png"></div>
-                          <div class="theme_title">Hakwaji</div>
-                          <div class="theme_date">Submit before 21/1/2013</div>
-                      </div>
-                      
-                  
-                   <div class="theme_content marginl20">
-                    
-                          <div class="theme_label"></div>
-                          <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
-                          <div class="theme_avatar"><img src="images/submit_photo.png"></div>
-                          <div class="theme_title">For The Love of Zombies</div>
-                          <div class="theme_date">Submit before 21/1/2013</div>
-                      </div>
-                  </div>
-                  <!--End Of Submit Theme Section-->
-                  
-                  
-                  <div class="body_theme">
-                      
-                      
-                  <div class="theme_how">
-                      <!--Start of body block-->
-                           <div class="std_block submit_body">
-                              
-                              <!--Start of cart table header-->
-                              <div class="std_block_header">
-                                  <div class="header_content">
-                                      How To Submit
-                                      <div class="edit_link"><a href="#">Legal Stuff</a></div>
-                                  </div>
-                              </div>
-                                <!--End of cart table header-->
-                              
-                                
-                                
-                                  <!--Start of submit body-->
-                              <div class="std_block_body">
-                                  
-                                  <!--Start of submit content-->
-                                  <div class="submit_content"><pre>
+<div class="body">
+    <div class="body_content submit">
+
+        <!--Start of Cart section-->
+        <div class="cart_section">
+            <div class="cart_content">
+                <div class="cart_icon"></div>
+                <div class="cart_details">
+                    CART(<span class="cart_count">0</span>)
+                </div>
+            </div>
+        </div>
+        <!--end of Cart section-->
+
+        <div class="submit_header">
+            Participate in ikimuk design competition. our current themes are: 
+        </div>
+
+
+        <!--Start of Submit theme section-->
+        <div class="submit_theme">
+
+            <div class="theme_content">
+
+                <div class="theme_label"></div>
+                <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
+                <div class="theme_avatar"><img src="images/submit_photo.png"></div>
+                <div class="theme_title">Hakwaji</div>
+                <div class="theme_date">Submit before 21/1/2013</div>
+            </div>
+
+
+            <div class="theme_content marginl20">
+
+                <div class="theme_label"></div>
+                <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
+                <div class="theme_avatar"><img src="images/submit_photo.png"></div>
+                <div class="theme_title">For The Love of Zombies</div>
+                <div class="theme_date">Submit before 21/1/2013</div>
+            </div>
+        </div>
+        <!--End Of Submit Theme Section-->
+
+
+        <div class="body_theme">
+
+
+            <div class="theme_how">
+                <!--Start of body block-->
+                <div class="std_block submit_body">
+
+                    <!--Start of cart table header-->
+                    <div class="std_block_header">
+                        <div class="header_content">
+                            How To Submit
+                            <div class="edit_link"><a href="#">Legal Stuff</a></div>
+                        </div>
+                    </div>
+                    <!--End of cart table header-->
+
+
+
+                    <!--Start of submit body-->
+                    <div class="std_block_body">
+
+                        <!--Start of submit content-->
+                        <div class="submit_content"><pre>
 <span>1- The Great T-shirt Idea</span>
 Come up with an idea for what you want on a t-shirt. Be as creative as you possibly can!
 
@@ -120,35 +119,35 @@ If your design gets the most preorders:
 
 Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get 
 right back to you!  
-</pre>   
- </div>
-                                  <!--End of submit content-->
-                                           
-                                       <div class="submit_button">
-                                   <?php if (isset($_SESSION["logged_in"])&& $_SESSION["logged_in"]){ ?>
-                                           <form action="/submit.php" method="post">
-                                           <input type="submit" value="submit your design"/>
-                                           </form>
-                                <?php }else{ ?>
-                               <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="dummy_button">submit your design</div></a>
-                               <?php } ?>
-                                         
-                                      </div>       
-                                      
-                                     
-                              </div>
-                                    <!--End of submit body-->
-                          </div> 
-                      <!--End of body block-->
-                      
-                  </div>
-                  
-                  <div class="theme_panel"></div>
-                  
-                  </div>
-                            
-             </div>       
+                            </pre>   
+                        </div>
+                        <!--End of submit content-->
+
+                        <div class="submit_button">
+                            <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
+                                <form action="/submit.php" method="post">
+                                    <input type="submit" value="submit your design"/>
+                                </form>
+                            <?php } else { ?>
+                                <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="dummy_button">submit your design</div></a>
+                            <?php } ?>
+
+                        </div>       
+
+
+                    </div>
+                    <!--End of submit body-->
+                </div> 
+                <!--End of body block-->
+
+            </div>
+
+            <div class="theme_panel"></div>
+
         </div>
+
+    </div>       
+</div>
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"] . '/block/footer.php';
 ?>
