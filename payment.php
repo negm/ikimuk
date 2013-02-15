@@ -29,7 +29,6 @@ if (!$order_id) {
 }
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
-    echo "we got back";
     print_r($_GET);
   //validate response
     //get secure hash value of merchant	
@@ -51,7 +50,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	    // sort all the incoming vpc response fields and leave out any with no value
 	    foreach($_GET as $key => $value) 
 	    {
-	        if ($key != "vpc_SecureHash" && strlen($value) > 0 && $key != 'action' ) 
+	        if ($key != "vpc_SecureHash" && strlen($value) > 0 && $key != 'action' && $key != 'xrf') 
 	        {
 				$hash_value = str_replace(" ",'+',$value);
 				$hash_value = str_replace("%20",'+',$hash_value);
