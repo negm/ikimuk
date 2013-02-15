@@ -231,7 +231,7 @@ while ($country = mysqli_fetch_object($countries->database->result))
                                 </div>
                                 <div class="sub_total_line">
                                     <span class="sub_type">Aramex Shipping:</span>
-                                    <span class="sub_value">$ <?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
+                                    <span class="sub_value">$ <?php echo number_format(doubleval($_SESSION["delivery_charge"]), 2); ?></span>
                                 </div>
                             </div>
                             <div class="summary_total">

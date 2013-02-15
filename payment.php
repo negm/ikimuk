@@ -78,8 +78,8 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     $order = new order();
     if ($_GET["vpc_TxnResponseCode"] == 0)
     {
-        $order->id = $_GET["merchTxnRef"];
-        $order->confirm_order();
+        //$order->id = $_GET["merchTxnRef"];
+        //$order->confirm_order();
     }
       
 }
