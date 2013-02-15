@@ -76,10 +76,10 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         echo "weeee";
       //update order
     $order = new order();
-    if ($_GET["vpc_TxnResponseCode"] == 0)
+    if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0)
     {
-        //$order->id = $_GET["merchTxnRef"];
-        //$order->confirm_order();
+        $order->id = $_GET["merchTxnRef"];
+        $order->confirm_order();
     }
       
 }
