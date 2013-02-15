@@ -71,9 +71,8 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	        $hashValidated = "<b>INVALID HASH</b>";
 	        $errorExists = true;
 	    }
-            echo "zeeeee";
-	} 
-        echo "weeee";
+	}
+        echo $hashValidated;
       //update order
     $order = new order();
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0)
