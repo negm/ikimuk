@@ -59,7 +59,7 @@ class order {
 	}
         public function confirm_order()
         {
-            $sSQL = "UPDATE `order` SET status = 2 WHERE id = $this->id";
+            $sSQL = "UPDATE `order` SET status_id = 2 WHERE id = $this->id";
             $this->database->query($sSQL);
             if ($this->database->rows != 0)
             {
