@@ -31,7 +31,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 {
     echo "we got back";
     print_r($_GET);
-   /* //validate response
+  //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
 	$vpc_Txn_Secure_Hash = addslashes($_GET["vpc_SecureHash"]);
@@ -81,7 +81,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $order->id = $_GET["merchTxnRef"];
         $order->confirm_order();
     }
-       */ 
+      
 }
 
 function place_order() {
