@@ -16,7 +16,7 @@ if (!$order_id) {
 } else {
     $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"];
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
-    $vpc_secure = strtoupper(md5($settings->audi_access_code .
+    $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
                     $_SESSION["total"] . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
     $redirect_url = "https://gw1.audicards.com/TPGWeb/payment/prepayment.action?" .
             "accessCode=" . urlencode($settings->audi_access_code) . "&amount=" . urlencode($_SESSION["total"])
