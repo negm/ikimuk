@@ -240,49 +240,6 @@ $(".payment_checkout input[name='place']").click(function(){
              }
   
 });
-
-   $(function () {
-  var msie6 = $.browser == 'msie' && $.browser.version < 7;
-  if (!msie6) { 
-      
-    var top = $('.cart_summary').offset().top;//detectthe height from window to the container
-    
-    $(window).scroll(function (event) {
-      var y = $(this).scrollTop();  //Get Scroll height 
-      if (y >= top) { //The container is upper the window
-          
-       var cart_height=$('.cart_summary').offset().top+$('.cart_summary').height();//Get height from top window to bottom container
-       
-       var left_height=$('.checkout_column_left').height();//Get Left container height.
-       
-         var diff=left_height-cart_height;
-         if(diff>0)diff=0;
-         
-         $('.cart_summary').css("position","fixed");//set cart div to fixed position
-         
-         var option = { top: diff };//set top position
-          $('.cart_summary').animate(
-                option, 
-                { queue:false, duration: "slow" }); 
-   }
-      else { 
-          $('.cart_summary').css("position","relative");//reset it to relative
-      }
-      
-      
-    });
-  }
-}); 
-//////////////////////////////////////Login+Join US Section//////////////////////////
-
-       
-
- 
-    
-    
-    
-
-  
 //////////////////////////////////Submit Section//////////////////////////////////////////////////
 $(".theme_content .theme_avatar").mouseenter(function(){
     $(this).parent().find(".theme_transparent").css("display","block");
@@ -305,9 +262,5 @@ if(type&&version<9);//If version less than 9, do nothing
         $(this).css("opacity",0);
 });
    
-    
-});
-$(document).ready(function(){ 
-
     
 });
