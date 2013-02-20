@@ -74,7 +74,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
                 <div class="logo_content">
                     <div class="lower_logo">
-                        <a href="/">  <img src="img/ikimuk_logo_beta.png" alt="logo"/> </a>
+                        <a href="/">  <img src="/img/ikimuk_logo_beta.png" alt="logo"/> </a>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
                         <div class="menu_content">
                             <div class="cart">
-                                <div class="line"><img src="img/ikimuk_cart.png"/></div>
+                                <div class="line"><img src="/img/ikimuk_cart.png"/></div>
                                 <div class="line"> CART(<span class="cart_sum">0</span>)</div>
 
                             </div>

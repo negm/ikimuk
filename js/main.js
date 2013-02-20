@@ -842,7 +842,7 @@ $(document).ready(function() {
     //Mouse click the avatar section
     $(".entry_transparent").click(function(){
         var link=$(this).parent().find("input[name='user_id']").val();
-        alert(link);
+        window.location.href = link;
     });
     
     ///////////////////////////////////////////////////////////////////////////////////
