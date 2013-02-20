@@ -60,6 +60,19 @@ class preorder {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
+         public function confirm_preorder()
+        {
+            $sSQL = "UPDATE `preorder` SET status_id = 2 WHERE id = $this->id";
+            $this->database->query($sSQL);
+            if ($this->database->rows != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public function activePreorders($user_id)
                 {
                 $this->database->OpenLink();

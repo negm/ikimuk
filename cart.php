@@ -9,6 +9,7 @@ if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $cart = null;
     $item_count = 0;
 } else {
+    //print_r($_SESSION["cart"]);
     validate_cart_items();
     $cart = $_SESSION["cart"];
     $item_count = $_SESSION["item_count"];

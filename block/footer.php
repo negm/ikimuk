@@ -21,7 +21,10 @@
                                            <input type="email" name="email" value="Enter your e-mail" required/>  
                                   
                               </div>
-                              <input type="submit" class="subscribe_link" value="subscribe">
+                              <div class="subscribe_link">
+
+                        <input class="input_submit" type="submit" value="subscribe">
+                    </div>
                               </div>   
                           </div>
                           </form>

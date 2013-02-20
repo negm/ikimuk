@@ -307,3 +307,7 @@ if(type&&version<9);//If version less than 9, do nothing
    
     
 });
+$(document).ready(function(){ 
+
+    
+});

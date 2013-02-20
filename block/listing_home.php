@@ -19,52 +19,40 @@ unset($_SESSION["size"]);
 ?>
 <div class="body">
  <div class="body_content">
-                 
-                 <!--Start of Cart section-->
-                 <div class="cart_section">
-                     <div class="cart_content">
-                         <div class="cart_icon"></div>
-                         <div class="cart_details">
-                             CART(<span class="cart_count"><span id="item_count"><?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?></span></span>)
-                         </div>
-                     </div>
-                 </div>
-                  <!--end of Cart section-->
-                 
-                 
-                 
-                 <div class="slider"> 
-                         <div id="myCarousel" class="carousel slide">
-    <!-- Carousel items -->
-    <div class="carousel-inner">
-        <div class="active item"><img src="images/bootstrap_1.png"/></div>
-        <div class="item"><img src="images/bootstrap_2.png"/></div>
-       
-    </div>
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-                     <script>    $('.carousel').carousel({
-    interval: 2000
-    });</script>
-                 </div>
+               <!--Start of Slider section-->
+                    <div class="slider"> 
+                        <div id="myCarousel" class="carousel slide">
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+
+                                <div class="active item"><img src="/images/bootstrap_1.png"/></div>
+                                <div class="item"><img src="/images/bootstrap_2.png"/></div>
+
+                            </div>
+                            <!-- Carousel nav -->
+                            <a class="carousel-control-iki left" href="#myCarousel" data-slide="prev">
+                                <img src="/img/ikimuk_slider_left.png"/>
+                            </a>
+                            <a class="carousel-control-iki right" href="#myCarousel" data-slide="next">
+                                <img src="/img/ikimuk_slider_right.png"/>
+                            </a>
+                        </div>
+                    </div>
+                    <!--End of Slider section-->
                  
                   
-                 <div class="horizontal_line">  
-                 </div>
-                 
+                
                  
                  <!--Start of competition section-->
                  <div class="competition_section">
                      
                      
-                     <div class="competition_header">
-                         competition no
-                         <span class="competition_no">12</span>
-                         (ends
-                         <span class="competition_end_date">02/03/2013</span>)
-                     </div>
+                      <div class="competition_header">
+                            competition no
+                            <span class="competition_no">12</span>
+                            (ends
+                            <span class="competition_end_date">02/03/2013</span>)
+                        </div>
                      
                      
                      <div class="competition_banner">
@@ -75,37 +63,75 @@ unset($_SESSION["size"]);
                        <div class="competition_container">
 
 <?php
-$count = 1;
+$count = 0;
 while($row= mysqli_fetch_assoc($product->database->result))
 {   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));?>
-    <div class="entry" style="<?php if($count%4!=0) echo "margin-right:20px;".$count%4; $count++;?>">
+    <div class="entry" style="<?php if($count%3==0) echo "margin-left:10px;"; $count++;?>">
     <!--Used to set a link when clicking-->
     <input type="hidden" name="user_id" value="/design/<?php echo $row["id"]."/".str_replace(" ","-",trim($row["title"])); ?>"/>
-    
-    <div class="avatar">
-                                 <img src="<?php echo $row["url"]?>"/>
+    <div class="entry_transparent">
+         <div class="entry_order_now">
+          ORDER NOW
+         </div>
     </div>
-    
-    <div class="pre_order">     
-        <div class="pre_order_content">
-            Pre-Orders(<span class="pre_order_count"><?php echo $row["preorders"];?></span>)    
-        </div>    
+    <div class="entry_option">
+        <div class="option_price">
+              <span class="entry_item_price"><?php echo $row["price"];?></span>
+              <span class="entry_dollar_sign">$</span>
+        </div>
+        <div class="option_male"></div>
+        <div class="option_female"></div>
     </div>
-    
-    <div class="details">
-                                 <div class="description"><?php echo $row["title"];?></div>
-                                 <div class="author">by <span class="author_name"><?php echo $row["name"];?></span></div>
+    <div class="entry_avatar">
+                                 <img src="<?php echo $row["url"];?>"/>
+    </div>
+             <div class="entry_control">
+
+                                        <div class="entry_description">
+                                            <?php echo $row["title"];?>
+                                        </div>
+
+                                        <div class="entry_author">
+                                            by
+                                            <span class="entry_author_name"><?php echo $row["name"];?></span>
+                                        </div>
+
+                                        <div class="entry_progressbar">
+
+                                            <div class="progress">
+                                                <div class="bar progress_cyan" style="width:<?php echo $row["preorders"] * 2; ?>%"></div>
+                                            </div>
+
+                                            <div class="entry_remaining">
+                                                <?php if ($row["preorders"] >= $settings->first_goal) { ?>
+                                                    <span class="entry_remaining_hilight">Hooray !</span>
+                                                    <span class="entry_remaining_value"> 
+                                                        This T-shirt is Getting Printed
+                                                    </span>
+                                                <?php } else { ?>
+                                                    <span class="entry_remaining_value"> 
+                                                        <?php echo $settings->first_goal - $row["preorders"];?> order till t-shirt get printed
+                                                    </span>
+                                                <?php } ?>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="progress_status">
+                                            <?php if ($row["preorders"] < $settings->first_goal) { ?>
+                                                <span class="entry_progress_percentage">
+                                                    <?php echo $row["preorders"];?>
+                                                    /<?php echo $settings->first_goal;?>
+                                                </span>
+                                            <?php } else { ?>
+                                                <img src="img/ikimuk_blue_wow.png"/>
+                                            <?php } ?>
+                                        </div>
+
+                                    </div>
+                                    <!--End of entry control-->            
                              </div>
-                             
-                             
-                             <div class="avatar_transparent">
-                                 <div class="transparent_text">
-                                  pre-order now   
-                                 </div>
-                             </div>
-                             
-                             
-                                  </div>
                              <!--End of entry-->
  <?php } ?>
 </div>

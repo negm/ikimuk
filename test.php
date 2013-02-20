@@ -22,5 +22,6 @@ foreach ($details as $key=>$detail )
     echo uniqid("xxx",true)."<br>";
     echo date(DATE_RSS,time()+24*60*60);
     
-    header("Location: http://google.com");
+    //$d5 = Array ( Array ( [product_id" => 6 "product_title" => "VEDGZILLA" "quantity" => 1 "size" => "s" "cut" => "m" "price" => 25 "subtotal" => 25 "url" => "https://s3.amazonaws.com/product-pics/1354942544-68-spe1_mohamad_rifaii_vedgzilla_ikimuk_620x500.jpg" "artist_name" => "Mohamad Rifaii" ) , Array ( "product_id" => 6, "product_title" => "VEDGZILLA", "quantity" => 1, "size" => "xxl","cut" => "w", "price" => 25 ,"subtotal" => 25, "url" => "https://s3.amazonaws.com/product-pics/1354942544-68-spe1_mohamad_rifaii_vedgzilla_ikimuk_620x500.jpg", "artist_name" => "Mohamad Rifaii" ) );
+    //$d5["["["[]= 
 ?>

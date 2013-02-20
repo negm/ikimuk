@@ -1,11 +1,12 @@
 <?php
-
-
 include $_SERVER["DOCUMENT_ROOT"] . "/class/settings.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order_details.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
+
 $settings = new settings();
 session_start();
 if (isset($_POST["place_order"]))
@@ -27,8 +28,30 @@ if (!$order_id) {
     //echo $redirect_url;
 }
 }
+if (isset($_POST["place_preorder"]))
+{
+    
+//just change the merchant_id to the second merchant account from AUDI
+$order_id = place_preorder();
+if (!$order_id) {
+    header("Location: /checkout.php");
+} else {
+    $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=preorder";
+    $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
+    $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
+                    $_SESSION["total"]*100 . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
+    $redirect_url = "https://gw1.audicards.com/TPGWeb/payment/prepayment.action?" .
+            "accessCode=" . urlencode($settings->audi_access_code) . "&amount=" . urlencode($_SESSION["total"]*100)
+            . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id) .
+            "&orderInfo=" . urlencode($order_info) . "&returnURL=" . urlencode($return_url) . "&vpc_SecureHash=" . $vpc_secure;
+//    echo $vpc_secure . '<br>' . $redirect_url;
+    header("Location: " . $redirect_url);
+    //echo $redirect_url;
+}
+}
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
+    
     print_r($_GET);
   //validate response
     //get secure hash value of merchant	
@@ -74,12 +97,20 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         echo $hashValidated;
       //update order
     $order = new order();
+    $preorder = new preorder();
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
+        if (isset($_GET["type"]) && $_GET["type"] == "order")
+        {
         $order->id = $_GET["merchTxnRef"];
         $order->confirm_order();
-    }
-      
+        }
+        if (isset($_GET["type"]) && $_GET["type"] == "preorder")
+        {
+            $preorder->id = $_GET["merchTxnRef"];
+            $preorder->confirm_preorder();
+        }
+    } 
 }
 
 function place_order() {
