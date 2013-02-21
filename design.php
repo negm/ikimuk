@@ -41,7 +41,7 @@ echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
 ?>
 <script type="text/javascript">
-    $(window).load(function() {
+    /*$(window).load(function() {
         $('#slider').nivoSlider({
             effect: 'slideInLeft', // Specify sets like: 'fold,fade,sliceDown'
             animSpeed: 350, // Slide transition speed
@@ -59,7 +59,7 @@ echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
         });
         $(".commentheader").removeClass("hidden");
     });
-
+*/
 </script>
 
 <?php

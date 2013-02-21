@@ -1,5 +1,5 @@
 /*
- * jQuery Nivo Slider v3.1
+ * jQuery Nivo Slider v3.2
  * http://nivo.dev7studios.com
  *
  * Copyright 2012, Dev7studios
@@ -74,7 +74,7 @@
         }
         
         // Set first background
-        var sliderImg = $('<img class="nivo-main-image" src="#" />');
+        var sliderImg = $('<img/>').addClass('nivo-main-image');
         sliderImg.attr('src', vars.currentImage.attr('src')).show();
         slider.append(sliderImg);
 
@@ -121,27 +121,32 @@
         
         // Add Direction nav
         if(settings.directionNav){
-            slider.append('<div class="nivo-directionNav"><a class="nivo-prevNav">'+ settings.prevText +'</a><a class="nivo-nextNav">'+ settings.nextText +'</a></div>');
+           // slider.append('<div class="nivo-directionNav"><a class="nivo-prevNav">'+ settings.prevText +'</a><a class="nivo-nextNav">'+ settings.nextText +'</a></div>');
             
-            $('a.nivo-prevNav', slider).live('click', function(){
-                if(vars.running) { return false; }
+           // $(slider).on('click', 'a.nivo-prevNav', function(){ 
+                $(".nivo-directionNav a.nivo-prevNav").click(function(){
+                     if(vars.running) { return false; }
                 clearInterval(timer);
                 timer = '';
                 vars.currentSlide -= 2;
                 nivoRun(slider, kids, settings, 'prev');
-            });
+                });
+               
+           // });
             
-            $('a.nivo-nextNav', slider).live('click', function(){
+           // $(slider).on('click', 'a.nivo-nextNav', function(){
+            $(".nivo-directionNav a.nivo-nextNav").click(function(){
                 if(vars.running) { return false; }
                 clearInterval(timer);
                 timer = '';
                 nivoRun(slider, kids, settings, 'next');
-            });
+                });
+            //});
         }
         
         // Add Control nav
         if(settings.controlNav){
-            vars.controlNavEl = $('<div class="nivo-controlNav"></div>');
+            vars.controlNavEl = $('<div class="nivo-controlNav nivo"></div>');
             slider.after(vars.controlNavEl);
             for(var i = 0; i < kids.length; i++){
                 if(settings.controlNavThumbs){
@@ -659,4 +664,6 @@
 
     $.fn._reverse = [].reverse;
     
+    
+
 })(jQuery);
