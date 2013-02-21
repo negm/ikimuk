@@ -99,7 +99,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
                                         <div class="entry_progressbar">
 
                                             <div class="progress">
-                                                <div class="bar progress_cyan" style="width:<?php echo $row["preorders"] * 2; ?>%"></div>
+                                                <div class="bar progress_cyan" style="width:<?php echo $row["preorders"] * (100/$settings->first_goal); ?>%"></div>
                                             </div>
 
                                             <div class="entry_remaining">

@@ -166,7 +166,9 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="menu_content">
                             <div class="cart">
                                 <div class="line"><img src="/img/ikimuk_cart.png"/></div>
-                                <div class="line"> CART(<span class="cart_sum">0</span>)</div>
+                                <div class="line"> CART(<span id="cart_sum" class="cart_sum">
+                                    <?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?>
+                                    </span>)</div>
 
                             </div>
                         </div>

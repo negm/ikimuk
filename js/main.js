@@ -286,9 +286,9 @@ $(document).ready(function(){
     
     
     
-    $(".cart_size_selection .add_to_cart").click(function(){
-        var cut=$(".add_to_cart").find("input[name='category']").val();//Get selected category
-        var size=$(".add_to_cart").find("input[name='size']").val();//Get selected size
+    $(".order_submit").click(function(){
+        var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
+        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
         if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
         else{  
             var myData = 'action=add&cut='+cut+"&size="+size+"&product_id="+$("#product_id").val();
@@ -777,17 +777,6 @@ $(document).ready(function() {
         $(this).find("img").attr("src",src);
         
     });
-    
-    //Login button clicked
-    $(".control_section .login").click(function(){
-        alert("login clicked");
-    });
-     
-    //Join Us clicked
-    $(".control_section .joinus").click(function(){
-        alert("joinus clicked");
-    });
-    
     //Subscribe link clicked
     $(".subscribe_link .input_submit").click(function(){   
         var emailaddress=$(".subscribe_container .input_field input[name='email']").val();
@@ -891,17 +880,6 @@ $(document).ready(function() {
         $(this).css("opacity",1);
         $(".order_submit").find("input[name='category']").val(category);//set selected cell category
         $(".order_submit").find("input[name='size']").val(size);//set selected cell size
-    });
-
-    $(".order_submit").click(function(){
-        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
-        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
-        if(category=="")alert("please choose an element");//check if the user didn't click on any cell
-        else{
-            alert(category);
-            alert(size);
-        }
-  
     });
 /////////////////////////////////////////////////////////////////////////////////
     
