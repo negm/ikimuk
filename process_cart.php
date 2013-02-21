@@ -143,17 +143,15 @@ function update_cart() {
         $cart = array();
     } else {
         $cart = $_SESSION["cart"];
-        $item_count = $_SESSION["item_count"];
-        $key = array_search(array("size"=>$size, "cut"=>$cut, "product_id"=>$product_id), $cart, false);
-        
-        //foreach ($cart as $key => $cart_item) {
-            //if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"]) {
-                //$cart[$key]["quantity"] = $quantity;
-                //$cart[$key]["subtotal"] = $quantity * $cart[$key]["price"];
-            //}
+        $item_count = 0;
+        foreach ($cart as $key => $cart_item) {
+            if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"]) {
+                $cart[$key]["quantity"] = $quantity;
+                $cart[$key]["subtotal"] = $quantity * $cart[$key]["price"];
+            }
             $subtotal += $cart[$key]["quantity"] * $cart[$key]["price"];
             $item_count += 1;
-        //}
+        }
     }
     $_SESSION["cart"] = $cart;
     $_SESSION["subtotal"] = $subtotal;

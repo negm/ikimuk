@@ -170,11 +170,11 @@ $(document).ready(function(){
     
     ////////////////////////////Cart shop section/////////////////////////
  
-    //Function to refresh total price
+     //Function to refresh total price
     function refresh_cart_prices(){
   
         var sub_total=0;
-        $(".std_block_body .cart_entry").each(function(){      //Loop over all items and get its line price.
+        $(".cart_entry").each(function(){      //Loop over all items and get its line price.
             sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
         }); 
 
@@ -186,8 +186,8 @@ $(document).ready(function(){
  
         $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
         $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
- 
     }
+
 
     $(".std_block_body .cart_entry:last").css("border",0);//remove the border from the last cart entry
     refresh_cart_prices();//refresh all prices at startup
@@ -259,7 +259,7 @@ $(document).ready(function(){
             data:myData,
             cache: false,
             success:function(response){
-                if (response.item_count == 0 || qty == 0)
+                 if (response.item_count == 0 || qty == 0)
                 {
                     location.reload();
                 }
@@ -757,6 +757,8 @@ $(document).ready(function() {
     // pass options to ajaxForm 
     $('#addproduct').ajaxForm(options);
     //
+    //
+    //all.js
     //Check if the email is valid    
     function isValidEmailAddress(emailAddress) {
         var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
@@ -777,6 +779,17 @@ $(document).ready(function() {
         $(this).find("img").attr("src",src);
         
     });
+    
+    //Login button clicked
+    $(".control_section .login").click(function(){
+        alert("login clicked");
+    });
+     
+    //Join Us clicked
+    $(".control_section .joinus").click(function(){
+        alert("joinus clicked");
+    });
+    
     //Subscribe link clicked
     $(".subscribe_link .input_submit").click(function(){   
         var emailaddress=$(".subscribe_container .input_field input[name='email']").val();
@@ -831,7 +844,7 @@ $(document).ready(function() {
     //Mouse click the avatar section
     $(".entry_transparent").click(function(){
         var link=$(this).parent().find("input[name='user_id']").val();
-        window.location.href = link;
+        alert(link);
     });
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -842,8 +855,8 @@ $(document).ready(function() {
     ////////////////////////////Order section/////////////////////////
 
     //Cart set mouse enter
-    $(".selection_container .cart_no").mouseenter(function(){
-        var cell_category=$(this).parent().hasClass("male_part") ? "male":"female";//Get cell category
+    $(".block_order .cart_body .selection_container .cart_no").mouseenter(function(){
+        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
         var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
@@ -857,8 +870,8 @@ $(document).ready(function() {
     });
 
     //Cart set mouse leave
-    $(".selection_container .cart_no").mouseleave(function(){
-        var cell_category=$(this).parent().hasClass("male_part") ? "male":"female";//Get cell category
+    $(".block_order .cart_body .selection_container .cart_no").mouseleave(function(){
+        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
         var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
@@ -872,15 +885,371 @@ $(document).ready(function() {
     });
 
     //Cart set mouse click
-    $(".selection_container .cart_no").click(function(){
+    $(".block_order .cart_body .selection_container .cart_no").click(function(){
 
-        var category=$(this).parent().hasClass("male_part") ? "male":"female";//Get cell category
+        var category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
         var size=$(this).find("input[name='size']").val();//Get cell size
         $(".selection_container .cart_no").css("opacity",0.3);//reset all cells
         $(this).css("opacity",1);
         $(".order_submit").find("input[name='category']").val(category);//set selected cell category
         $(".order_submit").find("input[name='size']").val(size);//set selected cell size
     });
+
+    $(".block_order .order_submit").click(function(){
+        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
+        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+        if(category=="")alert("please choose an element");//check if the user didn't click on any cell
+        else{
+            alert(category);
+            alert(size);
+        }
+  
+    });
+    /////////////////////////////////////////////////////////////////////////////////
+   
+   
+    //////////////////////////Start Of cart Section//////////////////////////
+
+    //Function to refresh total price
+    function refresh_cart_prices(){
+  
+        var sub_total=0;
+        $(".cart_entry").each(function(){      //Loop over all items and get its line price.
+            sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
+        }); 
+
+        $(".cart_payment .line_payment .payment_subtotal").text("$"+sub_total.toFixed(2));//update the subtotal text
+        $(".cart_payment .subtotal").find("input[name='payment_subtotal']").val(sub_total);//update the subtotal hidden field
+ 
+        var shipment=parseFloat($(".cart_payment .shipment").find("input[name='payment_shipment']").val());//read the shipment value
+        var total=parseFloat(sub_total+shipment);//add the values of subtotal and shipment.
+ 
+        $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
+        $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
+    }
+
+    if($(".cart_table").length>0)
+        refresh_cart_prices();//refresh prices at startup
+
+    //Update button clicked
+    /*$(".cart_entry_quantity .item_update").click(function(){
+  
+        var unit_price=parseFloat($(this).parent().parent().find(".cart_entry_price").find("input[name='price']").val());//Get Item Price
+        var qty=parseInt($(this).parent().find(".item_quantity").find("input[name='item_quantity']").val());//Get item quantity inserted
+ 
+        if(isNaN(qty)||qty<0){
+            qty=0;//assign 0 for non-number or less than zero quantity.
+        }
+        $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
+ 
+        var line_total=unit_price*qty;
+ 
+        $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
+        $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
+        refresh_cart_prices();
+
+    });*/
+
+    //When the remove link clicked
+    $(".cart_remove a").click(function(){
+    
+        $(this).parent().parent().parent().parent().remove();//remove the element
+        refresh_cart_prices();//refresh the prices
+    });
+   
+    /////////////////////////////////////////////////////////////////////////////////
+   
+   
+    //////////////////////////Start Of checkout Section//////////////////////////
+   
+   
+    ///country list value changed
+    $('.combo .country_list').change(function(){
+        var val=$('.combo .country_list option:selected').text();
+        $('.combo .select_country').text(val);
+    });
+    ///code list value changed
+    $('.combo .code_list').change(function(){
+        var val=$('.combo .code_list option:selected').text();
+        $('.combo .country_code').text(val);
+    });
+
+    //combo box focus on
+    $('.combo select').focus(function(){
+        $(this).parent().addClass("combo_highlight");
+    });
+    //combo boxx foxus out
+    $('.combo select').focusout(function(){
+        $(this).parent().removeClass("combo_highlight");
+    }); 
+
+    //validate input, variable,message displayed in case of error, 0=input combo box,1=input text
+    function check_input(variable,message,flag)
+    {
+    
+        if(variable.val().length==0)
+        { 
+            variable.parent().parent().find(".line_error").text(message);
+            if(flag){   
+                variable.css("border-color","#EF2C21");
+            }
+            else{ 
+                variable.parent().css("border-color","#EF2C21");
+            }
+            return 1;
+            
+        }
+        return 0;
+    }
+
+    //Reset all input fields
+    function reset_fields()
+    {
+        $(".line_input input").css("border-color","#CCCCCC");   
+        $(".line_input select").parent().css("border-color","#CCCCCC");
+        $(".line_error").text(""); 
+    }
+
+    //payment checkout clicked
+    $(".payment_checkout input[name='place']").click(function(){
+    
+        reset_fields();//reset all fields
+    
+        //get needed variables
+        var country=$(".line_input select[name='country']");  
+        var first_name=$(".line_input input[name='first_name']");   
+        var last_name=$(".line_input input[name='last_name']");
+        var address=$(".line_input input[name='address']");
+        var city=$(".line_input input[name='city']");
+        var region=$(".line_input input[name='region']");
+        var zip=$(".line_input input[name='zip']");
+        var code=$(".line_input select[name='code']");
+        var tel=$(".line_input input[name='tel']");
+     
+        var flag=0;
+        //check all required fields
+        flag+=check_input(country,"Please Select a Country",0);
+        flag+=check_input(first_name,"Please enter first name",1);
+        flag+=check_input(last_name,"Please enter last name",1);
+        flag+=check_input(address,"Please enter an address",1);
+        flag+=check_input(city,"Please enter a city",1);
+        flag+=check_input(region,"Please enter a region",1);
+        //   flag+=check_input(zip,"Please enter zip code",1);
+        flag+=check_input(code,"Please enter country code",0);
+        flag+=check_input(tel,"Please enter a tel no.",1);
+         
+        //check if terms is checked
+        var agree=$(".terms_conditions input[name='agree']").is(":checked");
+        if(!agree){
+            flag++;
+            $(".agreement").find(".line_error").text("You have to agree our terms and conditions");
+        }
+         
+        //determine if the user allow subscribe
+        var subscribe=$(".newsletter input[name='subscribe']").is(":checked");
+         
+         
+        if(flag==0)
+        {
+            alert("everything gonna fine");
+        }
+  
+    });
+   
+   
+    ///////////////////////////////Start of preorder section//////////////////////////////////////////////
+    //pre-order set mouse enter
+    $(".t_shirt_option .cart_body .selection_container .cart_no").mouseenter(function(){
+        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
+        var cell_size=$(this).find("input[name='size']").val();//Get cell size
+
+        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
+        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+        if(category==cell_category)
+            if(size==cell_size)return; //check if the cell over is the same selected
+    
+        $(this).delay(0).animate({
+            opacity:1
+        },100); 
+    });
+
+    //pre-order set mouse leave
+    $(".t_shirt_option .cart_body .selection_container .cart_no").mouseleave(function(){
+        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
+        var cell_size=$(this).find("input[name='size']").val();//Get cell size
+
+        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
+        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+        if(category==cell_category)
+            if(size==cell_size)return; //check if the cell over is the same selected
+    
+        $(this).delay(0).animate({
+            opacity:0.3
+        },100);   
+    });
+
+    //pre-order set mouse click
+    $(".t_shirt_option .cart_body .selection_container .cart_no").click(function(){
+
+        var category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
+        var size=$(this).find("input[name='size']").val();//Get cell size
+        $(".selection_container .cart_no").css("opacity",0.3);//reset all cells
+        $(this).css("opacity",1);
+        $(".order_submit").find("input[name='category']").val(category);//set selected cell category
+        $(".order_submit").find("input[name='size']").val(size);//set selected cell size
+    });
+
+    function RefreshPreorderPrices()
+    {
+        var sum=0;
+        $(".pre_order").each(function(){ 
+            var order_price= parseFloat($(this).find("input[name='price']").val()); //Het the entry price
+            var order_count= parseInt($(this).find("input[name='count']").val()); //Get the entry count
+            sum+=order_price*order_count;
+        });
+      
+      
+        var tax=parseInt($(".aramex_line").find("input[name='tax']").val());//Get the tax vcalue
+        $(".aramex_line").find(".line_value").text("$ "+tax.toFixed(2));//Update the line value
+        if(sum>0) //If there are entries
+        {
+            var content="$ "+sum.toFixed(2);
+            $(".summary_sub_total").find(".sub_total_line").find(".line_value").text(content);//Update Subtotal text
+            $(".summary_sub_total").find(".sub_total_line").find("input[name='sub_total']").val(sum);//Update the subtotal value
+        
+
+         
+            var total=sum+tax;
+            content="$ "+total.toFixed(2);
+            $(".summary_total").find(".sub_total_line").find(".line_value").text(content);//Update Total Text
+            $(".summary_total").find(".sub_total_line").find("input[name='total']").val(total);//Update The total value  
+              
+        }
+        else{//If there are no entries
+     
+            $(".std_block_body .empty_pre_order").css("display","block");//Display the empty block
+        
+            $(".aramex_line").find(".line_value").text("--");//remove text value from tax line
+
+            $(".summary_sub_total").find(".sub_total_line").find(".line_value").text("--");//remove text value from sub-total line
+            $(".summary_sub_total").find(".sub_total_line").find("input[name='sub_total']").val(0);//reset subtotal value
+
+            $(".summary_total").find(".sub_total_line").find(".line_value").text("--");//remove text value from total line
+            $(".summary_total").find(".sub_total_line").find("input[name='total']").val(0);//reset total value
+        }
+
+         
+    }
+
+
+    $(".t_shirt_option .order_submit").click(function(){
+        
+        $(".t_shirt_info .t_shirt_error").empty();//Clear the error field.
+        
+        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
+        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+        var flag_exist=false;
+        
+        
+      
+        $(".pre_order").each(function(){    
+            var order_category=  $(this).find("input[name='category']").val();   
+            var order_size=  $(this).find("input[name='size']").val(); 
+            if(category==order_category)
+                if(size==order_size){//this item already exist
+                    var new_count=parseInt($(this).find("input[name='count']").val());//Get its count 
+                    new_count++;//increase by 1
+                    $(this).find("input[name='count']").val(new_count);
+                    var content=category+'\'s('+new_count+size+')';
+                    $(this).find(".pre_order_description").text(content);//Upate the description
+                      
+                         
+                    $(".order_submit").find("input[name='category']").val("");//Reset category
+                    $(".order_submit").find("input[name='size']").val("");//Reset size       
+                    $(".selection_container .cart_no").css("opacity",0.3);//Reset appearance
+                    RefreshPreorderPrices();//refrsh the prices
+                    flag_exist=true;//mention that this entry already exist
+                    return;
+                }
+
+        }); 
+    
+    
+        if(flag_exist)return;//entry already exist
+        else
+        if(category==""){//no size selected
+            $(".t_shirt_info .t_shirt_error").text("please choose an element");
+        }//check if the user didn't click on any cell
+        else{
+            $(".std_block_body .empty_pre_order").css("display","none");//Hide the empty block
+            
+            var str='<div class="pre_order">';
+            str+='<input type="hidden" name="category" value="'+category+'"/><input type="hidden" name="size" value="'+size+'"/>';
+            str+='<input type="hidden" name="count" value="1"/><input type="hidden" name="price" value="25"/>';
+            str+='<div class="pre_order_avatar"><img src="images/avatar_60.png"/></div><div class="pre_order_description">';
+            str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="img/ikimuk_snowstar_blue.png"/>';
+            str+='</div><div class="pre_order_price">$ 25.00 </div><div class="pre_order_close"></div></div>';
+            $(".pre_order_summary .std_block_body .preorder_content").append(str);//add new entry to cart
+            
+            
+            $(".order_submit").find("input[name='category']").val("");//Reset category
+            $(".order_submit").find("input[name='size']").val("");//Reset size       
+            $(".selection_container .cart_no").css("opacity",0.3);//Reset appearance  
+            RefreshPreorderPrices();//refresh prices
+            
+        }
+  
+    });
+    
+    
+    $("body").delegate(".pre_order_close", "click", function(e) {
+        $(this).parent().remove();//remove block
+
+        RefreshPreorderPrices();//Update Prices
+    });
+    /////////////////////////////////////////////////////////////////////////////////
+   
+
+   
+    $(function () {
+        var msie6 = $.browser == 'msie' && $.browser.version < 7;
+        if (!msie6) { 
+      
+            var top = $('.cart_summary, .pre_order_summary').offset().top;//detectthe height from window to the container
+    
+            $(window).scroll(function (event) {
+                var y = $(this).scrollTop();  //Get Scroll height 
+                if (y >= top) { //The container is upper the window
+          
+                    var cart_height= $('.cart_summary, .pre_order_summary').offset().top+$('.cart_summary, .pre_order_summary').height();//Get height from top window to bottom container
+       
+                    var left_height=$('.checkout_column_left').height();//Get Left container height.
+       
+                    var diff=left_height-cart_height;
+                    if(diff>0)diff=0;
+         
+                    $('.cart_summary, .pre_order_summary').css("position","fixed");//set cart div to fixed position
+         
+                    var option = {
+                        top: diff
+                    };//set top position
+                    $('.cart_summary, .pre_order_summary').animate(
+                        option, 
+                        {
+                            queue:false, 
+                            duration: "slow"
+                        }); 
+                }
+                else { 
+                    $('.cart_summary, .pre_order_summary').css("position","relative");//reset it to relative
+                }
+      
+      
+            });
+        }
+    }); 
+   
+   
 /////////////////////////////////////////////////////////////////////////////////
     
     

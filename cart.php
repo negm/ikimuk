@@ -48,23 +48,28 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 <div class="body">
 
     <!--start of body content-->
-    <div class="body_content cart_section">
+    <div class="body_content">
 <?php $NUM_OF_ITEM = $item_count; ?>
-        <!--Start of Cart section-->
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/block/cart_count.php"; ?>
-        <!--end of Cart section-->
-
+        
+          <div class="links_section">
+                        <div class="links_content">
+                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive">/</div>
+                            <div class="link_active">
+                                <a href="#">Cart</a>
+                            </div>
+                        </div>
+                    </div>
+      
         <!--start of Cart section content-->
         <div class="cart_section_content">
             <div class="cart_section_header">items in your cart</div>
 
         <?php if ($NUM_OF_ITEM != 0) { ?>
                 <div class="cart_table">
-                    <div class="std_block block_expandable">
-
                         <!--Start of cart table header-->
-                        <div class="std_block_header">
-                            <div class="header_content cart_header">
+                        
+                            <div class="cart_header">
                                 <div class="cart_preview">Preview</div>
                                 <div class="cart_title">Title</div>
                                 <div class="cart_description">Description</div>
@@ -72,12 +77,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="cart_quantity">Quantity</div>
                                 <div class="cart_total">Total</div>
                             </div>
-                        </div>
+                        
                         <!--End of cart table header-->
 
                         <!--Start of cart table body-->
-                        <div class="std_block_body">
-
+                            <div class="cart_body_content">
 
     <?php foreach ($cart as $key => $cart_item) { ?>
 
@@ -105,7 +109,12 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                            (<?php echo $cart_item["size"]; ?>) <br/>White ikimuk T-Shirt
+                                          <div class="entry_description_type">  <?php if ($cart_item["cut"]=="m" ) echo "GUY'S"; else echo "GIRL'S";
+                                              echo "(".$cart_item["size"].")"; ?> </div>
+                                          <div class="entry_description_details"> 
+                                                    <img src="/img/ikimuk_snowstar_green.png"/>
+                                                    PERKS 1
+                                          </div>  
                                         </div>
 
 
@@ -148,7 +157,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         </div>
                         <!--End of cart table header-->
                     </div>
-                </div>
+                
 
 
 
@@ -156,10 +165,41 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="cart_bottom">
 
 
-                    <div class="cart_panel">
-                        <img src="images/samouray.png"/>
-                    </div>
+                   <div class="cart_panel">
 
+
+                                <div class="cart_panel_label">
+                                    <div class="panel_label_container">
+                                        <span> FAQ (Frequently Asked Question)</span>
+                                    </div>
+                                </div>
+
+                                <!--Start of Cart Panel Content-->
+                                <div class="cart_panel_content">
+
+                                    <div class="faq_panel_link">
+                                        <div class="faq_icon">&nbsp;</div> 
+                                        <div class="faq_link">
+                                            <a href="#">Did you ever imagine that this project would be so successful ?</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="faq_panel_link">
+                                        <div class="faq_icon">&nbsp;</div>
+                                        <div class="faq_link">
+                                            <a href="#">Since this project has far surpassed your expectation .. can you still deliver on your Dec. 18 Guarantee ? HOW !?</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="faq_panel_link">
+                                        <div class="faq_icon">&nbsp;</div>
+                                        <div class="faq_link">
+                                            <a href="#">Did you ever imagine that this project would be so successful ?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of Cart Panel Content-->
+                   </div>
 
                     <!--start of cart payment-->
                     <div class="cart_payment">
@@ -186,8 +226,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         <!--Start payment section-->
                         <div class="payment_process">
                             <div class="payment_type">
-                                <div class="payment_visa"><img src="images/ikimuk_visa.png"/></div>
-                                <div class="payment_master"><img src="images/ikimuk_master.png"/></div>
+                                <div class="payment_visa"><img src="/images/ikimuk_visa.png"/></div>
+                                <div class="payment_master"><img src="/images/ikimuk_master.png"/></div>
                             </div>
                             <div class="payment_checkout">
     <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>

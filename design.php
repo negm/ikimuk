@@ -39,36 +39,11 @@ echo '<meta property="og:title" content="' . $product->title . '" />';
 echo '<meta property="og:image" content="' . $product->image . '" />';
 echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
-?>
-<script type="text/javascript">
-    /*$(window).load(function() {
-        $('#slider').nivoSlider({
-            effect: 'slideInLeft', // Specify sets like: 'fold,fade,sliceDown'
-            animSpeed: 350, // Slide transition speed
-            pauseTime: 4000, // How long each slide will show
-            startSlide: 0, // Set starting Slide (0 index)
-            directionNav: true, // Next & Prev navigation
-            controlNav: true, // 1,2,3... navigation
-            controlNavThumbs: true, // Use thumbnails for Control Nav
-            pauseOnHover: true, // Stop animation while hovering
-            manualAdvance: false, // Force manual transitions
-            prevText: 'Prev', // Prev directionNav text
-            nextText: 'Next', // Next directionNav text
-            randomStart: false // Start on a random slide
- 
-        });
-        $(".commentheader").removeClass("hidden");
-    });
-*/
-</script>
-
-<?php
-
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 if ($product->preorders > $settings->first_goal)
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
 else
-    include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
 
 
 include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php";
