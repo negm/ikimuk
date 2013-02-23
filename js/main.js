@@ -963,7 +963,10 @@ $(document).ready(function() {
         $('.combo .select_country').text(val);
        $(".aramex_line").find("input[name='tax']").val($('.combo .country_list option:selected').data("delivery"));//change delivery charge
        $(".aramex_line").find(".line_value").text($('.combo .country_list option:selected').data("delivery"));
+       $(".sub_total_line").find(".line_value").text($('.combo .country_list option:selected').data("delivery"));
        RefreshPreorderPrices();
+       //alert("shiiiiiiiiiiiiiiiit");
+       //refresh_cart_prices();
        
     });
     ///code list value changed
