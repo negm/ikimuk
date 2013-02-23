@@ -295,9 +295,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                 <?php
                                                    foreach($countries_array as $key=>$country)
                                                         if($country->country_name == $_SESSION["country_name"])
-                                                    echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . '</option>';
+                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name . '</option>';
                                                         else
-                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name . '</option>';
+                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name . '</option>';
                                                  ?>
 ?>
                                             </select>
