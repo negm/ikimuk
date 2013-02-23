@@ -70,7 +70,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                             <select name="country">
 <?php
 while ($country = mysqli_fetch_object($countries->database->result))
-    echo '<option value="' . $country->country_code . '">' . $country->country_name . '</option>';
+                                                        if($country->country_name == $_SESSION["country_name"])
+                                                    echo '<option  value="' . $country->country_code . '" selected="selected">' . $country->country_name . '</option>';
+                                                        else
+                                                            echo '<option  value="' . $country->country_code . '">' . $country->country_name . '</option>';
 ?>
                                            <!--<input class='round_corners" type="text"/>-->
                                             </select>

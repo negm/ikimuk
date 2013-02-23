@@ -17,8 +17,9 @@ class ip2nationcountries {
 	public $country_code; // Primary Key
         public $delivery_charge;
         public $database;
-	
-	// Class Constructor
+	public $phone_code;
+
+        // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
 	}
@@ -48,6 +49,7 @@ class ip2nationcountries {
 		if ($this->database->rows == 1)
                 {$oRow = mysqli_fetch_object($oResult);
                 $this->delivery_charge = $oRow->delivery_charge;
+                $this->phone_code = $oRow->phone_code; // Primary Key
 		$this->country_code = $oRow->country_code; // Primary Key
                 }
                 else

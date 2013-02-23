@@ -26,6 +26,9 @@ class settings {
     public $first_goal = 50;
     public $second_goal = 75;
     public $third_goal = 100;
+    public $fourth_goal = 150;
+    public $fifth_goal = 300;
+    public $sixth_goal = 100;
 
     public function __construct() {
         $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';
@@ -69,7 +72,7 @@ class settings {
             );
             $this->app_id = "140388549312943";
             $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
-            $this->root = 'staging.phennec.com/';
+            $this->root = 'http://staging.phennec.com/';
             $this->prodction = true;
         } else {
             $this->config = array(

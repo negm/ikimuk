@@ -12,6 +12,7 @@ if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
     $ip2c=new ip2country();
     $_SESSION["country_name"] = $ip2c->get_country_name();
     $_SESSION["delivery_charge"] = $ip2c->delivery_charge;
+    $_SESSION["phone_code"]=$ip2c->phone_code;
 }
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // last request was more than 30 minutes ago

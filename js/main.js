@@ -286,7 +286,7 @@ $(document).ready(function(){
     
     
     
-    $(".order_submit").click(function(){
+    $(".block_order .order_submit").click(function(){
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
         if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
@@ -841,10 +841,14 @@ $(document).ready(function() {
      
      
      
+      $("#preorder_in").click(function(){
+          window.location.href = "/preorder.php";
+    });
+    
     //Mouse click the avatar section
     $(".entry_transparent").click(function(){
         var link=$(this).parent().find("input[name='user_id']").val();
-        alert(link);
+        window.location.href = link;
     });
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -871,7 +875,7 @@ $(document).ready(function() {
 
     //Cart set mouse leave
     $(".block_order .cart_body .selection_container .cart_no").mouseleave(function(){
-        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
+        var cell_category=$(this).parent().hasClass("male_part") ? "m":"w";//Get cell category
         var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
@@ -887,7 +891,7 @@ $(document).ready(function() {
     //Cart set mouse click
     $(".block_order .cart_body .selection_container .cart_no").click(function(){
 
-        var category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
+        var category=$(this).parent().hasClass("male_part") ? "m":"w";//Get cell category
         var size=$(this).find("input[name='size']").val();//Get cell size
         $(".selection_container .cart_no").css("opacity",0.3);//reset all cells
         $(this).css("opacity",1);
@@ -895,16 +899,6 @@ $(document).ready(function() {
         $(".order_submit").find("input[name='size']").val(size);//set selected cell size
     });
 
-    $(".block_order .order_submit").click(function(){
-        var category=$(".order_submit").find("input[name='category']").val();//Get selected category
-        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
-        if(category=="")alert("please choose an element");//check if the user didn't click on any cell
-        else{
-            alert(category);
-            alert(size);
-        }
-  
-    });
     /////////////////////////////////////////////////////////////////////////////////
    
    
@@ -1186,7 +1180,7 @@ $(document).ready(function() {
             var str='<div class="pre_order">';
             str+='<input type="hidden" name="category" value="'+category+'"/><input type="hidden" name="size" value="'+size+'"/>';
             str+='<input type="hidden" name="count" value="1"/><input type="hidden" name="price" value="25"/>';
-            str+='<div class="pre_order_avatar"><img src="images/avatar_60.png"/></div><div class="pre_order_description">';
+            str+='<div class="pre_order_avatar"><img src="'+$("#product_image").val()+'"/></div><div class="pre_order_description">';
             str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="img/ikimuk_snowstar_blue.png"/>';
             str+='</div><div class="pre_order_price">$ 25.00 </div><div class="pre_order_close"></div></div>';
             $(".pre_order_summary .std_block_body .preorder_content").append(str);//add new entry to cart

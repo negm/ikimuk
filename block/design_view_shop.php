@@ -253,21 +253,21 @@
                                 <div class="selection_container male_part">
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="small"/>
+                                        <input type="hidden" name="size" value="s"/>
                                         <div>S</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="medium"/>
+                                        <input type="hidden" name="size" value="m"/>
                                         <div>M</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="large"/>
+                                        <input type="hidden" name="size" value="l"/>
                                         <div>L</div>
                                     </div>
 
@@ -275,13 +275,13 @@
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xlarge"/>
+                                        <input type="hidden" name="size" value="xl"/>
                                         <div>XL</div>
                                     </div>
 
                                     <div class="empty_space"></div>
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xxlarge"/>
+                                        <input type="hidden" name="size" value="xxl"/>
                                         <div>XXL</div>
                                     </div>
                                 </div>
@@ -296,35 +296,35 @@
                                 <div class="selection_container female_part">
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="small"/>
+                                        <input type="hidden" name="size" value="s"/>
                                         <div>S</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="medium"/>
+                                        <input type="hidden" name="size" value="m"/>
                                         <div>M</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="large"/>
+                                        <input type="hidden" name="size" value="l"/>
                                         <div>L</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xlarge"/>
+                                        <input type="hidden" name="size" value="xl"/>
                                         <div>XL</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xxlarge"/>
+                                        <input type="hidden" name="size" value="xxl"/>
                                         <div>XXL</div>
                                     </div>
 

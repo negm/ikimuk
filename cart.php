@@ -109,7 +109,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                          <div class="entry_description_type">  <?php if ($cart_item["cut"]=="m" ) echo "GUY'S"; else echo "GIRL'S";
+                                          <div class="entry_description_type">  <?php if ($cart_item["cut"]=="m" ) echo "GUY'S".$cart_item["cut"]; else echo "GIRL'S";
                                               echo "(".$cart_item["size"].")"; ?> </div>
                                           <div class="entry_description_details"> 
                                                     <img src="/img/ikimuk_snowstar_green.png"/>

@@ -5,47 +5,49 @@
  * State the different verification cases here
  * 
  */
-include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
+//include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
+if (!isset($_SESSION))
+{
+    session_start ();
+}
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
-require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.image.php';
-$image = new image();
+include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");
+$countries = new ip2nationcountries();
+$countries->select_all_countries();
+$countries_array = array();
+while ($country = mysqli_fetch_object($countries->database->result))
+{
+$countries_array[]=$country;
+}
 $product = new product();
 $settings = new settings();
 $artist = new artist();
 if (!isset($_GET["product_id"]))
 {
- header("Location: /index.php");
+ //header("Location: /index.php");
 }
 else
 {
 $design_id = $_GET["product_id"];
-if(!isset($_SESSION['size']) )
+//if(!isset($_SESSION['size']) )
 {
-header("Location: /design/$design_id");
+//header("Location: /design/$design_id");
 }
 if(!isset($_SESSION['sms_code']) )
 {$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
 
 $product->select($design_id);
-if(!$product->database->result)
+if(!$product->id)
    header("Location: /index.php"); 
 else
 {
 $pagetitle = "ikimuk: ".$product->title;
-$image->product_id = $design_id;
-$_SERVER["last_preorder_design_id"] = $design_id;
-$image->getBasicImage();
-while ($row_image = mysqli_fetch_assoc($image->database->result))
-{
-   if ($row_image["small"])
-    $primary = $row_image["url"];
-   
-}
+$primary = $product->image;
    
     $artist->select($product->artist_id);
-    if ($artist->database->result)
+    if ($artist->id)
     {
         $regex = '/(?<!href=["\'])http:\/\//';
         $website_label = preg_replace($regex,'',$artist->website);
@@ -54,146 +56,580 @@ while ($row_image = mysqli_fetch_assoc($image->database->result))
         $artist = null;
   }
 }
-include_once $_SERVER["DOCUMENT_ROOT"]."block/header.php";
+include_once $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
  echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.$product->title.'" />';
-include $_SERVER["DOCUMENT_ROOT"]."block/top_area.php";
-echo '<div class="container"><ul id="" class="brdc"><li class="span2"><a href="/index.php">Preorder a T-shirt</a><span class="divid">/</span></li><li class="span3"><a href="/design/'.$product->id.'/'.$product->title .'" >'.$product->title .'</a><span class="divid">/</span></li><li class= " tyellow">Preorder</li></ul></div>';
+include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
+
 ?>
-<div class="clear"></div>
-<div class="container">
-<div class="row">
-    <div class="clear"></div>
-<div class="span8">
-<div class="userInfo">
-<h1 class="preTitle">Shipping Info</h1>
-<div class="inputContainer center">
-<form id="preorderForm" class="appnitro"  method="post" action="">						
-    <label class="description" for="element_1"><strong>Name </strong></label>
-<div>
-    <input id="name" name="name" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_name"];?>"/> <br/><br/>
-</div>
-		
-<label class="description" for="element_2"><strong>Email </strong></label>
-<div>
-<input id="email" name="email" class="span6" type="text" maxlength="255" value="<?php echo $_SESSION["user_email"];?>"/> <br/><br/>
-</div> 
-<label for="element_9"><strong>Area/Region</strong></label>
-<p class="hidden" id="region_g">Please choose an area!</p>
-<select class="span6" id="region" name="region"> 
-    <option value="" selected="selected" >I live in..</option>
-    <option value="Beirut" >Beirut</option>
-    <option value="Bekaa" >Bekaa</option>
-    <option value="Mount Lebanont" >Mount Lebanon</option>
-    <option value="Nabatieh" >Nabatieh</option>
-    <option value="North" >North</option>
-    <option value="South" >South</option>
-</select><br/><br/>
-<label class="description" for="element_2"><strong>Address </strong></label>
-<p id="address_g" class=" hidden">Do you live in an empty space box? If not, you gotta fill this up!</p>
-<input id="address" name="address" class="span6" type="text" maxlength="255" value=""/> <br/><br/>
-<input id="size" name="size" type="hidden" value="<?php echo $_SESSION["size"];?>" />
-<input id="design_id" name="design_id" type="hidden" value="<?php echo $design_id;?>" />
-<?php if (!isset($_SESSION['validated_mobile'])) {?>
-<div class="">
-<label  class="tlarge"><strong>Verification</strong></label>
-<div class="line"></div>
-<p>Almost done! We are gonna send you an SMS as soon as you give us your phone number just to make sure you are not a robot!</p><br>
-<label  for="element_3"><strong>Mobile number </strong></label>
-<p class="hidden" id="monum_g">Please fill in your 8-digit  Lebanese number!</p>
-<div class="input-append">
-<input id="ccode" name="ccode" class="ccode span1 centert" type="text" maxlength="4" value="+961"/>
-<input id="monum" name="monum" class="monum span4" type="text" maxlength="8"  onkeyup="moveOnMax(this,'verify')" value=""/> 
-<a href="" id="verify" class="btn btn-inverse" role="button">get SMS code</a>
-</div> <br>
-<p class="hidden" id="vcode_g2">Please check your mobile now!</p>
-<p class="hidden" id="vcode_g3">You either requested more than five verification SMSz or made 3 requests in less than 5 minutes! </p>
-<p class="hidden" id="vcode_g4">We could not complete your request now. please try again in a while! </p>
-<label for="vcode"><strong>Verification code </strong></label>
-<p class="hidden" id="vcode_g">Please enter the right verification  code you received </p>
-<input id="vcode" name="vcode" type="text" maxlength="5" value="" class="span6"/> <br>
-<br/>
-</div>
-<?php }?>
-<p class="hidden" id="agreement_g"> You should read and agree on the terms</p>
-<label class="checkbox" >
-    <input id="agreement" name="agreement" class="" type="checkbox" value="1" /> 
-    I agree to ikimuk's <a href="#myModal" role="button" style="color:#44c6e3" data-toggle="modal">Terms & Conditions</a>
-</label>
-<label class="checkbox" >
-    <input id="newsletter" name="newsletter" class="" type="checkbox" value="1" /> 
-    Keep me in the loop, sign me up for your newsletter 
-</label>
-<br><a id="preorderSubmit" class="offset1 span3 preorderButton" >Preorder</a><br><br>
-</form>
-</div></div></div>
-<div class="clear"></div>
-<div class="span4 ">
-    <div class="clear"></div>
-<div class="preSummary">
-<h1 class="preTitle">Order Summary</h1>
-<div class="span4 pleft">
-  <?php echo '<br><div class="span3 thumb-big center"><a class="" href="/design/'.$design_id."/$product->title".
-          '" ><img class="" src="'.$primary.'"  alt="'.$product->title.' ikimuk"/></a></div>';?></div>
-<div class="span3 artistInfo pleft">
-    <?php
 
-        if($artist)
-        {
-        echo '<h1 class="designT">'.$product->title.' <b class ="tblack tnormal"> by </b><br><b class="tlblue tnormal">'.$artist->name.'</b></h1>';
-        }
-        echo '<p>Size ('.$_SESSION["size"].')</p>';
-        echo '<div class="lineb"></div>';
-        echo '<div class="tnheight">T-shirt<span class="right">'.$product->price.'.00$</span></div>';
-        echo '<div class="tnheight">Delivery charge<span class="right">3.00$</span></div>';
-        echo '<div class="lineb"></div>';
-        echo '<div class="tnheight"><b>TOTAL<span class="right">'.($product->price+3) .'.00$</span></b></div>';
-        
+            <div class="body">
+                <div class="body_content">
+
+                    <div class="links_section">
+                        <div class="links_content">
+                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive">/</div>
+                            <div class="link_deactive">Cart</div>
+                            <div class="link_deactive">/</div>
+                            <div class="link_active">
+                                <a href="#">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" value="<?php echo $product->image;?>" id="product_image">
+                    <input type="hidden" value="<?php echo $product->id;?>" id="product_id">
+                        
+                    <div class="checkout_column_left">
+
+                        <!--Start of contact info-->      
+                        <div class="std_block choose_t_shirt">
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">1. Choose T-Shirt</span>
+                                </div>
+                            </div>
+
+                            <!--Start of body block-->
+                            <div class="std_block_body">
+                                <div class="t_shirt_info">
+                                    <img id="product_image"src="<?php echo $product->image;?>"/>
+                                    <span class="t_shirt_error"></span>
+                                </div>
+
+                                <div class="t_shirt_option">
+                                    <div class="order_description">
+                                        <?php echo $product->title ;?>
+                                    </div>
+                                    <div class="order_author">
+                                        by <?php echo $product->artist_name;?>
+                                    </div>
+                                    <!--Start Of Cart Body--> 
+                                    <div class="cart_body">
+
+                                        <!--Start Of Cart Selection--> 
+                                        <div class="cart_size_selection">
+
+                                            <!--Start Of Male Part--> 
+                                            <div class="size_selection_header">GUY's - $<?php echo number_format($product->price,2);?> 
+                                                <span class="order_size_info"><a href="#">Size Chart</a></span>
+                                            </div>
+
+                                            <div class="selection_container male_part">
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="S"/>
+                                                    <div>S</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="M"/>
+                                                    <div>M</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="L"/>
+                                                    <div>L</div>
+                                                </div>
+
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="XL"/>
+                                                    <div>XL</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="XXL"/>
+                                                    <div>XXL</div>
+                                                </div>
+                                            </div>
+                                            <!--End Of Male Part--> 
+
+                                            <!--Start Of Female Part--> 
+                                            <div class="size_selection_header">GIRL's - $<?php echo number_format($product->price,2);?>
+                                                <span class="order_size_info">
+                                                    <a href="#">Size Chart</a>
+                                                </span>
+                                            </div>
+                                            <div class="selection_container female_part">
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="S"/>
+                                                    <div>S</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="M"/>
+                                                    <div>M</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="L"/>
+                                                    <div>L</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="XL"/>
+                                                    <div>XL</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
+                                                    <input type="hidden" name="size" value="XXL"/>
+                                                    <div>XXL</div>
+                                                </div>
+
+                                            </div>
+                                            <!--End Of Male Part--> 
+
+
+
+                                        </div>
+                                        <!--End Of cart size selection--> 
+
+
+
+                                    </div>
+                                    <!--End Of Cart Selection--> 
+
+
+                                    <div class="order_submit">
+                                        <input type="hidden" name="category" value=""/>
+                                        <input type="hidden" name="size" value=""/>
+                                        <div class="add_t_shirt">
+                                            <span >ADD T-SHIRT</span>
+                                        </div>
+
+                                        <div class="add_plus">
+                                            <span>+</span>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                            <!--End of Block Body-->
+
+                        </div>
+                        <!--End of Contact info-->           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!--Start Of Shipping info Section-->
+                        <div class="std_block shipping_info">
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">2. Shipping info</span>
+                                </div>
+                            </div>
+
+
+
+                            <!--Start Of Block Body-->
+                            <div class="std_block_body">
+
+
+                                <div class="line_element">
+                                    <div class="full_line">
+                                        <div class="line_header">Country</div>
+
+                                        <div class="line_input round_corners combo">
+                                            <div class="select_country">
+                                                <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]; else echo 'Select Country';?>
+                                                
+                                            </div>
+                                            <select name="country" class="country_list hidden_input" data-content="Please Select a country" data-animation="true" data-trigger="focus">
+                                                <?php
+                                                   foreach($countries_array as $key=>$country)
+                                                        if($country->country_name == $_SESSION["country_name"])
+                                                    echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . '</option>';
+                                                        else
+                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name . '</option>';
+                                                 ?>
 ?>
-</div>
-</div></div>
+                                            </select>
+                                        </div>
 
- <div id="orderComplete" class="span6 hidden">
-     <br>
-        <div class="txlarge">Awesome, Preorder complete</div><br>
-        Thank you for preordering this  design! We will let you know if it wins the competition and gets printed.<br/><br/>
-        Until then, <a href="index.php" class="tlblue">why not check out the other designs?</a>
-        
- </div>
-<div id="orderDuplicate" class="span6 hidden">
-     <br>
-        <div class="txlarge"></div><br>
-        Oops! Sorry, you can't preorder the same design twice.You can preorder another one if you'd like.<br/><br/>
-        For now, <a href="index.php" class="tlblue" >why not check out the other designs?</a>
-        
-    </div>
-</div>
-</div>
-<!-- Button to trigger modal -->
+                                        <div class="line_error"></div>
+                                    </div>
+                                </div>
 
+                                <div class="line_element">
+
+                                    <div class="half_line">
+                                        <div class="line_header">First Name</div>
+                                        <div class="line_input">
+                                            <input id="first_name" type="text" name="first_name" data-content="Please enter your name" data-animation="true" data-trigger="focus"/>
+                                        </div>
+                                        <div class="line_error"></div>
+                                    </div>
+
+                                    <div class="half_line marginl20">
+                                        <div class="line_header">Last Name</div>
+                                        <div class="line_input">
+                                            <input id="last_name" type="text" name="last_name" data-content="Please Enter your last name" data-animation="true" data-trigger="focus"/>
+                                        </div>
+                                        <div class="line_error"></div> 
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="line_element">
+
+                                    <div class="full_line">
+                                        <div class="line_header">Address</div>
+                                        <div class="line_input">
+                                            <input type="text" name="address" data-content="Please Enter your addres" data-animation="true" data-trigger="focus" />
+                                        </div>
+                                        <div class="line_error"></div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="line_element">
+
+                                    <div class="half_line">
+                                        <div class="line_header">City</div>
+                                        <div class="line_input">
+                                            <input type="text" name="city" data-content="Please Enter your city" data-animation="true" data-trigger="focus" />
+                                        </div>
+                                        <div class="line_error"></div>
+                                    </div>
+
+
+                                    <div class="half_line marginl20">
+                                        <div class="line_header">State, Region or Province</div>
+                                        <div class="line_input">
+                                            <input type="text" name="region" data-content="Please Enter your region" data-animation="true" data-trigger="focus" />
+                                        </div>
+                                        <div class="line_error"></div> 
+                                    </div>
+
+                                </div>
+
+                                <div class="line_element">
+                                    <div class="half_line">
+                                        <div class="line_header">Zip Code (if Applicable)</div>
+                                        <div class="line_input">
+                                            <input type="text" name="zip" data-content="Please Enter your ZIP Code" data-animation="true" data-trigger="focus"/>
+                                        </div>
+                                        <div class="line_error"></div>
+                                    </div> 
+                                </div>
+
+                            </div>
+                            <!--End Of Block Body-->
+                        </div>
+                        <!--End Of Shipping info Section-->
+
+
+
+
+                        <!--Start of contact info-->      
+                        <div class="std_block contact_info">
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">3. Contact info</span>
+                                </div>
+                            </div>
+
+                            <!--Start of body block-->
+                            <div class="std_block_body">
+
+                                <div class="line_element">
+
+                                    <div class="half_line">
+                                        <div class="line_header">Country Code</div>
+
+                                        <div class="line_input round_corners combo">
+
+                                            <div class="country_code">
+                                                <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]." +".$_SESSION["phone_code"]; else echo 'Select Country Code';?>
+                                            </div>
+
+                                            <select name="code" class="code_list hidden_input" data-content="Please Enter your country code" data-animation="true" data-trigger="focus">
+                                                
+                                                <?php
+                                                    foreach($countries_array as $key=>$country)
+                                                        if($country->country_name == $_SESSION["country_name"])
+                                                            echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . " ".$country->phone_code.'</option>';
+                                                        else
+                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name." ".$country->phone_code. '</option>';
+                                                 ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="line_error"></div>
+                                    </div>
+
+
+                                    <div class="half_line marginl20">
+                                        <div class="line_header">Telephone Number</div>
+                                        <div class="line_input">
+                                            <input type="text" name="tel" data-content="Please Enter your telephone number" data-animation="true" data-trigger="focus"/>
+                                        </div>
+                                        <div class="line_error"></div> 
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!--End of Block Body-->
+
+                        </div>
+                        <!--End of Contact info-->
+
+
+
+                        <!--Start of shipping method-->
+                        <div class="std_block shipping_method">
+
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">4. shipping method</span>
+                                </div>
+                            </div>
+
+                            <!-- Start of block body-->
+                            <div class="std_block_body">
+
+                                <div class="shipping_content">
+                                    <div class="radio_holder"><input type="radio" checked="checked"/></div>
+                                    <div class="ads_text">  Aramex International Priority(2-5 business days)</div>
+                                    <div class="logo_holder"><img src="/img/ikimuk_aramex.png"/></div>
+                                    <div class="fee_content">
+                                        Custom fees and additional fees may apply for international shipments.
+                                        Please contact your local customs office for more information.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--End of Block Body-->
+
+                        </div>
+                        <!--End of shipping method-->
+
+
+
+                        <!--Start of Place Order-->
+                        <div class="place_order">
+
+
+                            <div class="agreement">
+                                <div class="terms_conditions">
+                                    <input type="checkbox" name="agree"/>I agree on ikimuk's 
+                                    <a href="#">Terms &amp; Conditions</a>
+                                </div>
+                                <div class="line_error"></div>
+                            </div>
+
+                            <div class="newsletter">
+                                <input type="checkbox" name="subscribe"/>Keep me in the loop, sign me up for your newsletter
+                            </div>
+
+                            <div class="proceed">
+
+                                <div class="payment_type">
+                                    <div class="payment_visa"><img src="/img/ikimuk_visa.png"></div>
+                                    <div class="payment_master"><img src="/img/ikimuk_master.png"></div>
+                                </div>
+                                <div class="payment_checkout">
+                                    <input type="submit" value="PLACE ORDER" name="place">
+                                        <div class="gateway">
+                                            <div class="gateway_icon"><img src="/img/ikimuk_lock.png"/>  </div>  
+                                            <div class="gateway_text">You will be redirected to Bank Audi's payment gateway </div>
+                                        </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--End of Place Order-->
+
+                    </div>
+                    <!--End of Left column-->
+
+
+                    <!--Start of right column-->
+                    <div class="checkout_column_right">
+
+  <!--Start of pre-order summary-->
+                        <div class="pre_order_summary">
+                      
+                        <div class="std_block">
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">pre-order Summary</span>
+                                </div>
+                            </div>
+
+
+
+                            <!--Start of block body-->
+                            <div class="std_block_body">
+                                <div class="line_link">
+                                    <div class="link_holder">
+                                        <!--  <a href="#">Edit</a>-->
+                                    </div>
+                                </div>
+                                <div class="preorder_content">
+                                </div>
+                                <?php // for ($i = 0; $i < 2; $i++) { ?>
+                                <!--     <div class="pre_order">
  
-<!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Preorder Terms and Conditions</h3>
-  </div>
-  <div class="modal-body">
-    <div class="span16" style="font-size:12; color:#4c4c4c;padding-bottom:10;">
-      <?php include  $_SERVER["DOCUMENT_ROOT"].'/block/PreorderTerms';?>
-</div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
+                                         <div class="pre_order_avatar">
+                                             <img src="images/avatar_60.png"/>
+                                         </div>    
+ 
+                                         <div class="pre_order_description">
+                                             Guys 2 XL
+                                         </div>
+ 
+                                         <div class="pre_order_option">
+                                             <img src="img/ikimuk_snowstar_blue.png"/>
+                                         </div>
+ 
+                                         <div class="pre_order_price">
+                                             $ 25.00
+                                         </div>
+ 
+                                         <div class="pre_order_close">
+ 
+                                         </div>
+                                     </div>  -->
+                                <?php //} ?>
+                                <div class="empty_pre_order">
+                                    <span class="empty_message">PLEASE CHOOSE AT LEAST ONE T-SHIRT</span>
+                                </div>
 
-<div class="clear"></div><br><br>
-   
+                                <div class="summary_sub_total">
+
+                                    <div class="sub_total_line">
+                                        <input type="hidden" name="sub_total" value=""/>
+                                        <span class="line_type">Subtotal :</span>
+                                        <span  class="line_value">--</span>
+                                    </div>
+
+                                    <div class="aramex_line">
+                                        <input type="hidden" name="tax" value="11"/>
+                                        <span class="line_type">Aramex Shipping</span>
+                                        <span  class="line_value">--</span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="summary_total">
+                                    <div class="sub_total_line">
+                                        <input type="hidden" name="total" value=""/>
+                                        <span class="line_type">Total :</span>
+                                        <span  class="line_value">--</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--End of block body-->
+                        </div>
+                      
+
+                        <div class="block_information">
+                         Your Pre-Order is only confirmed if this T-Shirt Design gets 50 
+                         Pre-Orders by Sat 02 Feb 11:59PM (GMT+2). We will reserve (pre-authorize)
+                         the amount on your card. If there aren’t enough pre-orders, the pre-authorization
+                         on your card gets cancelled—so make sure you share the deal with your friends!
+                        </div>
+                        </div>
+                          <!--End of pre-order summary-->
+                        
+
+                    </div>
+                    <!--End of right colum-->
+
+                </div>        
+                <!--End Of body content-->
+
+            </div>
+            <!--End of Body-->
+
+
+          
+
+
+            <script type="text/javascript">
+                $(function () {
+                    $('body').popover({
+                        selector: 'input,select'
+                    });
+                    $("input, select").focusout(function(){
+                        $(this).popover("hide");
+                    });
+        
+                });
+          
+                
+            </script>
+
 
 
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'block/footer.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
 ?>

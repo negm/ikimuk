@@ -58,7 +58,7 @@ class product {
                 }
                 $this->database->OpenLink();
                 $mID = mysqli_real_escape_string($this->database->link, $mID);
-		$sSQL = "SELECT p . * , i.url, a.name FROM product p INNER JOIN image i ON i.product_id = p.id INNER JOIN artist a ON p.artist_id = a.id WHERE p.id =$mID AND i.`primary` =1;";
+		$sSQL = "SELECT p . * , i.url, a.name FROM product p INNER JOIN image i ON i.product_id = p.id INNER JOIN artist a ON p.artist_id = a.id WHERE p.id =$mID AND i.`small` =1;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
                 if ($this->database->rows >0)

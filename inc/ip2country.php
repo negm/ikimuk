@@ -17,6 +17,7 @@ class ip2country {
 	private $country_code='';
 	private $country_name='';
         public  $delivery_charge='';
+        public $phone_code="";
         private $con=false;
         
         public function __construct() {
@@ -44,6 +45,7 @@ class ip2country {
 		$this->calculate_ip_num();
 		$this->country_code='';
 		$this->country_name='';
+                $this->phone_code='';
 	}
 	public function calculate_ip_num()
 	{
@@ -79,6 +81,7 @@ class ip2country {
 		$this->close();
 		$this->country_name=$row['country_name'];
 		$this->country_code=$row['country_code'];
+                $this->phone_code = $row["phone_code"];
                 $this->delivery_charge = $row["delivery_charge"];
 		return $row['country_code'];
 	}
