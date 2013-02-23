@@ -71,7 +71,7 @@ class ip2country {
 		if(!$this->con)
 		$this->mysql_con();
                 $this->ip_num = mysqli_escape_string($this->con, $this->ip_num);
-		$sq='SELECT * FROM ip2nationCountries c,ip2nation i WHERE i.ip < INET_ATON("'.$this->ip.'") AND c.country_code = i.country_code ORDER BY  i.ip DESC LIMIT 0,1';
+		$sq='SELECT * FROM ip2nation_countries c,ip2nation i WHERE i.ip < INET_ATON("'.$this->ip.'") AND c.country_code = i.country_code ORDER BY  i.ip DESC LIMIT 0,1';
 		$r= mysqli_query($this->con, $sq);
 
 		if(!$r)

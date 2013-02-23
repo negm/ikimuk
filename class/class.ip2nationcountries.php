@@ -43,7 +43,7 @@ class ip2nationcountries {
 		// Execute SQL Query to get record.
                 $this->database->OpenLink();
                 $this->country_code = mysqli_escape_string($this->database->link, $this->country_code);
-		$sSQL = "SELECT * FROM ip2nationcountries WHERE country_code = '$this->country_code' LIMIT 1;";
+		$sSQL = "SELECT * FROM ip2nation_countries WHERE country_code = '$this->country_code' LIMIT 1;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		if ($this->database->rows == 1)
@@ -59,7 +59,7 @@ class ip2nationcountries {
 	}
 	public function select_all_countries() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM ip2nationcountries WHERE delivery_charge <> 0";
+		$sSQL = "SELECT * FROM ip2nation_countries WHERE delivery_charge <> 0";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		
@@ -72,12 +72,12 @@ class ip2nationcountries {
 	}
 	
 	function update($mID) {
-		$sSQL = "UPDATE ip2nationcountries SET (country_code = '$this->country_code') WHERE country_code = $mID;";
+		$sSQL = "UPDATE ip2nation_countries SET (country_code = '$this->country_code') WHERE country_code = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
 	
 	public function delete($mID) {
-		$sSQL = "DELETE FROM ip2nationcountries WHERE country_code = $mID;";
+		$sSQL = "DELETE FROM ip2nation_countries WHERE country_code = $mID;";
 		$oResult = $this->database->Query($sSQL);
 	}
 
