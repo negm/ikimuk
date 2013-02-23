@@ -87,7 +87,7 @@ class settings {
             $this->app_id = "140388549312943";
             $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
             $this->root = $_SERVER['HTTP_HOST'] . '/';
-            $this->prodction = true;
+            $this->prodction = false;
         }
 
         $this->fbPermissions = 'publish_stream,email,publish_actions,offline_access';
