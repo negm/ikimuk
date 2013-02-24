@@ -196,50 +196,6 @@ $('.combo select').focusout(function(){
     $(this).parent().removeClass("combo_highlight");
 });
 
-
-
-//payment checkout clicked
-$(".payment_checkout input[name='place']").click(function(){
-    
-    reset_fields();//reset all fields
-    
-    //get needed variables
-     var country=$(".line_input select[name='country']");  
-     var first_name=$(".line_input input[name='first_name']");   
-     var last_name=$(".line_input input[name='last_name']");
-     var address=$(".line_input input[name='address']");
-     var city=$(".line_input input[name='city']");
-     var region=$(".line_input input[name='region']");
-     var zip=$(".line_input input[name='zip']");
-     var code=$(".line_input select[name='code']");
-     var tel=$(".line_input input[name='tel']");
-     
-     var flag=0;
-          //check all required fields
-         flag+=check_input(country,"Please Select a Country",0);
-         flag+=check_input(first_name,"Please enter first name",1);
-         flag+=check_input(last_name,"Please enter last name",1);
-         flag+=check_input(address,"Please enter an address",1);
-         flag+=check_input(city,"Please enter a city",1);
-         flag+=check_input(region,"Please enter a region",1);
-      //   flag+=check_input(zip,"Please enter zip code",1);
-         flag+=check_input(code,"Please enter country code",0);
-         flag+=check_input(tel,"Please enter a tel no.",1);
-         
-         //check if terms is checked
-         var agree=$(".terms_conditions input[name='agree']").is(":checked");
-         if(!agree){flag++;$(".agreement").find(".line_error").text("You have to agree our terms and conditions");}
-         
-         //determine if the user allow subscribe
-         var subscribe=$(".newsletter input[name='subscribe']").is(":checked");
-         
-         
-         if(flag==0)
-             {
-                 alert("everything gonna fine");
-             }
-  
-});
 //////////////////////////////////Submit Section//////////////////////////////////////////////////
 $(".theme_content .theme_avatar").mouseenter(function(){
     $(this).parent().find(".theme_transparent").css("display","block");

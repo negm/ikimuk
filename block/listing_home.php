@@ -82,9 +82,13 @@ while($row= mysqli_fetch_assoc($product->database->result))
         <div class="option_male"></div>
         <div class="option_female"></div>
     </div>
+    
     <div class="entry_avatar">
+        <a href="/design/<?php echo $row["id"]."/".str_replace(" ","-",trim($row["title"])); ?>">
                                  <img src="<?php echo $row["url"];?>"/>
+        </a>
     </div>
+        
              <div class="entry_control">
 
                                         <div class="entry_description">

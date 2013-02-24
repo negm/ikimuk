@@ -4,12 +4,6 @@ $(document).ready(function(){
     // 
     //////////////////////////Join US part///////////////////////////////////////////////
     
-    //Check if the email is valid    
-    function isValidEmailAddress(emailAddress) {
-        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-        return pattern.test(emailAddress);
-    }
-    
     //reset inputs     
     function reset_member_login(){
         $(".login").find(".line_error").text("");
@@ -17,8 +11,6 @@ $(document).ready(function(){
         $(".login").find("input[type='password']").css("border-color","#CCCCCC"); 
     }
  
-
-    
     //close link, mouse enter,out and click
     $(".member_header .member_close a").mouseenter(function(){
         $(this).find("img").attr("src","images/ikimuk_close.png"); 
@@ -267,17 +259,13 @@ $(document).ready(function(){
                 {
                     $('#cart_sum').html(response.item_count);
                 }
-    
             },
             error:function (xhr, ajaxOptions, thrownError){
             //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
             }
         });
-
         $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
- 
         var line_total=unit_price*qty;
- 
         $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
         $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
         refresh_cart_prices();
@@ -347,9 +335,7 @@ $(document).ready(function(){
             flag++;
             $(this).parent().parent().find(".line_error").text("Please Accept Our terms and conditions");
         }
-  
-  
-        if(flag==0){
+         if(flag==0){
             var params = 'action=add_submission&design_title='+ encodeURIComponent(title.val())+'&img_url='+
             encodeURIComponent(img_list.val())+'&comment='+ encodeURIComponent(details)
             +'&newsletter='+newsletter+"&city="+ encodeURIComponent(city.val())
@@ -373,20 +359,10 @@ $(document).ready(function(){
                         alert("we got shit all over the place bro")
                         return false;
                     }
-            
-                }
-       
-            });  
+                 }
+             });  
         }
-  
     });
-    //Reset all input fields
-    function reset_fields()
-    {
-        $(".line_input input").css("border-color","#CCCCCC");   
-        $(".line_input select").parent().css("border-color","#CCCCCC");
-        $(".line_error").text(""); 
-    }
 
     //validate input, variable,message displayed in case of error, 0=input combo box,1=input text
     function check_input(variable,message,flag)
@@ -402,16 +378,11 @@ $(document).ready(function(){
                 variable.parent().css("border-color","#EF2C21");
             }
             return 1;
-            
         }
         return 0;
     }
-
-
 //end of document ready
 });
-
-
 
 /* 
  * main JS file
@@ -629,96 +600,6 @@ $(function(){
         }
     });
 })
-
-$(function(){
-    $("#verify").click(function(e) 
-    {
-        e.preventDefault();
-        $('#verify').attr("disabled","disabled");
-        $("#verify").html('<img src="/img/ajax-loader-ikimuk.gif" />');
-        var valid = true;
-        $(".alertr").addClass("hidden");
-        $("*").removeClass("alertr");
-        if ($("#region").val() === "")
-        {
-            $("#region_g").removeClass("hidden").addClass("alertr").focus();
-            valid = false;
-        }
-        if ($("#address").val().length < 9){
-            $("#address_g").removeClass("hidden").addClass("alertr");
-            $("#address").focus();
-            valid = false;
-        }
-        if ($("#size").val()  ==="")
-        {
-            $("#size_g").removeClass("hidden").addClass("alertr").focus();
-            valid = false;
-        }
-        if ($("#monum").length > 0)
-        {
-            if ($("#monum").val().length < 7)
-            {
-                $("#monum_g").removeClass("hidden").addClass("alertr").focus();
-                valid = false;
-            }
-        }
-        if (!valid){
-            $('#verify').removeAttr("disabled").html("get SMS code");
-            return false;
-        }
-        if ($("#monum").val()==="" || $("#monum").val().trim().length <6 || $("#monum").val().trim().match(/[^\d]/))
-        {
-            $("#monum_g").removeClass("hidden").addClass("alertr").focus();
-            $('#verify').removeAttr("disabled").html("get SMS code"); 
-            return false;
-        }
-        else{
-            var monum = $("#monum").val();       
-            if (monum[0] === '0'){
-                monum = monum.replace(/^0+/, '');
-            }
-            var dataString = 'number='+$("#ccode").val().trim()+monum;
-            $.ajax({
-                type: "POST",
-                url: "/sms.php",
-                data: dataString,
-                success: function(response)
-                { 
-                    alert(response);
-                    if ((response === 'done'))
-                    {
-                        //show the preoder form
-                        $("#vcode_g2").removeClass("hidden").addClass("alertr").focus();
-                        $('#verify').removeAttr("disabled").html("Resend"); 
-                        $("#vcode").focus();
-                        return false;
-                    }
-                    else 
-                    if(response === 'shit' )
-                    {
-                        //Either received more than 5 messages or requested a new code in less than 5 minutes
-                        $("#vcode_g3").removeClass("hidden").addClass("alertr").focus();
-                        $('#verify').removeAttr("disabled").html("get SMS code"); 
-                        return false;
-                    }
-                    else
-                    {
-                        $("#vcode_g4").removeClass("hidden").addClass("alertr").focus();
-                        $('#verify').removeAttr("disabled").html("get SMS code"); 
-                        return false;
-                    }
-                } 
-            });
-                
-                
-        }
-        $('#verify').removeAttr("disabled"); 
-        return false;
-    }
-    
-    );
-})
-
 // add product
 $(document).ready(function() {
     var options = {
@@ -780,16 +661,21 @@ $(document).ready(function() {
         
     });
     
-    //Login button clicked
-    $(".control_section .login").click(function(){
-        alert("login clicked");
+        //login menu mouse out
+    $(".login_menu").mouseleave(function(){
+        $(".menu_drop").css("display","none");  
     });
-     
-    //Join Us clicked
-    $(".control_section .joinus").click(function(){
-        alert("joinus clicked");
+    //menu entry clicked
+    $(".menu_entry").click(function(){ 
+        var flag=$(this).find("span").hasClass("logout");//check if the logout is clicked
+        if(flag){
+            $(".control_section .login_menu").css("display","none");//hide the login menu
+            $(".control_section .login_menu .login_header").css("display","none");//hide the login header
+            $(".control_section .header_button").css("display","block");//show the header  buttons
+        }
+        else
+            alert("profile clicked"); 
     });
-    
     //Subscribe link clicked
     $(".subscribe_link .input_submit").click(function(){   
         var emailaddress=$(".subscribe_container .input_field input[name='email']").val();
@@ -818,10 +704,6 @@ $(document).ready(function() {
         $(this).parent().find(".entry_option").find(".option_price").css("background-image","url('img/ikimuk_entry_price_red.png')");
         $(this).parent().find(".entry_option").find(".option_male").css("background-image","url('img/ikimuk_entry_male_red.png')");
         $(this).parent().find(".entry_option").find(".option_female").css("background-image","url('img/ikimuk_entry_female_red.png')");
-
-        
-        
-        
     });
     
     //Mouse leave the avatar section
@@ -838,13 +720,7 @@ $(document).ready(function() {
         $(this).parent().find(".entry_transparent").css("opacity",0);
        
     });
-     
-     
-     
-      $("#preorder_in").click(function(){
-          window.location.href = "/preorder.php";
-    });
-    
+      
     //Mouse click the avatar section
     $(".entry_transparent").click(function(){
         var link=$(this).parent().find("input[name='user_id']").val();
@@ -852,10 +728,6 @@ $(document).ready(function() {
     });
     
     ///////////////////////////////////////////////////////////////////////////////////
-    
-    
-   
-
     ////////////////////////////Order section/////////////////////////
 
     //Cart set mouse enter
@@ -925,24 +797,6 @@ $(document).ready(function() {
     if($(".cart_table").length>0)
         refresh_cart_prices();//refresh prices at startup
 
-    //Update button clicked
-    /*$(".cart_entry_quantity .item_update").click(function(){
-  
-        var unit_price=parseFloat($(this).parent().parent().find(".cart_entry_price").find("input[name='price']").val());//Get Item Price
-        var qty=parseInt($(this).parent().find(".item_quantity").find("input[name='item_quantity']").val());//Get item quantity inserted
- 
-        if(isNaN(qty)||qty<0){
-            qty=0;//assign 0 for non-number or less than zero quantity.
-        }
-        $(this).parent().find(".item_quantity").find("input[name='item_quantity']").val(qty);//Update the item quantity.
- 
-        var line_total=unit_price*qty;
- 
-        $(this).parent().parent().find(".cart_entry_total").find(".cart_total").text(""+line_total.toFixed(2));//Update the text of line payment
-        $(this).parent().parent().find(".cart_entry_total").find("input[name='cart_total']").val(line_total);//Update the line payment
-        refresh_cart_prices();
-
-    });*/
 
     //When the remove link clicked
     $(".cart_remove a").click(function(){
@@ -1002,14 +856,20 @@ $(document).ready(function() {
         }
         return 0;
     }
-
-    //Reset all input fields
+     //Reset all input fields
     function reset_fields()
     {
         $(".line_input input").css("border-color","#CCCCCC");   
         $(".line_input select").parent().css("border-color","#CCCCCC");
         $(".line_error").text(""); 
     }
+    //Reset all input fields
+    /*function reset_fields()
+    {
+        $(".line_input input").css("border-color","#CCCCCC");   
+        $(".line_input select").parent().css("border-color","#CCCCCC");
+        $(".line_error").text(""); 
+    }*/
 
     //payment checkout clicked
     $(".payment_checkout input[name='place']").click(function(){
@@ -1052,7 +912,7 @@ $(document).ready(function() {
          
         if(flag==0)
         {
-            alert("everything gonna fine");
+            window.location.href = "/payment.php";
         }
   
     });
@@ -1174,8 +1034,6 @@ $(document).ready(function() {
                 }
 
         }); 
-    
-    
         if(flag_exist)return;//entry already exist
         else
         if(category==""){//no size selected
@@ -1183,7 +1041,6 @@ $(document).ready(function() {
         }//check if the user didn't click on any cell
         else{
             $(".std_block_body .empty_pre_order").css("display","none");//Hide the empty block
-            
             var str='<div class="pre_order">';
             str+='<input type="hidden" name="category" value="'+category+'"/><input type="hidden" name="size" value="'+size+'"/>';
             str+='<input type="hidden" name="count" value="1"/><input type="hidden" name="price" value="25"/>';
@@ -1191,8 +1048,6 @@ $(document).ready(function() {
             str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="img/ikimuk_snowstar_blue.png"/>';
             str+='</div><div class="pre_order_price">$ 25.00 </div><div class="pre_order_close"></div></div>';
             $(".pre_order_summary .std_block_body .preorder_content").append(str);//add new entry to cart
-            
-            
             $(".order_submit").find("input[name='category']").val("");//Reset category
             $(".order_submit").find("input[name='size']").val("");//Reset size       
             $(".selection_container .cart_no").css("opacity",0.3);//Reset appearance  

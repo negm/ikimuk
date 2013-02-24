@@ -67,7 +67,7 @@ class user {
         public function select_by_email() { // SELECT Function
 		// Execute SQL Query to get record.
             	$this->database->OpenLink();
-                $this->email = mysqli_escape_string($this->database->link, $this->email);
+                $this->email = mysqli_escape_string($this->database->link, strtolower($this->email));
                 $sSQL = "SELECT * FROM user WHERE email = $this->email;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
@@ -122,7 +122,7 @@ class user {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();
                 $this->fbid = mysqli_real_escape_string($this->database->link, $this->fbid);
-                $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+                $this->email = mysqli_real_escape_string($this->database->link, strtolower($this->email));
 		$sSQL = "INSERT INTO user (fbid, name, email) VALUES ($this->fbid,'$this->name','$this->email');";
 		$oResult = $this->database->query($sSQL);
 		$this->id = $this->database->lastInsertId;
@@ -133,7 +133,7 @@ class user {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();
                 $this->password = mysqli_real_escape_string($this->database->link, $this->password);
-                $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+                $this->email = mysqli_real_escape_string($this->database->link, strtolower($this->email));
                 $this->name = mysqli_real_escape_string($this->database->link, $this->name);
 		$sSQL = "INSERT INTO user (name, email,password) VALUES ('$this->name','$this->email','$this->password');";
 		$oResult = $this->database->query($sSQL);
@@ -145,7 +145,7 @@ class user {
         {
             $this->database->OpenLink();
             $this->password = mysqli_real_escape_string($this->database->link, $this->password);
-            $this->email = mysqli_real_escape_string($this->database->link, $this->email);
+            $this->email = mysqli_real_escape_string($this->database->link, strtolower($this->email));
             $sSQL = "select * FROM user WHERE email='$this->email' AND password='$this->password';";
             $oResult = $this->database->query($sSQL);
             $oResult = $this->database->result;
