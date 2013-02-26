@@ -13,7 +13,7 @@ $('.carousel').carousel({
 $(".menu_element").each(function(){
     if( $(this).find("input[name='flag']").val() == 'selected' ){ 
         $(this).addClass('menu_element_over') 
-        $(this).find(".line").css("color","#90278E");
+        $(this).find(".line").css("color","black");
     }
 });
     
@@ -33,7 +33,7 @@ $(".menu_element").each(function(){
             var flag=$(this).find("input[name='flag']").val();
             if(flag=="selected")return;
           $(this).addClass("menu_element_over");
-          $(this).find(".line").css("color","#90278E");
+          $(this).find(".line").css("color","black");
     });
         $(".menu_element").mouseleave(function(){ 
             var flag=$(this).find("input[name='flag']").val();

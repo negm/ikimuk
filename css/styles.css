@@ -3,12 +3,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 ul , ol , li { list-style:none; list-style-type:none;}
 body , html { width:100%; height:100%; position:relative;}
 a,a:hover,a:visited{text-decoration: none;}
-*{font-family: Times New Roman, sans-serif;}
 
 input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
     width: 100%;
 }
 /*End Of REset CSS*/
+
 /* HUSSEIN CSS*/
 .thumb img {
 min-width: 60px;
@@ -49,17 +49,7 @@ cursor: pointer;
 }
 .dummy_button:hover{background-color: #E13E5D;text-decoration: none;}
 
-/*Reset CSS*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-weight:normal}
-ul , ol , li { list-style:none; list-style-type:none;}
-body , html { width:100%; height:100%; position:relative;}
-a,a:hover,a:visited{text-decoration: none;}
-*{font-family: Times New Roman, sans-serif;}
 
-input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
-    width: 100%;
-}
-/*End Of REset CSS*/
 
 /*Start of Header Section*/
 .header{
@@ -107,8 +97,8 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 }
 .control_section .joinus{
     background: url('../img/ikimuk_joinus.png') no-repeat;
-    padding-left:30px;
-    width:45px;
+    padding-left:34px;
+    width:50px;
     margin-right:10px;
 }
 .control_section .header_button:hover{
@@ -229,6 +219,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:100%;
     color:#FFFFFF;
     font-size: 16px;
+    font-family: "kulturista-web", serif;
 }
 .menu_content .line{width:100%;}
 .menu_content >div{margin-top:20px;}
@@ -244,14 +235,15 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 
 /*Start of footer section */
 .footer{
-    float:left;
-    height:280px;
+    clear:both;
+    height:290px;
     width:100%;
     background-color: #E6E6E6;  
 } 
 .footer .footer_content{
     width:940px;
-    height:100%;
+    height:260px;
+    padding-top: 8px;
     margin:0 auto;
 }
 
@@ -259,6 +251,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:100%;
     height:100px;
     margin-top:20px;
+    clear: both;
 }
 
 .footer_social .social_mail{
@@ -322,15 +315,15 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     margin-left: 20px;
 }
 .social_twitter .twitter_balloon{
-    margin-top:25px;
+    margin-top:0px;
     width:100%;
-    height:45px;
+    height:73px;
     background-color: #282828;
     opacity:0.95;
 }
 .twitter_balloon .balloon_tweet{
     color:#F4F4F4;
-    font-size:14px;
+    font-size:12px;
     padding-left: 10px;
     padding-top: 5px;
 }
@@ -350,6 +343,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     border-bottom: 1px solid #646464;
     width:940px;
     margin-top: 20px;
+    clear: both;
 }
 .footer_content .footer_links{
     margin-top:15px;
@@ -369,9 +363,10 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .footer_link{float:left;}
 .footer_link a{
     color:#646464;
-    font-size:11px;
+    font-size:12px;
+    font-family: "kulturista-web", serif;
 }
-.footer_link a:hover{color:#F7F7F7;}
+.footer_link a:hover{color:#323232;}
 .footer_content .round_links{
     width:280px;
     margin:0 auto;
@@ -394,6 +389,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     color:#646464;
     font-size:10px;
     text-align: center;
+    clear:both;
 }
 /*End of footer section*/
 
@@ -463,7 +459,8 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:100%;
     text-transform:uppercase;
     color:#323232;
-    font-size:22px;
+    font-size:21px;
+    font-family: "kulturista-web", serif;
 }
 .competition_section .competition_banner{
     width:940px;
@@ -508,7 +505,8 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 }
 .entry .entry_option .option_price .entry_item_price{
     padding-top:15px;
-    font-size:26px;
+    font-size:21px;
+    font-family: "kulturista-web", serif;
 }
 .entry .entry_option .option_price .entry_dollar_sign{
     padding-top: 10px;
@@ -549,6 +547,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     margin-top:275px;
     color:#FFFFFF;
     font-size: 24px;
+    font-family: "kulturista-web", serif;
 }
 .entry .entry_control{
     float:left;
@@ -558,8 +557,16 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 }
 .entry .entry_control .entry_description{
     font-size: 18px;
+    font-family: "kulturista-web", serif;
     color:#323232;
 }
+.entry .entry_control .entry_author{
+    font-size: 14px;
+    font-style: italic;
+    font-family: "kulturista-web", serif;
+    color:#323232;
+}
+
 .entry .entry_control .entry_progressbar{
     float:left;
     width:220px;
@@ -617,6 +624,14 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     background-position: center bottom;
 }
 
+.flags_container .flag_container.flag_number{
+    background-image: none;
+    font-size: 18px;
+    font-family: "kulturista-web", serif;
+    text-align: center;
+    margin-top: 3px;
+}
+
 
 .flags_container .flag_container .flag_medal{
     width:100%;
@@ -653,19 +668,19 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .flag_container.margin_l_200{margin-left:170px;}
 .flag_container.margin_l_400{margin-left:370px;}
 
-.flag_container.flag_cyan{background-image:url('../img/ikimuk_half_bottom_cyan.png');}
+.flag_container.flag_cyan{background-image:url('../img/ikimuk_half_bottom_cyan.png');color: #6AD9D8;}
 .flag_container.flag_cyan .flag_medal{background-color: #6AD9D8;}
 
-.flag_container.flag_green{background-image:url('../img/ikimuk_half_bottom_green.png');}
+.flag_container.flag_green{background-image:url('../img/ikimuk_half_bottom_green.png');color: #C2E05F;}
 .flag_container.flag_green .flag_medal{background-color: #C2E05F;}
 
-.flag_container.flag_yellow{background-image:url('../img/ikimuk_half_bottom_yellow.png');}
+.flag_container.flag_yellow{background-image:url('../img/ikimuk_half_bottom_yellow.png');color: #FFE000;}
 .flag_container.flag_yellow .flag_medal{background-color: #FFE000;}
 
-.flag_container.flag_firebrick{background-image:url('../img/ikimuk_half_bottom_firebrick.png');}
+.flag_container.flag_firebrick{background-image:url('../img/ikimuk_half_bottom_firebrick.png');color: #FE705D;}
 .flag_container.flag_firebrick .flag_medal{background-color: #FE705D;}
 
-.flag_container.flag_magenta{background-image:url('../img/ikimuk_half_bottom_magenta.png');}
+.flag_container.flag_magenta{background-image:url('../img/ikimuk_half_bottom_magenta.png');color: #A1529D;}
 .flag_container.flag_magenta .flag_medal{background-color: #A1529D;}
 
 
@@ -700,7 +715,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .order_progress_count .count_text{
     float:left;
     width:100%;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
 }
 
@@ -738,6 +753,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     padding-left:10px;
     padding-top:10px;
     font-size: 18px;
+    font-family: "kulturista-web", serif;
     color:#FFFFFF;
 }
 
@@ -770,6 +786,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 }
 .social_comment .social_header{
     font-size:20px;
+    font-family: "kulturista-web", serif;
     padding-left:40px;
     padding-top:20px;
     color:#323232;
@@ -798,11 +815,17 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .block_order .order_description{
     font-size: 18px;
     color:#323232;
+    font-family: "kulturista-web", serif;
+    
+
 }
 .block_order .order_author{
     font-size:14px;
-    margin-top:-5px;
+    margin-top:0px;
     margin-bottom:10px;
+    font-family: "kulturista-web", serif;
+    font-style: italic;
+
 }
 .block_order .order_details{
     font-size: 14px;
@@ -881,11 +904,13 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     float:left;
     color:#323232;
     font-size: 18px;
+    font-family: "kulturista-web", serif;
     height:20px;
 }
 .size_selection_header .order_size_info{
     float:right;
     font-size: 14px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .size_selection_header .order_size_info a{
     text-decoration: underline;
@@ -915,6 +940,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 
 .selection_container .cart_no div{
     margin-top:8px;
+    font-family: "kulturista-web", serif;
 }
 .selection_container .empty_space{
     float:left;
@@ -970,6 +996,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     padding-left: 15px;
     min-width: 150px;
     height:20px;
+    margin-top: 3px;
     background: url('../img/ikimuk_balloon_gray.png') no-repeat;
     background-position: left center;
 }
@@ -979,6 +1006,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     padding-left: 20px;
     min-width: 150px;
     height:20px;
+    margin-top: 3px;
     background: url('../img/ikimuk_bag_gray.png') no-repeat; 
     background-position: left center;
 }
@@ -988,6 +1016,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     padding-left: 20px;
     min-width: 150px;
     height:20px;
+    margin-top: 3px;
     background: url('../img/ikimuk_twitter_gray.png') no-repeat; 
     background-position: left center;
 }
@@ -1026,6 +1055,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 }
 .block_goal .goal_header{
     font-size: 20px;
+    font-family: "kulturista-web", serif;
     padding-left: 25px;
     padding-top:15px;
 }
@@ -1199,11 +1229,11 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 
 }
 .cart_section_content .cart_section_header{
-    color: #000000;
-    font-size: 18px;
+    color: #5E5E5E;
+    font-size: 22px;
+    font-family: "kulturista-web", serif;
     text-transform: uppercase;
-    width: 930px;
-    padding-left:10px;
+    width: 100%;
 }
 .cart_section_content .cart_table{
     float: left;
@@ -1216,6 +1246,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .cart_table .cart_header{
     color: #F7F7F7;
     font-size: 20px;
+    font-family: "kulturista-web", serif;
     background-color: #EF4050;
     border: 2px solid #EF4050;
     float: left;
@@ -1262,6 +1293,15 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:240px;
     padding-right: 20px;
 }
+.cart_entry_title .cart_entry_name{
+    font-family: "kulturista-web", serif;
+    font-size: 16px;
+}
+.cart_entry_title .cart_entry_author{
+    font-family: "kulturista-web", serif;
+    font-size: 14px;
+    font-style: italic;
+}
 .cart_entry_title .cart_remove{
     clear:both;
     margin-top:5px;
@@ -1276,12 +1316,14 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .cart_entry_description .entry_description_type{
     width:100%;
     float:left;
+    font-family: "kulturista-web", serif;
     font-size: 16px;
 }
 .cart_entry_description .entry_description_details{
     width:100%;
     float:left;
     font-size: 18px;
+    font-family: "kulturista-web", serif;
     margin-top:5px;
     color:#6F6F6F;
 }
@@ -1401,7 +1443,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     height: 100%;
 }
 .cart_payment .line_payment{
-    font-size: 18px;
+    font-size: 16px;
     float:left;
     width:100%;
 }
@@ -1410,6 +1452,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
 .cart_payment .line_payment .payment_shipment{float:right;}
 .cart_payment .line_total{
     font-size: 18px;
+    font-family: "kulturista-web", serif;
     float:left;
     width:100%;
     margin-top:25px;
@@ -1441,7 +1484,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:260px;
     height:50px;
 }
-.payment_process .payment_checkout input{
+.payment_process .payment_checkout input, .payment_process .payment_checkout .fake_button{
     background-color: #E13E5D;
     color:#FFFFFF;
     font-size:17px;
@@ -1449,6 +1492,11 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     width:100%;
     height:100%; 
     border: 0;
+}
+.payment_process .payment_checkout .fake_button{
+    text-align: center;
+    line-height: 50px;
+    font-family: "kulturista-web", serif;
 }
 
 
@@ -1556,6 +1604,7 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     cursor: pointer;
 }
 .line_input input,.line_input textarea{
+    border:1px solid #CCCCCC;
     height:22px;
     padding-left:10px;
     color:#323232;
@@ -2330,4 +2379,16 @@ input[type="file"], input[type="image"], input[type="submit"], input[type="reset
     -khtml-border-radius: 5px;
     border-radius: 5px;
 }
-    
+
+.blue_part{
+    font-family: "kulturista-web", serif;
+    font-size: 18px;
+}
+
+input[type="submit"],input[type="button"],button{
+    font-family: "kulturista-web", serif;
+}
+
+input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button:hover{
+    background-color: #2989CA !important;
+}

@@ -36,8 +36,9 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <?php
                     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                         ?>
-                        <a href="#login" data-toggle="modal"><div class="header_button login">Login</div></a>
                         <a href="#join" data-toggle="modal"><div class="header_button joinus">Join Us</div></a>
+		        <a href="#login" data-toggle="modal"><div class="header_button login">Login</div></a>
+
     <?php
 } else {
     ?>
