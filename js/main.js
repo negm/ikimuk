@@ -279,7 +279,7 @@ $(document).ready(function(){
     
     
     
-    $(".block_order .order_submit").click(function(){
+    $("#add_to_cart").click(function(){
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
         if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell

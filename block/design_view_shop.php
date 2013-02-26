@@ -388,7 +388,7 @@
 
 
 
-                        <div class="order_submit">
+                        <div id="add_to_cart" class="order_submit">
                             <input type="hidden" name="category" value=""/>
                             <input type="hidden" name="size" value=""/>
                             <input type="submit" name="add_to_cart" value="ADD TO CART"/>
