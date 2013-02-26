@@ -8,19 +8,19 @@ include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
 
-$settings = new settings();
-session_start();
-print_r($_SERVER);
-print_r($_POST);
+//$settings = new settings();
+//session_start();
+//print_r($_SERVER);
+//print_r($_POST);
 //print_r($_GET);
-return;
-if (isset($_POST["place_order"]))
+//return;
+if (isset($_GET["action"])&& $_GET["action"]= "order" )
 {
 $order_id = place_order();
 if (!$order_id) {
-    header("Location: /checkout.php");
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
 } else {
-    $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py";
+    $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=order";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
     $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
                     $_SESSION["total"]*100 . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
@@ -33,13 +33,14 @@ if (!$order_id) {
     //echo $redirect_url;
 }
 }
-if (isset($_POST["place_preorder"]))
+else
+if (isset($_GET["action"])&& $_GET["action"]= "preorder" )
 {
     
 //just change the merchant_id to the second merchant account from AUDI
 $order_id = place_preorder();
 if (!$order_id) {
-    header("Location: /checkout.php");
+    header("Location: ".$_SERVER["HTTP_REFERER"]);
 } else {
     $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=preorder";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
@@ -54,10 +55,11 @@ if (!$order_id) {
     //echo $redirect_url;
 }
 }
+else
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
     
-    print_r($_GET);
+    
   //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
@@ -147,7 +149,9 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         }
     } 
 }
-
+else{
+    
+}
 function place_order() {
     global $size_enum, $cut_enum;
     $order = new order();
