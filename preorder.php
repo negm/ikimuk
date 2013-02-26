@@ -66,6 +66,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 ?>
 
             <div class="body">
+  <form id="preoder" action="/payment.php?action=preorder" method="post">
+      <input name="preorder_summary" type="hidden" value="" id="preorder_summary">
+      <input type="hidden" value="<?php echo $product->image;?>" id="product_image">
+      <input type="hidden" name="product_id" value="<?php echo $product->id;?>" id="product_id">
                 <div class="body_content">
 
                     <div class="links_section">
@@ -81,9 +85,8 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                     </div>
 
 
-                    <input type="hidden" value="<?php echo $product->image;?>" id="product_image">
-                    <input type="hidden" value="<?php echo $product->id;?>" id="product_id">
-                        
+                    
+                    
                     <div class="checkout_column_left">
 
                         <!--Start of contact info-->      
@@ -269,7 +272,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                         <!--Start Of Shipping info Section-->
                         <div class="std_block shipping_info">
-
+                           
                             <div class="std_block_label">
                                 <div class="label_box">
                                     <span class="label_title">2. Shipping info</span>
@@ -409,9 +412,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                 <?php
                                                     foreach($countries_array as $key=>$country)
                                                         if($country->country_name == $_SESSION["country_name"])
-                                                            echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . " ".$country->phone_code.'</option>';
+                                                            echo '<option selected="selected" value="' . $country->phone_code . '">' . $country->country_name . " ".$country->phone_code.'</option>';
                                                         else
-                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name." ".$country->phone_code. '</option>';
+                                                            echo '<option value="' . $country->phone_code . '">' . $country->country_name." ".$country->phone_code. '</option>';
                                                  ?>
                                             </select>
                                         </div>
@@ -484,7 +487,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                             <div class="newsletter">
                                 <input type="checkbox" name="subscribe"/>Keep me in the loop, sign me up for your newsletter
                             </div>
-
+                            
                             <div class="proceed">
 
                                 <div class="payment_type">
@@ -492,7 +495,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="payment_master"><img src="/img/ikimuk_master.png"></div>
                                 </div>
                                 <div class="payment_checkout">
-                                    <input type="submit" value="PLACE ORDER" name="place">
+                                   
+                                
+                                <input type="submit" value="PLACE ORDER" name="place">
+                                    
                                         <div class="gateway">
                                             <div class="gateway_icon"><img src="/img/ikimuk_lock.png"/>  </div>  
                                             <div class="gateway_text">You will be redirected to Bank Audi's payment gateway </div>
@@ -500,7 +506,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 </div>
 
                             </div>
-
+                           
                         </div>
                         <!--End of Place Order-->
 
@@ -606,7 +612,8 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                 </div>        
                 <!--End Of body content-->
-
+                
+ </form>
             </div>
             <!--End of Body-->
 

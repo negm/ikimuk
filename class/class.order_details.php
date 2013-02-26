@@ -53,7 +53,25 @@ class order_details {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	
+	public function select_by_order() { // SELECT Function
+		// Execute SQL Query to get record.
+                $this->order_id = mysqli_real_escape_string($this->database->link, $this->order_id);
+		$sSQL = "SELECT * FROM order_details WHERE order_id = $this->order_id;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;		
+	}
+        public function update_order_count(){
+            $sSQL = "UPDATE `product` SET preorders = preorders + $this->quantity WHERE id = $this->product_id;";
+            $oResult = $this->database->query($sSQL);
+            if ($this->database->rows != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();

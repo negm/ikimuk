@@ -20,10 +20,10 @@ class preorder {
         public $product_id;
         public $phone;
         public $price;
+        public $size;
         public $country;
         public $region;
         public $address;
-        public $size;
         public $status_id;
         public $newsletter;
         public $comments;
@@ -104,9 +104,8 @@ class preorder {
                 $this->country = mysqli_real_escape_string($this->database->link, $this->country);
                 $this->region = mysqli_real_escape_string($this->database->link, $this->region);
                 $this->address = mysqli_real_escape_string($this->database->link, $this->address);
-                $this->size= mysqli_real_escape_string($this->database->link, $this->size);
                 $this->newsletter= mysqli_real_escape_string($this->database->link, $this->newsletter);
-		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,size,newsletter) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address','$this->size',$this->newsletter)";
+		$sSQL = "INSERT INTO preorder (user_id, product_id,phone, country, region, address,newsletter) VALUES ($this->user_id,$this->product_id,'$this->phone','$this->country','$this->region','$this->address',$this->newsletter)";
 		$oResult = $this->database->Query($sSQL);
 		$this->id = $this->database->lastInsertId;
                 if ($this->id)

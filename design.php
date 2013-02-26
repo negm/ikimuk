@@ -40,11 +40,15 @@ echo '<meta property="og:image" content="' . $product->image . '" />';
 echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
+if ($daysLeft < 0)
+{
 if ($product->preorders > $settings->first_goal)
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
 else
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
-
+}
+else
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
 
 include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php";
 ?>

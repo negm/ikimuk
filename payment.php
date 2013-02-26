@@ -5,10 +5,15 @@ include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order_details.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
 
 $settings = new settings();
 session_start();
+print_r($_SERVER);
+print_r($_POST);
+//print_r($_GET);
+return;
 if (isset($_POST["place_order"]))
 {
 $order_id = place_order();
@@ -98,17 +103,47 @@ if (isset($_GET["vpc_TxnResponseCode"]))
       //update order
     $order = new order();
     $preorder = new preorder();
+    $preorder_details = new preorder_details();
+    $order_details = new order_details();
+    $log = new KLogger('/var/log/', KLogger::INFO);
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
         if (isset($_GET["type"]) && $_GET["type"] == "order")
         {
         $order->id = $_GET["merchTxnRef"];
-        $order->confirm_order();
+        if(!$order->confirm_order())
+        {
+            $log->logFatal('Could not confirm order with successfull payment response: order_id::'.$_GET["merchTxnRef"]);
+        }
+        else{
+             $order_details->preorder_id = $order->id;
+                $order_details->select_by_order();
+                while ($row = mysqli_fetch_assoc($order_details->database->result))
+                {
+                    $order_details->product_id = $row["product_id"];
+                    $order_details->quantity = $row["quantity"];
+                    $order_details->update_order_count();
+                }
+        }
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
             $preorder->id = $_GET["merchTxnRef"];
-            $preorder->confirm_preorder();
+            if(!$preorder->confirm_preorder())
+            {
+                $log->logFatal('Could not confirm preorder with successfull payment response: preorder_id::'.$_GET["merchTxnRef"]);
+            }
+            else
+            {
+                $preorder_details->preorder_id = $preorder->id;
+                $preorder_details->select_by_preorder();
+                while ($row = mysqli_fetch_assoc($preorder_details->database->result))
+                {
+                    $preorder_details->product_id = $row["product_id"];
+                    $preorder_details->quantity = $row["quantity"];
+                    $preorder_details->update_preorder_count();
+                }
+            }
         }
     } 
 }
@@ -151,7 +186,50 @@ function place_order() {
     $_SESSION["total"] = $subtotal + $country->delivery_charge;
     return $order->id;
 }
-
+function place_preorder()
+{
+    $preorder = new preorder();
+    $preoder_detail = new preorder_details();
+    $preoder_detail_arr = Array();
+    if (!isset($_POST["country"])||!isset($_POST["first_name"])||
+    !isset($_POST["last_name"])||!isset($_POST["address"])||
+    !isset($_POST["ciy"])||!isset($_POST["region"])||
+    !isset($_POST["tel"])||!isset($_POST["code"]))
+    {header("Location: ".$_SERVER["HTTP_REFERER"]);}
+    $zip_code = (isset($_POST["zip"]))? $_POST["zip"] :"";
+    $newsletter = (isset($_POST["newsletter"]))? "1" :"0";
+    $preorder->user_id = $_SESSION["user_id"];
+    $preorder->address = $_POST["last_name"]." ".$_POST["first_name"]
+            ." ".$_POST["address"].", ".$_POST["region"].", ". $_POST["city"];
+    $preorder->country = $_POST["country"];
+    $preorder->phone = $_POST["code"].$_POST["tel"];
+    $preorder->region = $_POST["region"];
+    $preorder->newsletter = $newsletter;
+    $preorder->product_id = $_POST["product_id"];
+    $preorder->insert();
+    if(!$preorder->id)
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    $preorder_summary = explode(",", trim($_POST["preorder_summary"]));
+    if (count($preorder_summary) % 4 != 0)
+        header("Location: ".$_SERVER["HTTP_REFERER"]);
+    else
+    {
+        for ($i = 0; $i<count($preorder_summary);i+4)
+        {
+            if (!is_numeric($preorder_summary[$i])|| !is_numeric($preorder_summary[$i+3]))
+            {//header("Location: ".$_SERVER["HTTP_REFERER"]);
+                continue;
+            }
+            $preoder_detail->preorder_id = $preorder->id;
+            $preoder_detail->cut = $preorder_summary[$i+2];
+            $preoder_detail->size = $preorder_summary[$i+1];
+            $preoder_detail->quantity = $preorder_summary[$i+3];
+            $preoder_detail->product_id = $_POST["product_id"];
+            $preoder_detail->insert();
+            
+        }
+    }
+}
 //function to map each response code number to a text message	
 function getResponseDescription($responseCode) {
     switch ($responseCode) {

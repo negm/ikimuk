@@ -53,7 +53,25 @@ class preorder_details {
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
 	}
-	
+	public function select_by_preorder() { // SELECT Function
+		// Execute SQL Query to get record.
+                $this->preorder_id = mysqli_real_escape_string($this->database->link, $this->preorder_id);
+		$sSQL = "SELECT * FROM preorder_details WHERE preorder_id = $this->preorder_id;";
+		$oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;		
+	}
+        public function update_preorder_count(){
+            $sSQL = "UPDATE `product` SET preorders = preorders + $this->quantity WHERE id = $this->product_id;";
+            $oResult = $this->database->query($sSQL);
+            if ($this->database->rows != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 	public function insert() {
 		$this->id = NULL; // Remove primary key value for insert
                 $this->database->OpenLink();

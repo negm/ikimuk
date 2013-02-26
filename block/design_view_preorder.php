@@ -93,7 +93,7 @@
                     <div class="social_label">
                         <div class="social_label_content">
 
-                            <div class="social_label_left"> 12 Days left</div>
+                            <div class="social_label_left"> <?php echo $daysLeft;?> Days left</div>
                         </div>
                     </div>
 
@@ -393,7 +393,7 @@
 
 
                         <div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
+                             <?php echo $settings->first_goal-$product->preorders; ?> Orders till the T-shirt gets printed
                         </div>
 
                     </div>
@@ -430,7 +430,7 @@
 
 
                         <div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
+                             <?php echo $settings->first_goal-$product->preorders; ?> Orders till the T-shirt gets printed
                         </div>
 
                     </div>

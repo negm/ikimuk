@@ -368,7 +368,7 @@ $(document).ready(function(){
     function check_input(variable,message,flag)
     {
     
-        if(variable.val().length==0)
+        if($.trim(variable.val()).length==0)
         { 
             variable.parent().parent().find(".line_error").text(message);
             if(flag){   
@@ -475,7 +475,7 @@ _gaq.push(['_trackPageview']);
 ///////////////////////////////////////upload & submit
 var uploaded = false;
 var img_list = new Array();
-$
+var preorder_list = new Array();
 ////////////////preorder
 var size="";
 $(document).ready(function() {
@@ -747,7 +747,7 @@ $(document).ready(function() {
 
     //Cart set mouse leave
     $(".block_order .cart_body .selection_container .cart_no").mouseleave(function(){
-        var cell_category=$(this).parent().hasClass("male_part") ? "m":"w";//Get cell category
+        var cell_category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
         var cell_size=$(this).find("input[name='size']").val();//Get cell size
 
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
@@ -763,7 +763,7 @@ $(document).ready(function() {
     //Cart set mouse click
     $(".block_order .cart_body .selection_container .cart_no").click(function(){
 
-        var category=$(this).parent().hasClass("male_part") ? "m":"w";//Get cell category
+        var category=$(this).parent().hasClass("male_part") ? "GUY":"GIRL";//Get cell category
         var size=$(this).find("input[name='size']").val();//Get cell size
         $(".selection_container .cart_no").css("opacity",0.3);//reset all cells
         $(this).css("opacity",1);
@@ -809,18 +809,30 @@ $(document).ready(function() {
    
    
     //////////////////////////Start Of checkout Section//////////////////////////
-   
+     function refresh_checkout_prices(){
+                        var sub_total=parseFloat($(".summary_sub_total").find("input[name='checkout_subtotal']").val());//Get the sub total
+                        var shipping=parseFloat($(".summary_sub_total").find("input[name='checkout_shipping']").val());//Get the shipping value
+                        var total=sub_total+shipping;
+                        $(".summary_total .sub_total_line").find("input[name='checkout_total']").val(total);//set the total value in its hidden input
+                        $(".summary_total .sub_total_line").find(".line_value").text("$ "+total.toFixed(2));//set the text
+                        $("#subtotal").text("$ "+sub_total.toFixed(2));//set the text
+                    }
    
     ///country list value changed
     $('.combo .country_list').change(function(){
         var val=$('.combo .country_list option:selected').text();
         $('.combo .select_country').text(val);
-       $(".aramex_line").find("input[name='tax']").val($('.combo .country_list option:selected').data("delivery"));//change delivery charge
-       $(".aramex_line").find(".line_value").text($('.combo .country_list option:selected').data("delivery"));
-       $(".sub_total_line").find(".line_value").text($('.combo .country_list option:selected').data("delivery"));
+        var shipping = $('.combo .country_list option:selected').data("delivery");
+       $(".aramex_line").find("input[name='tax']").val(shipping);//change delivery charge
+       $(".aramex_line").find(".line_value").text(shipping);
+       $(".sub_total_line").find(".line_value").text(shipping);
        RefreshPreorderPrices();
-       //alert("shiiiiiiiiiiiiiiiit");
-       //refresh_cart_prices();
+        //$(".summary_sub_total").find("input[name='checkout_shipping']").val(shipping);//set the shipping value
+        //set the total text value
+        $(".summary_sub_total").find("input[name='checkout_shipping']").parent().find(".line_value").text("$ "+shipping.toFixed(2));
+        $(".sub_total_line").find(".line_value").text("$ "+shipping.toFixed(2));
+        //refresh the prices.
+        refresh_checkout_prices();   
        
     });
     ///code list value changed
@@ -842,7 +854,7 @@ $(document).ready(function() {
     function check_input(variable,message,flag)
     {
     
-        if(variable.val().length==0)
+        if($.trim(variable.val()).length==0)
         { 
             variable.parent().parent().find(".line_error").text(message);
             if(flag){   
@@ -905,14 +917,39 @@ $(document).ready(function() {
             flag++;
             $(".agreement").find(".line_error").text("You have to agree our terms and conditions");
         }
-         
-        //determine if the user allow subscribe
+         //determine if the user allow subscribe
         var subscribe=$(".newsletter input[name='subscribe']").is(":checked");
-         
-         
         if(flag==0)
         {
-            window.location.href = "/payment.php";
+            /*window.location.href = "/payment.php";
+            if (1==1)
+                {
+            $.ajax({  
+            type: "POST",  
+            url: "/payment.php",  
+            data: dataString,  
+            success: function(response) {
+        
+                
+            }  
+        });}
+        else
+            {
+                
+            $.ajax({  
+            type: "POST",  
+            url: "/payment.php",  
+            data: dataString,  
+            success: function(response) {
+        
+                
+            }  
+            });
+            
+            }*/
+        }
+        else{
+            return false;
         }
   
     });
@@ -1009,22 +1046,21 @@ $(document).ready(function() {
         
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+        var product_id = $("#product_id").val();
         var flag_exist=false;
+        var arr = new Array();
         
-        
-      
-        $(".pre_order").each(function(){    
+        $(".pre_order").each(function(){
             var order_category=  $(this).find("input[name='category']").val();   
             var order_size=  $(this).find("input[name='size']").val(); 
             if(category==order_category)
                 if(size==order_size){//this item already exist
-                    var new_count=parseInt($(this).find("input[name='count']").val());//Get its count 
+                    var new_count=parseInt($(this).find("input[name='count']").val());//Get its count
                     new_count++;//increase by 1
                     $(this).find("input[name='count']").val(new_count);
+                    
                     var content=category+'\'s('+new_count+size+')';
                     $(this).find(".pre_order_description").text(content);//Upate the description
-                      
-                         
                     $(".order_submit").find("input[name='category']").val("");//Reset category
                     $(".order_submit").find("input[name='size']").val("");//Reset size       
                     $(".selection_container .cart_no").css("opacity",0.3);//Reset appearance
@@ -1034,8 +1070,7 @@ $(document).ready(function() {
                 }
 
         }); 
-        if(flag_exist)return;//entry already exist
-        else
+        if(!flag_exist)//entry already exist
         if(category==""){//no size selected
             $(".t_shirt_info .t_shirt_error").text("please choose an element");
         }//check if the user didn't click on any cell
@@ -1052,8 +1087,21 @@ $(document).ready(function() {
             $(".order_submit").find("input[name='size']").val("");//Reset size       
             $(".selection_container .cart_no").css("opacity",0.3);//Reset appearance  
             RefreshPreorderPrices();//refresh prices
-            
-        }
+          }
+         
+          
+        $(".pre_order").each(function(){
+            var item = new Array();
+            var order_category=  $(this).find("input[name='category']").val();   
+            var order_size=  $(this).find("input[name='size']").val(); 
+            var count = $(this).find("input[name='count']").val(); 
+            item.push(product_id);
+            item.push(order_size);
+            item.push(order_category);
+            item.push(count);
+            arr.push(item);
+        });
+        $("#preorder_summary").val(arr);
   
     });
     

@@ -58,13 +58,13 @@
                             <div class="bar progress_yellow" style="width: <?php echo ($product->preorders - $settings->second_goal) * (100 / $settings->third_goal); ?>%;"></div>
                         </div>
                         <div class="progress progress_flag_4">
-                            <div class="bar progress_firebrick" style="width:100%;"></div>
+                            <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / $settings->fourth_goal); ?>%;"></div>
                         </div>
                         <div class="progress progress_flag_5">
-                            <div class="bar progress_magenta" style="width: 100%;"></div>
+                            <div class="bar progress_magenta" style="width: <?php echo ($product->preorders - $settings->fourth_goal) * (100 / $settings->fifth_goal); ?>%;"></div>
                         </div>
                         <div class="progress progress_flag_6">
-                            <div class="bar progress_red" style="width: 100%;"></div>
+                            <div class="bar progress_red" style="width: <?php echo ($product->preorders - $settings->fifth_goal) * (100 / $settings->sixth_goal); ?>%;"></div>
                         </div>
 
                         <div class="progress_over over">
@@ -96,7 +96,7 @@
                     <div class="social_label">
                         <div class="social_label_content">
 
-                            <div class="social_label_left"> 12 Days left</div>
+                            <div class="social_label_left">  <?php echo $daysLeft;?> Days left</div>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                                 var js, fjs = d.getElementsByTagName(s)[0];
                                 if (d.getElementById(id)) return;
                                 js = d.createElement(s); js.id = id;
-                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=410515992368816";
+                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
                                 fjs.parentNode.insertBefore(js, fjs);
                             }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -190,7 +190,7 @@
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id)) return;
                         js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                             <div class="fb-comments" data-width="576" data-num-posts="4" data-href="http://www.elnashra.com/news/show/576619" data-colorscheme="light"></div>
@@ -401,15 +401,15 @@
                                 <div class="bar progress_cyan" style="width:100%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                50/50
+                                <?php echo $settings->first_goal."/".$settings->first_goal; ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
+                        <!--<div class="goal_remaining">
                             50 Orders till the T-shirt gets printed
-                        </div>
+                        </div>-->
 
                     </div>
                     <!---------------------------------------------------------------->
@@ -434,18 +434,20 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_green" style="width:100%;"></div>
+                                <div class="bar progress_green" style="width:<?php echo ($product->preorders) * (100 / $settings->second_goal); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                25/25
+                                <?php if($product->preorders> $settings->second_goal)  echo $settings->second_goal."/".$settings->second_goal; 
+                                else echo $product->preorders."/".$settings->second_goal; 
+                                ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
+                        <!--<div class="goal_remaining">
                             50 Orders till the T-shirt gets printed
-                        </div>
+                        </div>-->
 
                     </div>
                     <!----------------------------------------------------------------> 
@@ -470,18 +472,20 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_yellow" style="width:100%;"></div>
+                                <div class="bar progress_yellow" style="width:<?php echo ($product->preorders) * (100 / $settings->third_goal); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                25/25
+                                <?php if($product->preorders> $settings->third_goal)  echo $settings->third_goal."/".$settings->third_goal; 
+                                else echo $product->preorders."/".$settings->third_goal; 
+                                ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
+                        <!--<div class="goal_remaining">
                             50 Orders till the T-shirt gets printed
-                        </div>
+                        </div>-->
 
                     </div>
                     <!----------------------------------------------------------------> 
@@ -506,18 +510,20 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_firebrick" style="width:100%;"></div>
+                                <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders) * (100 / $settings->fourth_goal); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                100/100
+                                <?php if($product->preorders> $settings->fourth_goal)  echo $settings->fourth_goal."/".$settings->fourth_goal; 
+                                else echo $product->preorders."/".$settings->fourth_goal; 
+                                ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
+                        <!--<div class="goal_remaining">
                             50 Orders till the T-shirt gets printed
-                        </div>
+                        </div>-->
 
                     </div>
                     <!----------------------------------------------------------------> 
@@ -543,18 +549,20 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_magenta" style="width:100%;"></div>
+                                <div class="bar progress_magenta" style="width:<?php echo ($product->preorders) * (100 / $settings->fifth_goal); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                300/300
+                                <?php if($product->preorders> $settings->fifth_goal)  echo $settings->fifth_goal."/".$settings->fifth_goal; 
+                                else echo $product->preorders."/".$settings->fifth_goal; 
+                                ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
+                        <!--<div class="goal_remaining">
                             50 Orders till the T-shirt gets printed
-                        </div>
+                        </div>-->
 
                     </div>
                     <!----------------------------------------------------------------> 
