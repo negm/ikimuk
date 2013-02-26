@@ -45,7 +45,8 @@ class preorder_details {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM preorder_details WHERE id = $mID;";
+		
+                $sSQL = "SELECT * FROM preorder_details WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysql_fetch_object($oResult);
@@ -55,6 +56,7 @@ class preorder_details {
 	}
 	public function select_by_preorder() { // SELECT Function
 		// Execute SQL Query to get record.
+                $this->database->OpenLink();    
                 $this->preorder_id = mysqli_real_escape_string($this->database->link, $this->preorder_id);
 		$sSQL = "SELECT * FROM preorder_details WHERE preorder_id = $this->preorder_id;";
 		$oResult = $this->database->query($sSQL);

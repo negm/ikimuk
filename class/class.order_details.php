@@ -55,10 +55,12 @@ class order_details {
 	}
 	public function select_by_order() { // SELECT Function
 		// Execute SQL Query to get record.
+                $this->database->OpenLink();    
                 $this->order_id = mysqli_real_escape_string($this->database->link, $this->order_id);
 		$sSQL = "SELECT * FROM order_details WHERE order_id = $this->order_id;";
 		$oResult = $this->database->query($sSQL);
-		$oResult = $this->database->result;		
+		$oResult = $this->database->result;
+                return $oResult;
 	}
         public function update_order_count(){
             $sSQL = "UPDATE `product` SET preorders = preorders + $this->quantity WHERE id = $this->product_id;";

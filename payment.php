@@ -16,13 +16,13 @@ $settings = new settings();
 //print_r($_POST);
 //print_r($_GET);
 //return;
-if (isset($_GET["action"])&& $_GET["action"]= "order" )
+if (isset($_GET["action"])&& $_GET["action"]== "order" )
 {
 $order_id = place_order();
 if (!$order_id) {
     header("Location: ".$_SERVER["HTTP_REFERER"]);
 } else {
-    $return_url = "http://".$settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=order";
+    $return_url = $settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=order";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
     $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
                     $_SESSION["total"]*100 . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
@@ -36,7 +36,7 @@ if (!$order_id) {
 }
 }
 else
-if (isset($_GET["action"])&& $_GET["action"]= "preorder" )
+if (isset($_GET["action"])&& $_GET["action"]== "preorder" )
 {
     
 //just change the merchant_id to the second merchant account from AUDI
@@ -61,7 +61,7 @@ else
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
     
-    
+    print_r($_GET);
   //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
@@ -82,7 +82,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	    // sort all the incoming vpc response fields and leave out any with no value
 	    foreach($_GET as $key => $value) 
 	    {
-	        if ($key != "vpc_SecureHash" && strlen($value) > 0 && $key != 'action' && $key != 'xrf') 
+	        if ($key != "vpc_SecureHash" && strlen($value) > 0 && $key != 'action' && $key != 'xrf' && $key != 'type') 
 	        {
 				$hash_value = str_replace(" ",'+',$value);
 				$hash_value = str_replace("%20",'+',$hash_value);
@@ -109,36 +109,30 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     $preorder = new preorder();
     $preorder_details = new preorder_details();
     $order_details = new order_details();
-    $log = new KLogger('$_SERVER["DOCUMENT_ROOT"]/../log', KLogger::INFO);
+    $log = new KLogger($_SERVER["DOCUMENT_ROOT"], KLogger::INFO);
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
         if (isset($_GET["type"]) && $_GET["type"] == "order")
         {
         $order->id = $_GET["merchTxnRef"];
-        if(!$order->confirm_order())
-        {
-            $log->logFatal('Could not confirm order with successfull payment response: order_id::'.$_GET["merchTxnRef"]);
-        }
-        else{
-             $order_details->preorder_id = $order->id;
-                $order_details->select_by_order();
-                while ($row = mysqli_fetch_assoc($order_details->database->result))
-                {
+        $x = $order->confirm_order();
+        
+             $order_details->order_id = $order->id;
+              $x = $order_details->select_by_order();
+                while ($row = mysqli_fetch_assoc($x))
+                    {
+                    echo $row["product_id"].$row["quantity"];
                     $order_details->product_id = $row["product_id"];
                     $order_details->quantity = $row["quantity"];
                     $order_details->update_order_count();
                 }
-        }
+        
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
             $preorder->id = $_GET["merchTxnRef"];
-            if(!$preorder->confirm_preorder())
-            {
-                $log->logFatal('Could not confirm preorder with successfull payment response: preorder_id::'.$_GET["merchTxnRef"]);
-            }
-            else
-            {
+            $preorder->confirm_preorder();
+            
                 $preorder_details->preorder_id = $preorder->id;
                 $preorder_details->select_by_preorder();
                 while ($row = mysqli_fetch_assoc($preorder_details->database->result))
@@ -147,7 +141,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $preorder_details->quantity = $row["quantity"];
                     $preorder_details->update_preorder_count();
                 }
-            }
+            
         }
     } 
 }

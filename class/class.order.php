@@ -59,16 +59,11 @@ class order {
 	}
         public function confirm_order()
         {
+            $this->database->OpenLink();
+            $this->id = mysqli_escape_string($this->database->link,$this->id);
             $sSQL = "UPDATE `order` SET status_id = 2 WHERE id = $this->id";
             $this->database->query($sSQL);
-            if ($this->database->rows != 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            
         }
         public function active_orders($user_id)
                 {
