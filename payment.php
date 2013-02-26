@@ -105,7 +105,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     $preorder = new preorder();
     $preorder_details = new preorder_details();
     $order_details = new order_details();
-    $log = new KLogger('/var/log/', KLogger::INFO);
+    $log = new KLogger('$_SERVER["DOCUMENT_ROOT"]/../log', KLogger::INFO);
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
         if (isset($_GET["type"]) && $_GET["type"] == "order")
