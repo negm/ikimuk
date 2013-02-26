@@ -195,7 +195,7 @@ function place_preorder()
     !isset($_POST["last_name"])||!isset($_POST["address"])||
     !isset($_POST["ciy"])||!isset($_POST["region"])||
     !isset($_POST["tel"])||!isset($_POST["code"]))
-    {header("Location: ".$_SERVER["HTTP_REFERER"]);}
+    {echo "here";header("Location: ".$_SERVER["HTTP_REFERER"]);}
     $zip_code = (isset($_POST["zip"]))? $_POST["zip"] :"";
     $newsletter = (isset($_POST["newsletter"]))? "1" :"0";
     $preorder->user_id = $_SESSION["user_id"];
