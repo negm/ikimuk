@@ -11,8 +11,7 @@ if (!isset($_SESSION))
 {
     session_start ();
 }
-//$settings = new settings();
-//session_start();
+$settings = new settings();
 //print_r($_SERVER);
 //print_r($_POST);
 //print_r($_GET);
