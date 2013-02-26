@@ -73,7 +73,7 @@ class settings {
             $this->app_id = "140388549312943";
             $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
             $this->root = 'http://staging.phennec.com/';
-            $this->prodction = true;
+            $this->prodction = false;
         } else {
             $this->config = array(
                 'database' => 'ikimuk',
