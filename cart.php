@@ -98,7 +98,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Title section-->
                                         <div class="cart_entry_title">
-                                            <div class="cart_title_content"><?php echo $cart_item["product_title"]; ?><br/>by <?php echo $cart_item["artist_name"]; ?></div>
+                                            <div class="cart_title_content">
+					    <div class="cart_entry_name"><?php echo $cart_item["product_title"]; ?></div>
+					    <div class="cart_entry_author">by <?php echo $cart_item["artist_name"]; ?></div></div>
                                             <div class="cart_remove">
                                                 <input type="hidden" name="product_id" id="product_id" value="<?php echo $cart_item["product_id"]; ?>">
                                                 <input type="hidden" name="size" id="size" value="<?php echo $cart_item["size"]; ?>">
@@ -109,8 +111,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                          <div class="entry_description_type">  <?php if ($cart_item["cut"]=="m" ) echo "GUY'S".$cart_item["cut"]; else echo "GIRL'S";
-                                              echo "(".$cart_item["size"].")"; ?> </div>
+                                          <div class="entry_description_type">  <?php if ($cart_item["cut"]=="m" ) echo "GUY'S"; else echo "GIRL'S";
+                                              echo "&nbsp;(".$cart_item["size"].")"; ?> </div>
                                           <div class="entry_description_details"> 
                                                     <img src="/img/ikimuk_snowstar_green.png"/>
                                                     PERKS 1
@@ -233,7 +235,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
                                     <input type="button" name="checkout" value="CHECKOUT">
     <?php } else { ?>
-                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="">Checkout</div></a>
+                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">Checkout</div></a>
     <?php } ?>
                             </div>
                         </div>

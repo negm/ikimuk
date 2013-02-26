@@ -692,35 +692,41 @@ $(document).ready(function() {
     
      
     //Mouse over the avatar section
-    $(".entry .entry_avatar").mouseenter(function(){
+    $(".entry").mouseenter(function(){
      
-        $(this).parent().find(".entry_transparent").css("display","block");//show the float div
+        $(this).find(".entry_transparent").css("display","block");//show the float div
         
-        $(this).parent().find(".entry_transparent").delay(0).animate({
+        $(this).find(".entry_transparent").delay(0).animate({
             opacity:0.9
         },400);  //make opacity for the floating div
     
-        $(this).parent().css("border-color","#EF4050");
-        $(this).parent().find(".entry_option").find(".option_price").css("background-image","url('img/ikimuk_entry_price_red.png')");
-        $(this).parent().find(".entry_option").find(".option_male").css("background-image","url('img/ikimuk_entry_male_red.png')");
-        $(this).parent().find(".entry_option").find(".option_female").css("background-image","url('img/ikimuk_entry_female_red.png')");
+        $(this).css("border-color","#EF4050");
+        $(this).find(".entry_option").find(".option_price").css("background-image","url('img/ikimuk_entry_price_red.png')");
+        $(this).find(".entry_option").find(".option_male").css("background-image","url('img/ikimuk_entry_male_red.png')");
+        $(this).find(".entry_option").find(".option_female").css("background-image","url('img/ikimuk_entry_female_red.png')");
+
+        
+        
+        
     });
     
     //Mouse leave the avatar section
-    $(".entry .entry_transparent").mouseleave(function(){ 
+    $(".entry").mouseleave(function(){ 
              
         $(this).stop();
-        $(this).parent().find(".entry_transparent").css("display","none");
+        $(this).find(".entry_transparent").css("display","none");
 
-        $(this).parent().css("border-color","#CCCCCC");
-        $(this).parent().css("border-color","#CCCCCC");
-        $(this).parent().find(".entry_option").find(".option_price").css("background-image","url('img/ikimuk_entry_price.png')");
-        $(this).parent().find(".entry_option").find(".option_male").css("background-image","url('img/ikimuk_entry_male.png')");
-        $(this).parent().find(".entry_option").find(".option_female").css("background-image","url('img/ikimuk_entry_female.png')");
-        $(this).parent().find(".entry_transparent").css("opacity",0);
+        $(this).css("border-color","#CCCCCC");
+        $(this).css("border-color","#CCCCCC");
+        $(this).find(".entry_option").find(".option_price").css("background-image","url('img/ikimuk_entry_price.png')");
+        $(this).find(".entry_option").find(".option_male").css("background-image","url('img/ikimuk_entry_male.png')");
+        $(this).find(".entry_option").find(".option_female").css("background-image","url('img/ikimuk_entry_female.png')");
+        $(this).find(".entry_transparent").css("opacity",0);
        
     });
-      
+     
+     
+     
     //Mouse click the avatar section
     $(".entry_transparent").click(function(){
         var link=$(this).parent().find("input[name='user_id']").val();

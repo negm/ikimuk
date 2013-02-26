@@ -78,6 +78,8 @@ ob_implicit_flush(0);
 <meta property="og:description" content="Cool T-shirt Design">
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
+<script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />

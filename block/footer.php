@@ -8,8 +8,8 @@
                       <!--start of social mail section--> 
                       <div class="social_mail">
                           <div class="mail_title">
-                              <span class="blue_part">newsletter</span>
-                              <span class="black_part">Subscript to stay updated</span>
+                              <span class="blue_part">NEWSLETTER</span>
+                              <span class="black_part">join for updates</span>
                           </div>
                           
                           

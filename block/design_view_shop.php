@@ -22,25 +22,35 @@
 
                     <!--Start of Flags Container-->
                     <div class="flags_container">
-                        <div class="flag_container margin_l_100 flag_cyan">
+                        <a href="#block-goal-1">
+			<div class="flag_container margin_l_100 flag_cyan">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-2">
                         <div class="flag_container margin_l_50 flag_green">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-3">
                         <div class="flag_container margin_l_50 flag_yellow">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-4">
                         <div class="flag_container margin_l_200 flag_firebrick">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-5">
                         <div class="flag_container margin_l_400 flag_magenta">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
                     </div>
                     <!--End of Flags Container-->
 
@@ -48,25 +58,42 @@
 
                     <!--Start of Progress Bar Container-->
                     <div class="progress_bars_container"> 
+
+			<a href="#block-goal-1">
                         <div class="progress progress_flag_1">
                             <div class="bar progress_cyan" style="width: <?php echo $product->preorders * (100 / $settings->first_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-2">
                         <div class="progress progress_flag_2">
                             <div class="bar progress_green" style="width: <?php echo ($product->preorders - $settings->first_goal) * (100 / $settings->second_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-3">
                         <div class="progress progress_flag_3">
                             <div class="bar progress_yellow" style="width: <?php echo ($product->preorders - $settings->second_goal) * (100 / $settings->third_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-4">
                         <div class="progress progress_flag_4">
                             <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / $settings->fourth_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-5">
                         <div class="progress progress_flag_5">
                             <div class="bar progress_magenta" style="width: <?php echo ($product->preorders - $settings->fourth_goal) * (100 / $settings->fifth_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-6">
                         <div class="progress progress_flag_6">
                             <div class="bar progress_red" style="width: <?php echo ($product->preorders - $settings->fifth_goal) * (100 / $settings->sixth_goal); ?>%;"></div>
                         </div>
-
+			</a>
                         <div class="progress_over over">
                             <div class="progress_cube"></div>
                             <div class="progress_cube"></div>
@@ -75,7 +102,25 @@
                     </div>
                     <!--End of Progress Bar Container-->
 
-
+		    <div class="flags_container">
+                    
+			<div class="flag_container margin_l_100 flag_cyan flag_number">
+                            <div>50</div>
+                        </div>
+		
+                        <div class="flag_container margin_l_50 flag_green flag_number">
+                            75
+                        </div>
+                        <div class="flag_container margin_l_50 flag_yellow flag_number">
+                            100
+                        </div>
+                        <div class="flag_container margin_l_200 flag_firebrick flag_number">
+                            200
+                        </div>
+                        <div class="flag_container margin_l_400 flag_magenta flag_number">
+                            500
+                        </div>
+                    </div>
 
                 </div>
                 <!--End Of order progress Container-->
@@ -380,7 +425,7 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_cyan">
+                    <div class="block_goal block_goal_cyan" id="block-goal-1">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -416,7 +461,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_green">
+                    <div class="block_goal block_goal_green" id="block-goal-2">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -434,7 +479,7 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_green" style="width:<?php echo ($product->preorders) * (100 / $settings->second_goal); ?>%;"></div>
+                                <div class="bar progress_green" style="width:100%;"></div>
                             </div>                            
                             <div class="progress_percentage">
                                 <?php if($product->preorders> $settings->second_goal)  echo $settings->second_goal."/".$settings->second_goal; 
@@ -454,7 +499,7 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_yellow">
+                    <div class="block_goal block_goal_yellow" id="block-goal-3">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -492,7 +537,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_firebrick">
+                    <div class="block_goal block_goal_firebrick" id="block-goal-4">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -531,7 +576,7 @@
 
                     <!---------------------------------------------------------------->     
 
-                    <div class="block_goal block_goal_magenta">
+                    <div class="block_goal block_goal_magenta" id="block-goal-5">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -568,7 +613,7 @@
                     <!----------------------------------------------------------------> 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_red">
+                    <div class="block_goal block_goal_red" id="block-goal-6">
 
                         <div class="goal_label">
                             <div class="goal_content">
