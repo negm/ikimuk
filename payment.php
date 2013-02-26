@@ -7,7 +7,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
-
+if (!isset($_SESSION))
+{
+    session_start ();
+}
 //$settings = new settings();
 //session_start();
 //print_r($_SERVER);
