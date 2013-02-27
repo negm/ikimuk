@@ -42,7 +42,7 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like" data-href="http://www.facebook.com/pages/I-am-ProgrammerI-have-no-life/241806149201604?ref=ts&fref=ts" data-send="false" data-width="260" data-show-faces="true"></div>
+<div class="fb-like" data-href="https://www.facebook.com/ikimukofficial" data-send="false" data-width="260" data-show-faces="true"></div>
                       </div>
                        <!--end of social facebook section--> 
                        

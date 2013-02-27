@@ -22,10 +22,11 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
 
         <!--Start of Submit theme section-->
         <div class="submit_theme">
-
+            <a href="/submit.php?competition=<?php echo $competition->id;?>">
             <div class="theme_content std_block">
 
                 <div class="std_block_label">
+                
 		<div class="label_box"><span class="label_title"><?php echo $daysLeft; ?> Days Left</span></div>
 		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
@@ -33,8 +34,8 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                 <div class="theme_title"><?php echo $competition->title ?></div>
                 <div class="theme_date">Submit before <?php echo date("d/m/Y", strtotime($competition->submission_deadline)); ?></div>
             </div>
-
-
+            </a>
+            <a href="/submit.php?competition=0">
             <div class="theme_content marginl20 std_block">
 
                 <div class="std_block_label">
@@ -45,6 +46,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                 <div class="theme_title">Open Submission</div>
                 <!--<div class="theme_date">Submit before 21/1/2013</div>-->
             </div>
+                </a>    
         </div>
         <!--End Of Submit Theme Section-->
 

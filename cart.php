@@ -209,21 +209,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         <!--Subtotal section-->
                         <div class="line_payment subtotal">
                             <span class="type">Subtotal:</span>
-                            <span class="payment_subtotal">$<?php echo number_format($_SESSION["subtotal"], 2); ?></span>
-                            <input type="hidden" name="payment_subtotal" value="<?php echo number_format($_SESSION["subtotal"], 2); ?>"/>
+                            <span id="subtotal_text" class="payment_subtotal">$<?php echo number_format($_SESSION["subtotal"], 2); ?></span>
+                            <input id="checkout_subtotal" type="hidden" name="payment_subtotal" value="<?php echo number_format($_SESSION["subtotal"], 2); ?>"/>
                         </div>
 
                         <!--shipment section-->
                         <div class="line_payment shipment">
                             <span class="type">Shipping Estimate:</span>
-                            <span class="payment_shipment"><?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
-                            <input type="hidden" name="payment_shipment" value="<?php echo number_format($_SESSION["delivery_charge"], 2); ?>"/>
+                            <span id="shipping_text" class="payment_shipment"><?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
+                            <input id="checkout_shipping" type="hidden" name="payment_shipment" value="<?php echo number_format($_SESSION["delivery_charge"], 2); ?>"/>
                         </div>
                         <!--total section-->
                         <div class="line_total">
                             <span class="type">Estimate Total:</span>
-                            <span class="payment_total">$0.00</span>
-                            <input type="hidden" name="payment_total" value="0"/>
+                            <span id="total_text" class="payment_total">$<?php echo number_format($_SESSION["subtotal"]+$_SESSION["delivery_charge"], 2); ?></span>
+                            <input id="checkout_total" type="hidden" name="payment_total" value="0"/>
                         </div>
                         <!--Start payment section-->
                         <div class="payment_process">

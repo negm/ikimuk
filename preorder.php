@@ -566,15 +566,15 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 <div class="summary_sub_total">
 
                                     <div class="sub_total_line">
-                                        <input type="hidden" name="sub_total" value=""/>
+                                        <input id="checkout_subtotal" type="hidden" name="sub_total" value=""/>
                                         <span class="line_type">Subtotal :</span>
-                                        <span  class="line_value">--</span>
+                                        <span  id="subtotal_text" class="line_value">--</span>
                                     </div>
 
                                     <div class="aramex_line">
-                                        <input type="hidden" name="tax" value="11"/>
+                                        <input id="checkout_shipping" type="hidden" name="tax" value="<?php echo $_SESSION["delivery_charge"];?>"/>
                                         <span class="line_type">Aramex Shipping</span>
-                                        <span  class="line_value">--</span>
+                                        <span id="shipping_text" class="line_value">--</span>
                                     </div>
 
                                 </div>
@@ -582,9 +582,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                                 <div class="summary_total">
                                     <div class="sub_total_line">
-                                        <input type="hidden" name="total" value=""/>
+                                        <input id="checkout_total" type="hidden" name="total" value=""/>
                                         <span class="line_type">Total :</span>
-                                        <span  class="line_value">--</span>
+                                        <span  id="total_text" class="line_value">--</span>
                                     </div>
                                 </div>
 
