@@ -75,8 +75,12 @@
                                 fjs.parentNode.insertBefore(js, fjs);
                             }(document, 'script', 'facebook-jssdk'));</script>
 
-
-                            <div class="fb-like" data-href="<?php echo $settings->root."/design.php?product_id=".$product->id; ?>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+                              <?php if ($product->id > 50){?>
+                        <div class="fb-like" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+                        <?php } else { ?>
+                        <div class="fb-like" data-href="<?php echo $settings->beta_base."design.php?product_id=".$product->id; ?>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+                        <?php }?>
+                            
                         </div>
                         <!--End of facebook share-->
 
@@ -122,8 +126,11 @@
                         </div>
 
                         <div class="social_body">
-
+                        <?php if ($product->id > 50){?>
                         <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
+                        <?php } else { ?>
+                        <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->beta_base."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
+                        <?php }?>
                         </div>
                     </div>
                     <!--End Of Social Comment-->

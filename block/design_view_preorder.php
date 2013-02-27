@@ -101,20 +101,20 @@
 		    <div class="flags_container">
                     
 			<div class="flag_container margin_l_100 flag_number">
-                            <? echo $settings->first_goal; ?>
+                            <?php echo $settings->first_goal; ?>
                         </div>
 		
                         <div class="flag_container margin_l_50 flag_number">
-                            <? echo $settings->second_goal; ?>
+                            <?php echo $settings->second_goal; ?>
                         </div>
                         <div class="flag_container margin_l_50 flag_number">
-                            <? echo $settings->third_goal; ?>
+                            <?php echo $settings->third_goal; ?>
                         </div>
                         <div class="flag_container margin_l_200 flag_number">
-                            <? echo $settings->fourth_goal; ?>
+                            <?php echo $settings->fourth_goal; ?>
                         </div>
                         <div class="flag_container margin_l_400 flag_number">
-                            <? echo $settings->fifth_goal; ?>
+                            <?php echo $settings->fifth_goal; ?>
                         </div>
                     </div>
 
