@@ -144,6 +144,9 @@ cursor: pointer;
     float:right;
     margin-right:5px;
 }
+.login_avatar img{
+    height: 24px;
+}
 .login_menu .menu_drop{display:none;}
 .login_menu .empty_space{
     width:160px;
@@ -236,7 +239,7 @@ cursor: pointer;
 /*Start of footer section */
 .footer{
     clear:both;
-    height:290px;
+    height:315px;
     width:100%;
     background-color: #E6E6E6;  
 } 
@@ -706,6 +709,21 @@ cursor: pointer;
     text-align: center;
     padding-top:20px;
 }
+
+.order_ended_count .count_value{
+    float:left;
+    font-size: 32px;
+    font-weight:bold;
+}
+.order_ended_count .count_text{
+    float:left;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+
+
 .order_progress_count .count_value{
     float:left;
     width:100%;
@@ -1535,6 +1553,7 @@ cursor: pointer;
     background-color: #EF4050;
     color:#FFFFFF;
     font-size: 17px;
+    font-family: "kulturista-web", serif;
     margin-right:35px;
     text-transform: uppercase;
 }
@@ -1710,9 +1729,9 @@ cursor: pointer;
 .payment_checkout .gateway .gateway_icon{
     float:left;
     width:20px;
-    margin-left: 35px;
+    margin-left: 10px;
 }
-.payment_checkout .gateway .gateway_text{float:left;}
+.payment_checkout .gateway .gateway_text{float:left; font-size:12px;}
 
 .checkout_column_right .block_information{
     float:left;
@@ -1812,6 +1831,7 @@ cursor: pointer;
     margin-top:10px;
     color:#FFFFFF;
     font-size: 18px;
+    font-family: "kulturista-web", serif;
 }
 .summary_total .sub_total_line .line_type{float:left;}
 .summary_total .sub_total_line .line_value{float:right;}
@@ -1988,13 +2008,41 @@ cursor: pointer;
     height:40px;
     background-color: #FFFFFF;
 }
+.member_header .member_title_box{
+    background: url('../img/ikimuk_half_red.png') no-repeat;
+    background-position: left bottom;
+    margin-left: -12px;
+    margin-top: 10px;
+    width: 102px;
+    z-index:999;
+    height: 40px;
+    float:left;
+}
+
 .member_header .member_title{
     float:left;
-    color: #203E76;
+    color: white;
+    font-family: "kulturista-web", serif;
     font-size: 18px;
-    margin-left: 20px;
-    margin-top: 20px;
+    width: 60px;
+    padding: 5px 5px 5px 30px;    
+    background: url('../img/ikimuk_login_white.png') no-repeat 10px 7px #EF4050;
 }
+
+#join .member_title{
+    background: url('../img/ikimuk_join_white.png') no-repeat 10px 7px #EF4050;
+    padding-left: 41px;
+    width: 77px;
+}
+
+#join .member_unjoin{
+    margin-left: 44px;
+}
+
+#join, #login{
+    margin-left: -133px;
+}
+
 .member_header .member_close{
     float:right;
     height:10px;
@@ -2006,8 +2054,8 @@ cursor: pointer;
 .member_header .member_unjoin{
     float:left;
     margin-top:15px;
-    margin-left:100px;
-    font-size: 16px;
+    margin-left:20px;
+    font-size: 14px;
 }
 .member_header .member_unjoin a{
     color:#56B8E1;

@@ -19,25 +19,35 @@
 
                     <!--Start of Flags Container-->
                     <div class="flags_container">
+                        <a href="#block-goal-1">
                         <div class="flag_container margin_l_100">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-2">
                         <div class="flag_container margin_l_50">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-3">
                         <div class="flag_container margin_l_50">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-4">
                         <div class="flag_container margin_l_200">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
 
+			<a href="#block-goal-5">
                         <div class="flag_container margin_l_400">
                             <div class="flag_medal"></div>
                         </div>
+			</a>
                     </div>
                     <!--End of Flags Container-->
 
@@ -45,25 +55,40 @@
 
                     <!--Start of Progress Bar Container-->
                     <div class="progress_bars_container"> 
+			<a href="#block-goal-1">
                         <div class="progress progress_flag_1">
                             <div class="bar progress_cyan" style="width: <?php echo $product->preorders * (100 / $settings->first_goal); ?>%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-2">
                         <div class="progress progress_flag_2">
                             <div class="bar progress_green" style="width:0%"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-3">
                         <div class="progress progress_flag_3">
                             <div class="bar progress_yellow" style="width: 0%;"></div>
                         </div>
+			</a>
+
+			<a href="#block-goal-4">
                         <div class="progress progress_flag_4">
                             <div class="bar progress_firebrick" style="width:0%;"></div>
-                        </div>
+                        </div>			</a>
+
+			<a href="#block-goal-5">
                         <div class="progress progress_flag_5">
                             <div class="bar progress_magenta" style="width: 0%;"></div>
                         </div>
-                        <div class="progress progress_flag_6">
+                        			</a>
+
+			<a href="#block-goal-6">
+			<div class="progress progress_flag_6">
                             <div class="bar progress_red" style="width: 0%;"></div>
                         </div>
-
+</a>
                         <div class="progress_over">
                             <div class="progress_cube"></div>
                             <div class="progress_cube"></div>
@@ -73,6 +98,25 @@
                     <!--End of Progress Bar Container-->
 
 
+		    <div class="flags_container">
+                    
+			<div class="flag_container margin_l_100 flag_number">
+                            <? echo $settings->first_goal; ?>
+                        </div>
+		
+                        <div class="flag_container margin_l_50 flag_number">
+                            <? echo $settings->second_goal; ?>
+                        </div>
+                        <div class="flag_container margin_l_50 flag_number">
+                            <? echo $settings->third_goal; ?>
+                        </div>
+                        <div class="flag_container margin_l_200 flag_number">
+                            <? echo $settings->fourth_goal; ?>
+                        </div>
+                        <div class="flag_container margin_l_400 flag_number">
+                            <? echo $settings->fifth_goal; ?>
+                        </div>
+                    </div>
 
                 </div>
                 <!--End Of order progress Container-->
@@ -206,9 +250,7 @@
                         </div>
                         <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
                         <div class="order_details">
-                            The original Funkalicious design was created by Christopher Golebiowski in 2006. 
-                            Since its launch, Funkalicious has appeared as a tank top, water bottle,
-                            kids tee, and even a giant parade float.
+			    <?php echo $product->desc; ?>
                         </div>
 
                         <div class="order_progressbar">
@@ -257,7 +299,7 @@
                     <!--End Of Block Profile-->
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_selected">
+                    <div class="block_goal block_goal_selected" id="block-goal-1">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -293,7 +335,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_green">
+                    <div class="block_goal"  id="block-goal-2">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -311,25 +353,22 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_green" style="width:<?php echo ($product->preorders) * (100 / $settings->second_goal); ?>%;"></div>
+                                <div class="bar progress_green" style="width:0%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php echo $product->preorders."/".$settings->second_goal; ?>
+                                <?php echo "0/".($settings->second_goal - $settings->first_goal); ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
-                            <?php echo $settings->first_goal-$product->preorders; ?>  Orders till the T-shirt gets printed
-                        </div>
 
                     </div>
                     <!----------------------------------------------------------------> 
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_yellow">
+                    <div class="block_goal" id="block-goal-3">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -347,25 +386,21 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_yellow" style="width:<?php echo ($product->preorders) * (100 / $settings->third_goal); ?>%;"></div>
+                                <div class="bar progress_yellow" style="width:0%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                 <?php echo $product->preorders."/".$settings->third_goal; ?>
+                                 <?php echo "0/".($settings->third_goal - $settings->second_goal); ?>
                             </div>
 
                         </div>
 
-
-                        <div class="goal_remaining">
-                            <?php echo $settings->first_goal-$product->preorders; ?>  Orders till the T-shirt gets printed
-                        </div>
 
                     </div>
                     <!----------------------------------------------------------------> 
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_firebrick">
+                    <div class="block_goal" id="block-goal-4">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -383,17 +418,12 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders) * (100 / $settings->fourth_goal); ?>%;"></div>
+                                <div class="bar progress_firebrick" style="width:0%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php echo $product->preorders."/".$settings->fourth_goal; ?>
+                                <?php echo "0/".($settings->fourth_goal - $settings->third_goal); ?>
                             </div>
 
-                        </div>
-
-
-                        <div class="goal_remaining">
-                             <?php echo $settings->first_goal-$product->preorders; ?> Orders till the T-shirt gets printed
                         </div>
 
                     </div>
@@ -402,7 +432,7 @@
 
                     <!---------------------------------------------------------------->     
 
-                    <div class="block_goal block_goal_magenta">
+                    <div class="block_goal" id="block-goal-5">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -420,24 +450,21 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_magenta" style="width:<?php echo ($product->preorders) * (100 / $settings->fifth_goal); ?>%;"></div>
+                                <div class="bar progress_magenta" style="width:0%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php echo $product->preorders."/".$settings->fifth_goal; ?>
+                                <?php echo "0/" . ($settings->fifth_goal - $settings->fourth_goal); ?>
                             </div>
 
                         </div>
 
 
-                        <div class="goal_remaining">
-                             <?php echo $settings->first_goal-$product->preorders; ?> Orders till the T-shirt gets printed
-                        </div>
 
                     </div>
                     <!----------------------------------------------------------------> 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_red">
+                    <div class="block_goal"  id="block-goal-6">
 
                         <div class="goal_label">
                             <div class="goal_content">

@@ -26,9 +26,9 @@ class settings {
     public $first_goal = 50;
     public $second_goal = 75;
     public $third_goal = 100;
-    public $fourth_goal = 150;
-    public $fifth_goal = 300;
-    public $sixth_goal = 100;
+    public $fourth_goal = 200;
+    public $fifth_goal = 500;
+    public $sixth_goal = 501;
 
     public function __construct() {
         $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';
