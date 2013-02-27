@@ -53,6 +53,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
 <div class="body">
+    <form action="/payment.php?action=order" method="post">
                 <div class="body_content">
 
                     <div class="links_section">
@@ -388,7 +389,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                 </div>        
                 <!--End Of body content-->
-
+    </form>
             </div>
             <!--End of Body-->
 

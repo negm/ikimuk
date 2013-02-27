@@ -1,3 +1,5 @@
-2013-02-26 4:39:59 - CRIT --> Oh dear.
-2013-02-26 4:40:26 - CRIT --> Oh dear.
-2013-02-26 4:42:33 - CRIT --> Oh dear.
+2013-02-26 20:45:46 - CRIT --> Could not confirm order with successfull payment response: order_id::26
+2013-02-26 20:48:57 - CRIT --> Could not confirm order with successfull payment response: order_id::27
+2013-02-26 20:55:37 - CRIT --> Could not confirm order with successfull payment response: order_id::28
+2013-02-26 21:06:23 - CRIT --> Could not confirm order with successfull payment response: order_id::29
+2013-02-26 21:09:13 - CRIT --> Could not confirm order with successfull payment response: order_id::30

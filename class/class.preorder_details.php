@@ -45,7 +45,8 @@ class preorder_details {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM preorder_details WHERE id = $mID;";
+		
+                $sSQL = "SELECT * FROM preorder_details WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysql_fetch_object($oResult);
@@ -55,6 +56,7 @@ class preorder_details {
 	}
 	public function select_by_preorder() { // SELECT Function
 		// Execute SQL Query to get record.
+                $this->database->OpenLink();    
                 $this->preorder_id = mysqli_real_escape_string($this->database->link, $this->preorder_id);
 		$sSQL = "SELECT * FROM preorder_details WHERE preorder_id = $this->preorder_id;";
 		$oResult = $this->database->query($sSQL);
@@ -81,9 +83,9 @@ class preorder_details {
                 $this->product_id = mysqli_real_escape_string($this->database->link, $this->product_id);
                 $this->preorder_id = mysqli_real_escape_string($this->database->link, $this->preorder_id);
                 $this->quantity = mysqli_real_escape_string($this->database->link, $this->quantity);
-		$sSQL = "INSERT INTO `preorder_details`(`preorder_id`, `product_id`, `size`, `cut`, `price`) VALUES ($this->preorder_id,$this->product_id,$this->size,$this->cut,$this->price);";
+		$sSQL = "INSERT INTO `preorder_details`(`preorder_id`, `product_id`, `size`, `cut`, `price`,quantity) VALUES ($this->preorder_id,$this->product_id,$this->size,$this->cut,$this->price,$this->quantity);";
 		$oResult = $this->database->query($sSQL);
-		$this->id = $this->database->lastinsertid;
+		$this->id = $this->database->lastInsertId;
 	}
 	
 	function update($mID) {

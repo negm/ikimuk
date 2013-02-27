@@ -3,6 +3,11 @@ $(document).ready(function(){
     // Login + Join
     // 
     //////////////////////////Join US part///////////////////////////////////////////////
+     //Check if the email is valid    
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+        return pattern.test(emailAddress);
+    }
     
     //reset inputs     
     function reset_member_login(){
@@ -274,7 +279,7 @@ $(document).ready(function(){
     
     
     
-    $(".block_order .order_submit").click(function(){
+    $("#add_to_cart").click(function(){
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
         if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
@@ -381,8 +386,7 @@ $(document).ready(function(){
         }
         return 0;
     }
-//end of document ready
-});
+
 
 /* 
  * main JS file
@@ -478,13 +482,6 @@ var img_list = new Array();
 var preorder_list = new Array();
 ////////////////preorder
 var size="";
-$(document).ready(function() {
-    // put all your jQuery goodness in here.
-    $('#name').attr("readonly",true);
-    $('#ccode').attr("readonly",true);
-    
-    
-});
  
 $(function() {  
     $("#preorderSubmit").click(function(e) {  
@@ -601,7 +598,7 @@ $(function(){
     });
 })
 // add product
-$(document).ready(function() {
+
     var options = {
         url:        'process-addproduct.php', 
         success:    function(response) {
@@ -640,12 +637,7 @@ $(document).ready(function() {
     //
     //
     //all.js
-    //Check if the email is valid    
-    function isValidEmailAddress(emailAddress) {
-        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-        return pattern.test(emailAddress);
-    }
-    
+   
     //////////////////////////////////Header+Footer///////////////////////////////////
     //Round links Mouse Over/Leave
     $(".round_links .round_link").mouseenter(function(){
