@@ -134,9 +134,9 @@ cursor: pointer;
     height:100%;
     float:right;
     margin-right:5px;
-    font-size:16px;
+    font-size:14px;
     padding-top:2px;
-    color: #EF4050;
+    color: white;
 }
 .login_header .login_avatar{
     width:30px;
@@ -458,7 +458,7 @@ cursor: pointer;
     width:940px;
     margin-top: 40px;
 }
-.competition_section .competition_header{
+.competition_section .competition_header, .page_header{
     width:100%;
     text-transform:uppercase;
     color:#323232;
@@ -1109,9 +1109,6 @@ cursor: pointer;
 .option_column .block_goal_selected{
     border-color:#6AD9D8;
 }
-.block_goal_selected .goal_header{
-    color:#6AD9D8;
-}
 .block_goal_selected .goal_info{
     color:#323232;
 }
@@ -1124,27 +1121,27 @@ cursor: pointer;
 .block_goal_cyan .goal_label .goal_content{background-color: #6AD9D8;}
 .block_goal_cyan .goal_progressbar .progress_percentage{color:#6AD9D8;}
 
-.option_column .block_goal_green{border-color:#C2E05F;}
+.option_column .block_goal_green, .block_goal_selected.selected_2{border-color:#C2E05F;}
 .block_goal_green .goal_label{background-image: url('../img/ikimuk_half_green.png');}
 .block_goal_green .goal_label .goal_content{background-color: #C2E05F;}
-.block_goal_green .goal_progressbar .progress_percentage{color:#C2E05F;}
+.block_goal_green .goal_progressbar .progress_percentage, .block_goal_selected.selected_2 .goal_progressbar .progress_percentage{color:#C2E05F;}
 
-.option_column .block_goal_yellow{border-color:#FFE000;}
+.option_column .block_goal_yellow, .block_goal_selected.selected_3{border-color:#FFE000;}
 .block_goal_yellow .goal_label{background-image: url('../img/ikimuk_half_yellow.png');}
 .block_goal_yellow .goal_label .goal_content{background-color: #FFE000;}
-.block_goal_yellow .goal_progressbar .progress_percentage{color:#FFE000;}
+.block_goal_yellow .goal_progressbar .progress_percentage, .block_goal_selected.selected_3 .goal_progressbar .progress_percentage{color:#FFE000;}
 
-.option_column .block_goal_firebrick{border-color:#FE705D;}
+.option_column .block_goal_firebrick, .block_goal_selected.selected_4{border-color:#FE705D;}
 .block_goal_firebrick .goal_label{background-image: url('../img/ikimuk_half_firebrick.png');}
 .block_goal_firebrick .goal_label .goal_content{background-color: #FE705D;}
-.block_goal_firebrick .goal_progressbar .progress_percentage{color:#FE705D;}
+.block_goal_firebrick .goal_progressbar .progress_percentage, .block_goal_selected.selected_4 .goal_progressbar .progress_percentage{color:#FE705D;}
 
-.option_column .block_goal_magenta{border-color:#A1529D;}
+.option_column .block_goal_magenta, .block_goal_selected.selected_5{border-color:#A1529D;}
 .block_goal_magenta .goal_label{background-image: url('../img/ikimuk_half_magenta.png');}
 .block_goal_magenta .goal_label .goal_content{background-color: #A1529D;}
-.block_goal_magenta .goal_progressbar .progress_percentage{color:#A1529D;}
+.block_goal_magenta .goal_progressbar .progress_percentage, .block_goal_selected.selected_5 .goal_progressbar .progress_percentage{color:#A1529D;}
 
-.option_column .block_goal_red{border-color:#EF4050;}
+.option_column .block_goal_red, .block_goal_selected.selected_6{border-color:#EF4050;}
 .block_goal_red .goal_label{background-image: url('../img/ikimuk_half_red.png');}
 .block_goal_red .goal_label .goal_content{background-color: #EF4050;}
 .block_goal_red .goal_progressbar .progress_percentage{color:#EF4050;}
@@ -1917,6 +1914,16 @@ cursor: pointer;
     color: #323232;
     font-size: 18px;
 }
+
+.t_shirt_option .preorder_description{
+    font-family: "kulturista-web",serif;
+    font-size: 16px;
+}
+.t_shirt_option .preorder_author{
+    font-family: "kulturista-web",serif;
+    font-size: 14px;
+    font-style: italic;
+}
 .t_shirt_option .order_author{
     font-size: 14px;
     margin-top: -5px;
@@ -2169,6 +2176,7 @@ cursor: pointer;
     padding-bottom:15px;
 }
 .submit_theme .theme_content.marginl30{margin-left:30px;}
+.submit_theme .theme_content.marginl20{margin-left:20px;}
 
 .theme_content .std_block_label .label_box{
 
@@ -2183,7 +2191,7 @@ cursor: pointer;
 .theme_content .theme_transparent{
     position:absolute;
     width:446px;
-    height:300px;
+    height:291px;
     background-color: #EF4050;
     opacity:0;
     filter: alpha(opacity=0);
@@ -2195,10 +2203,12 @@ cursor: pointer;
 .theme_transparent .transparent_text{
     width:100%;
     text-align:center;
-    margin-top:270px;
+    margin-top:255px;
     text-transform: uppercase;
     color:#FFFFFF;
-    font-size: 20px;
+    text-weight:bold;
+    font-family: "kulturista-web", serif;
+    font-size: 24px;
 }
 .theme_content .theme_avatar{
     float:left;
@@ -2253,6 +2263,7 @@ cursor: pointer;
 }
 
 .std_block.theme_how .std_block_body .submit_content {
+    
     color: #282828;
     float:left;
     font-size: 15px;
@@ -2275,6 +2286,7 @@ cursor: pointer;
     width: 300px;
 }
 .std_block_body .submit_button input:hover{background-color:#2989CA; }
+.submit_content { clear:both;}
 .submit_content .title{font-size:17px;}
 .submit_content .details{font-size:16px;}
 .submit_content .list_title{font-size:17px;margin-left: 35px;}

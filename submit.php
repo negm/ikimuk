@@ -64,7 +64,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
         <div class="submit_design">
 
-            <div class="design_header">
+            <div class="page_header">
                 SUBMIT YOUR DESIGN
             </div>
 

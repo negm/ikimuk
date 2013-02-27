@@ -459,7 +459,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal<?php if($product->preorders >= $settings->second_goal) echo " block_goal_green";?>" id="block-goal-2">
+                    <div class="block_goal<?php if($product->preorders >= $settings->second_goal) echo " block_goal_green"; else{ if($product->preorders >= $settings->first_goal) echo " block_goal_selected selected_2";}?>" id="block-goal-2">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -502,7 +502,7 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal<?php if($product->preorders >= $settings->third_goal) echo " block_goal_yellow";?>" id="block-goal-3">
+                    <div class="block_goal<?php if($product->preorders >= $settings->third_goal) echo " block_goal_yellow"; else{ if($product->preorders >= $settings->second_goal) echo " block_goal_selected selected_3";}?>" id="block-goal-3">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -546,7 +546,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal<?php if($product->preorders >= $settings->fourth_goal) echo " block_goal_firebrick";?>" id="block-goal-4">
+                    <div class="block_goal<?php if($product->preorders >= $settings->fourth_goal) echo " block_goal_firebrick"; else{ if($product->preorders >= $settings->third_goal) echo " block_goal_selected selected_4";}?>" id="block-goal-4">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -590,7 +590,7 @@
 
                     <!---------------------------------------------------------------->     
 
-                    <div class="block_goal<?php if($product->preorders >= $settings->fifth_goal) echo " block_goal_magenta";?>" id="block-goal-5">
+                    <div class="block_goal<?php if($product->preorders >= $settings->fifth_goal) echo " block_goal_magenta"; else{ if($product->preorders >= $settings->fourth_goal) echo " block_goal_selected selected_5";}?>" id="block-goal-5">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -633,7 +633,7 @@
                     <!----------------------------------------------------------------> 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal<?php if($product->preorders >= $settings->sixth_goal) echo " block_goal_red";?>" id="block-goal-6">
+                    <div class="block_goal<?php if($product->preorders >= $settings->sixth_goal) echo " block_goal_red"; else{ if($product->preorders >= $settings->fifth_goal) echo " block_goal_selected selected_6";}?>" id="block-goal-6">
 
                         <div class="goal_label">
                             <div class="goal_content">

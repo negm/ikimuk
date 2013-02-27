@@ -106,10 +106,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 </div>
 
                                 <div class="t_shirt_option">
-                                    <div class="order_description">
+                                    <div class="preorder_description">
                                         <?php echo $product->title ;?>
                                     </div>
-                                    <div class="order_author">
+                                    <div class="preorder_author">
                                         by <?php echo $product->artist_name;?>
                                     </div>
                                     <!--Start Of Cart Body--> 
@@ -294,7 +294,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                 <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]; else echo 'Select Country';?>
                                                 
                                             </div>
-                                            <select name="country" class="country_list hidden_input" data-content="Please Select a country" data-animation="true" data-trigger="focus">
+                                            <select name="country" class="country_list hidden_input" data-animation="true" data-trigger="focus">
                                                 <?php
                                                    foreach($countries_array as $key=>$country)
                                                         if($country->country_name == $_SESSION["country_name"])
@@ -315,7 +315,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">First Name</div>
                                         <div class="line_input">
-                                            <input id="first_name" type="text" name="first_name" data-content="Please enter your name" data-animation="true" data-trigger="focus"/>
+                                            <input id="first_name" type="text" name="first_name" data-animation="true" data-trigger="focus"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -323,7 +323,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">Last Name</div>
                                         <div class="line_input">
-                                            <input id="last_name" type="text" name="last_name" data-content="Please Enter your last name" data-animation="true" data-trigger="focus"/>
+                                            <input id="last_name" type="text" name="last_name" data-animation="true" data-trigger="focus"/>
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
@@ -337,7 +337,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="full_line">
                                         <div class="line_header">Address</div>
                                         <div class="line_input">
-                                            <input type="text" name="address" data-content="Please Enter your addres" data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="address" data-content="Please write down your full address so we can deliver to your doorstep." data-animation="true" data-trigger="focus" />
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -350,7 +350,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">City</div>
                                         <div class="line_input">
-                                            <input type="text" name="city" data-content="Please Enter your city" data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="city" data-animation="true" data-trigger="focus" />
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -359,7 +359,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">State, Region or Province</div>
                                         <div class="line_input">
-                                            <input type="text" name="region" data-content="Please Enter your region" data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="region" data-animation="true" data-trigger="focus" />
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
@@ -370,7 +370,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">Zip Code (if Applicable)</div>
                                         <div class="line_input">
-                                            <input type="text" name="zip" data-content="Please Enter your ZIP Code" data-animation="true" data-trigger="focus"/>
+                                            <input type="text" name="zip" data-animation="true" data-trigger="focus"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div> 
@@ -407,7 +407,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                 <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]." +".$_SESSION["phone_code"]; else echo 'Select Country Code';?>
                                             </div>
 
-                                            <select name="code" class="code_list hidden_input" data-content="Please Enter your country code" data-animation="true" data-trigger="focus">
+                                            <select name="code" class="code_list hidden_input" data-animation="true" data-trigger="focus">
                                                 
                                                 <?php
                                                     foreach($countries_array as $key=>$country)
@@ -426,7 +426,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">Telephone Number</div>
                                         <div class="line_input">
-                                            <input type="text" name="tel" data-content="Please Enter your telephone number" data-animation="true" data-trigger="focus"/>
+                                            <input type="text" name="tel" data-animation="true" data-trigger="focus"/>
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
@@ -532,7 +532,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                             <!--Start of block body-->
                             <div class="std_block_body">
-                                <div class="line_link">
+                                <div class="line_link" style="margin-bottom:10px">
                                     <div class="link_holder">
                                         <!--  <a href="#">Edit</a>-->
                                     </div>
