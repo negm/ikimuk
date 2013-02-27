@@ -4,7 +4,7 @@
  * The user would enter Shipping details and that would determine
  * the shupping cost
  */
-include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in");
+include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");
 $countries = new ip2nationcountries();
@@ -332,15 +332,15 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                         <a href="#">Edit</a>
                                     </div>
                                 </div>
-                                <?php for ($i = 0; $i < 2; $i++) { ?>
+                                <?php foreach ($cart as $key => $cart_item) { ?>
                                     <div class="cart_element">
 
                                         <div class="cart_element_avatar">
-                                            <img src="images/avatar_60.png"/>
+                                            <img src="<?php echo $cart_item["url"]; ?>"/>
                                         </div>    
 
                                         <div class="cart_element_description">
-                                            Guys 2 XL
+                                            <?php echo $cart_item["cut"]." ". $cart_item["quantity"]." ".$cart_item["size"]; ?>
                                         </div>
 
                                         <div class="cart_element_option">
@@ -348,7 +348,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                         </div>
 
                                         <div class="cart_element_price">
-                                            $ 25.00
+                                            $ <?php echo number_format($cart_item["price"], 2); ?>
                                         </div>
 
                                     </div>

@@ -1,3 +1,57 @@
+var target="";
+var user_name="";
+function CallAfterLogin(){
+    $('#loginModal').modal('hide');
+    FB.login(function(response) {		
+        if (response.status === "connected") 
+        {
+            LoadingAnimate(); //Animate login
+            FB.api('/me', function(data) {
+                if(data.email == null)
+                {
+                    //Facbeook user email is empty, you can check something like this.
+                    ResetAnimate();
+
+                }else{
+                    AjaxResponse();
+                }
+            });
+        }
+    });
+}
+function LoadingAnimate() //Show loading Image
+{
+    $("#LoginButton").hide(); //hide login button once user authorize the application
+    $("#results").html('<img src="/img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
+}
+ 
+function ResetAnimate() //Reset User button
+{
+    $("#LoginButton").show(); //Show login button
+    $("#results").html(''); //reset element html
+}
+function AjaxResponse()
+{
+    var myData = 'connect=1&action=fb_login';
+    jQuery.ajax({
+        type: "POST",
+        url: "/process_user.php",
+        dataType:"html",
+        data:myData,
+        cache: false,
+        success:function(response){
+            $("#results").html(response); //Result
+            if(target.length > 1)
+                window.location.href = target;
+            else
+                location.reload();
+        },
+        error:function (xhr, ajaxOptions, thrownError){
+        //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+        }
+    });
+}
+
 //from ali
 $(document).ready(function(){
     // Login + Join
@@ -394,57 +448,6 @@ $(document).ready(function(){
 var target="";
 var user_name="";
 //Facebook login
-function AjaxResponse()
-{
-    var myData = 'connect=1&action=fb_login';
-    jQuery.ajax({
-        type: "POST",
-        url: "/process_user.php",
-        dataType:"html",
-        data:myData,
-        cache: false,
-        success:function(response){
-            $("#results").html(response); //Result
-            if(target.length > 1)
-                window.location.href = target;
-            else
-                location.reload();
-        },
-        error:function (xhr, ajaxOptions, thrownError){
-        //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
-        }
-    });
-}
-function CallAfterLogin(){
-    $('#loginModal').modal('hide');
-    FB.login(function(response) {		
-        if (response.status === "connected") 
-        {
-            LoadingAnimate(); //Animate login
-            FB.api('/me', function(data) {
-                if(data.email == null)
-                {
-                    //Facbeook user email is empty, you can check something like this.
-                    ResetAnimate();
-
-                }else{
-                    AjaxResponse();
-                }
-            });
-        }
-    });
-}
-function LoadingAnimate() //Show loading Image
-{
-    $("#LoginButton").hide(); //hide login button once user authorize the application
-    $("#results").html('<img src="/img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
-}
- 
-function ResetAnimate() //Reset User button
-{
-    $("#LoginButton").show(); //Show login button
-    $("#results").html(''); //reset element html
-}
 
 /*-------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------*/    
