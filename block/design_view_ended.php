@@ -1,0 +1,188 @@
+<?php
+/*
+ * This is the design view with multiple images and thumbnail
+ * 
+ */
+//show the goodies :D  
+?>
+<div class="body">
+
+    <div class="body_content">
+
+                        <div class="links_section">
+                        <div class="links_content">
+                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive">/</div>
+                            <div class="link_deactive">Previous Competitions</div>
+                            <div class="link_deactive">/</div>
+                            <div class="link_active">
+                                <a href="#"><?php echo $product->title; ?></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+        
+            <!--Start Of order progress-->
+            <!--End Of order Container-->
+            <!--Start Of Social Column-->
+            <div class="social_column">
+                <div class="slider_section">
+
+
+                    <div class="social_label">
+                        <div class="social_label_content" style="width:190px">
+
+                            <div class="social_label_left" style="width:180px">Ended Competition</div>
+                        </div>
+                    </div>
+
+                    <!--Start of shop slider-->
+                    <div class="shop_slider">
+                        <div id="wrapper">
+                            <div class="slider-wrapper theme-light">
+                                <div id="slider" class="nivoSlider nivo">
+                                    <?php
+                                    while ($image_row = mysqli_fetch_assoc($image->database->result)) {
+                                        echo '<img src="' . $image_row["url"] . '" data-thumb="' . $image_row["url"] . '" alt="' . $product->title . ' ikimuk" />';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="nivo-directionNav nivo">
+                                    <a class="nivo-prevNav nivo" style="float:right;">Prev</a>
+                                    <a class="nivo-nextNav nivo" style="float:left;">Next</a>
+                                </div>
+                            </div>
+                        </div>
+                         <script type="text/javascript" src="/js/nivo-slider-custom-loader.js"></script>
+                    </div> 
+                </div>
+                    <!--End of shop slider-->
+               
+                    <!--Start Of Social Share-->
+                    <div class="social_share">
+
+
+                        <!--Start of facebook share-->
+                        <div class="share_facebook">
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+
+
+                            <div class="fb-like" data-href="<?php echo $settings->root."/design.php?product_id=".$product->id; ?>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+                        </div>
+                        <!--End of facebook share-->
+
+
+                        <!--Start of twitter share-->  
+                        <div class="share_twitter">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                        </div>
+                        <!--End of twitter share--> 
+
+                        <!--Start of google share-->                             
+                        <div class="share_google">
+                            <g:plus annotation='bubble' action="share"></g:plus>
+                            <script type="text/javascript">
+                        window.___gcfg = {
+                            lang: 'en-US'
+                        };
+
+                        (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/plusone.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                            </script>
+                        </div>
+                        <!--End of google share-->  
+
+                    </div> 
+                    <!--End Of Social Share-->
+
+                    <!--Start Of Social Comment-->
+                    <div class="social_comment">
+
+                        <div class="comment_label"></div>
+
+                        <div class="social_header">
+                            Drop your comment, thoughts, support, be nice
+                        </div>
+
+                        <div class="social_body">
+
+                        <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
+                        </div>
+                    </div>
+                    <!--End Of Social Comment-->
+
+                </div>
+                <!--End Of Social Column-->
+                <!--End of facebook commment section-->
+
+                <!--Start Of Option Column-->
+                <div class="option_column">
+
+                    <!--Start Of Block Order-->
+                    <div class="block_order">
+
+                        <div class="order_description">
+                            <?php echo $product->title; ?>
+                        </div>
+
+                        <div class="order_author">
+                            by <?php echo $artist->name; ?>
+                        </div>
+                        <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
+                        <div class="order_details">
+			    <?php echo $product->desc; ?>
+                        </div>
+			
+                <div class="order_ended_count" style="margin-top:20px;">
+                    <div class="count_value"><?php echo $product->preorders; ?></div>
+                    <div class="count_text">Ordered this design</div>
+                </div>
+		</div>
+                        <!--End Of Block Column-->
+                        <!--Start Of Cart Body--> 
+                        
+                          <!--Start Of Block Profile-->
+                    <div class="block_profile">
+
+                        <div class="profile_label">
+                            <div class="label_content">
+                                <div class="label_thumbnail">
+                                    <img src="<?php echo $artist->image ?>"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile_name"><?php echo $artist->name ?></div> 
+                        <div class="profile_address"><?php echo $artist->location ?></div>
+                        <div class="profile_website"><?php echo $artist->website ?></div>
+                        <div class="profile_twitter"><?php echo $artist->twitter ?></div>
+
+                    </div>
+                    <!--End Of Block Profile-->
+
+
+                </div>
+                <!--End Of Option Column-->
+         
+
+        </div>
+        <!--End of shop container-->
+    </div>
+    <!--End of body content-->

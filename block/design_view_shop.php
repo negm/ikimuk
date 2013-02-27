@@ -23,31 +23,31 @@
                     <!--Start of Flags Container-->
                     <div class="flags_container">
                         <a href="#block-goal-1">
-			<div class="flag_container margin_l_100 flag_cyan">
+			<div class="flag_container margin_l_100<?php if($product->preorders >= $settings->first_goal) echo " flag_cyan";?>">
                             <div class="flag_medal"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-2">
-                        <div class="flag_container margin_l_50 flag_green">
+                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->second_goal) echo " flag_green";?>">
                             <div class="flag_medal"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-3">
-                        <div class="flag_container margin_l_50 flag_yellow">
+                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->third_goal) echo " flag_yellow";?>">
                             <div class="flag_medal"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-4">
-                        <div class="flag_container margin_l_200 flag_firebrick">
+                        <div class="flag_container margin_l_200<?php if($product->preorders >= $settings->fourth_goal) echo " flag_firebrick";?>">
                             <div class="flag_medal"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-5">
-                        <div class="flag_container margin_l_400 flag_magenta">
+                        <div class="flag_container margin_l_400<?php if($product->preorders >= $settings->fifth_goal) echo " flag_magenta";?>">
                             <div class="flag_medal"></div>
                         </div>
 			</a>
@@ -67,31 +67,31 @@
 
 			<a href="#block-goal-2">
                         <div class="progress progress_flag_2">
-                            <div class="bar progress_green" style="width: <?php echo ($product->preorders - $settings->first_goal) * (100 / $settings->second_goal); ?>%;"></div>
+                            <div class="bar progress_green" style="width: <?php echo ($product->preorders - $settings->first_goal) * (100 / ($settings->second_goal - $settings->first_goal)); ?>%;"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-3">
                         <div class="progress progress_flag_3">
-                            <div class="bar progress_yellow" style="width: <?php echo ($product->preorders - $settings->second_goal) * (100 / $settings->third_goal); ?>%;"></div>
+                            <div class="bar progress_yellow" style="width: <?php echo ($product->preorders - $settings->second_goal) * (100 / ($settings->third_goal - $settings->second_goal)); ?>%;"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-4">
                         <div class="progress progress_flag_4">
-                            <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / $settings->fourth_goal); ?>%;"></div>
+                            <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / ($settings->fourth_goal - $settings->third_goal)); ?>%;"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-5">
                         <div class="progress progress_flag_5">
-                            <div class="bar progress_magenta" style="width: <?php echo ($product->preorders - $settings->fourth_goal) * (100 / $settings->fifth_goal); ?>%;"></div>
+                            <div class="bar progress_magenta" style="width: <?php echo ($product->preorders - $settings->fourth_goal) * (100 / ($settings->fifth_goal  - $settings->fourth_goal)); ?>%;"></div>
                         </div>
 			</a>
 
 			<a href="#block-goal-6">
                         <div class="progress progress_flag_6">
-                            <div class="bar progress_red" style="width: <?php echo ($product->preorders - $settings->fifth_goal) * (100 / $settings->sixth_goal); ?>%;"></div>
+                            <div class="bar progress_red" style="width: <?php echo ($product->preorders - $settings->fifth_goal) * (100 / ($settings->sixth_goal - $settings->fifth_goal)); ?>%;"></div>
                         </div>
 			</a>
                         <div class="progress_over over">
@@ -104,21 +104,21 @@
 
 		    <div class="flags_container">
                     
-			<div class="flag_container margin_l_100 flag_cyan flag_number">
-                            <div>50</div>
+			<div class="flag_container margin_l_100 flag_number<?php if($product->preorders >= $settings->first_goal) echo " flag_cyan"; ?>">
+                            <? echo $settings->first_goal; ?>
                         </div>
 		
-                        <div class="flag_container margin_l_50 flag_green flag_number">
-                            75
+                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->second_goal) echo " flag_green";?> flag_number">
+                            <? echo $settings->second_goal; ?>
                         </div>
-                        <div class="flag_container margin_l_50 flag_yellow flag_number">
-                            100
+                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->third_goal) echo " flag_yellow";?> flag_number">
+                            <? echo $settings->third_goal; ?>
                         </div>
-                        <div class="flag_container margin_l_200 flag_firebrick flag_number">
-                            200
+                        <div class="flag_container margin_l_200<?php if($product->preorders >= $settings->fourth_goal) echo " flag_firebrick";?> flag_number">
+                            <? echo $settings->fourth_goal; ?>
                         </div>
-                        <div class="flag_container margin_l_400 flag_magenta flag_number">
-                            500
+                        <div class="flag_container margin_l_400<?php if($product->preorders >= $settings->fifth_goal) echo " flag_magenta";?> flag_number">
+                            <? echo $settings->fifth_goal; ?>
                         </div>
                     </div>
 
@@ -262,9 +262,7 @@
                         </div>
                         <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
                         <div class="order_details">
-                            The original Funkalicious design was created by Christopher Golebiowski in 2006. 
-                            Since its launch, Funkalicious has appeared as a tank top, water bottle,
-                            kids tee, and even a giant parade float.
+			    <?php echo $product->desc; ?>
                         </div>
 
                         <div class="order_progressbar">
@@ -425,7 +423,7 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_cyan" id="block-goal-1">
+                    <div class="block_goal<?php if($product->preorders >= $settings->first_goal) echo " block_goal_cyan";?>" id="block-goal-1">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -461,7 +459,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_green" id="block-goal-2">
+                    <div class="block_goal<?php if($product->preorders >= $settings->second_goal) echo " block_goal_green"; else{ if($product->preorders >= $settings->first_goal) echo " block_goal_selected selected_2";}?>" id="block-goal-2">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -479,11 +477,16 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_green" style="width:100%;"></div>
+                                <div class="bar progress_green" style="width:<?php echo ($product->preorders - $settings->first_goal) * (100 / ($settings->second_goal - $settings->first_goal)); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php if($product->preorders> $settings->second_goal)  echo $settings->second_goal."/".$settings->second_goal; 
-                                else echo $product->preorders."/".$settings->second_goal; 
+                                <?php if($product->preorders >= $settings->second_goal)  echo ($settings->second_goal - $settings->first_goal)."/".($settings->second_goal - $settings->first_goal); 
+                                else{
+				    if($product->preorders <= $settings->first_goal){
+				      echo "0/".($settings->second_goal - $settings->first_goal);
+				    }else{
+				       echo ($product->preorders - $settings->first_goal)."/".($settings->second_goal - $settings->first_goal); 
+				   }}
                                 ?>
                             </div>
 
@@ -499,7 +502,7 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_yellow" id="block-goal-3">
+                    <div class="block_goal<?php if($product->preorders >= $settings->third_goal) echo " block_goal_yellow"; else{ if($product->preorders >= $settings->second_goal) echo " block_goal_selected selected_3";}?>" id="block-goal-3">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -517,11 +520,17 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_yellow" style="width:<?php echo ($product->preorders) * (100 / $settings->third_goal); ?>%;"></div>
+                                <div class="bar progress_yellow" style="width:<?php echo ($product->preorders - $settings->second_goal) * (100 / ($settings->third_goal - $settings->second_goal)); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php if($product->preorders> $settings->third_goal)  echo $settings->third_goal."/".$settings->third_goal; 
-                                else echo $product->preorders."/".$settings->third_goal; 
+                                <?php if($product->preorders >= $settings->third_goal)  echo ($settings->third_goal - $settings->second_goal)."/".($settings->third_goal - $settings->second_goal); 
+                                else{
+				   if($product->preorders <= $settings->second_goal){
+				      echo "0/". ($settings->third_goal - $settings->second_goal);
+				   }
+				   else{
+				      echo ($product->preorders - $settings->second_goal)."/".($settings->third_goal - $settings->second_goal); 
+				   }}
                                 ?>
                             </div>
 
@@ -537,7 +546,7 @@
 
                     <!----------------------------------------------------------------> 
 
-                    <div class="block_goal block_goal_firebrick" id="block-goal-4">
+                    <div class="block_goal<?php if($product->preorders >= $settings->fourth_goal) echo " block_goal_firebrick"; else{ if($product->preorders >= $settings->third_goal) echo " block_goal_selected selected_4";}?>" id="block-goal-4">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -555,11 +564,16 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders) * (100 / $settings->fourth_goal); ?>%;"></div>
+                                <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / ($settings->fourth_goal - $settings->third_goal)); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php if($product->preorders> $settings->fourth_goal)  echo $settings->fourth_goal."/".$settings->fourth_goal; 
-                                else echo $product->preorders."/".$settings->fourth_goal; 
+                                <?php if($product->preorders>= $settings->fourth_goal)  echo ($settings->fourth_goal - $settings->third_goal)."/".($settings->fourth_goal - $settings->third_goal); 
+				else{
+				   if($product->preorders <= $settings->third_goal){
+				      echo "0/".($settings->fourth_goal - $settings->third_goal);
+				   }else{
+				      echo ($product->preorders - $settings->third_goal)."/".($settings->fourth_goal - $settings->third_goal); 
+				}}
                                 ?>
                             </div>
 
@@ -576,7 +590,7 @@
 
                     <!---------------------------------------------------------------->     
 
-                    <div class="block_goal block_goal_magenta" id="block-goal-5">
+                    <div class="block_goal<?php if($product->preorders >= $settings->fifth_goal) echo " block_goal_magenta"; else{ if($product->preorders >= $settings->fourth_goal) echo " block_goal_selected selected_5";}?>" id="block-goal-5">
 
                         <div class="goal_label">
                             <div class="goal_content">
@@ -594,11 +608,17 @@
                         <div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_magenta" style="width:<?php echo ($product->preorders) * (100 / $settings->fifth_goal); ?>%;"></div>
+                                <div class="bar progress_magenta" style="width:<?php echo ($product->preorders - $settings->fourth_goal) * (100 / ($settings->fifth_goal  - $settings->fourth_goal)); ?>%;"></div>
                             </div>                            
                             <div class="progress_percentage">
-                                <?php if($product->preorders> $settings->fifth_goal)  echo $settings->fifth_goal."/".$settings->fifth_goal; 
-                                else echo $product->preorders."/".$settings->fifth_goal; 
+                                <?php if($product->preorders>= $settings->fifth_goal)  echo ($settings->fifth_goal - $settings->fourth_goal)."/".($settings->fifth_goal - $settings->fourth_goal); 
+                                else{
+				   if($product->preorders <= $settings->fourth_goal){
+                                      echo "0/". ($settings->fifth_goal - $settings->fourth_goal);
+                                   }
+                                   else{
+				     echo ($product->preorders - $settings->fourth_goal)."/".($settings->fifth_goal - $settings->fourth_goal); 
+				     }}
                                 ?>
                             </div>
 
@@ -613,7 +633,7 @@
                     <!----------------------------------------------------------------> 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal block_goal_red" id="block-goal-6">
+                    <div class="block_goal<?php if($product->preorders >= $settings->sixth_goal) echo " block_goal_red"; else{ if($product->preorders >= $settings->fifth_goal) echo " block_goal_selected selected_6";}?>" id="block-goal-6">
 
                         <div class="goal_label">
                             <div class="goal_content">

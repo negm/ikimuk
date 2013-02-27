@@ -50,7 +50,6 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                                 <div class="login_avatar"><img src="/images/avatar_30.png"/></div>
                             </div> 
                             <div class="menu_drop">
-                                <div class="empty_space"></div>
                                 <div class="menu_entry"><span class="profile">My Profile</span></div>
                                 <div class="menu_h_line"></div>
                                 <a href="/index.php?logout=1"><div class="menu_entry"><span class="logout">Log Out</span></div></a>

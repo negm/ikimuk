@@ -7,7 +7,7 @@
                <!--Start of member header-->
                  <div class="member_header">  
                                 
-                         <div class="member_title">USER LOGIN</div>
+                         <div class="member_title_box"><div class="member_title">LOGIN</div></div>
     
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
@@ -16,7 +16,7 @@
                          
                  <div class="member_unjoin">
                     <span>Not a member?</span>
-                    <a href="#join" data-toggle="modal">Join Us</a>
+                    <a href="#join" data-toggle="modal" onclick="$('#login').modal('hide');">Join Us</a>
                   </div>     
                    </div>
                <!--End of member header-->
@@ -57,7 +57,7 @@
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" value="JOIN ikimuk"/>
+                           <input type="submit" name="join" value="LOGIN"/>
                        </div>
                        
                        <div class="member_or_line">  
@@ -97,9 +97,8 @@
                
                <!--Start of member header-->
                  <div class="member_header">  
-                                
-                         <div class="member_title">JOIN US</div>
-    
+                         <div class="member_title_box"><div class="member_title">JOIN US</div></div>       	      
+                             
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
                                 <img src="/images/ikimuk_disabled_close.png"/></a>
@@ -107,7 +106,7 @@
                          
                  <div class="member_unjoin">
                     <span>Already a member?</span>
-                    <a href="#login" data-toggle="modal">Login</a>
+                    <a href="#login" data-toggle="modal"  onclick="$('#join').modal('hide');">Login</a>
                   </div>     
                    </div>
                <!--End of member header-->
@@ -181,7 +180,7 @@
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" value="JOIN ikimuk"/>
+                           <input type="submit" name="join" value="JOIN US"/>
                        </div>
               
                        <div class="member_or_line">  

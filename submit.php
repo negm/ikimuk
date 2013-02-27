@@ -58,16 +58,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     <div class="body_content">
 
 
-        <!--Start of Cart section-->
-        <?php include $_SERVER["DOCUMENT_ROOT"] . "/block/cart_count.php"; ?>
-        <!--end of Cart section-->
 
 
 
 
         <div class="submit_design">
 
-            <div class="design_header">
+            <div class="page_header">
                 SUBMIT YOUR DESIGN
             </div>
 
@@ -77,9 +74,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="std_block">
 
                     <!--Start of cart table header-->
-                    <div class="std_block_header">
-                        <div class="header_content">
-                            1. Choose Competition
+                    <div class="std_block_label">
+                        <div class="label_box">
+			     <span class="label_title">1. Choose Competition</span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -107,9 +104,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="std_block block_expandable">
 
                     <!--Start of cart table header-->
-                    <div class="std_block_header">
-                        <div class="header_content">
-                            2. Add Images
+                    <div class="std_block_label">
+                        <div class="label_box">
+			     <span class="label_title">2. Add Images</span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -141,9 +138,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="std_block block_expandable">
 
                     <!--Start of cart table header-->
-                    <div class="std_block_header">
-                        <div class="header_content">
-                            3. Design Info
+                    <div class="std_block_label">
+                        <div class="label_box">
+                            <span class="label_title">3. Design Info</span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -182,9 +179,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="std_block block_expandable">
 
                     <!--Start of cart table header-->
-                    <div class="std_block_header">
-                        <div class="header_content">
-                            4. Your Info
+                    <div class="std_block_label">
+                        <div class="label_box">
+                            <span class="label_title">4. Your Info</span>
                         </div>
                     </div>
                     <!--End of cart table header-->

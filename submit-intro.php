@@ -7,22 +7,15 @@
 $pagetitle = "Submit Guidelines";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class/class.competition.php';
+$competition = new competition();
+$competition->selectCurrentCompetition();
+$daysLeft = floor((strtotime($competition->end_date) - time()) / (60 * 60 * 24));
 ?>
 <div class="body">
     <div class="body_content submit">
 
-        <!--Start of Cart section-->
-        <div class="cart_section">
-            <div class="cart_content">
-                <div class="cart_icon"></div>
-                <div class="cart_details">
-                    CART(<span class="cart_count">0</span>)
-                </div>
-            </div>
-        </div>
-        <!--end of Cart section-->
-
-        <div class="submit_header">
+        <div class="page_header">
             Participate in ikimuk design competition. our current themes are: 
         </div>
 
@@ -30,9 +23,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
         <!--Start of Submit theme section-->
         <div class="submit_theme">
 
-            <div class="theme_content">
+            <div class="theme_content std_block">
 
-                <div class="theme_label"></div>
+                <div class="std_block_label">
+		<div class="label_box"><span class="label_title"><?php echo $daysLeft; ?> Days Left</span></div>
+		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
                 <div class="theme_avatar"><img src="images/submit_photo.png"></div>
                 <div class="theme_title">Hakwaji</div>
@@ -40,9 +35,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
             </div>
 
 
-            <div class="theme_content marginl20">
+            <div class="theme_content marginl20 std_block">
 
-                <div class="theme_label"></div>
+                <div class="std_block_label">
+		<div class="label_box"><span class="label_title">Always Open</span></div>
+		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
                 <div class="theme_avatar"><img src="images/submit_photo.png"></div>
                 <div class="theme_title">For The Love of Zombies</div>
@@ -60,21 +57,24 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="std_block submit_body">
 
                     <!--Start of cart table header-->
-                    <div class="std_block_header">
-                        <div class="header_content">
-                            How To Submit
-                            <div class="edit_link"><a href="#">Legal Stuff</a></div>
-                        </div>
+                    <div class="std_block_label">
+                        <div class="label_box">
+                            <span class="label_title">How To Submit</span>
+                                </div>
                     </div>
                     <!--End of cart table header-->
 
 
 
                     <!--Start of submit body-->
-                    <div class="std_block_body">
-
+                    <div class="std_block_body" style="margin:20px">
+		    <div style="margin:-20px 0px 20px -20px; width:570px" class="line_link">
+                        <div class="link_holder">
+                                     <a href="#">Legal Stuff</a>
+                                    </div>
+                                </div>
                         <!--Start of submit content-->
-                        <div class="submit_content"><pre>
+                        <div class="submit_content">
 <span>1- The Great T-shirt Idea</span>
 Come up with an idea for what you want on a t-shirt. Be as creative as you possibly can!
 
@@ -119,14 +119,16 @@ If your design gets the most preorders:
 
 Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get 
 right back to you!  
-                            </pre>   
+                               
                         </div>
                         <!--End of submit content-->
 
-                        <div class="submit_button">
+                        <div class="submit_button" style="margin-top: 10px;">
                             <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
                                 <form action="/submit.php" method="post">
-                                    <input type="submit" value="submit your design"/>
+                                    <div style="width:300px; margin: auto">
+				    <input type="submit" value="Submit your design"/>
+				    </div>
                                 </form>
                             <?php } else { ?>
                                 <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="dummy_button">submit your design</div></a>

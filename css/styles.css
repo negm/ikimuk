@@ -134,15 +134,18 @@ cursor: pointer;
     height:100%;
     float:right;
     margin-right:5px;
-    font-size:16px;
+    font-size:14px;
     padding-top:2px;
-    color: #EF4050;
+    color: white;
 }
 .login_header .login_avatar{
     width:30px;
     height:100%;
     float:right;
     margin-right:5px;
+}
+.login_avatar img{
+    height: 24px;
 }
 .login_menu .menu_drop{display:none;}
 .login_menu .empty_space{
@@ -236,7 +239,11 @@ cursor: pointer;
 /*Start of footer section */
 .footer{
     clear:both;
+<<<<<<< HEAD
     height:290px;
+=======
+    height:315px;
+>>>>>>> 98f332982363228f84873d13d0723b42f0f32b1b
     width:100%;
     background-color: #E6E6E6;  
 } 
@@ -455,7 +462,7 @@ cursor: pointer;
     width:940px;
     margin-top: 40px;
 }
-.competition_section .competition_header{
+.competition_section .competition_header, .page_header{
     width:100%;
     text-transform:uppercase;
     color:#323232;
@@ -558,6 +565,7 @@ cursor: pointer;
 .entry .entry_control .entry_description{
     font-size: 18px;
     font-family: "kulturista-web", serif;
+<<<<<<< HEAD
     color:#323232;
 }
 .entry .entry_control .entry_author{
@@ -566,6 +574,16 @@ cursor: pointer;
     font-family: "kulturista-web", serif;
     color:#323232;
 }
+=======
+    color:#323232;
+}
+.entry .entry_control .entry_author{
+    font-size: 14px;
+    font-style: italic;
+    font-family: "kulturista-web", serif;
+    color:#323232;
+}
+>>>>>>> 98f332982363228f84873d13d0723b42f0f32b1b
 
 .entry .entry_control .entry_progressbar{
     float:left;
@@ -706,6 +724,21 @@ cursor: pointer;
     text-align: center;
     padding-top:20px;
 }
+
+.order_ended_count .count_value{
+    float:left;
+    font-size: 32px;
+    font-weight:bold;
+}
+.order_ended_count .count_text{
+    float:left;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+
+
 .order_progress_count .count_value{
     float:left;
     width:100%;
@@ -1091,9 +1124,6 @@ cursor: pointer;
 .option_column .block_goal_selected{
     border-color:#6AD9D8;
 }
-.block_goal_selected .goal_header{
-    color:#6AD9D8;
-}
 .block_goal_selected .goal_info{
     color:#323232;
 }
@@ -1106,27 +1136,27 @@ cursor: pointer;
 .block_goal_cyan .goal_label .goal_content{background-color: #6AD9D8;}
 .block_goal_cyan .goal_progressbar .progress_percentage{color:#6AD9D8;}
 
-.option_column .block_goal_green{border-color:#C2E05F;}
+.option_column .block_goal_green, .block_goal_selected.selected_2{border-color:#C2E05F;}
 .block_goal_green .goal_label{background-image: url('../img/ikimuk_half_green.png');}
 .block_goal_green .goal_label .goal_content{background-color: #C2E05F;}
-.block_goal_green .goal_progressbar .progress_percentage{color:#C2E05F;}
+.block_goal_green .goal_progressbar .progress_percentage, .block_goal_selected.selected_2 .goal_progressbar .progress_percentage{color:#C2E05F;}
 
-.option_column .block_goal_yellow{border-color:#FFE000;}
+.option_column .block_goal_yellow, .block_goal_selected.selected_3{border-color:#FFE000;}
 .block_goal_yellow .goal_label{background-image: url('../img/ikimuk_half_yellow.png');}
 .block_goal_yellow .goal_label .goal_content{background-color: #FFE000;}
-.block_goal_yellow .goal_progressbar .progress_percentage{color:#FFE000;}
+.block_goal_yellow .goal_progressbar .progress_percentage, .block_goal_selected.selected_3 .goal_progressbar .progress_percentage{color:#FFE000;}
 
-.option_column .block_goal_firebrick{border-color:#FE705D;}
+.option_column .block_goal_firebrick, .block_goal_selected.selected_4{border-color:#FE705D;}
 .block_goal_firebrick .goal_label{background-image: url('../img/ikimuk_half_firebrick.png');}
 .block_goal_firebrick .goal_label .goal_content{background-color: #FE705D;}
-.block_goal_firebrick .goal_progressbar .progress_percentage{color:#FE705D;}
+.block_goal_firebrick .goal_progressbar .progress_percentage, .block_goal_selected.selected_4 .goal_progressbar .progress_percentage{color:#FE705D;}
 
-.option_column .block_goal_magenta{border-color:#A1529D;}
+.option_column .block_goal_magenta, .block_goal_selected.selected_5{border-color:#A1529D;}
 .block_goal_magenta .goal_label{background-image: url('../img/ikimuk_half_magenta.png');}
 .block_goal_magenta .goal_label .goal_content{background-color: #A1529D;}
-.block_goal_magenta .goal_progressbar .progress_percentage{color:#A1529D;}
+.block_goal_magenta .goal_progressbar .progress_percentage, .block_goal_selected.selected_5 .goal_progressbar .progress_percentage{color:#A1529D;}
 
-.option_column .block_goal_red{border-color:#EF4050;}
+.option_column .block_goal_red, .block_goal_selected.selected_6{border-color:#EF4050;}
 .block_goal_red .goal_label{background-image: url('../img/ikimuk_half_red.png');}
 .block_goal_red .goal_label .goal_content{background-color: #EF4050;}
 .block_goal_red .goal_progressbar .progress_percentage{color:#EF4050;}
@@ -1484,7 +1514,11 @@ cursor: pointer;
     width:260px;
     height:50px;
 }
+<<<<<<< HEAD
 .payment_process .payment_checkout input, .payment_process .payment_checkout .fake_button, .order_submit .fake_button{
+=======
+.payment_process .payment_checkout input, .payment_process .payment_checkout .fake_button{
+>>>>>>> 98f332982363228f84873d13d0723b42f0f32b1b
     background-color: #E13E5D;
     color:#FFFFFF;
     font-size:17px;
@@ -1493,7 +1527,11 @@ cursor: pointer;
     height:100%; 
     border: 0;
 }
+<<<<<<< HEAD
 .payment_process .payment_checkout .fake_button, .order_submit .fake_button{
+=======
+.payment_process .payment_checkout .fake_button{
+>>>>>>> 98f332982363228f84873d13d0723b42f0f32b1b
     text-align: center;
     line-height: 50px;
     font-family: "kulturista-web", serif;
@@ -1535,6 +1573,7 @@ cursor: pointer;
     background-color: #EF4050;
     color:#FFFFFF;
     font-size: 17px;
+    font-family: "kulturista-web", serif;
     margin-right:35px;
     text-transform: uppercase;
 }
@@ -1710,9 +1749,9 @@ cursor: pointer;
 .payment_checkout .gateway .gateway_icon{
     float:left;
     width:20px;
-    margin-left: 35px;
+    margin-left: 10px;
 }
-.payment_checkout .gateway .gateway_text{float:left;}
+.payment_checkout .gateway .gateway_text{float:left; font-size:12px;}
 
 .checkout_column_right .block_information{
     float:left;
@@ -1812,6 +1851,7 @@ cursor: pointer;
     margin-top:10px;
     color:#FFFFFF;
     font-size: 18px;
+    font-family: "kulturista-web", serif;
 }
 .summary_total .sub_total_line .line_type{float:left;}
 .summary_total .sub_total_line .line_value{float:right;}
@@ -1896,6 +1936,16 @@ cursor: pointer;
 .t_shirt_option .order_description{
     color: #323232;
     font-size: 18px;
+}
+
+.t_shirt_option .preorder_description{
+    font-family: "kulturista-web",serif;
+    font-size: 16px;
+}
+.t_shirt_option .preorder_author{
+    font-family: "kulturista-web",serif;
+    font-size: 14px;
+    font-style: italic;
 }
 .t_shirt_option .order_author{
     font-size: 14px;
@@ -1988,13 +2038,41 @@ cursor: pointer;
     height:40px;
     background-color: #FFFFFF;
 }
+.member_header .member_title_box{
+    background: url('../img/ikimuk_half_red.png') no-repeat;
+    background-position: left bottom;
+    margin-left: -12px;
+    margin-top: 10px;
+    width: 102px;
+    z-index:999;
+    height: 40px;
+    float:left;
+}
+
 .member_header .member_title{
     float:left;
-    color: #203E76;
+    color: white;
+    font-family: "kulturista-web", serif;
     font-size: 18px;
-    margin-left: 20px;
-    margin-top: 20px;
+    width: 60px;
+    padding: 5px 5px 5px 30px;    
+    background: url('../img/ikimuk_login_white.png') no-repeat 10px 7px #EF4050;
 }
+
+#join .member_title{
+    background: url('../img/ikimuk_join_white.png') no-repeat 10px 7px #EF4050;
+    padding-left: 41px;
+    width: 77px;
+}
+
+#join .member_unjoin{
+    margin-left: 44px;
+}
+
+#join, #login{
+    margin-left: -133px;
+}
+
 .member_header .member_close{
     float:right;
     height:10px;
@@ -2006,8 +2084,8 @@ cursor: pointer;
 .member_header .member_unjoin{
     float:left;
     margin-top:15px;
-    margin-left:100px;
-    font-size: 16px;
+    margin-left:20px;
+    font-size: 14px;
 }
 .member_header .member_unjoin a{
     color:#56B8E1;
@@ -2121,6 +2199,7 @@ cursor: pointer;
     padding-bottom:15px;
 }
 .submit_theme .theme_content.marginl30{margin-left:30px;}
+.submit_theme .theme_content.marginl20{margin-left:20px;}
 
 .theme_content .std_block_label .label_box{
 
@@ -2135,7 +2214,7 @@ cursor: pointer;
 .theme_content .theme_transparent{
     position:absolute;
     width:446px;
-    height:300px;
+    height:291px;
     background-color: #EF4050;
     opacity:0;
     filter: alpha(opacity=0);
@@ -2147,10 +2226,12 @@ cursor: pointer;
 .theme_transparent .transparent_text{
     width:100%;
     text-align:center;
-    margin-top:270px;
+    margin-top:255px;
     text-transform: uppercase;
     color:#FFFFFF;
-    font-size: 20px;
+    text-weight:bold;
+    font-family: "kulturista-web", serif;
+    font-size: 24px;
 }
 .theme_content .theme_avatar{
     float:left;
@@ -2205,6 +2286,7 @@ cursor: pointer;
 }
 
 .std_block.theme_how .std_block_body .submit_content {
+    
     color: #282828;
     float:left;
     font-size: 15px;
@@ -2227,6 +2309,7 @@ cursor: pointer;
     width: 300px;
 }
 .std_block_body .submit_button input:hover{background-color:#2989CA; }
+.submit_content { clear:both;}
 .submit_content .title{font-size:17px;}
 .submit_content .details{font-size:16px;}
 .submit_content .list_title{font-size:17px;margin-left: 35px;}
