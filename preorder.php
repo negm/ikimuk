@@ -5,11 +5,7 @@
  * State the different verification cases here
  * 
  */
-//include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
-if (!isset($_SESSION))
-{
-    session_start ();
-}
+include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
@@ -169,6 +165,13 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                             <div class="selection_container female_part">
 
                                                 <div class="cart_no">
+                                                    <input type="hidden" name="size" value="XS"/>
+                                                    <div>XS</div>
+                                                </div>
+
+                                                <div class="empty_space"></div>
+
+                                                <div class="cart_no">
                                                     <input type="hidden" name="size" value="S"/>
                                                     <div>S</div>
                                                 </div>
@@ -192,13 +195,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                 <div class="cart_no">
                                                     <input type="hidden" name="size" value="XL"/>
                                                     <div>XL</div>
-                                                </div>
-
-                                                <div class="empty_space"></div>
-
-                                                <div class="cart_no">
-                                                    <input type="hidden" name="size" value="XXL"/>
-                                                    <div>XXL</div>
                                                 </div>
 
                                             </div>

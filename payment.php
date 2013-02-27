@@ -132,7 +132,10 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $order_details->quantity = $row["quantity"];
                     $order_details->update_order_count();
                 }
-        
+        $_SESSION["cart"]=null;
+        $_SESSION["item_count"]=0;
+        $_SESSION["subtotal"]=0;
+        $_SESSION["total"]=0;
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {

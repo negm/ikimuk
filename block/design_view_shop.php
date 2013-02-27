@@ -341,36 +341,36 @@
                                 <div class="selection_container female_part">
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="s"/>
+                                        <input type="hidden" name="size" value="XS"/>
+                                        <div>XS</div>
+                                    </div>
+
+                                    <div class="empty_space"></div>
+
+                                    <div class="cart_no">
+                                        <input type="hidden" name="size" value="S"/>
                                         <div>S</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="m"/>
+                                        <input type="hidden" name="size" value="M"/>
                                         <div>M</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="l"/>
+                                        <input type="hidden" name="size" value="L"/>
                                         <div>L</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xl"/>
+                                        <input type="hidden" name="size" value="XL"/>
                                         <div>XL</div>
-                                    </div>
-
-                                    <div class="empty_space"></div>
-
-                                    <div class="cart_no">
-                                        <input type="hidden" name="size" value="xxl"/>
-                                        <div>XXL</div>
                                     </div>
 
                                 </div>

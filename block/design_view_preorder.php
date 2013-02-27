@@ -225,7 +225,13 @@
                                 <?php echo $settings->first_goal-$product->preorders?> Orders till the T-shirt gets printed
                             </div>
                           <div id="preorder_in" class="order_submit">
-                              <input type="submit" value="PRE-ORDER"/>
+                               <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
+                                    <input type="submit" value="PRE-ORDER"/>
+    <?php } else { ?>
+                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">PRE-ORDER</div></a>
+    <?php } ?>
+               
+                              
                           </div>
 
                             <div class="order_info">

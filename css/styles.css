@@ -1484,7 +1484,7 @@ cursor: pointer;
     width:260px;
     height:50px;
 }
-.payment_process .payment_checkout input, .payment_process .payment_checkout .fake_button{
+.payment_process .payment_checkout input, .payment_process .payment_checkout .fake_button, .order_submit .fake_button{
     background-color: #E13E5D;
     color:#FFFFFF;
     font-size:17px;
@@ -1493,7 +1493,7 @@ cursor: pointer;
     height:100%; 
     border: 0;
 }
-.payment_process .payment_checkout .fake_button{
+.payment_process .payment_checkout .fake_button, .order_submit .fake_button{
     text-align: center;
     line-height: 50px;
     font-family: "kulturista-web", serif;

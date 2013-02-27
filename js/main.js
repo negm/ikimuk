@@ -18,10 +18,10 @@ $(document).ready(function(){
  
     //close link, mouse enter,out and click
     $(".member_header .member_close a").mouseenter(function(){
-        $(this).find("img").attr("src","images/ikimuk_close.png"); 
+        $(this).find("img").attr("src","/images/ikimuk_close.png"); 
     });
     $(".member_header .member_close a").mouseleave(function(){
-        $(this).find("img").attr("src","images/ikimuk_disabled_close.png"); 
+        $(this).find("img").attr("src","/images/ikimuk_disabled_close.png"); 
     });
     $(".member_header .member_close a").click(function(){
         reset_member_login();

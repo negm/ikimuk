@@ -4,7 +4,7 @@
  * The user would enter Shipping details and that would determine
  * the shupping cost
  */
-session_start();
+include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");
 $countries = new ip2nationcountries();
@@ -20,7 +20,7 @@ if (isset($_SESSION["cart"])) {
     $cart = $_SESSION["cart"];
 } else {
     $_SESSION["cart"] = null;
-   // header("Location: /cart.php");
+    header("Location: /cart.php");
 }
 
 function validate_cart_items() {
