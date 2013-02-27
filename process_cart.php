@@ -9,7 +9,9 @@
  */
 
 session_start();
-
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class/settings.php';
+include ($_SERVER["DOCUMENT_ROOT"] ."/class/class.product.php");
+$settings = new settings();
 if (!isset($_POST["action"]) || $_POST["action"] == "") {//header ("Location: /index.php");return;
 }
 if ($_POST["action"] == "add") {
@@ -25,15 +27,15 @@ if ($_POST["action"] == "update") {
 function add_to_cart() {
     //if already in cart then increment number and update subtotal
     //if not in cart then add it and update subtotal
+    global $settings;
     $error = "";
     if (!isset($_POST["product_id"]) || !isset($_POST["size"]) || !isset($_POST["cut"])) {
         $error = "invalid request";
         $cart = null;
         $item_count = 0;
     } else {
-        include (__DIR__ . "/class/class.product.php");
+        
         $product = new product();
-        //$product->id = $_POST["product_id"];
         $product->select($_POST["product_id"]);
         if ($product->id == null) {
             $error = "invalid request";
@@ -51,6 +53,11 @@ function add_to_cart() {
             $cut = $_POST["cut"];
             $quantity = 1;
             $price = $product->price;
+            $goal = ($product->preorders <$settings->first_goal)?1:
+                (($product->preorders <$settings->second_goal)?2:
+                ($product->preorders <$settings->third_goal)?3:
+                ($product->preorders <$settings->fourth_goal)?4:
+                ($product->preorders <$settings->fifth_goal)?5:6 );
             $found = false;
             if (isset($_SESSION["cart"])) {
                 $cart = $_SESSION["cart"];
@@ -65,7 +72,7 @@ function add_to_cart() {
                 }
                 if (!$found) {
                     $cart[] = array("product_id" => $product_id, "product_title" => $product_title, "quantity" => $quantity, "size" => $size, "cut" => $cut, "price" => $price,
-                        "subtotal" => $price * $quantity, "subtotal" => $price * $quantity);
+                        "subtotal" => $price * $quantity, "subtotal" => $price * $quantity,"goal"=>$goal);
                     $_SESSION["subtotal"] += $quantity * $price;
                     $item_count += 1;
                 }
@@ -73,7 +80,7 @@ function add_to_cart() {
                 $item_count = 0;
                 $cart = array();
                 $cart[] = array("product_id" => $product_id, "product_title" => $product_title, "quantity" => $quantity, "size" => $size, "cut" => $cut, "price" => $price,
-                    "subtotal" => $price * $quantity, "subtotal" => $price * $quantity);
+                    "subtotal" => $price * $quantity, "subtotal" => $price * $quantity,"goal"=>$goal);
                 $_SESSION["subtotal"] = $quantity * $price;
                 $item_count = 1;
             }
