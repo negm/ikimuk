@@ -46,7 +46,7 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	$user =  new user();
 	//Call Facebook API
 	if (!class_exists('FacebookApiException')) {
-	require_once('/inc/facebook.php' );
+	require_once($_SERVER["DOCUMENT_ROOT"].'/inc/facebook.php' );
 	}
 		$facebook = new Facebook(array('appId' => $settings->app_id,'secret' => $settings->app_secret,));
 	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
