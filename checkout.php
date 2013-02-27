@@ -329,7 +329,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="line_link" style="margin-bottom:10px;">
                                     <div class="link_holder">
-                                        <a href="#">Edit</a>
+                                        <a href="/cart.php">Edit</a>
                                     </div>
                                 </div>
                                 <?php foreach ($cart as $key => $cart_item) { ?>
