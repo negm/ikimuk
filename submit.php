@@ -9,9 +9,12 @@ $competition->select_open_submission();
 $artist = new artist();
 $artist->user_id = $_SESSION["user_id"];
 $artist->select_by_user_id();
+$selected = isset($_GET["competition"])? $_GET["competition"]:0;
 include_once $_SERVER["DOCUMENT_ROOT"] . '/block/header.php';
 ?>
 <script>//upload ajax
+    var uploaded = false;
+var img_list = new Array();
     $(function(){
         var btnUploadSubmit=$('#upload');
         var status=$('#status');
@@ -58,10 +61,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     <div class="body_content">
 
 
-
-
-
-
         <div class="submit_design">
 
             <div class="page_header">
@@ -85,13 +84,19 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <div class="std_block_body type_body">
 
                         <?php
-                        while ($row_competition = mysqli_fetch_assoc($competition->database->result)) {
+                            if ($selected == $competition->id){
                             echo '<div class="type_select"><input type="radio" name="competition_type" value="'
-                            . $row_competition["id"] . '" checked="checked"/>   ' . $row_competition["title"] .
-                            "  submit before " . date("d/m/Y", strtotime($row_competition["submission_deadline"])) . '</div>';
-                        }
-                        ?>
-
+                            . $competition->id . '" checked="checked"/>   ' . $competition->title .
+                            "  submit before " . date("d/m/Y", strtotime($competition->submission_deadline)) . '</div>';
+                                ?>
+                            <div class="type_select"><input type="radio" name="competition_type" value="0" > Open Submission</div>
+                            <?php } else {
+                                echo '<div class="type_select"><input type="radio" name="competition_type" value="'
+                            . $competition->id . '" />   ' . $competition->title .
+                            "  submit before " . date("d/m/Y", strtotime($competition->submission_deadline)) . '</div>';
+                                ?>
+                            <div class="type_select"><input type="radio" name="competition_type" value="0" checked="checked"> Open Submission</div>
+                            <?php }   ?>
                     </div>
                     <!--End of submit body-->
                 </div> 

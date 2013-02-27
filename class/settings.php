@@ -70,8 +70,8 @@ class settings {
                 'driver' => 'mysql',
                 'prefix' => '',
             );
-            $this->app_id = "140388549312943";
-            $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
+            $this->app_id = "151265838265960";
+            $this->app_secret = "945fc91fd23a7e3cf56c9473fe813e63";
             $this->root = 'http://staging.phennec.com/';
             $this->prodction = false;
         } else {

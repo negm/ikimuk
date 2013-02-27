@@ -9,8 +9,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class/class.competition.php';
 $competition = new competition();
-$competition->selectCurrentCompetition();
-$daysLeft = floor((strtotime($competition->end_date) - time()) / (60 * 60 * 24));
+$competition->select_open_submission();
+$daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 * 60 * 24));
 ?>
 <div class="body">
     <div class="body_content submit">
@@ -29,9 +29,9 @@ $daysLeft = floor((strtotime($competition->end_date) - time()) / (60 * 60 * 24))
 		<div class="label_box"><span class="label_title"><?php echo $daysLeft; ?> Days Left</span></div>
 		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
-                <div class="theme_avatar"><img src="images/submit_photo.png"></div>
-                <div class="theme_title">Hakwaji</div>
-                <div class="theme_date">Submit before 21/1/2013</div>
+                <div class="theme_avatar"><img src="<?php echo $competition->submission_header?>"></div>
+                <div class="theme_title"><?php echo $competition->title ?></div>
+                <div class="theme_date">Submit before <?php echo date("d/m/Y", strtotime($competition->submission_deadline)); ?></div>
             </div>
 
 
@@ -41,9 +41,9 @@ $daysLeft = floor((strtotime($competition->end_date) - time()) / (60 * 60 * 24))
 		<div class="label_box"><span class="label_title">Always Open</span></div>
 		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
-                <div class="theme_avatar"><img src="images/submit_photo.png"></div>
-                <div class="theme_title">For The Love of Zombies</div>
-                <div class="theme_date">Submit before 21/1/2013</div>
+                <div class="theme_avatar"><img src="/images/submit_photo.png"></div>
+                <div class="theme_title">Open Submission</div>
+                <!--<div class="theme_date">Submit before 21/1/2013</div>-->
             </div>
         </div>
         <!--End Of Submit Theme Section-->
@@ -131,7 +131,7 @@ right back to you!
 				    </div>
                                 </form>
                             <?php } else { ?>
-                                <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="dummy_button">submit your design</div></a>
+                                <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">submit your design</div></a>
                             <?php } ?>
 
                         </div>       

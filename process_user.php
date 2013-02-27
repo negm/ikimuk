@@ -281,6 +281,7 @@ function login_user($user)
         $_SESSION['user_email'] =$user->email;
         $_SESSION['user_id']= $user->id;
         $_SESSION['validated_mobile']=$user->validated_mobile;
+        $_SESSION["role"]=$user->role_id;
         $_SESSION['logged_in']=true;
 }
 ?>

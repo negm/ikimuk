@@ -5,17 +5,17 @@
  * and open the template in the editor.
  */
 $pagetitle = "Submissions";
-include "/block/logged_in_admin.php";
-require_once '/class/class.submissions.php';
-require_once '/class/class.user.php';
-include '/block/header.php';
-include '/block/top_area.php';
+include $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submissions.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.user.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
+include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
 $submissions_list = new submissions();
 $submissions_list->selectAllSubmissions();
 echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
 ?>
-<table class="span12 tbl">
-  <tbody class="tbl">
+<table class="table table-striped table-hover">
+  <tbody class="">
     <!-- Results table headers -->
     <tr>
       <th></th>  
@@ -30,6 +30,7 @@ echo '<div class="container"><p>Unconfirmed in the current competition</p><div i
     </tr>
     <?php 
 $count=1;
+
 while($row_preorder =  mysqli_fetch_object($submissions_list->database->result))
 {
     $row_preorder->email = trim($row_preorder->email);
@@ -40,8 +41,8 @@ while($row_preorder =  mysqli_fetch_object($submissions_list->database->result))
     echo "<td>$row_preorder->fbid</td>";
     echo "<td>$row_preorder->title</td>";
     echo "<td>$row_preorder->comments</td>";
-    echo '<td class="thumb"><img src="'.$row_preorder->url.'" /></td>';
-    echo "<td>$row_preorder->date_added</td>";
+    echo '<td class="thumb"><img src="'.htmlentities(urldecode($row_preorder->url)).'" /></td>';
+    echo "<td>$row_preorder->submission_date</td>";
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';
     echo '</tr>';
     $count+=1;

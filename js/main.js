@@ -329,12 +329,12 @@ $(document).ready(function(){
         var website_blog_2=$(".self_info_body").find(".line_input").find("input[name='website_blog_2']").val();
         var agree=$(".agreement_submit_section").find(".agreement").find(".terms_conditions").find("input[name='agree']").is(":checked");
         var newsletter=$(".agreement_submit_section").find(".newsletter").find("input[name='subscribe']").is(":checked");
-        var img_list = $("#img_url");
+        var images = $("#img_url");
         //check if there are any error and diplay it
         var flag=0;
         flag+=check_input(title,"please enter a title",1);
         flag+=check_input(city,"please enter your city",1);
-        flag+=check_input(img_list,"Please Upload at least one image",1);
+        flag+=check_input(images,"Please Upload at least one image",1);
         if(!agree)
         {
             flag++;
@@ -342,7 +342,7 @@ $(document).ready(function(){
         }
          if(flag==0){
             var params = 'action=add_submission&design_title='+ encodeURIComponent(title.val())+'&img_url='+
-            encodeURIComponent(img_list.val())+'&comment='+ encodeURIComponent(details)
+            encodeURIComponent(images.val())+'&comment='+ encodeURIComponent(details)
             +'&newsletter='+newsletter+"&city="+ encodeURIComponent(city.val())
             +"&website_blog_1="+ encodeURIComponent(website_blog_1)+"&website_blog_2="+ 
             encodeURIComponent(website_blog_2)+"&competition="+competition_type;
@@ -477,126 +477,9 @@ _gaq.push(['_trackPageview']);
     s.parentNode.insertBefore(ga, s);
 })();
 ///////////////////////////////////////upload & submit
-var uploaded = false;
-var img_list = new Array();
 var preorder_list = new Array();
 ////////////////preorder
 var size="";
- 
-$(function() {  
-    $("#preorderSubmit").click(function(e) {  
-        // validate and process form here
-        if($("#newsletter").is(':checked'))
-            newsletetr_val = 1;
-        else
-            newsletetr_val = 0;
-        e.preventDefault();
-        $("#preorderSubmit").html('<img src="/img/ajax-loader-ikimuk.gif" />');
-        var valid = true;
-        $(".alertr").addClass("hidden");
-        if ($("#region").val() === "")
-        {
-            $("#region_g").removeClass("hidden").addClass("alertr").focus();
-            valid = false;
-        }
-        if ($("#address").val().length < 9){
-            $("#address_g").removeClass("hidden").addClass("alertr");
-            $("#address").focus();
-            valid = false;
-        }
-        if ($("#size").val()  ==="")
-        {
-            $("#size_g").removeClass("hidden").addClass("alertr").focus();
-            valid = false;
-        }
-        if (!$("#agreement").is(':checked'))
-        {
-            $("#agreement_g").removeClass("hidden").addClass("alertr").focus();
-            valid = false;
-        }
-        if ($("#monum").length > 0)
-        {
-            if ($("#monum").val().length < 7)
-            {
-                $("#monum_g").removeClass("hidden").addClass("alertr").focus();
-                valid = false;
-            }
-            if ($("#vcode").val().length < 4)
-            {
-                $("#vcode_g").removeClass("hidden").addClass("alertr").focus();
-                valid = false;
-            }
-        }
-        if (!valid){
-            $("#preorderSubmit").html('Preorder');
-            return false;
-        }
-    
-        var dataString = 'action=add&address='+$("#address").val()+'&size='+$("#size").val()+
-        '&name='+$("#name").val()+'&email='+$("#email").val()+'&ccode='+$("#ccode").val()
-        +'&monum='+$("#monum").val()+'&vcode='+$("#vcode").val()+'&design_id='+$("#design_id").val()
-        +'&agreement='+$("#agreement").val()+'&newsletter='+newsletetr_val+'&region='+$('#region').val();
-        $.ajax({  
-            type: "POST",  
-            url: "/process_preorder.php",  
-            data: dataString,  
-            success: function(response) {
-        
-                if (response === "agreement error")
-                {
-                
-                    $("#agreement_g").removeClass("hidden").addClass("alertr").focus();
-                    return false;
-                }
-                if (response === "mobile error")
-                {
-                    $("#monum_g").removeClass("hidden").addClass("alertr").focus();
-                    return false;
-                }
-                if (response === "user error")
-                {
-                    alert("Please login using your facebook!  Scroll up :)");
-                    return false;
-                }
-                if (response === "verification error")
-                {
-                    $("#vcode_g").removeClass("hidden").addClass("alertr").focus();
-                    return false;
-                }
-                if (response === "address error")
-                {
-                    $("#address_g").removeClass("hidden").addClass("alertr");
-                    $("#address").focus();
-                    return false;
-                }
-                if (response === "already voted")
-                {
-                    $("#preorderForm").fadeOut(1000);
-                    $(".userInfo").parent().fadeOut(1000);
-                    $("#orderDuplicate").removeClass("hidden");
-                    return false; 
-                }
-                else
-                {
-                    $("#preorderForm").fadeOut(1000);
-                    $(".userInfo").parent().fadeOut(1000);
-                    $("#orderComplete").removeClass("hidden");
-                    return false; 
-                }
-            }  
-        });  
-        return false;  
-     
-    });  
-});  
-$(function(){
-    $(".preorderButton").click(function() {
-        if ($(".selected").length === 0)
-        {  $("#size_g").removeClass("hidden").addClass("alertr").focus();
-            return false;
-        }
-    });
-})
 // add product
 
     var options = {

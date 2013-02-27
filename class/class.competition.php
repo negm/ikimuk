@@ -18,8 +18,10 @@ class competition {
 	public $title;
         public $desc;
         public $competition_header;
+        public $submission_header;
         public $end_date;
         public $start_date;
+        public $submission_deadline;
         public $database;
 	
 	// Class Constructor
@@ -54,8 +56,10 @@ class competition {
                 $this->title = $oRow->title;
                 $this->desc = $oRow->desc;
                 $this->competition_header = $oRow->competition_header;
+                $this->submission_header = $oRow->submission_header;
                 $this->end_date = $oRow->end_date;
                 $this->start_date = $oRow->start_date;
+                $this->submission_deadline = $oRow->submission_deadline;
 	}
         public function selectCurrentCompetition() { // SELECT Function
 		// Execute SQL Query to get record.
@@ -69,8 +73,10 @@ class competition {
                 $this->title = $oRow->title;
                 $this->desc = $oRow->desc;
                 $this->competition_header = $oRow->competition_header;
+                $this->submission_header = $oRow->submission_header;
                 $this->end_date = $oRow->end_date;
                 $this->start_date = $oRow->start_date;
+                $this->submission_deadline = $oRow->ssubmission_deadline;
 	}
 	public function selectActive() { // SELECT Function
 		// Execute SQL Query to get record.
@@ -81,7 +87,19 @@ class competition {
         public function select_open_submission() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM competition WHERE submission_open =1;";
-		$this->database->query($sSQL);
+                $oResult = $this->database->query($sSQL);
+		$oResult = $this->database->result;
+		$oRow = mysqli_fetch_object($oResult);
+		
+		// Assign results to class.
+		$this->id = $oRow->id; // Primary Key
+                $this->title = $oRow->title;
+                $this->desc = $oRow->desc;
+                $this->competition_header = $oRow->competition_header;
+                $this->submission_header = $oRow->submission_header;
+                $this->end_date = $oRow->end_date;
+                $this->start_date = $oRow->start_date;
+                $this->submission_deadline = $oRow->submission_deadline;
                 
 	}
        public function getCompletedCompetitions()
