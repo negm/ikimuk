@@ -28,7 +28,11 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
 
                 <div class="header_title">
-                    We deliver internationally including <?php if (!isset($_SESSION["country_name"]) || strlen($_SESSION["country_name"]) < 2) echo "your country"; else echo $_SESSION["country_name"]; ?> 
+                    We deliver internationally including <?php 
+                    if (!isset($_SESSION["country_name"]) || strlen($_SESSION["country_name"]) < 2)
+                       if(isset($ip2c)) echo $ip2c->get_country_name();
+                       else echo "your country"; 
+                    else echo $_SESSION["country_name"]; ?> 
                 </div>
 
 
