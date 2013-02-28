@@ -385,7 +385,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="profile_name"><?php echo $artist->name ?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
                         <div class="profile_website"><?php echo $artist->website ?></div>
-                        <div class="profile_twitter"><?php echo $artist->twitter ?></div>
+                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>"><?php echo $artist->twitter; ?></a></div>
 
                     </div>
                     <!--End Of Block Profile-->
