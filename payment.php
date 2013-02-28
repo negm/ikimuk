@@ -132,7 +132,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $_SESSION["item_count"]=0;
         $_SESSION["subtotal"]=0;
         $_SESSION["total"]=0;
-        header("Location: /index.php?paymet=success&type=order");
+        header("Location: /index.php?payment=success&type=order");
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
@@ -147,7 +147,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $preorder_details->quantity = $row["quantity"];
                     $preorder_details->update_preorder_count();
                 }
-            header("Location: /index.php?paymet=success&type=preorder");
+            header("Location: /index.php?payment=success&type=preorder");
         }
     }
     else
