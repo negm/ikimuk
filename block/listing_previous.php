@@ -65,7 +65,7 @@ unset($_SESSION["size"]);
                      
                       <div class="competition_header">
                             competition no
-  <span class="competition_no"><?echo $current_page;?></span>
+  <span class="competition_no"><?echo $competition->competition_order;?></span>
   (ended on
    <span class="competition_end_date"><?php $date = new DateTime($competition->end_date); echo $date->format('d/m/Y'); ?></span>)
                         </div>

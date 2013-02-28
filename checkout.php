@@ -87,7 +87,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
   <div id="error_link"></div>
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">1. Shipping info</span>
+                                    <span class="label_title">1. Shipping</span>
                                 </div>
                             </div>
 
@@ -256,7 +256,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">3. shipping method</span>
+                                    <span class="label_title">3. Delivery Type</span>
                                 </div>
                             </div>
 
@@ -287,7 +287,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="agreement">
                                 <div class="terms_conditions">
-                                    <input type="checkbox" name="agree"/>I agree on ikimuk's 
+                                    <input type="checkbox" name="agree"/>I agree to ikimuk's 
                                     <a href="#">Terms &amp; Conditions</a>
                                 </div>
                                 <div class="line_error"></div>

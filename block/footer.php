@@ -66,11 +66,11 @@
                   
                   <!--Start of footer links-->
                   <div class="footer_links">
-                      <div class="footer_link"> <a href="/">pre-order at t-shirt</a></div>
+                      <div class="footer_link"> <a href="/">order at t-shirt</a></div>
                       <div class="pipe"></div>
                      <div class="footer_link"> <a href="/submit-intro.php">submit your design</a></div>
                         <div class="pipe"></div>
-                     <div class="footer_link"> <a href="/competitions.php">previous competition</a></div>
+                     <div class="footer_link"> <a href="/competitions.php">past competitions</a></div>
                       <div class="pipe"></div>
                      <div class="footer_link"> <a href="/about-us.php">about us</a></div>
                         <div class="pipe"></div>
@@ -78,7 +78,7 @@
                       <div class="pipe"></div>
                       <div class="footer_link"> <a href="/terms.php">terms &amp; conditions</a></div>
                         <div class="pipe"></div>
-                      <div class="footer_link"> <a href="/privacy.php">privacy policy</a></div>  
+                      <div class="footer_link"> <a href="/submission_terms.php">submission terms</a></div>  
                   </div>
                   <!--End of footer links-->
                   

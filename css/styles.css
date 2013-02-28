@@ -349,10 +349,10 @@ cursor: pointer;
     clear: both;
 }
 .footer_content .footer_links{
-    margin-top:15px;
-    padding-left: 30px;
+    margin:15px auto auto;    
     text-transform: uppercase;
     height:15px;
+    width: 785px;
 }
 .footer_links .pipe{
     border-right: 1px solid #646464;
@@ -2482,4 +2482,9 @@ input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button
     color: white;
     text-shadow: none;
     margin-top: 10px;
+}
+
+.terms p{
+    margin: 15px 0px;
+    font-size: 12px;
 }

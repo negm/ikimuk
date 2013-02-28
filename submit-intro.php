@@ -16,7 +16,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
     <div class="body_content submit">
 
         <div class="page_header">
-            Participate in ikimuk design competition. our current themes are: 
+            Participate in an ikimuk competition 
         </div>
 
 
@@ -39,7 +39,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
             <div class="theme_content marginl20 std_block">
 
                 <div class="std_block_label">
-		<div class="label_box"><span class="label_title">Always Open</span></div>
+		<div class="label_box"><span class="label_title">Ongoing</span></div>
 		</div>
                 <div class="theme_transparent"><div class="transparent_text">Submit your design now</div></div>
                 <div class="theme_avatar"><img src="/images/submit_photo.png"></div>
@@ -72,7 +72,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                     <div class="std_block_body" style="margin:20px">
 		    <div style="margin:-20px 0px 20px -20px; width:570px" class="line_link">
                         <div class="link_holder">
-                                     <a href="#">Legal Stuff</a>
+  <a href="/submission_terms.php">Terms &amp; Conditions</a>
                                     </div>
                                 </div>
                         <!--Start of submit content-->

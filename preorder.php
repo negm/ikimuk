@@ -102,7 +102,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">1. Choose T-Shirt</span>
+                                    <span class="label_title">1. Choose Your Size</span>
                                 </div>
                             </div>
 
@@ -127,8 +127,8 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                         <div class="cart_size_selection">
 
                                             <!--Start Of Male Part--> 
-                                            <div class="size_selection_header">GUY's - $<?php echo number_format($product->price,2);?> 
-                                                <span class="order_size_info"><a href="#">Size Chart</a></span>
+                                            <div class="size_selection_header">GUY - $<?php echo number_format($product->price,2);?> 
+                                                <!--<span class="order_size_info"><a href="#">Size Chart</a></span>-->
                                             </div>
 
                                             <div class="selection_container male_part">
@@ -169,10 +169,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                             <!--End Of Male Part--> 
 
                                             <!--Start Of Female Part--> 
-                                            <div class="size_selection_header">GIRL's - $<?php echo number_format($product->price,2);?>
-                                                <span class="order_size_info">
+                                            <div class="size_selection_header">GIRL - $<?php echo number_format($product->price,2);?>
+                                                <!--<span class="order_size_info">
                                                     <a href="#">Size Chart</a>
-                                                </span>
+                                                </span>-->
                                             </div>
                                             <div class="selection_container female_part">
 
@@ -283,7 +283,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                            
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">2. Shipping info</span>
+                                    <span class="label_title">2. Shipping</span>
                                 </div>
                             </div>
 
@@ -455,7 +455,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">4. shipping method</span>
+                                    <span class="label_title">4. Delivery Type</span>
                                 </div>
                             </div>
 
@@ -486,7 +486,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                             <div class="agreement">
                                 <div class="terms_conditions">
-                                    <input type="checkbox" name="agree"/>I agree on ikimuk's 
+                                    <input type="checkbox" name="agree"/>I agree to ikimuk's 
                                     <a href="#">Terms &amp; Conditions</a>
                                 </div>
                                 <div class="line_error"></div>
@@ -582,10 +582,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       
 
                         <div class="block_information">
-                         Your Pre-Order is only confirmed if this T-Shirt Design gets 50 
-                         Pre-Orders by Sat 02 Feb 11:59PM (GMT+2). We will reserve (pre-authorize)
-                         the amount on your card. If there aren’t enough pre-orders, the pre-authorization
-                         on your card gets cancelled—so make sure you share the deal with your friends!
+                         Your Order is only confirmed if this T-Shirt Design gets at least 50 
+                         Orders by end of competition. We will reserve
+                         the amount on your card. If there aren’t enough orders, the pre-authorization
+                         on your card gets cancelled.
                         </div>
                         </div>
                           <!--End of pre-order summary-->

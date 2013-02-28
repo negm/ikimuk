@@ -772,7 +772,7 @@ var size="";
         flag+=check_input(region,"Please enter a region",1);
         //   flag+=check_input(zip,"Please enter zip code",1);
         flag+=check_input(code,"Please enter country code",0);
-        flag+=check_input(tel,"Please enter a tel no.",1);
+        flag+=check_input(tel,"Please enter your number",1);
          
         //check if terms is checked
         var agree=$(".terms_conditions input[name='agree']").is(":checked");

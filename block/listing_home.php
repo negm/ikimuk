@@ -8,9 +8,12 @@
 $pagetitle = "ikimuk together we create!";
 require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.product.php";
 require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.image.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/class/class.competition.php";
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $product = new product();
 $product->CurrentCompetitionDesigns();
+$competition = new competition();
+$competition->selectCurrentCompetition();
 $image= new image();
 $settings = new settings();
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
@@ -63,15 +66,15 @@ if(isset($_GET["submit"]) and $_GET["submit"] == "success"){
                      
                       <div class="competition_header">
                             competition no
-                            <span class="competition_no">12</span>
-                            (ends
-                            <span class="competition_end_date">02/03/2013</span>)
+<span class="competition_no"><?echo $competition->competition_order;?></span>
+  (ends on
+   <span class="competition_end_date"><?php $date = new DateTime($competition->end_date); echo $date->format('d/m/Y'); ?></span>)
                         </div>
                      
                      
                      <div class="competition_banner">
                          <!--to be removed and replaced with image-->
-                         <img  class="" src="https://s3.amazonaws.com/competition-header/Header_Preorder_Zombie.png" alt="competition header ikimuk"/>
+                         <img  class="" src="<?php echo $competition->competition_header?>" alt="competition header ikimuk"/>
                      </div>
                      <!--Start of competition container-->
                        <div class="competition_container">
@@ -128,7 +131,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
                                                     </span>
                                                 <?php } else { ?>
                                                     <span class="entry_remaining_value"> 
-                                                        <?php echo $settings->first_goal - $row["preorders"];?> order till t-shirt get printed
+                                                        <?php echo $settings->first_goal - $row["preorders"];?> orders untill T-shirt gets printed
                                                     </span>
                                                 <?php } ?>
                                             </div>

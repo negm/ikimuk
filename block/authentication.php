@@ -53,7 +53,7 @@
                       <!--End of password section-->
                        
                        
-                       <div class="member_details"><a href="#">Forgot Password</a></div>
+                       <div class="member_details"><a href="#">Forgot Your Password?</a></div>
                        
                        
                        <div class="member_join">

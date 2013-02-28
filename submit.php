@@ -236,7 +236,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="agreement">
                     <div class="terms_conditions">
                         <input type="checkbox" name="agree"/>
-                        <span>I agree on ikimuk's </span>
+                        <span>I agree to ikimuk's </span>
                         <a href="#">Terms & Conditions</a>
                     </div>
                     <div class="line_error"></div>
@@ -249,7 +249,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                 <div class="submit_personal_design">
-                    <input type="button" name="submit_design" value="SUBMIT YOUR DESIGN" />
+                    <input type="button" name="submit_design" value="SUBMIT" />
                 </div>
 
             </div>      
