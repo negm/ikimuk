@@ -64,12 +64,12 @@ class artist {
                 
 		$this->id = $oRow->id; // Primary Key
                 
-		$this->name       =$oRow->name    ;
-                $this->image      =$oRow->image   ;
-                $this->website    =$oRow->website ;
-                $this->location   =$oRow->location;
-                $this->twitter    =$oRow->twitter ;
-                $this->facebook   =$oRow->facebook;
+		$this->name       =htmlentities(urldecode($oRow->name))    ;
+                $this->image      =htmlentities(urldecode($oRow->image))   ;
+                $this->website    =htmlentities(urldecode($oRow->website)) ;
+                $this->location   =htmlentities(urldecode($oRow->location));
+                $this->twitter    =htmlentities(urldecode($oRow->twitter)) ;
+                $this->facebook   =htmlentities(urldecode($oRow->facebook));
                 $this->user_id   =$oRow->user_id;
                 }
                 else

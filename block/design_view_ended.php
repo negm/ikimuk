@@ -172,15 +172,15 @@
                         <div class="profile_label">
                             <div class="label_content">
                                 <div class="label_thumbnail">
-                                    <img src="<?php echo $artist->image ?>"/>
+                                    <img src="<?php echo $artist->image; ?>"/>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="profile_name"><?php echo $artist->name ?></div> 
-                        <div class="profile_address"><?php echo $artist->location ?></div>
-                        <div class="profile_website"><?php echo $artist->website ?></div>
-                        <div class="profile_twitter"><?php echo $artist->twitter ?></div>
+                        <div class="profile_name"><?php echo $artist->name; ?></div> 
+                        <div class="profile_address"><?php echo $artist->location; ?></div>
+                        <div class="profile_website"><?php echo $artist->website; ?></div>
+                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>"><?php echo $artist->twitter; ?></a></div>
 
                     </div>
                     <!--End Of Block Profile-->
