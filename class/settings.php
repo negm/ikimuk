@@ -23,12 +23,14 @@ class settings {
     public $audi_access_code = "1E5AADCC";
     public $audi_secure_hash = "345F4F2AAB7FAE45B7DAD1DC025D47A9";
     public $audi_merchant_id = "TEST846401";
-    public $first_goal = 50;
-    public $second_goal = 75;
-    public $third_goal = 100;
-    public $fourth_goal = 200;
-    public $fifth_goal = 500;
-    public $sixth_goal = 501;
+    public $goals = array(50, 75, 100, 200, 500, 501);
+    public $goals_colors = array("cyan" , "green", "yellow", "firebrick", "magenta", "red");
+    public $goals_texts = array("Some text regarding the perks 1",
+				"Some text regarding the perks 2",
+				"Some text regarding the perks 3",
+				"Some text regarding the perks 4",
+				"Some text regarding the perks 5",
+				"Some text regarding the perks 6");
 
     public function __construct() {
         $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';

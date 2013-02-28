@@ -699,6 +699,7 @@ cursor: pointer;
 .flag_container.flag_magenta{background-image:url('../img/ikimuk_half_bottom_magenta.png');color: #A1529D;}
 .flag_container.flag_magenta .flag_medal{background-color: #A1529D;}
 
+.flag_container.flag_red .flag_medal{background-color: #EF4050;}
 
 
 
@@ -708,12 +709,6 @@ cursor: pointer;
     float:left;
     border-radius:0;
 }
-.progress_bars_container .progress_flag_1{width:100px;}
-.progress_bars_container .progress_flag_2{width:50px;}
-.progress_bars_container .progress_flag_3{width:50px;}
-.progress_bars_container .progress_flag_4{width:200px;}
-.progress_bars_container .progress_flag_5{width:400px;}
-.progress_bars_container .progress_flag_6{width:15px;}
 
 .order_progress .order_progress_count{
     float:left;
@@ -2487,4 +2482,9 @@ input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button
 .terms p{
     margin: 15px 0px;
     font-size: 12px;
+}
+
+.entry_goal_text{
+    margin-top: 4px;
+    margin-left: 35px;
 }

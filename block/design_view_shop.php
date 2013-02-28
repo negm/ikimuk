@@ -22,35 +22,24 @@
 
                     <!--Start of Flags Container-->
                     <div class="flags_container">
-                        <a href="#block-goal-1">
-			<div class="flag_container margin_l_100<?php if($product->preorders >= $settings->first_goal) echo " flag_cyan";?>">
-                            <div class="flag_medal"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-2">
-                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->second_goal) echo " flag_green";?>">
-                            <div class="flag_medal"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-3">
-                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->third_goal) echo " flag_yellow";?>">
-                            <div class="flag_medal"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-4">
-                        <div class="flag_container margin_l_200<?php if($product->preorders >= $settings->fourth_goal) echo " flag_firebrick";?>">
-                            <div class="flag_medal"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-5">
-                        <div class="flag_container margin_l_400<?php if($product->preorders >= $settings->fifth_goal) echo " flag_magenta";?>">
-                            <div class="flag_medal"></div>
-                        </div>
-			</a>
+   <?php
+   
+   $single_shirt_pixel_size = (805 - count($settings->goals)) / $settings->goals[count($settings->goals)-2];
+for ($i=0; $i < count($settings->goals)-1; $i++){
+  $goal = $settings->goals[$i];
+  echo  '<a href="#block-goal-' . ($i + 1) . '"><div class="flag_container';
+  if($product->preorders >= $goal){
+    echo " flag_" . $settings->goals_colors[$i];
+  }
+  echo '" style="margin-left:';
+  if($i == 0){
+    echo ($goal * $single_shirt_pixel_size - 15);
+  }else{
+    echo (($goal -$settings->goals[$i -1]) * $single_shirt_pixel_size -30);
+  }
+  echo 'px"><div class="flag_medal"></div></div></a>';
+}
+?>
                     </div>
                     <!--End of Flags Container-->
 
@@ -58,42 +47,28 @@
 
                     <!--Start of Progress Bar Container-->
                     <div class="progress_bars_container"> 
-
-			<a href="#block-goal-1">
-                        <div class="progress progress_flag_1">
-                            <div class="bar progress_cyan" style="width: <?php echo $product->preorders * (100 / $settings->first_goal); ?>%;"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-2">
-                        <div class="progress progress_flag_2">
-                            <div class="bar progress_green" style="width: <?php echo ($product->preorders - $settings->first_goal) * (100 / ($settings->second_goal - $settings->first_goal)); ?>%;"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-3">
-                        <div class="progress progress_flag_3">
-                            <div class="bar progress_yellow" style="width: <?php echo ($product->preorders - $settings->second_goal) * (100 / ($settings->third_goal - $settings->second_goal)); ?>%;"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-4">
-                        <div class="progress progress_flag_4">
-                            <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / ($settings->fourth_goal - $settings->third_goal)); ?>%;"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-5">
-                        <div class="progress progress_flag_5">
-                            <div class="bar progress_magenta" style="width: <?php echo ($product->preorders - $settings->fourth_goal) * (100 / ($settings->fifth_goal  - $settings->fourth_goal)); ?>%;"></div>
-                        </div>
-			</a>
-
-			<a href="#block-goal-6">
-                        <div class="progress progress_flag_6">
-                            <div class="bar progress_red" style="width: <?php echo ($product->preorders - $settings->fifth_goal) * (100 / ($settings->sixth_goal - $settings->fifth_goal)); ?>%;"></div>
-                        </div>
-			</a>
+<?php
+  for ($i=0; $i < count($settings->goals); $i++){
+    $goal = $settings->goals[$i];
+    echo  '<a href="#block-goal-' . ($i + 1) . '"><div class="progress" style="width:';
+    if($i == count($settings->goals) -1){
+      echo 15;
+    }else{
+      if($i == 0){
+	echo ($goal * $single_shirt_pixel_size);
+      }else{
+	echo (($goal-$settings->goals[$i-1]) * $single_shirt_pixel_size);
+      }
+    }
+    echo 'px"><div class="bar progress_' . $settings->goals_colors[$i] . '" style="width:';
+    if($i == 0){
+      echo $product->preorders * (100 / $goal);
+    }else{
+      echo ($product->preorders - $settings->goals[$i-1]) * (100 / ($goal - $settings->goals[$i-1]));
+    }
+    echo '%"></div></div></a>';
+  }
+?>
                         <div class="progress_over over">
                             <div class="progress_cube"></div>
                             <div class="progress_cube"></div>
@@ -104,22 +79,18 @@
 
 		    <div class="flags_container">
                     
-			<div class="flag_container margin_l_100 flag_number<?php if($product->preorders >= $settings->first_goal) echo " flag_cyan"; ?>">
-                            <?php echo $settings->first_goal; ?>
-                        </div>
-		
-                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->second_goal) echo " flag_green";?> flag_number">
-                            <?php echo $settings->second_goal; ?>
-                        </div>
-                        <div class="flag_container margin_l_50<?php if($product->preorders >= $settings->third_goal) echo " flag_yellow";?> flag_number">
-                            <?php echo $settings->third_goal; ?>
-                        </div>
-                        <div class="flag_container margin_l_200<?php if($product->preorders >= $settings->fourth_goal) echo " flag_firebrick";?> flag_number">
-                            <?php echo $settings->fourth_goal; ?>
-                        </div>
-                        <div class="flag_container margin_l_400<?php if($product->preorders >= $settings->fifth_goal) echo " flag_magenta";?> flag_number">
-                            <?php echo $settings->fifth_goal; ?>
-                        </div>
+<?php
+  for ($i=0; $i < count($settings->goals)-1; $i++){
+    $goal = $settings->goals[$i];
+    echo  '<div class="flag_container flag_number" style="margin-left:';
+    if($i == 0){
+      echo ($goal * $single_shirt_pixel_size - 15);
+    }else{
+      echo (($goal - $settings->goals[$i -1]) * $single_shirt_pixel_size -30);
+    }
+    echo 'px">' . $goal . '</div>';
+  }
+?>
                     </div>
 
                 </div>
@@ -296,21 +267,21 @@
                                 <div class="selection_container male_part">
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="s"/>
+                                        <input type="hidden" name="size" value="S"/>
                                         <div>S</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="m"/>
+                                        <input type="hidden" name="size" value="M"/>
                                         <div>M</div>
                                     </div>
 
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="l"/>
+                                        <input type="hidden" name="size" value="L"/>
                                         <div>L</div>
                                     </div>
 
@@ -318,13 +289,13 @@
                                     <div class="empty_space"></div>
 
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xl"/>
+                                        <input type="hidden" name="size" value="XL"/>
                                         <div>XL</div>
                                     </div>
 
                                     <div class="empty_space"></div>
                                     <div class="cart_no">
-                                        <input type="hidden" name="size" value="xxl"/>
+                                        <input type="hidden" name="size" value="XXL"/>
                                         <div>XXL</div>
                                     </div>
                                 </div>
@@ -423,236 +394,73 @@
 
 
                     <!----------------------------------------------------------------> 
-                    <div class="block_goal<?php if($product->preorders >= $settings->first_goal) echo " block_goal_cyan";?>" id="block-goal-1">
-
-                        <div class="goal_label">
+<?php
+for ($i=0; $i < count($settings->goals); $i++){
+  echo '<div class="block_goal';
+  if($i == 0){
+    echo ' block_goal_cyan';
+  }else{
+    if($product->preorders >= $settings->goals[$i]){
+      echo " block_goal_" . $settings->goals_colors[$i]; 
+    }else{
+      if($product->preorders >= $settings->goals[$i -1]){
+	echo " block_goal_selected selected_" . ($i + 1);
+      }
+    }
+  }
+  echo '" id="block-goal-' . ($i+1) . '"><div class="goal_label">
                             <div class="goal_content">
                                 <div class="goal_thumbnail">                                           
                                     <img src="/img/ikimuk_medal.png"/>
                                 </div>
                             </div>
                         </div>
+                        <div class="goal_header">GOAL ' . ($i+1) . '</div>
+                        <div class="goal_info">' . $settings->goals_texts[$i] . '
+                        </div>';
 
-                        <div class="goal_header">GOAL 1</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                        <div class="goal_progressbar">
-
-                            <div class="progress">
-                                <div class="bar progress_cyan" style="width:100%;"></div>
-                            </div>                            
-                            <div class="progress_percentage">
-                                <?php echo $settings->first_goal."/".$settings->first_goal; ?>
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
-                        </div>-->
-
-                    </div>
-                    <!---------------------------------------------------------------->
-
-                    <!----------------------------------------------------------------> 
-
-                    <div class="block_goal<?php if($product->preorders >= $settings->second_goal) echo " block_goal_green"; else{ if($product->preorders >= $settings->first_goal) echo " block_goal_selected selected_2";}?>" id="block-goal-2">
-
-                        <div class="goal_label">
-                            <div class="goal_content">
-                                <div class="goal_thumbnail">                                           
-                                    <img src="/img/ikimuk_snowstar.png"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="goal_header">GOAL 2</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                        <div class="goal_progressbar">
+  if($i < count($settings->goals) -1){
+    echo '<div class="goal_progressbar">
 
                             <div class="progress">
-                                <div class="bar progress_green" style="width:<?php echo ($product->preorders - $settings->first_goal) * (100 / ($settings->second_goal - $settings->first_goal)); ?>%;"></div>
-                            </div>                            
-                            <div class="progress_percentage">
-                                <?php if($product->preorders >= $settings->second_goal)  echo ($settings->second_goal - $settings->first_goal)."/".($settings->second_goal - $settings->first_goal); 
-                                else{
-				    if($product->preorders <= $settings->first_goal){
-				      echo "0/".($settings->second_goal - $settings->first_goal);
-				    }else{
-				       echo ($product->preorders - $settings->first_goal)."/".($settings->second_goal - $settings->first_goal); 
-				   }}
-                                ?>
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
-                        </div>-->
-
-                    </div>
-                    <!----------------------------------------------------------------> 
-
-
-                    <!----------------------------------------------------------------> 
-                    <div class="block_goal<?php if($product->preorders >= $settings->third_goal) echo " block_goal_yellow"; else{ if($product->preorders >= $settings->second_goal) echo " block_goal_selected selected_3";}?>" id="block-goal-3">
-
-                        <div class="goal_label">
-                            <div class="goal_content">
-                                <div class="goal_thumbnail">                                           
-                                    <img src="/img/ikimuk_snowstar.png"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="goal_header">GOAL 3</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                        <div class="goal_progressbar">
-
-                            <div class="progress">
-                                <div class="bar progress_yellow" style="width:<?php echo ($product->preorders - $settings->second_goal) * (100 / ($settings->third_goal - $settings->second_goal)); ?>%;"></div>
-                            </div>                            
-                            <div class="progress_percentage">
-                                <?php if($product->preorders >= $settings->third_goal)  echo ($settings->third_goal - $settings->second_goal)."/".($settings->third_goal - $settings->second_goal); 
-                                else{
-				   if($product->preorders <= $settings->second_goal){
-				      echo "0/". ($settings->third_goal - $settings->second_goal);
-				   }
-				   else{
-				      echo ($product->preorders - $settings->second_goal)."/".($settings->third_goal - $settings->second_goal); 
-				   }}
-                                ?>
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
-                        </div>-->
-
-                    </div>
-                    <!----------------------------------------------------------------> 
-
-                    <!----------------------------------------------------------------> 
-
-                    <div class="block_goal<?php if($product->preorders >= $settings->fourth_goal) echo " block_goal_firebrick"; else{ if($product->preorders >= $settings->third_goal) echo " block_goal_selected selected_4";}?>" id="block-goal-4">
-
-                        <div class="goal_label">
-                            <div class="goal_content">
-                                <div class="goal_thumbnail">                                           
-                                    <img src="/img/ikimuk_snowstar.png"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="goal_header">GOAL 4</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                        <div class="goal_progressbar">
-
-                            <div class="progress">
-                                <div class="bar progress_firebrick" style="width:<?php echo ($product->preorders - $settings->third_goal) * (100 / ($settings->fourth_goal - $settings->third_goal)); ?>%;"></div>
-                            </div>                            
-                            <div class="progress_percentage">
-                                <?php if($product->preorders>= $settings->fourth_goal)  echo ($settings->fourth_goal - $settings->third_goal)."/".($settings->fourth_goal - $settings->third_goal); 
-				else{
-				   if($product->preorders <= $settings->third_goal){
-				      echo "0/".($settings->fourth_goal - $settings->third_goal);
-				   }else{
-				      echo ($product->preorders - $settings->third_goal)."/".($settings->fourth_goal - $settings->third_goal); 
-				}}
-                                ?>
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
-                        </div>-->
-
-                    </div>
-                    <!----------------------------------------------------------------> 
-
-
-                    <!---------------------------------------------------------------->     
-
-                    <div class="block_goal<?php if($product->preorders >= $settings->fifth_goal) echo " block_goal_magenta"; else{ if($product->preorders >= $settings->fourth_goal) echo " block_goal_selected selected_5";}?>" id="block-goal-5">
-
-                        <div class="goal_label">
-                            <div class="goal_content">
-                                <div class="goal_thumbnail">                                           
-                                    <img src="/img/ikimuk_snowstar.png"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="goal_header">GOAL 5</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                        <div class="goal_progressbar">
-
-                            <div class="progress">
-                                <div class="bar progress_magenta" style="width:<?php echo ($product->preorders - $settings->fourth_goal) * (100 / ($settings->fifth_goal  - $settings->fourth_goal)); ?>%;"></div>
-                            </div>                            
-                            <div class="progress_percentage">
-                                <?php if($product->preorders>= $settings->fifth_goal)  echo ($settings->fifth_goal - $settings->fourth_goal)."/".($settings->fifth_goal - $settings->fourth_goal); 
-                                else{
-				   if($product->preorders <= $settings->fourth_goal){
-                                      echo "0/". ($settings->fifth_goal - $settings->fourth_goal);
-                                   }
-                                   else{
-				     echo ($product->preorders - $settings->fourth_goal)."/".($settings->fifth_goal - $settings->fourth_goal); 
-				     }}
-                                ?>
-                            </div>
-
-                        </div>
-
-
-                        <!--<div class="goal_remaining">
-                            50 Orders till the T-shirt gets printed
-                        </div>-->
-
-                    </div>
-                    <!----------------------------------------------------------------> 
-
-                    <!----------------------------------------------------------------> 
-                    <div class="block_goal<?php if($product->preorders >= $settings->sixth_goal) echo " block_goal_red"; else{ if($product->preorders >= $settings->fifth_goal) echo " block_goal_selected selected_6";}?>" id="block-goal-6">
-
-                        <div class="goal_label">
-                            <div class="goal_content">
-                                <div class="goal_thumbnail">                                           
-                                    <img src="/img/ikimuk_snowstar.png"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="goal_header">GOAL 5</div>
-                        <div class="goal_info">
-                            First 50 orders will get THE BENEFACTOR: Any pack above that you want, PLUS: Another exclusive comic will go in everyone’s book. Your name and a mini-port..
-                        </div>
-
-                    </div>
-                    <!----------------------------------------------------------------> 
-
-
-
+                                <div class="bar progress_';
+    echo $settings->goals_colors[$i] . '" style="width:';
+    if($i == 0){
+      echo ($product->preorders) * (100 / $settings->goals[$i]);
+    }else{
+      if($product->preorders <= $settings->goals[$i-1]){
+	echo 0;
+      }else{
+	echo ($product->preorders - $settings->goals[$i-1]) * (100 / ($settings->goals[$i] - $settings->goals[$i-1]));;
+      }
+    }
+    echo '%;"></div></div>';
+    echo '<div class="progress_percentage">';
+    if($i == 0){
+      echo $settings->goals[$i];
+    }else{
+      if($product->preorders >= $settings->goals[$i]){
+	echo ($settings->goals[$i] - $settings->goals[$i-1]);
+      }else{
+	if($product->preorders <= $settings->goals[$i-1]){
+	  echo 0;
+	}else{
+	  echo $product->preorders - $settings->goals[$i-1];
+	}
+      }
+    }
+    echo "/";
+    if($i == 0){
+      echo $settings->goals[$i];
+    }else{
+      echo $settings->goals[$i] - $settings->goals[$i-1];
+    }
+    echo "</div></div>";
+    
+  }
+  echo "</div>";
+}
+?> 
 
                     <!--End Of Block Goal-->
 

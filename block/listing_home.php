@@ -120,18 +120,18 @@ while($row= mysqli_fetch_assoc($product->database->result))
                                         <div class="entry_progressbar">
 
                                             <div class="progress">
-                                                <div class="bar progress_cyan" style="width:<?php echo $row["preorders"] * (100/$settings->first_goal); ?>%"></div>
+                                                <div class="bar progress_cyan" style="width:<?php echo $row["preorders"] * (100/$settings->goals[0]); ?>%"></div>
                                             </div>
 
                                             <div class="entry_remaining">
-                                                <?php if ($row["preorders"] >= $settings->first_goal) { ?>
+                                                <?php if ($row["preorders"] >= $settings->goals[0]) { ?>
                                                     <span class="entry_remaining_hilight">Hooray !</span>
                                                     <span class="entry_remaining_value"> 
                                                         This T-shirt is Getting Printed
                                                     </span>
                                                 <?php } else { ?>
                                                     <span class="entry_remaining_value"> 
-                                                        <?php echo $settings->first_goal - $row["preorders"];?> orders untill T-shirt gets printed
+                                                        <?php echo $settings->goals[0] - $row["preorders"];?> orders untill T-shirt gets printed
                                                     </span>
                                                 <?php } ?>
                                             </div>
@@ -140,10 +140,10 @@ while($row= mysqli_fetch_assoc($product->database->result))
 
 
                                         <div class="progress_status">
-                                            <?php if ($row["preorders"] < $settings->first_goal) { ?>
+                                            <?php if ($row["preorders"] < $settings->goals[0]) { ?>
                                                 <span class="entry_progress_percentage">
                                                     <?php echo $row["preorders"];?>
-                                                    /<?php echo $settings->first_goal;?>
+                                                    /<?php echo $settings->goals[0];?>
                                                 </span>
                                             <?php } else { ?>
                                                 <img src="img/ikimuk_blue_wow.png"/>
