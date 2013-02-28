@@ -219,25 +219,7 @@ $(document).ready(function(){
             
     });
     
-    ////////////////////////////Cart shop section/////////////////////////
- 
-     //Function to refresh total price
-    function refresh_cart_prices(){
-  
-        var sub_total=0;
-        $(".cart_entry").each(function(){      //Loop over all items and get its line price.
-            sub_total+=parseFloat($(this).find(".cart_entry_content").find(".cart_entry_total").find("input[name='cart_total']").val());
-        }); 
-
-        $(".cart_payment .line_payment .payment_subtotal").text("$"+sub_total.toFixed(2));//update the subtotal text
-        $(".cart_payment .subtotal").find("input[name='payment_subtotal']").val(sub_total);//update the subtotal hidden field
- 
-        var shipment=parseFloat($(".cart_payment .shipment").find("input[name='payment_shipment']").val());//read the shipment value
-        var total=parseFloat(sub_total+shipment);//add the values of subtotal and shipment.
- 
-        $(".cart_payment .line_total").find("input[name='payment_total']").val(total);//Update the total payment
-        $(".cart_payment .line_total .payment_total").text("$"+total.toFixed(2));//Update the text of total payment
-    }
+    ////////////////////////////Cart shop section////////////////////////
 
 
     $(".std_block_body .cart_entry:last").css("border",0);//remove the border from the last cart entry
@@ -697,12 +679,12 @@ var size="";
    
     //////////////////////////Start Of checkout Section//////////////////////////
      function refresh_checkout_prices(){
-                        var sub_total=parseFloat($(".summary_sub_total").find("input[name='checkout_subtotal']").val());//Get the sub total
-                        var shipping=parseFloat($(".summary_sub_total").find("input[name='checkout_shipping']").val());//Get the shipping value
+                        var sub_total=parseFloat($("#checkout_subtotal").val());//Get the sub total
+                        var shipping=parseFloat($("#checkout_shipping").val());//Get the shipping value
                         var total=sub_total+shipping;
-                        $(".summary_total .sub_total_line").find("input[name='checkout_total']").val(total);//set the total value in its hidden input
-                        $(".summary_total .sub_total_line").find(".line_value").text("$ "+total.toFixed(2));//set the text
-                        $("#subtotal").text("$ "+sub_total.toFixed(2));//set the text
+                        $("#checkout_total").val(total);//set the total value in its hidden input
+                        $("#total_text").text("$ "+total.toFixed(2));//set the text
+                        $("#subtotal_text").text("$ "+sub_total.toFixed(2));//set the text
                     }
    
     ///country list value changed
@@ -710,16 +692,10 @@ var size="";
         var val=$('.combo .country_list option:selected').text();
         $('.combo .select_country').text(val);
         var shipping = $('.combo .country_list option:selected').data("delivery");
-       $(".aramex_line").find("input[name='tax']").val(shipping);//change delivery charge
-       $(".aramex_line").find(".line_value").text(shipping);
-       $(".sub_total_line").find(".line_value").text(shipping);
-       RefreshPreorderPrices();
-        //$(".summary_sub_total").find("input[name='checkout_shipping']").val(shipping);//set the shipping value
-        //set the total text value
-        $(".summary_sub_total").find("input[name='checkout_shipping']").parent().find(".line_value").text("$ "+shipping.toFixed(2));
-        $(".sub_total_line").find(".line_value").text("$ "+shipping.toFixed(2));
-        //refresh the prices.
-        refresh_checkout_prices();   
+       $("#checkout_shipping").val(shipping);//change delivery charge
+       $("#shipping_text").text("$ "+shipping.toFixed(2));
+       refresh_checkout_prices();
+      
        
     });
     ///code list value changed

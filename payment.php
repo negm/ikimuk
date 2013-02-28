@@ -13,10 +13,6 @@ if (!isset($_SESSION))
     session_start ();
 }
 $settings = new settings();
-//print_r($_SERVER);
-//print_r($_POST);
-//print_r($_GET);
-//return;
 if (isset($_GET["action"])&& $_GET["action"]== "order" )
 {
 $order_id = place_order();
@@ -67,7 +63,7 @@ else
 if (isset($_GET["vpc_TxnResponseCode"]))
 {
     
-    print_r($_GET);
+    //print_r($_GET);
   //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
@@ -136,6 +132,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $_SESSION["item_count"]=0;
         $_SESSION["subtotal"]=0;
         $_SESSION["total"]=0;
+        header("Location: /index.php?payment=success&type=order");
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
@@ -150,9 +147,22 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $preorder_details->quantity = $row["quantity"];
                     $preorder_details->update_preorder_count();
                 }
-            
+            header("Location: /index.php?payment=success&type=preorder");
         }
-    } 
+    }
+    else
+    {
+        if (isset($_GET["type"]) && $_GET["type"] == "order")
+        {
+        header("Location: /checkout.php?payment=failure&error=".urlencode(getResponseDescription($_GET["vpc_TxnResponseCode"])));
+        }
+         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
+        {
+            $preorder->id = $_GET["merchTxnRef"];
+            $preorder->select($preorder->id);
+            header("Location: /preorder.php?product_id=".$preorder->product_id."&payment=failure&error=".urlencode(getResponseDescription($_GET["vpc_TxnResponseCode"])));
+        }
+    }
 }
 else{
     
@@ -181,7 +191,7 @@ function place_order() {
     } else {
         $cart = $_SESSION["cart"];
         foreach ($cart as $key => $cart_item) {
-            //print_r($cart_item);
+            
             $order_details->order_id = $order->id;
             $order_details->price = $cart_item["price"];
             $order_details->product_id = $cart_item["product_id"];
@@ -265,80 +275,80 @@ function getResponseDescription($responseCode) {
     switch ($responseCode) {
         case "0" : $result = "Transaction Successful";
             break;
-        case "?" : $result = "Transaction status is unknown";
-            break;
-        case "1" : $result = "Unknown Error";
-            break;
-        case "2" : $result = "Bank Declined Transaction";
-            break;
-        case "3" : $result = "No Reply from Bank";
-            break;
+//        case "?" : $result = "Transaction status is unknown";
+//            break;
+//        case "1" : $result = "Unknown Error";
+//            break;
+//        case "2" : $result = "Bank Declined Transaction";
+//            break;
+//        case "3" : $result = "No Reply from Bank";
+//            break;
         case "4" : $result = "Expired Card";
             break;
         case "5" : $result = "Insufficient funds";
             break;
-        case "6" : $result = "Error Communicating with Bank";
-            break;
-        case "7" : $result = "Payment Server System Error";
-            break;
-        case "8" : $result = "Transaction Type Not Supported";
-            break;
-        case "9" : $result = "Bank declined transaction (Do not contact Bank)";
-            break;
-        case "A" : $result = "Transaction Aborted";
-            break;
-        case "C" : $result = "Transaction Cancelled";
-            break;
-        case "D" : $result = "Deferred transaction has been received and is awaiting processing";
-            break;
+//        case "6" : $result = "Error Communicating with Bank";
+//            break;
+//        case "7" : $result = "Payment Server System Error";
+//            break;
+//        case "8" : $result = "Transaction Type Not Supported";
+//            break;
+//        case "9" : $result = "Bank declined transaction (Do not contact Bank)";
+//            break;
+//        case "A" : $result = "Transaction Aborted";
+//            break;
+//        case "C" : $result = "Transaction Cancelled";
+//            break;
+//        case "D" : $result = "Deferred transaction has been received and is awaiting processing";
+//            break;
         case "E" : $result = "Invalid Credit Card";
             break;
-        case "F" : $result = "3D Secure Authentication failed";
-            break;
+//        case "F" : $result = "3D Secure Authentication failed";
+//            break;
         case "I" : $result = "Card Security Code verification failed";
             break;
-        case "G" : $result = "Invalid Merchant";
-            break;
-        case "L" : $result = "Shopping Transaction Locked (Please try the transaction again later)";
-            break;
-        case "N" : $result = "Cardholder is not enrolled in Authentication scheme";
-            break;
-        case "P" : $result = "Transaction has been received by the Payment Adaptor and is being processed";
-            break;
-        case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
-            break;
-        case "S" : $result = "Duplicate SessionID (OrderInfo)";
-            break;
-        case "T" : $result = "Address Verification Failed";
-            break;
+//        case "G" : $result = "Invalid Merchant";
+//            break;
+//        case "L" : $result = "Shopping Transaction Locked (Please try the transaction again later)";
+//            break;
+//        case "N" : $result = "Cardholder is not enrolled in Authentication scheme";
+//            break;
+//        case "P" : $result = "Transaction has been received by the Payment Adaptor and is being processed";
+//            break;
+//        case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
+//            break;
+//        case "S" : $result = "Duplicate SessionID (OrderInfo)";
+//            break;
+//        case "T" : $result = "Address Verification Failed";
+//            break;
         case "U" : $result = "Card Security Code Failed";
             break;
-        case "V" : $result = "Address Verification and Card Security Code Failed";
-            break;
-        case "X" : $result = "Credit Card Blocked";
-            break;
-        case "Y" : $result = "Invalid URL";
-            break;
-        case "B" : $result = "Transaction was not completed";
-            break;
-        case "M" : $result = "Please enter all required fields";
-            break;
-        case "J" : $result = "Transaction already in use";
-            break;
-        case "BL" : $result = "Card Bin Limit Reached";
-            break;
-        case "CL" : $result = "Card Limit Reached";
-            break;
-        case "LM" : $result = "Merchant Amount Limit Reached";
-            break;
-        case "Q" : $result = "IP Blocked";
-            break;
-        case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
-            break;
-        case "Z" : $result = "Bin Blocked";
-            break;
+//        case "V" : $result = "Address Verification and Card Security Code Failed";
+//            break;
+//        case "X" : $result = "Credit Card Blocked";
+//            break;
+//        case "Y" : $result = "Invalid URL";
+//            break;
+//        case "B" : $result = "Transaction was not completed";
+//            break;
+//        case "M" : $result = "Please enter all required fields";
+//            break;
+        //case "J" : $result = "Transaction already in use";
+            //break;
+        //case "BL" : $result = "Card Bin Limit Reached";
+            //break;
+        //case "CL" : $result = "Card Limit Reached";
+            //break;
+        //case "LM" : $result = "Merchant Amount Limit Reached";
+            //break;
+        //case "Q" : $result = "IP Blocked";
+            //break;
+        //case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
+            //break;
+        //case "Z" : $result = "Bin Blocked";
+            //break;
 
-        default : $result = "Unable to be determined";
+        default : $result = "Transaction didn't pass through please try again";
     }
     return $result;
     
