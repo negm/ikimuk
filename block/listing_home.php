@@ -19,6 +19,20 @@ unset($_SESSION["size"]);
 ?>
 <div class="body">
  <div class="body_content">
+<?php 
+  if(isset($_GET["payment"]) and $_GET["payment"] == "success"){
+    echo "<div class='alert alert-success'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> We have processed your order.";
+    if(isset($_GET["type"]) and $_GET["type"] == "preorder"){
+      echo " You will be notified if this design gets printed.";
+    }else{
+      echo " Your T-shirt will be delivered to you soon.";
+    }
+    echo "</div>";
+  }
+if(isset($_GET["submit"]) and $_GET["submit"] == "success"){
+    echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> You have successfully submitted your design</div>";
+  }
+?>
                <!--Start of Slider section-->
                     <div class="slider"> 
                         <div id="myCarousel" class="carousel slide">

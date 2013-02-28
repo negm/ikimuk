@@ -80,7 +80,17 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                         </div>
                     </div>
 
-
+<?php 
+  if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
+    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong. ";
+    if(isset($_GET["error"])){
+      echo $_GET["error"];
+    }else{
+      echo "Your payment could not be processed, please try again later.";
+    }
+    echo "</div>";
+  }
+?>
                     
                     
                     <div class="checkout_column_left">

@@ -84,6 +84,8 @@ ob_implicit_flush(0);
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-light/light.css" type="text/css" media="screen" />
+<link type="text/css" rel="stylesheet" href="/css/simplePagination.css"/>
+
 
 <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
 <script src="/js/bootstrap.js"></script>
