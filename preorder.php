@@ -583,7 +583,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       
 
                         <div class="block_information">
-                         Your Order is only confirmed if this T-Shirt Design gets at least 50 
+                         Your Order is only confirmed if this T-Shirt Design gets at least <?php echo $settngs->goals[0]; ?> 
                          Orders by end of competition. We will reserve
                          the amount on your card. If there aren’t enough orders, the pre-authorization
                          on your card gets cancelled.

@@ -23,12 +23,12 @@ class settings {
     public $audi_access_code = "1E5AADCC";
     public $audi_secure_hash = "345F4F2AAB7FAE45B7DAD1DC025D47A9";
     public $audi_merchant_id = "TEST846401";
-    public $first_goal = 50;
-    public $second_goal = 75;
-    public $third_goal = 100;
-    public $fourth_goal = 200;
-    public $fifth_goal = 500;
-    public $sixth_goal = 501;
+    public $goals = array(35, 75, 76);
+    public $goals_colors = array("cyan" , "green", "yellow", "firebrick", "magenta", "red");
+    public $goals_texts = array("Once this T-shirt reaches 35 orders it will get printed. You will receive your T-shirt, stickers and a certificate of awesomeness",
+				"If you order this T-shirt when it has between 35 to 75 orders, you will receive your T-shirt and stickers ",
+				"If you order this T-shirt after it has reached 75 orders, you will just receive your T-shirt",
+				);
 
     public function __construct() {
         $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';

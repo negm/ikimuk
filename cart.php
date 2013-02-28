@@ -112,11 +112,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                          <div class="entry_description_type">  <?php echo $cart_item["cut"]."'s";
+                                          <div class="entry_description_type">  <?php echo $cart_item["cut"]."";
                                               echo "&nbsp;(".$cart_item["size"].")"; ?> </div>
                                           <div class="entry_description_details"> 
-                                                    <img src="/img/ikimuk_snowstar_green.png"/>
-                                                    PERKS 1
+						<div class="flags_container"><div class="flag_container flag_<?php echo $settings->goals_colors[$cart_item['goal']-1]; ?>" style="background-image:none"><div class="flag_medal"></div></div></div>
+						<div class="entry_goal_text">Goal <?php echo $cart_item["goal"]; ?> Perks</div>
                                           </div>  
                                         </div>
 

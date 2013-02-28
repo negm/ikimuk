@@ -42,15 +42,12 @@ echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
 if ($daysLeft > 0)
 {
-if ($product->preorders >= $settings->first_goal)
-{
     include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
+if ($product->preorders >= $settings->goals[0])
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
     
-    }
 else
 {
-    include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
     
     }

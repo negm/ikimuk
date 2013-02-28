@@ -46,18 +46,24 @@ function add_to_cart() {
                 $item_count = 0;
         }
         else {
-
-            $product_id = $product->id;
-            $product_title = $product->title;
-            $size = $_POST["size"];
-            $cut = $_POST["cut"];
-            $quantity = 1;
-            $price = $product->price;
-            $goal = ($product->preorders <$settings->first_goal)?1:
-                (($product->preorders <$settings->second_goal)?2:
-                ($product->preorders <$settings->third_goal)?3:
-                ($product->preorders <$settings->fourth_goal)?4:
-                ($product->preorders <$settings->fifth_goal)?5:6 );
+	  $product_id = $product->id;
+	  $product_title = $product->title;
+	  $size = $_POST["size"];
+	  $cut = $_POST["cut"];
+	  $quantity = 1;
+	  $price = $product->price;
+	  $goal = 0;
+	  for($i = 0; $i < count($settings->goals); $i++){
+	    if($product->preorders < $settings->goals[$i]){
+	      $goal = $i + 1;
+	      break;
+	    }
+	  }
+	  if($goal == 0){
+	    $goal = count($settings->goals);
+	  }
+		
+		  
             $found = false;
             if (isset($_SESSION["cart"])) {
                 $cart = $_SESSION["cart"];
