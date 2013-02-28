@@ -17,6 +17,8 @@ while ($country = mysqli_fetch_object($countries->database->result))
 {
 $countries_array[]=$country;
 }
+if (isset($_GET["payment"]))
+    echo $_GET["payment"];
 $product = new product();
 $settings = new settings();
 $artist = new artist();
@@ -535,30 +537,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 </div>
                                 <div class="preorder_content">
                                 </div>
-                                <?php // for ($i = 0; $i < 2; $i++) { ?>
-                                <!--     <div class="pre_order">
- 
-                                         <div class="pre_order_avatar">
-                                             <img src="images/avatar_60.png"/>
-                                         </div>    
- 
-                                         <div class="pre_order_description">
-                                             Guys 2 XL
-                                         </div>
- 
-                                         <div class="pre_order_option">
-                                             <img src="img/ikimuk_snowstar_blue.png"/>
-                                         </div>
- 
-                                         <div class="pre_order_price">
-                                             $ 25.00
-                                         </div>
- 
-                                         <div class="pre_order_close">
- 
-                                         </div>
-                                     </div>  -->
-                                <?php //} ?>
                                 <div class="empty_pre_order">
                                     <span class="empty_message">PLEASE CHOOSE AT LEAST ONE T-SHIRT</span>
                                 </div>
