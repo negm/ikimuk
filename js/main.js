@@ -97,7 +97,98 @@ $(document).ready(function(){
         $(".join").find("input[type='text']").css("border-color","#CCCCCC");
         $(".join").find("input[type='password']").css("border-color","#CCCCCC");  
     }
+    //reset password
+    
+    $("#change_password_reset").click(function(){ 
+    var flag=0;
+    var password=$("#password_reset");
+    var confirm_password=$("#password_reset_confirm");
+            if(check_input_member(password,"Password is empty"))flag++;
+        else
+        {   
+            if(password.val().length<6)  {//check the password strength
+                flag++;
+                password.parent().parent().find(".line_error").text("Password should be at least 6 character");
+            }
+            else
+            if(!(password.val()===confirm_password.val()))//check password combination
+            {
+                flag++;
+                confirm_password.parent().parent().find(".line_error").text("Password & confirmation don't match");
+            }
+                   
+        }
+        if(flag==0){
+         
+            var myData = "action=change_password_reset&password="+password.val()+"&password_confirmation="+confirm_password.val();
+            jQuery.ajax({
+                type: "POST",
+                url: "/process_user.php",
+                dataType:"json",
+                data:myData,
+                cache: false,
+                success:function(response){
+                    if ((response.error).length > 5)
+                    {
+                        $('#reset_error').text(response.error).parent().show();
+                        //$('#error').html(response.error).show();
+                        return false;
+                    }
+                    else {
+                           window.location.href = "/index.php?reset=success";
+                    }
+                    return false;
+    
+    
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert(thrownError)
+                //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+                }
+            });
+        }
 
+});
+    //forgot password 
+    $("#reset_password_submit").click(function(){ 
+    var flag=0;
+    var email=$("#email_reset");
+    if(check_input_member(email,"Email field is empty"))flag++;
+        else
+        if(!isValidEmailAddress(email.val())){//check if email is valid
+            flag++;
+            email.parent().parent().find(".line_error").text("Invalid Email");
+        }
+        if(flag==0){
+            var myData = "action=reset_password&email="+email.val();
+            jQuery.ajax({
+                type: "POST",
+                url: "/process_user.php",
+                dataType:"json",
+                data:myData,
+                cache: false,
+                success:function(response){
+                    if ((response.error).length > 5)
+                    {
+                        $('#reset_error').text(response.error).parent().show();
+                        //$('#error').html(response.error).show();
+                        return false;
+                    }
+                    else {
+                           window.location.href = "/index.php?reset=email";
+                    }
+                    return false;
+    
+    
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert(thrownError)
+                //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
+                }
+            });
+        }
+
+});
     //Join Button clicked
     $(".join .member_join input[name='join']").click(function(){ 
         reset_member_join();//reset fields
@@ -142,8 +233,7 @@ $(document).ready(function(){
                 success:function(response){
                     if ((response.error).length >5)
                     {
-                        $('#error').html("Incorrect email/password").show();
-                        $('#error').html(response.error).show();
+                        $('#join_error').text(response.error).parent().show();
                         return false;
                     }
                     else {

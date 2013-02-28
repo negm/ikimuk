@@ -58,9 +58,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="body_content">
                     <div class="links_section">
                         <div class="links_content">
-                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/index.php"> ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive">Cart</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/cart.php"> Cart</a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#">Checkout</a>

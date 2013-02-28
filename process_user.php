@@ -32,6 +32,10 @@ if ($_POST["action"]== "reset_password")
 {
     reset_password();
 }
+if ($_POST["action"]== "change_password_reset")
+{
+    change_password_reset();
+}
 else
 {
     //header("Location: /index.php");
@@ -198,7 +202,7 @@ function signup()
 
 }
 
-function change_password()
+function change_password_reset()
 {
     if (!isset($_POST["password"]) || !isset($_POST["password_confirmation"]) )
     {
@@ -209,14 +213,14 @@ function change_password()
     }
     if ($_POST["password"] != $_POST["password_confirmation"])
     {
-         $error = "Password and confirmation don't match";
+        $error = "Password and confirmation don't match";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
     }
-    if (!isset($_SESSION["logged_in"])|| !$_SESSION["logged_in"])
+    if (!isset($_SESSION["user_id"]))
     {
-         $error = "user is not logged in";
+        $error = "Operation not allowed";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
@@ -229,7 +233,7 @@ function change_password()
     $user->password = $password;
     if ($user->change_password())
     {
-         $error = "";
+         $error = " ";
         $result = json_encode(array("error"=>$error));
         print_r($result);
         return;
@@ -246,7 +250,7 @@ function change_password()
 }
 function reset_password()
 {
-    $error = null;
+    $error = " ";
     if (!isset($_POST["email"]))
     {
     $error = "No email provided";
@@ -260,13 +264,19 @@ function reset_password()
         if ($user->id == null)
         {
             $error = "Incorrect email";
+            $result = json_encode(array("error"=>$error));
+            print_r($result);
+            return;
         }
         else
         {
             $code = $user->insert_reset_code();
             $message = new message();
-            $message_body="Hello $user->name \n use the following link to reset your password $settings->root/reset_password.php?code=$code";
-            $message->send($user->email, "Password Reset", $message_body);
+            $message_body="Hello $user->name \n use the following link to reset your password $settings->root"."reset_password.php?code=".urlencode($code);
+            $message->send($user->email, "ikimuk Password Reset", $message_body);
+            $result = json_encode(array("error"=>$error));
+            print_r($result);
+            return;
         }
         
     }

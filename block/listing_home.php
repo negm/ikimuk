@@ -35,6 +35,12 @@ unset($_SESSION["size"]);
 if(isset($_GET["submit"]) and $_GET["submit"] == "success"){
     echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> You have successfully submitted your design</div>";
   }
+  if(isset($_GET["reset"]) and $_GET["reset"] == "email"){
+    echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> Check your email now to reset your password</div>";
+  }
+  if(isset($_GET["reset"]) and $_GET["reset"] == "success"){
+    echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> Password was reset successfully. Login now with your new password</div>";
+  }
 ?>
                <!--Start of Slider section-->
                     <div class="slider"> 
@@ -66,7 +72,7 @@ if(isset($_GET["submit"]) and $_GET["submit"] == "success"){
                      
                       <div class="competition_header">
                             competition no
-<span class="competition_no"><?echo $competition->competition_order;?></span>
+<span class="competition_no"><?php echo $competition->competition_order;?></span>
   (ends on
    <span class="competition_end_date"><?php $date = new DateTime($competition->end_date); echo $date->format('d/m/Y'); ?></span>)
                         </div>

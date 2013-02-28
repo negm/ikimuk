@@ -25,6 +25,10 @@ foreach ($details as $key=>$detail )
     
     //$d5 = Array ( Array ( [product_id" => 6 "product_title" => "VEDGZILLA" "quantity" => 1 "size" => "s" "cut" => "m" "price" => 25 "subtotal" => 25 "url" => "https://s3.amazonaws.com/product-pics/1354942544-68-spe1_mohamad_rifaii_vedgzilla_ikimuk_620x500.jpg" "artist_name" => "Mohamad Rifaii" ) , Array ( "product_id" => 6, "product_title" => "VEDGZILLA", "quantity" => 1, "size" => "xxl","cut" => "w", "price" => 25 ,"subtotal" => 25, "url" => "https://s3.amazonaws.com/product-pics/1354942544-68-spe1_mohamad_rifaii_vedgzilla_ikimuk_620x500.jpg", "artist_name" => "Mohamad Rifaii" ) );
     //$d5["["["[]= 
-    $log = new KLogger($_SERVER["DOCUMENT_ROOT"], KLogger::INFO);
-    $log->logFatal('Oh dear.');
+    //$log = new KLogger($_SERVER["DOCUMENT_ROOT"], KLogger::INFO);
+    //$log->logFatal('Oh dear.');
+    
+    $expire_date = time()+24*60*60;
+    $expire_date = date("Y-m-d H:i:s", $expire_date);
+    echo $expire_date;
 ?>

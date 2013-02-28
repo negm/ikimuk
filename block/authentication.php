@@ -22,7 +22,7 @@
                <!--End of member header-->
                
                <div class="member_body">
-                  
+                  <div class="alert alert-error hide"> <button type="button" class="close" data-dismiss="alert">×</button> <span id="login_error"></span></div>
                     <!--Start of member body section-->
                    <div class="member_body_content login">
         
@@ -53,7 +53,7 @@
                       <!--End of password section-->
                        
                        
-                       <div class="member_details"><a href="#">Forgot Your Password?</a></div>
+                       <div class="member_details"><a href="#reset" data-toggle="modal" onclick="$('#login').modal('hide');">Forgot Your Password?</a></div>
                        
                        
                        <div class="member_join">
@@ -94,8 +94,7 @@
                                    
     
            <div class="member_content">
-               
-               <!--Start of member header-->
+                        <!--Start of member header-->
                  <div class="member_header">  
                          <div class="member_title_box"><div class="member_title">JOIN US</div></div>       	      
                              
@@ -112,7 +111,7 @@
                <!--End of member header-->
               
                <div class="member_body">
-                  
+                  <div class="alert alert-error hide"> <button type="button" class="close" data-dismiss="alert">×</button> <span id="join_error"></span></div>
                     <!--Start of member body section-->
                    <div class="member_body_content join">
                       
@@ -203,4 +202,61 @@
           <!--End of member content-->
 </div>
    <!-- End of join part-->   
+
    
+   <!-- Start of Reset part-->
+<div id="reset" class="modal hide fade member" data-backdrop="static">
+                                   
+    
+           <div class="member_content">
+               
+               <!--Start of member header-->
+                 <div class="member_header">  
+                                
+                         <div class="member_title_box"><div class="member_title">Reset!</div></div>
+    
+                          <div class="member_close">
+                                <a href="#" data-dismiss="modal" aria-hidden="true">
+                                <img src="/images/ikimuk_disabled_close.png"/></a>
+                           </div>
+               
+               <div class="member_body">
+                   <div class="alert alert-error hide"> <button type="button" class="close" data-dismiss="alert">×</button> <span id="reset_error"></span></div>
+                    <!--Start of member body section-->
+                   <div class="member_body_content login">
+        
+                       <!--Start of email section-->
+                       <div class="member_line">
+                           <div class="member_line_title">
+                               E-mail
+                           </div>
+                           
+                            <div class="member_line_input">
+                               <input id="email_reset" class="round_corners" type="text" name="email"/>
+                            </div>
+                           
+                        <div class="line_error"></div>
+                         </div>
+                        <!--End of email section-->
+                       
+                       <div class="member_join">
+                           <input id="reset_password_submit" type="submit" name="reset" value="RESET PASSWORD"/>
+                       </div>
+                       
+                       
+                      
+                       
+                       
+                       
+                       
+                   </div>
+                   <!--End Of Member Body Content-->
+                   
+                        </div>
+               
+                </div>
+          <!--End of member content-->
+           </div>
+    
+</div>
+    <!-- End of Reset part-->
