@@ -289,8 +289,8 @@
                             <div class="cart_size_selection">
 
                                 <!--Start Of Male Part--> 
-                                <div class="size_selection_header">GUY's - $<?php echo number_format($product->price, 2); ?> 
-                                    <span class="order_size_info"><a href="#">Size Info</a></span>
+                                <div class="size_selection_header">GUY - $<?php echo number_format($product->price, 2); ?> 
+                                    <!--<span class="order_size_info"><a href="#">Size Info</a></span>-->
                                 </div>
 
                                 <div class="selection_container male_part">
@@ -331,10 +331,10 @@
                                 <!--End Of Male Part--> 
 
                                 <!--Start Of Female Part--> 
-                                <div class="size_selection_header">GIRL's - $<?php echo number_format($product->price, 2); ?>
-                                    <span class="order_size_info">
+                                <div class="size_selection_header">GIRL - $<?php echo number_format($product->price, 2); ?>
+                                <!--    <span class="order_size_info">
                                         <a href="#">Size Info</a>
-                                    </span>
+                                    </span> -->
                                 </div>
                                 <div class="selection_container female_part">
 

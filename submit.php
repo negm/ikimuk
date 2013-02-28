@@ -59,7 +59,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
 <div class="body">
     <div class="body_content">
-
+      <div class='alert alert-error hide'> 
+<button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong. Please try submitting your design again.</div>
 
         <div class="submit_design">
 
@@ -71,8 +72,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
             <!--Start of Choose Competition-->
             <div class="choose_competition">
                 <div class="std_block">
-
-                    <!--Start of cart table header-->
+      <div id="error_link"></div>
+      <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
 			     <span class="label_title">1. Choose Competition</span>
@@ -213,7 +214,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                         <div class="line_info">   
-                            <div class="line_header">Website, Blog Or Portfolio</div>
+                            <div class="line_header">Twitter Handle</div>
                             <div class="line_input">
                                 <input type="text" class="round_corners" name="website_blog_2" value="<?php echo htmlentities(urldecode($artist->twitter)); ?>"/>
                             </div>
@@ -235,7 +236,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="agreement">
                     <div class="terms_conditions">
                         <input type="checkbox" name="agree"/>
-                        <span>I agree on ikimuk's </span>
+                        <span>I agree to ikimuk's </span>
                         <a href="#">Terms & Conditions</a>
                     </div>
                     <div class="line_error"></div>
@@ -248,7 +249,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                 <div class="submit_personal_design">
-                    <input type="button" name="submit_design" value="SUBMIT YOUR DESIGN" />
+                    <input type="button" name="submit_design" value="SUBMIT" />
                 </div>
 
             </div>      

@@ -56,7 +56,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 <div class="body">
     <form action="/payment.php?action=order" method="post">
                 <div class="body_content">
-
                     <div class="links_section">
                         <div class="links_content">
                             <div class="link_deactive">ikimuk</div>
@@ -69,16 +68,27 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         </div>
                     </div>
 
+<?php 
+  if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
+    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong. ";
+    if(isset($_GET["error"])){
+      echo $_GET["error"];
+    }else{
+      echo "Your payment could not be processed, please try again later.";
+    }
+    echo "</div>";
+  }
+?>
 
 
                     <div class="checkout_column_left">
 
                         <!--Start Of Shipping info Section-->
                         <div class="std_block shipping_info">
-
+  <div id="error_link"></div>
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">1. Shipping info</span>
+                                    <span class="label_title">1. Shipping</span>
                                 </div>
                             </div>
 
@@ -247,7 +257,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">3. shipping method</span>
+                                    <span class="label_title">3. Delivery Type</span>
                                 </div>
                             </div>
 
@@ -278,7 +288,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="agreement">
                                 <div class="terms_conditions">
-                                    <input type="checkbox" name="agree"/>I agree on ikimuk's 
+                                    <input type="checkbox" name="agree"/>I agree to ikimuk's 
                                     <a href="#">Terms &amp; Conditions</a>
                                 </div>
                                 <div class="line_error"></div>

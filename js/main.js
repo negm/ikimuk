@@ -356,6 +356,7 @@ $(document).ready(function(){
     $(".submit_personal_design input[name=submit_design]").click(function(){
  
         reset_fields();//reset fields from error
+	$("#error").hide();
         //Get need variable and values
         var competition_type=$(".type_body").find(".type_select").find("input:radio[name='competition_type']:checked").val(); 
         var title=$(".info_body").find(".line_input").find("input[name='design_title']");
@@ -392,17 +393,19 @@ $(document).ready(function(){
                     alert(response)
                     if (response != 'shit')
                     {
-                        alert("we made it bro :)")
+                        location.href = "/?submit=success";
                         return false;
                     }
                     else
                     { 
-                        alert("we got shit all over the place bro")
+                        $("#error").show();
                         return false;
                     }
                  }
              });  
-        }
+         }else{
+	     location.href = "#error_link";
+	 }
     });
 
     //validate input, variable,message displayed in case of error, 0=input combo box,1=input text
@@ -769,7 +772,7 @@ var size="";
         flag+=check_input(region,"Please enter a region",1);
         //   flag+=check_input(zip,"Please enter zip code",1);
         flag+=check_input(code,"Please enter country code",0);
-        flag+=check_input(tel,"Please enter a tel no.",1);
+        flag+=check_input(tel,"Please enter your number",1);
          
         //check if terms is checked
         var agree=$(".terms_conditions input[name='agree']").is(":checked");
@@ -809,6 +812,7 @@ var size="";
             }*/
         }
         else{
+	    location.href = "#error_link";
             return false;
         }
   

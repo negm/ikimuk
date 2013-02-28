@@ -349,10 +349,10 @@ cursor: pointer;
     clear: both;
 }
 .footer_content .footer_links{
-    margin-top:15px;
-    padding-left: 30px;
+    margin:15px auto auto;    
     text-transform: uppercase;
     height:15px;
+    width: 785px;
 }
 .footer_links .pipe{
     border-right: 1px solid #646464;
@@ -485,6 +485,11 @@ cursor: pointer;
     margin-left: 30px;
     margin-top:30px;
 }
+
+.previous_competition_section .entry{
+    height: 396px;
+}
+
 .entry .entry_option{
     height: 160px;
     margin-left: -10px;
@@ -557,6 +562,9 @@ cursor: pointer;
     width:266px;
     height:96px;
     padding:10px;
+}
+.previous_competition_section .entry .entry_control{
+    height: 56px;
 }
 .entry .entry_control .entry_description{
     font-size: 18px;
@@ -1606,8 +1614,9 @@ cursor: pointer;
 }
 .full_line .combo{background-position: 470px 8px; }
 .half_line .combo{background-position: 212px 8px; }
-
-.combo .select_country,.combo .country_code{
+.full_line .select_box.combo {width:490px;}
+.full_line .select_previous {width:490px;}
+.combo .select_country,.combo .country_code, .combo .select_previous{
     float:left;
     padding-left:10px;
     padding-top:5px;
@@ -2456,4 +2465,26 @@ input[type="submit"],input[type="button"],button{
 
 input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button:hover{
     background-color: #2989CA !important;
+}
+#pagination_box{
+    float:right;
+    margin-top: 3px;
+}
+.alert-success{
+    background-color: #2aac5f;
+    border-color: #2aac5f;
+    color: white;
+    text-shadow: none;
+}
+.alert-error{
+    background-color: #ed1f24;
+    border-color: #ed1f24;
+    color: white;
+    text-shadow: none;
+    margin-top: 10px;
+}
+
+.terms p{
+    margin: 15px 0px;
+    font-size: 12px;
 }

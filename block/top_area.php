@@ -50,12 +50,14 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="login_menu">
                             <div class="login_header">
                                 <div class="login_arrow"></div>
-                                <div class="login_name"><?php echo $_SESSION["user_name"]; ?></div>
+                                <div class="login_name">Hello, <b><?php echo $_SESSION["user_name"]; ?></b></div>
                                 <?php if (isset($_SESSION["fbid"])&& strlen($_SESSION["fbid"])>4){?>
                                 <div class="login_avatar"><img src="https://graph.facebook.com/<?php echo $_SESSION["fbid"];  ?>/picture"/></div>
                                 <?php } else {?>
                                 <!--<div class="login_avatar"><img src="/images/avatar_30.png"/></div>-->
                                 <?php } ?>
+                                
+
                             </div> 
                             <div class="menu_drop">
                                 <!--<div class="menu_entry"><span class="profile">My Profile</span></div>-->
@@ -101,7 +103,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="menu_content">
 
                             <div class="preorder">
-                                <div class="line"> PRE-ORDER </div>
+                                <div class="line"> ORDER </div>
                                 <div class="line"> A T-SHIRT</div>
                             </div>
 
@@ -138,8 +140,8 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
                         <div class="menu_content">
                             <div class="previous">
-                                <div class="line"> PREVIOUS </div>
-                                <div class="line"> COMPETITION </div>
+                                <div class="line"> PAST </div>
+                                <div class="line"> COMPETITIONS </div>
                             </div>
                         </div>
                     </div>

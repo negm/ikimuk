@@ -268,7 +268,7 @@
                             </div>
                           <div id="preorder_in" class="order_submit">
                                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
-                                    <input type="submit" value="PRE-ORDER"/>
+                                    <input type="submit" value="ORDER"/>
     <?php } else { ?>
                                     <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">PRE-ORDER</div></a>
     <?php } ?>
