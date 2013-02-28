@@ -5,6 +5,7 @@
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 session_start();
+$selected = Array ("unselected","unselected","unselected","unselected","selected" );
 if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $cart = null;
     $item_count = 0;

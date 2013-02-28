@@ -4,6 +4,7 @@
  * The user would enter Shipping details and that would determine
  * the shupping cost
  */
+$selected = Array ("unselected","unselected","unselected","unselected","selected" );
 include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");

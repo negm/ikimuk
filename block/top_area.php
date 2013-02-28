@@ -51,7 +51,11 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                             <div class="login_header">
                                 <div class="login_arrow"></div>
                                 <div class="login_name"><?php echo $_SESSION["user_name"]; ?></div>
-                                <div class="login_avatar"><img src="/images/avatar_30.png"/></div>
+                                <?php if (isset($_SESSION["fbid"])&& strlen($_SESSION["fbid"])>4){?>
+                                <div class="login_avatar"><img src="https://graph.facebook.com/<?php echo $_SESSION["fbid"];  ?>/picture"/></div>
+                                <?php } else {?>
+                                <!--<div class="login_avatar"><img src="/images/avatar_30.png"/></div>-->
+                                <?php } ?>
                             </div> 
                             <div class="menu_drop">
                                 <!--<div class="menu_entry"><span class="profile">My Profile</span></div>-->
@@ -90,7 +94,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="selected"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[0];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/"/>
 
@@ -110,7 +114,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="unselected"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[1];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/submit-intro.php"/>
 
@@ -128,7 +132,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="unselected"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[2];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/competitions.php"/>
 
@@ -146,7 +150,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="unselected"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[3];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="about/index.php"/>
 
@@ -163,7 +167,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="unselected"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[4];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/cart.php"/>
 

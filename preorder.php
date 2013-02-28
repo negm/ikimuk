@@ -5,6 +5,7 @@
  * State the different verification cases here
  * 
  */
+$selected = Array ("selected","unselected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';

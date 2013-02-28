@@ -4,6 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+$selected = Array ("selected","unselected","unselected","unselected","unselected" );
 if (isset($_GET["product_id"])) {
     $mID = (int) $_GET["product_id"];
 } else {
@@ -39,16 +40,28 @@ echo '<meta property="og:title" content="' . $product->title . '" />';
 echo '<meta property="og:image" content="' . $product->image . '" />';
 echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
-include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 if ($daysLeft > 0)
 {
 if ($product->preorders >= $settings->first_goal)
+{
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
+    
+    }
 else
+{
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
+    
+    }
 }
 else
+{
+    $selected = Array ("unselected","unselected","selected","unselected","unselected" );
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_ended.php";
+    
+}
 
 include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php";
 ?>

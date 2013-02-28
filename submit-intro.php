@@ -4,6 +4,7 @@
  * and open the template in the editor.
  * 
  */
+$selected = Array ("unselected","selected","unselected","unselected","unselected" );
 $pagetitle = "Submit Guidelines";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
