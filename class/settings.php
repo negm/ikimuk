@@ -69,7 +69,7 @@ class settings {
         } else
         if (strpos($this->site_url, 'staging')) {
             $this->config = array(
-                'database' => 'ikimuk',
+                'database' => 'ikimuk_synch',
                 'username' => 'root',
                 'password' => 'sqp.2012.sql++',
                 'host' => 'localhost',
@@ -83,7 +83,7 @@ class settings {
             $this->prodction = false;
         } else {
             $this->config = array(
-                'database' => 'ikimuk',
+                'database' => 'ikimuk_synch',
                 'username' => 'root',
                 'password' => 'sqp.2012.sql++',
                 'host' => 'localhost',

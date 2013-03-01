@@ -145,6 +145,7 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', st
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
   })();
 </script>
+
 </div>
 </body>
 </html>
