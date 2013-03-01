@@ -18,8 +18,6 @@ while ($country = mysqli_fetch_object($countries->database->result))
 {
 $countries_array[]=$country;
 }
-if (isset($_GET["payment"]))
-    echo $_GET["payment"];
 $product = new product();
 $settings = new settings();
 $artist = new artist();
@@ -75,7 +73,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                         <div class="links_content">
                             <div class="link_deactive"><a class="link_deactive" href="/index.php"> ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive"><a class="link_deactive" href="/design/<?php echo $product->id."/".str_replace(" ","-",trim($product->title));?>"><?php echo $product->title;?></div>
+                            <div class="link_deactive"><a class="link_deactive" href="/design/<?php echo $product->id."/".str_replace(" ","-",trim($product->title));?>"><?php echo $product->title;?></a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#">Checkout</a>
@@ -110,7 +108,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                             <!--Start of body block-->
                             <div class="std_block_body">
                                 <div class="t_shirt_info">
-                                    <img id="product_image"src="<?php echo $product->image;?>"/>
+                                    <img id="product_image" src="<?php echo $product->image;?>"/>
                                     <span class="t_shirt_error"></span>
                                 </div>
 
