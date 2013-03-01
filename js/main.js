@@ -183,7 +183,7 @@ $(document).ready(function(){
     
                 },
                 error:function (xhr, ajaxOptions, thrownError){
-                    alert(thrownError)
+                    //alert(thrownError)
                 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
                 }
             });
