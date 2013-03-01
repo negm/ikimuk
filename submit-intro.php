@@ -23,7 +23,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
 
         <!--Start of Submit theme section-->
         <div class="submit_theme">
-            <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
+            <?php if($competition->id!= null){if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
                                <a href="/submit.php?competition=<?php echo $competition->id;?>">
                             <?php } else { ?>
                                 <a href="#login" data-toggle="modal" style="text-decoration: none">
@@ -40,7 +40,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                 <div class="theme_title"><?php echo $competition->title ?></div>
                 <div class="theme_date">Submit before <?php echo date("d/m/Y", strtotime($competition->submission_deadline)); ?></div>
             </div>
-            </a>
+            </a><?php } ?>
              <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
                                <a href="/submit.php?competition=0">
                             <?php } else { ?>

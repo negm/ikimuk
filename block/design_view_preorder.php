@@ -6,7 +6,7 @@
 //show the goodies :D  
 ?>
 <div class="body">
-    <form action="/preorder/<?php echo $product->id."/".str_replace(" ","-",trim($product->title))?>" method="get">
+    <form action="/preorder/<?php echo $product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title)))?>" method="get">
     <div class="body_content">
         
             <!--Start Of order progress-->
@@ -194,7 +194,14 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         </div>
 
                         <div class="social_body">
-
+                         <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
                         <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
                         </div>
                     </div>

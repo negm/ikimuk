@@ -49,11 +49,11 @@ if (!$order_id) {
 } else {
     $return_url = $settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=preorder";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
-    $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
-                    $total*100 . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
+    $vpc_secure = strtoupper(md5($settings->audi_secure_hash_preorder.$settings->audi_access_code_preorder .
+                    $total*100 . $order_id . $settings->audi_merchant_id_preorder . $order_info . $return_url));
     $redirect_url = "https://gw1.audicards.com/TPGWeb/payment/prepayment.action?" .
-            "accessCode=" . urlencode($settings->audi_access_code) . "&amount=" . urlencode($total*100)
-            . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id) .
+            "accessCode=" . urlencode($settings->audi_access_code_preorder) . "&amount=" . urlencode($total*100)
+            . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id_preorder) .
             "&orderInfo=" . urlencode($order_info) . "&returnURL=" . urlencode($return_url) . "&vpc_SecureHash=" . $vpc_secure;
 //    echo $vpc_secure . '<br>' . $redirect_url;
     header("Location: " . $redirect_url);
@@ -74,13 +74,23 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	// set a flag to indicate if hash has been validated
 	$errorExists = false;
 	//check if the value of response code is valid
-	if (strlen($settings->audi_secure_hash) > 0 && addslashes($_GET["vpc_TxnResponseCode"]) != "7" && addslashes($_GET["vpc_TxnResponseCode"]) != "No Value Returned") 
+	if (strlen($settings->audi_secure_hash) > 0 && strlen($settings->audi_secure_hash_preorder) > 0 &&addslashes($_GET["vpc_TxnResponseCode"]) != "7" && addslashes($_GET["vpc_TxnResponseCode"]) != "No Value Returned") 
 	{
+		
+            if ($_GET["type"]== "preorder")
+            {
+            //creat an md5 variable to be compared with the passed transaction secure hash to check if url has been tampered with or not
+	    $md5HashData = $settings->audi_secure_hash_preorder;
 		//creat an md5 variable to be compared with the passed transaction secure hash to check if url has been tampered with or not
+	    $md5HashData_2 = $settings->audi_secure_hash_preorder;
+            }
+            if ($_GET["type"]== "order")
+            {
+            //creat an md5 variable to be compared with the passed transaction secure hash to check if url has been tampered with or not
 	    $md5HashData = $settings->audi_secure_hash;
-
 		//creat an md5 variable to be compared with the passed transaction secure hash to check if url has been tampered with or not
 	    $md5HashData_2 = $settings->audi_secure_hash;
+            }
             $hash_value = "";
 	    // sort all the incoming vpc response fields and leave out any with no value
 	    foreach($_GET as $key => $value) 
@@ -106,7 +116,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
 	        $errorExists = true;
 	    }
 	}
-        echo $hashValidated;
+       // echo $hashValidated;
       //update order
     $order = new order();
     $preorder = new preorder();

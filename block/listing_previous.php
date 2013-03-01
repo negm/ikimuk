@@ -84,7 +84,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
 {   $daysLeft = floor((strtotime($row["end_date"]) - time())/(60*60*24));?>
     <div class="entry" style="<?php if($count%3!=0) echo "margin-left:35px;"; else echo "margin-left:0px;"; $count++;?>">
     <!--Used to set a link when clicking-->
-    <input type="hidden" name="user_id" value="/design/<?php echo $row["id"]."/".str_replace(" ","-",trim($row["title"])); ?>"/>
+    <input type="hidden" name="user_id" value="/design/<?php echo $row["id"]. "/" . str_replace(".","",str_replace(" ","-",trim($row["title"]))); ?>"/>
     <div class="entry_transparent">
          <div class="entry_order_now">
           VIEW DESIGN
@@ -92,7 +92,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     </div>
     
     <div class="entry_avatar">
-        <a href="/design/<?php echo $row["id"]."/".str_replace(" ","-",trim($row["title"])); ?>">
+        <a href="/design/<?php echo $row["id"]."/".str_replace(".","",str_replace("","-",trim($row["title"]))); ?>">
                                  <img src="<?php echo $row["url"];?>"/>
         </a>
     </div>

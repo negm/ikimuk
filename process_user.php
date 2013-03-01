@@ -189,7 +189,7 @@ function signup()
         $error = "";
         $result = json_encode(array("error"=>$error));
         $message = new message();
-        $message_body="Hello $user->name, \n Use the following link to reset your password: $settings->root"."reset_password.php?code=".urlencode($code);
+        $message_body="Hello $user->name, \n You have successfully registered an account with ikimuk \n If you have any questions email us hello@ikimuk.com\n The folks at ikimuk";
         $message->send($user->email, "ikimuk registeration confirmation", $message_body);
         print_r($result);
         return; 

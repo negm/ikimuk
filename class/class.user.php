@@ -179,7 +179,11 @@ class user {
             $sSQL = "Select * from  user Where password='$this->password' and id=$this->id;";
             $oResult = $this->database->query($sSQL);
             if ($this->database->rows > 0)
+            {
+                $sSQL = "UPDATE password_reset set expire_date = now() Where user_id=$this->id;";
+                $this->database->query($sSQL);
                 return true;
+            }
             else
                 return false;
         }

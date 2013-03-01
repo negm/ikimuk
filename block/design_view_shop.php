@@ -356,7 +356,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <!--End Of Cart Selection--> 
 
 
-
+                        <span id="size_error" class="hide"></span>
                         <div id="add_to_cart" class="order_submit">
                             <input type="hidden" name="category" value=""/>
                             <input type="hidden" name="size" value=""/>
@@ -480,24 +480,8 @@ for ($i=0; $i < count($settings->goals); $i++){
 
     <!-- Start of Reset part-->
 <div id="item_added" class="modal hide fade member" data-backdrop="static">
-           <div class="member_content">
-                <!--Start of member header-->
-                 <div class="member_header">  
-                         <div class="member_title_box"><div class="member_title">Item Added!</div></div>
-                          <div class="member_close">
-                                <a href="#" data-dismiss="modal" aria-hidden="true">
-                                <img src="/images/ikimuk_disabled_close.png"/></a>
-                           </div>
-               <div class="member_body std_block_body">
-                   <div class="preorder_content">
-                                <div class="pre_order">
-                                    <div class="pre_order_avatar">
-                                        <img src="<?php echo $product->image;?>"></div>
-                                        </div>
-                   </div>
-                        </div>
-                </div>
-          <!--End of member content-->
-           </div>
+           
+        <div class='alert alert-success'><strong>Success!</strong> You have successfully added an item to your cart</div>
+              
 </div>
     <!-- End of Reset part-->

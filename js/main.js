@@ -143,7 +143,7 @@ $(document).ready(function(){
     
                 },
                 error:function (xhr, ajaxOptions, thrownError){
-                    alert(thrownError)
+                    //alert(thrownError)
                 //$("#results").html('<fieldset style="color:red;">'+thrownError+'</fieldset>'); //Error
                 }
             });
@@ -375,7 +375,7 @@ $(document).ready(function(){
         var size = $(this).parent().children('.item_quantity').children('#size').val();
         var cut = $(this).parent().children('.item_quantity').children('#cut').val();
         var myData = "action=update&product_id="+id+"&size="+size+"&cut="+cut+"&quantity="+qty
-        alert(myData);
+        //alert(myData);
         jQuery.ajax({
             type: "POST",
             url: "/process_cart.php",
@@ -407,12 +407,13 @@ $(document).ready(function(){
     
     
     $("#add_to_cart").click(function(){
+        $('#size_error').hide();
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
-        if(cut=="")alert("please choose an elementasdsad");//check if the user didn't click on any cell
+        if(cut=="") $('#size_error').text("Please choose you size").show();//check if the user didn't click on any cell
         else{  
             var myData = 'action=add&cut='+cut+"&size="+size+"&product_id="+$("#product_id").val();
-            alert(myData)
+            //alert(myData)
             jQuery.ajax({
                 type: "POST",
                 url: "/process_cart.php",
@@ -431,6 +432,8 @@ $(document).ready(function(){
                     {
                         //update number of items next to cart
                         $('#cart_sum').html(response.item_count);
+                        $("#item_added").modal('show');
+                        setTimeout(function(){$("#item_added").modal('hide')},3000);
                         return false;
                     }
                 },
@@ -475,13 +478,13 @@ $(document).ready(function(){
             +"&website_blog_1="+ encodeURIComponent(website_blog_1)+"&website_blog_2="+ 
             encodeURIComponent(website_blog_2)+"&competition="+competition_type;
             params = encodeURI(params);
-            alert(params);
+            //alert(params);
             $.ajax({  
                 type: "POST",  
                 url: "/process_submit.php",  
                 data: params,  
                 success: function(response) {  
-                    alert(response)
+                    //alert(response)
                     if (response != 'shit')
                     {
                         location.href = "/?submit=success";
@@ -626,18 +629,18 @@ var size="";
             $(".control_section .login_menu .login_header").css("display","none");//hide the login header
             $(".control_section .header_button").css("display","block");//show the header  buttons
         }
-        else
-            alert("profile clicked"); 
+        //else
+            //alert("profile clicked"); 
     });
     //Subscribe link clicked
-    $(".subscribe_link .input_submit").click(function(){   
+    /*$(".subscribe_link .input_submit").click(function(){   
         var emailaddress=$(".subscribe_container .input_field input[name='email']").val();
         if( !isValidEmailAddress( emailaddress ) ) {
             alert("is not a valid email");
         }
         else alert("is a valid email");
         
-    });
+    });*/
     /////////////////////////////////////////////////////////////////////////////////////////    
       
     
