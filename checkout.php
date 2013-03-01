@@ -266,11 +266,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="shipping_content">
                                     <div class="radio_holder"><input type="radio" checked="checked"/></div>
-                                    <div class="ads_text">  Aramex International Priority(2-5 business days)</div>
+                                    <div class="ads_text">  Aramex International Priority</div>
                                     <!--<div class="logo_holder"><img src="img/ikimuk_aramex.png"/></div>-->
                                     <div class="fee_content">
-                                        Custom fees and additional fees may apply for international shipments.
-                                        Please contact your local customs office for more information.
+                                        Custom fees and additional fees may apply for international shipments. Please contact your local customs office for more information. We will start shipping your order one week after the competition has ended.
+                                        It will then take (1 -5) business days to arrive to your home.
                                     </div>
                                 </div>
 
