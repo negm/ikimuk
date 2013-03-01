@@ -147,7 +147,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $hoax = uniqid();
         $message = new message();
         $message_body="Success! Your order has been processed. \n Expect your delivery in 1-2 weeks. \n Your tracking code is: $hoax - $order->id \n Should you have any concerns regarding your delivery, please email us at info@ikimuk.com \n Have a great day,\n The folks at ikimuk";
-        $message->send($user->email, "ikimuk order confirmation", $message_body);    
+        $message->send($_SESSION['user_email'] , "ikimuk order confirmation", $message_body);    
         header("Location: /index.php?payment=success&type=order");
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
@@ -165,7 +165,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                 }
             $message = new message();
             $message_body="Success! Your order is confirmed. \n We will notify you if this T-shirt gets printed. \n If You have any questions, please email us at hello@ikimuk.com, we will reply pronto.\n Have a great day,\n The folks at ikimuk";
-            $message->send($user->email, "ikimuk order confirmation", $message_body);    
+            $message->send($_SESSION['user_email'] , "ikimuk order confirmation", $message_body);    
             header("Location: /index.php?payment=success&type=preorder");
         }
     }

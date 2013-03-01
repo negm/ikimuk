@@ -202,7 +202,11 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                                 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
                                 fjs.parentNode.insertBefore(js, fjs);
                             }(document, 'script', 'facebook-jssdk'));</script>
+                        <?php if ($product->id > 50){?>
                         <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
+                        <?php } else { ?>
+                        <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->beta_base."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
+                        <?php }?>
                         </div>
                     </div>
                     <!--End Of Social Comment-->
