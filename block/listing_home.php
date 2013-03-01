@@ -48,8 +48,9 @@ if(isset($_GET["submit"]) and $_GET["submit"] == "success"){
                             <!-- Carousel items -->
                             <div class="carousel-inner">
 
-                                <div class="active item"><img src="/images/bootstrap_1.png"/></div>
-                                <div class="item"><img src="/images/bootstrap_2.png"/></div>
+                                <div class="active item"><img src="/images/slide_1.jpg"/></div>
+                                <div class="item"><img src="/images/slide_2.jpg"/></div>
+                                <div class="item"><img src="/images/slide_3.jpg"/></div>
 
                             </div>
                             <!-- Carousel nav -->
