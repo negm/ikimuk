@@ -7,7 +7,7 @@ $product = new product();
 //return;
 if (!isset($_SESSION["user_id"]) || !isset($_POST["img_url"])||
          !isset($_POST["title"])|| !isset($_POST["artist"])|| !isset($_POST["competition"]))
-{echo 'shit'; return;}
+{echo 'shit0'; return;}
 $product->title = $_POST["title"];
 $product->artist_id = $_POST["artist"];
 $product->competition_id = $_POST["competition"];
@@ -16,12 +16,12 @@ $product->price = $_POST["price"];
 $img_arr = explode(',',$_POST["img_url"]);
 if(count($img_arr) <3)
 {
-echo 'shit';
+echo 'shit1';
 return;
 }
 $product->insert();
 if ($product->id == NULL)
-{echo'shit';return;}
+{echo'shit2';return;}
 else
 {
     
@@ -39,7 +39,7 @@ else
             $sub_img->rollover=1;
         $sub_img->insert();
         if ($sub_img->id == null)
-        {echo 'shit'; return;}
+        {echo 'shit3'; return;}
         $count++;
     }
     echo 'done';return;

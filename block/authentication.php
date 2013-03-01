@@ -57,7 +57,7 @@
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" value="LOGIN"/>
+                           <input type="submit" name="join" id="login-button" value="LOGIN"/>
                        </div>
                        
                        <div class="member_or_line">  
@@ -65,8 +65,11 @@
                        </div>
                        
                        <div class="member_facebook">
-                           <a href="#"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
+                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
+                       
+   <div class="loader_box hide">
+   <img src="/img/loader.gif" /> Connecting to Facebook ... </div>
                        
                        
                        
@@ -180,7 +183,7 @@
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" value="JOIN US"/>
+                           <input type="submit" name="join" value="JOIN US" id='join-button'/>
                        </div>
               
                        <div class="member_or_line">  
@@ -188,9 +191,10 @@
                        </div>
                        
                        <div class="member_facebook">
-                           <a href="#"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
+                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
-                       
+   <div class="loader_box hide">
+   <img src="/img/loader.gif" /> Connecting to Facebook ... </div>
                        
                        
                        

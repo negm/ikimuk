@@ -21,8 +21,9 @@ function CallAfterLogin(){
 }
 function LoadingAnimate() //Show loading Image
 {
-    $("#LoginButton").hide(); //hide login button once user authorize the application
-    $("#results").html('<img src="/img/ajax-loader-ikimuk.gif" /> Please Wait Connecting...'); //show loading image while we process user
+    $("#join-button").attr("disabled", "disabled");
+    $("#login-button").attr("disabled", "disabled");
+    $(".loader_box").show();
 }
  
 function ResetAnimate() //Reset User button
@@ -469,7 +470,6 @@ var preorder_list = new Array();
 ////////////////preorder
 var size="";
 // add product
-
     var options = {
         url:        'process-addproduct.php', 
         success:    function(response) {
@@ -493,11 +493,11 @@ var size="";
                 $("#title_g").removeClass("hidden").addClass("alertr").focus();
                 valid = false;
             }
-            if (!uploaded)
+/*            if (!uploaded)
             {
                 $("#img_g").removeClass("hidden").addClass("alertr").focus();
                 valid = false;
-            }
+            }*/
             return valid;
         // return false to cancel submit                  
         }

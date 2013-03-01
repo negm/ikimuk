@@ -2488,3 +2488,42 @@ input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button
     margin-top: 4px;
     margin-left: 35px;
 }
+.answer{
+    display:none;
+    margin:5px 0px 5px 40px;
+    font-size: 14px;
+}
+
+.answer ol, .answer li{
+    list-style: decimal inside none;
+}
+
+.submit_content ul, .submit_content li{
+    list-style: disc inside none;
+    margin-left: 10px;
+}
+
+.faq_title, .submit_title{
+    font-family: "kulturista-web", serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.faq_line{
+    margin-top: 0px;
+}
+
+.question{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #2989CA;
+    cursor: pointer;
+    margin:5px 0px 5px 20px;
+}
+
+.submit_button a .fake_button{
+    text-transform: uppercase;
+    width: 300px;
+    margin:auto;
+    font-size: 18px;
+}

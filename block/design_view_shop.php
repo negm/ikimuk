@@ -98,7 +98,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                 <div class="order_progress_count">
                     <div class="count_value"><?php echo $product->preorders; ?></div>
-                    <div class="count_text">Ordered this design</div>
+                    <div class="count_text">T-shirt ordered</div>
                 </div>
 
 
@@ -196,7 +196,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="comment_label"></div>
 
                         <div class="social_header">
-                            Drop your comment, toughts, support, be nice
+                            Show your support
                         </div>
 
                         <div class="social_body">

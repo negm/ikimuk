@@ -15,6 +15,8 @@ $competition->selectActive();
 include_once '../block/header.php';
 ?>
 <script>$(function(){
+    var img_list = new Array();
+
 var btnUpload=$('#upload_img');
 var status=$('#status');
 new AjaxUpload(btnUpload, {

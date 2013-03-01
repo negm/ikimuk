@@ -159,7 +159,7 @@
 			
                 <div class="order_ended_count" style="margin-top:20px;">
                     <div class="count_value"><?php echo $product->preorders; ?></div>
-                    <div class="count_text">Ordered this design</div>
+                    <div class="count_text">T-shirts ordered</div>
                 </div>
 		</div>
                         <!--End Of Block Column-->

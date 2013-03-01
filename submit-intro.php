@@ -72,55 +72,117 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                     <div class="std_block_body" style="margin:20px">
 		    <div style="margin:-20px 0px 20px -20px; width:570px" class="line_link">
                         <div class="link_holder">
-  <a href="/submission_terms.php">Terms &amp; Conditions</a>
+  <a href="/submission_terms.php" target="_blank">Terms &amp; Conditions</a>
                                     </div>
                                 </div>
                         <!--Start of submit content-->
                         <div class="submit_content">
-<span>1- The Great T-shirt Idea</span>
-Come up with an idea for what you want on a t-shirt. Be as creative as you possibly can!
+
+	<p>
+		After picking a theme, it's time to create your design.
+	</p>
+
+	<div>
+		<h2 class="submit_title">
+			1. Eureka, the T-shirt idea!
+		</h2> 
+
+		<div>
+			<p>
+				Come up with a mind-blowing idea for a T-shirt.
+			</p>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			2. Make it Digital
+		</h2>
+
+		<div>
+			<p>
+				Turn the idea into a design by using either Photoshop (*.psd) or Illustrator (*.ai).
+			</p>
+
+			<p>
+				Guidelines:
+			</p>
+
+			<ul>
+				<li>Your file should be high resolution (300 dpi).</li>
+				<li>Canvas size of 40 cm x 60 cm.</li>
+				<li>Maximum of 6 colors (with each color on a separate layer).</li>
+			</ul>
+		</div>
+	</div>
 
 
-<span>2- Make It Digital</span>
-Turn the idea into a design by using either Photoshop(*.psd) or Illustrator (*.ai).
+	<div>
+		<h2 class="submit_title">
+			3. Submit to a competition
+		</h2>
 
-Just to make sure your design won’t get bounced back to you, make sure it’s compatible with these 
-guidelines! 
+		<div> 
 
-	Guidelines: 
+			<p>
+				After you've made sure that your design is compatible with the guidelines, here's what's going to happen:
+			<p>
 
-	-Your file should be in high resolution (300 dpi)
-	-Canvas size of 40cm x 60cm 
-	-Maximum of 6 colors (with each color on a separate layer)
-	-Submit a jpeg web version of your design 
+		<ul>
+			<li>Submit a JPG web version of your design (RGB 300 px wide x 450 px tall).</li>
+			<li>We will confirm receipt of your design.</li>
+			<li>You will know if you made it through to the contest via email.</li>
+		</ul>
+
+			<p>
+				Your design will be rejected if:
+			</p>	
+
+			<ul>
+				<li>It has copyright infringement or is a duplicate submission.</li>
+				<li>It has offensive or inappropriate content.</li>
+				<li>The file you sent is damaged or the design needs more work.</li>
+			</ul>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			4. Promote your design
+		</h2>
+
+		<div>
+								<p>To get more orders, you can:</p>
+								<ul>
+				<li>Tweet about it.</li>  
+				<li>Share it.</li> 
+				<li>Mention it on your blog.</li>
+				<li>Tell your friends about it!</li>
+			</p>
+		</div>
+	</div> 
 
 
-<span>3- Submit It!</span>
-As soon as you’ve checked the guidelines, it’s time to send it to us at hello@ikimuk.com 
-We will let you know if your design made it through to the contest via email!
+	<div>
+		<h2 class="submit_title">
+		5. Reach for goals
+		</h2>
 
-You will only receive a rejection if:
+		<div>
+			<ul>
+				<li>
+						Goal 1 - 35 orders: Once you reach this goal, your design will get printed, and you will receive $50. If you are the first one to reach this goal in the competition, you receive an additional $50.
+				</li>
+				<li>
+		    Goal 2 - 75 orders: Once you reach this goal, you get an extra $100. If you are the first one to reach this goal in the competition, you receive an additional $50.
+				</li>
+			</ul>
 
-	-Your design has copyright infringement or is a duplicate submission
-	-Your design has offensive or inappropriate content 
-	-The file you sent is damaged or the design needs more work
-
-
-<span>4- Promote, Promote</span>
-If your design made it through to the contest, get your friends to preorder it so that your design 
-gets the attention it deserves
-
-
-<span>5- Let The Best Design Win</span>
-If your design gets the most preorders: 
-
-	- It gets printed and sold!	
-	- An upfront cash payment of 300$.
-	- Royalties of 3% on every T-shirt sold
-	- You get the T-Shirt for free, and sent to your front door
-
-Good luck and remember to have fun! If you have ANY questions please let us know and we’ll get 
-right back to you!  
+			<p>
+				By the end of the competition, if your design receives the most orders, you earn $100 on top of the money you made.
+			</p>
+		</div>
+	</div>
                                
                         </div>
                         <!--End of submit content-->

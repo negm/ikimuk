@@ -67,7 +67,7 @@
                   
                   <!--Start of footer links-->
                   <div class="footer_links">
-                      <div class="footer_link"> <a href="/">order at t-shirt</a></div>
+                      <div class="footer_link"> <a href="/">order a t-shirt</a></div>
                       <div class="pipe"></div>
                      <div class="footer_link"> <a href="/submit-intro.php">submit your design</a></div>
                         <div class="pipe"></div>

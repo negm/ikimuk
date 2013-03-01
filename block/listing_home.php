@@ -131,7 +131,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
                                                     </span>
                                                 <?php } else { ?>
                                                     <span class="entry_remaining_value"> 
-                                                        <?php echo $settings->goals[0] - $row["preorders"];?> orders untill T-shirt gets printed
+                                                        <?php echo $settings->goals[0] - $row["preorders"];?> orders until this T-shirt gets printed
                                                     </span>
                                                 <?php } ?>
                                             </div>

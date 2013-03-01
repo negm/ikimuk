@@ -92,7 +92,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                 <div class="order_progress_count">
                     <div class="count_value"><?php echo $product->preorders; ?></div>
-                    <div class="count_text">Ordered this design</div>
+                    <div class="count_text">T-shirts ordered</div>
                 </div>
 
 
@@ -190,7 +190,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="comment_label"></div>
 
                         <div class="social_header">
-                            Drop your comment, thoughts, support, be nice
+                            Show your support
                         </div>
 
                         <div class="social_body">
@@ -239,14 +239,14 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
                                     <input type="submit" value="ORDER"/>
     <?php } else { ?>
-                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">PRE-ORDER</div></a>
+                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">ORDER</div></a>
     <?php } ?>
                
                               
                           </div>
 
                             <div class="order_info">
-				       Your Pre-Order is only confirmed if this T-Shirt Design gets <?php echo $settings->goals[0]; ?> Pre-Orders before the end of the competition
+				       Your order is only confirmed if this T-Shirt Design gets <?php echo $settings->goals[0]; ?> orders before the end of the competition
                             </div>
 
 
@@ -272,6 +272,8 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                     </div>
                     <!--End Of Block Profile-->
+
+				       <div style="margin-left:40px"><b>Order soon and get more perks.</b></div>
 
 				       <!----------------------------------------------------------------> 
 <?php
