@@ -21,8 +21,11 @@ class settings {
     public $beta_base = 'http://beta.ikimuk.com/';
     public $prodction;
     public $audi_access_code = "1E5AADCC";
+    public $audi_access_code_preorder = "1E5AADCC";
     public $audi_secure_hash = "345F4F2AAB7FAE45B7DAD1DC025D47A9";
     public $audi_merchant_id = "TEST846401";
+    public $audi_merchant_id_preorder = "TEST846401";
+    public $audi_secure_hash_preorder = "345F4F2AAB7FAE45B7DAD1DC025D47A9";
     public $size_names = array("XS" => "X Small", "S" => "Small", "M" => "Medium", "L" => "Large", "XL" => "X Large", "XXL" => "XX Large");
     public $goals = array(35, 75, 76);
     public $goals_perks_add = array(" + stickers + certificate of awesomness", " + stickers", ".");
