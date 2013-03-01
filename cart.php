@@ -175,7 +175,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="cart_panel_label">
                                     <div class="panel_label_container">
-                                        <span> FAQ (Frequently Asked Question)</span>
+                                        <span> FAQ (Frequently Asked Questions)</span>
                                     </div>
                                 </div>
 
@@ -199,7 +199,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div>
                                         <div class="faq_link">
-                                            <a href="/faq.php?#sec3" target="_blank">Did you ever imagine that this project would be so successful ?</a>
+                                            <a href="/faq.php?#sec3" target="_blank">Who will deliver my order?</a>
                                         </div>
                                     </div>
                                 </div>
