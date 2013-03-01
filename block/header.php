@@ -98,8 +98,8 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
-<script src="/js/javascript.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script src="/js/javascript.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
 
 
 <!--[if lt IE 7]><style>
