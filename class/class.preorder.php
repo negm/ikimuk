@@ -59,6 +59,18 @@ class preorder {
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
+                $this->product_id = $oRow->product_id;
+                $this->address = $oRow->address;
+                $this->user_id;
+                $this->phone= $oRow->phone;
+                $this->price = $oRow->price;
+                $this->size = $oRow->size;
+                $this->country = $oRow->country;
+                $this->region = $oRow->region;
+                
+                $status_id;
+                $newsletter;
+                $comments;
 	}
          public function confirm_preorder()
         {
