@@ -3,7 +3,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.competition.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.artist.php";
 $pagetitle = "Submit your design";
-$selected = Array ("unselected","selected","unselected","unselected","unselected" );
 $competition = new competition();
 $competition->select_open_submission();
 $artist = new artist();
@@ -54,8 +53,8 @@ var img_list = new Array();
         });
     });</script>
 <?php
+$selected = Array ("unselected","selected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
-//include $_SERVER["DOCUMENT_ROOT"]."block/breadcrumb.php";
 ?>
 <div class="body">
     <div class="body_content">
