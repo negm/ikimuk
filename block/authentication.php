@@ -174,11 +174,9 @@
                        
                        
                        <div class="member_details">
-                        By clicking "join ikimuk", you agree to our
-                        <a href="#" target="_blank">Terms & Conditions</a>
-                        and
-                        <a href="#" target="_blank">Privacy Policy</a>
-                       </div>
+                        By clicking "JOIN US", you agree to our
+                        <a href="/terms.php" target="_blank">Terms & Conditions</a>
+                        </div>
                        
                        
                        <div class="member_join">

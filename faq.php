@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $settings = new settings();
-        
+$pagetitle="ikimuk | FAQ";
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
 
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
@@ -14,7 +14,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 Frequently asked questions (FAQ)
 </div>
 
-<h2 class="faq_title">About ikimuk</h2><hr class="faq_line" /> 
+<h2 id="sec1" class="faq_title">About ikimuk</h2><hr class="faq_line" /> 
 
 <div>
 	<h4 class="question">
@@ -120,7 +120,7 @@ Frequently asked questions (FAQ)
 	</div>
 </div> 
 
-<h2 class="faq_title">Payment</h2><hr class="faq_line" />
+<h2 id="sec2" class="faq_title">Payment</h2><hr class="faq_line" />
 
 <div>
 	<h4 class="question">
@@ -274,7 +274,7 @@ Frequently asked questions (FAQ)
 	</div>
 </div>
 
-<h2 class="faq_title">Shipping & Delivery Information</h2><hr class="faq_line" />
+<h2 id="sec3" class="faq_title">Shipping & Delivery Information</h2><hr class="faq_line" />
 
 
 <div>

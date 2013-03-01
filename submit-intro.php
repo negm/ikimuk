@@ -23,7 +23,12 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
 
         <!--Start of Submit theme section-->
         <div class="submit_theme">
-            <a href="/submit.php?competition=<?php echo $competition->id;?>">
+            <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
+                               <a href="/submit.php?competition=<?php echo $competition->id;?>">
+                            <?php } else { ?>
+                                <a href="#login" data-toggle="modal" style="text-decoration: none">
+                            <?php } ?>
+            
             <div class="theme_content std_block">
 
                 <div class="std_block_label">
@@ -36,8 +41,13 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
                 <div class="theme_date">Submit before <?php echo date("d/m/Y", strtotime($competition->submission_deadline)); ?></div>
             </div>
             </a>
-            <a href="/submit.php?competition=0">
-            <div class="theme_content marginl20 std_block">
+             <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
+                               <a href="/submit.php?competition=0">
+                            <?php } else { ?>
+                                <a href="#login" data-toggle="modal" style="text-decoration: none">
+                            <?php } ?>
+            
+             <div class="theme_content marginl20 std_block">
 
                 <div class="std_block_label">
 		<div class="label_box"><span class="label_title">Ongoing</span></div>

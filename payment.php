@@ -7,6 +7,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
+require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.message.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
 if (!isset($_SESSION))
 {
@@ -114,6 +115,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     $log = new KLogger($_SERVER["DOCUMENT_ROOT"], KLogger::INFO);
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
+        $hoax = uniqid();
         if (isset($_GET["type"]) && $_GET["type"] == "order")
         {
         $order->id = $_GET["merchTxnRef"];
@@ -132,6 +134,10 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $_SESSION["item_count"]=0;
         $_SESSION["subtotal"]=0;
         $_SESSION["total"]=0;
+        $hoax = uniqid();
+        $message = new message();
+        $message_body="Success! Your order has been processed. \n Expect your delivery in 1-2 weeks. \n Your tracking code is: $hoax - $order->id \n Should you have any concerns regarding your delivery, please email us at info@ikimuk.com \n Have a great day,\n The folks at ikimuk";
+        $message->send($user->email, "ikimuk order confirmation", $message_body);    
         header("Location: /index.php?payment=success&type=order");
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
@@ -147,6 +153,9 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $preorder_details->quantity = $row["quantity"];
                     $preorder_details->update_preorder_count();
                 }
+            $message = new message();
+            $message_body="Success! Your order is confirmed. \n We will notify you if this T-shirt gets printed. \n If You have any questions, please email us at hello@ikimuk.com, we will reply pronto.\n Have a great day,\n The folks at ikimuk";
+            $message->send($user->email, "ikimuk order confirmation", $message_body);    
             header("Location: /index.php?payment=success&type=preorder");
         }
     }

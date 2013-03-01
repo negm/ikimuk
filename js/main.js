@@ -217,7 +217,7 @@ $(document).ready(function(){
             if(!(password.val()===confirm_password.val()))//check password combination
             {
                 flag++;
-                confirm_password.parent().parent().find(".line_error").text("No combination");
+                confirm_password.parent().parent().find(".line_error").text("Passwords don't match");
             }
                    
         }

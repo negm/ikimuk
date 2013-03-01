@@ -12,9 +12,9 @@
 
                         <div class="links_section">
                         <div class="links_content">
-                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/index.php">ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive">Previous Competitions</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/competitions.php"> Previous Competitions </a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#"><?php echo $product->title; ?></a>
@@ -35,7 +35,7 @@
                     <div class="social_label">
                         <div class="social_label_content" style="width:190px">
 
-                            <div class="social_label_left" style="width:180px">Ended Competition</div>
+                            <div class="social_label_left" style="width:180px">Past Contestant</div>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@
                         <div class="comment_label"></div>
 
                         <div class="social_header">
-                            Drop your comment, thoughts, support, be nice
+                            Show your support
                         </div>
 
                         <div class="social_body">
@@ -179,8 +179,11 @@
 
                         <div class="profile_name"><?php echo $artist->name; ?></div> 
                         <div class="profile_address"><?php echo $artist->location; ?></div>
-                        <div class="profile_website"><?php echo $artist->website; ?></div>
-                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>"><?php echo $artist->twitter; ?></a></div>
+                        <?php if (strlen($artist->website)>1) {?>
+                        <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>
+                        <?php } if (strlen($artist->twitter)>1) {?>
+                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>" target="_blank"><?php echo $artist->twitter; ?></a></div>
+                        <?php }?>
 
                     </div>
                     <!--End Of Block Profile-->

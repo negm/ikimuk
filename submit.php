@@ -26,7 +26,7 @@ var img_list = new Array();
                 if (! (ext && /^(jpg|png|jpeg)$/.test(ext))){ 
 
                     // extension is not allowed 
-                    status.text('Only JPG, PNG files are allowed');
+                    $("#img_url").parent().parent().find(".line_error").text('Only JPG, PNG files are allowed');
                     return false;
                 }
                 status.text('Uploading...');
@@ -120,8 +120,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <!--Start of submit body-->
                     <div class="std_block_body">
                         <div class="upload_body_content">
-                            <span class="upload_info"> Choose the file(s) to display your design. Submit a JPG version for your design (RGB mode not
-                                CMYK), 300 px wide x 450 px tall. Maximum file size 250 KB.</span>
+                            <span class="upload_info"> Choose the file(s) to display your design. Submit a JPG or PNG version of your design (RGB), 300 px wide x 450 px tall. Maximum file size 250 KB.</span>
                             <ul id="files" class="thumb"></ul>
                             <div class="upload_holder">
                                 <input type="button" id="upload" value="UPLOAD FILE" style=""/>
@@ -237,7 +236,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <div class="terms_conditions">
                         <input type="checkbox" name="agree"/>
                         <span>I agree to ikimuk's </span>
-                        <a href="#">Terms & Conditions</a>
+                        <a href="/terms.php" target="_blank">Terms & Conditions</a>
                     </div>
                     <div class="line_error"></div>
                 </div>
