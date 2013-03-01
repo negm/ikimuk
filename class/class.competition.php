@@ -79,7 +79,7 @@ class competition {
                 $this->competition_order = $oRow->competition_order;
                 $this->end_date = $oRow->end_date;
                 $this->start_date = $oRow->start_date;
-                $this->submission_deadline = $oRow->ssubmission_deadline;
+                $this->submission_deadline = $oRow->submission_deadline;
 	}
 	public function selectActive() { // SELECT Function
 		// Execute SQL Query to get record.
@@ -108,7 +108,7 @@ class competition {
 	}
        public function getCompletedCompetitions()
        {
-           $sSQL = "SELECT * FROM competition WHERE end_date < Now() order by end_date desc;";
+           $sSQL = "SELECT * FROM competition WHERE end_date < Now() and id <> 0 order by end_date desc;";
            $this->database->query($sSQL);
        }
 	public function insert() {

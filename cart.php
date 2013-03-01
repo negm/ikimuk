@@ -5,6 +5,7 @@
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 session_start();
+$selected = Array ("unselected","unselected","unselected","unselected","selected" );
 if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $cart = null;
     $item_count = 0;
@@ -53,7 +54,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
         
           <div class="links_section">
                         <div class="links_content">
-                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/index.php">ikimuk</a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#">Cart</a>

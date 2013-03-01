@@ -5,6 +5,7 @@
  * State the different verification cases here
  * 
  */
+$selected = Array ("selected","unselected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"].'/block/logged_in.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.product.php';
@@ -72,9 +73,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                     <div class="links_section">
                         <div class="links_content">
-                            <div class="link_deactive">ikimuk</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/index.php"> ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive">Cart</div>
+                            <div class="link_deactive"><a class="link_deactive" href="/design/<?php echo $product->id."/".str_replace(" ","-",trim($product->title));?>"><?php echo $product->title;?></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#">Checkout</a>

@@ -3,7 +3,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.competition.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.artist.php";
 $pagetitle = "Submit your design";
-$active_menu = "submit";
+$selected = Array ("unselected","selected","unselected","unselected","unselected" );
 $competition = new competition();
 $competition->select_open_submission();
 $artist = new artist();

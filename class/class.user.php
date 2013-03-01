@@ -68,7 +68,7 @@ class user {
 		// Execute SQL Query to get record.
             	$this->database->OpenLink();
                 $this->email = mysqli_escape_string($this->database->link, strtolower($this->email));
-                $sSQL = "SELECT * FROM user WHERE email = $this->email;";
+                $sSQL = "SELECT * FROM user WHERE email = '$this->email';";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		$oRow = mysqli_fetch_object($oResult);
@@ -170,7 +170,9 @@ class user {
         {
             $this->database->OpenLink();
             $this->password = mysqli_real_escape_string($this->database->link, $this->password);
-            $sSQL = "UPDATE user SET password=$this->password WHERE id=$this->id;";
+            $sSQL = "UPDATE user SET password='$this->password' WHERE id=$this->id;";
+            $oResult = $this->database->query($sSQL);
+            $sSQL = "Select * from  user Where password='$this->password' and id=$this->id;";
             $oResult = $this->database->query($sSQL);
             if ($this->database->rows > 0)
                 return true;
@@ -181,18 +183,20 @@ class user {
         {
             $code = uniqid($this->id, true);
             $expire_date = time()+24*60*60;
-            $sSQL="INSERT INTO `password_reset` (code, expire_date, user_id) VALUES($code,$expire_date,$this->id);";
+            $expire_date = date("Y-m-d H:i:s", $expire_date);
+            $sSQL="INSERT INTO `password_reset` (code, expire_date, user_id) VALUES('$code','$expire_date',$this->id);";
             $this->database->query($sSQL);
             return $code;
         }
         public function check_reset_code($code)
         {
-            $sSQL = "SELECT * from `password_reset` pwd INNER JOIN `user` u ON pwd.user_id = u.id WHERE pwd.code=$code AND expire_date > now();";
+            $sSQL = "SELECT * from `password_reset` pwd INNER JOIN `user` u ON pwd.user_id = u.id WHERE pwd.code='$code' AND expire_date > now() LIMIT 1;";
             $oResult = $this->database->query($sSQL);
             $oResult = $this->database->result;
             if ($this->database->rows == 1)
             {
-                 $this->id = $oRow->user_id;
+                $oRow = mysqli_fetch_object($oResult);
+                $this->id = $oRow->user_id;
                 $this->name            = $oRow->name;
                 $this->email           = $oRow->email;
                 $this->validated_mobile= $oRow->validated_mobile;
@@ -200,11 +204,11 @@ class user {
                 $this->image           = $oRow->image;
                 $this->newsletter      = $oRow->newsletter;
                 $this->points          = $oRow->points;
-                return true;
+                return $this->database->rows;
             }
             else
-                return false;
-            
+                return $this->database->rows;
+          
         }
 
         public function is_email_used()

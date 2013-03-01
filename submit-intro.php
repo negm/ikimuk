@@ -4,6 +4,7 @@
  * and open the template in the editor.
  * 
  */
+$selected = Array ("unselected","selected","unselected","unselected","unselected" );
 $pagetitle = "Submit Guidelines";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
@@ -208,7 +209,7 @@ $daysLeft = floor((strtotime($competition->submission_deadline) - time()) / (60 
 
             </div>
 
-            <div class="theme_panel"></div>
+            <div class="theme_panel"><img src="/images/submission-side-image.jpg"></div>
 
         </div>
 
