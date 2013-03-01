@@ -50,12 +50,14 @@ class preorder {
 	
 	public function select($mID) { // SELECT Function
 		// Execute SQL Query to get record.
-            $this->database->OpenLink();
-            $mID = mysqli_real_escape_string($this->database->link,$mID);
+                $this->database->OpenLink();
+                $mID = mysqli_real_escape_string($this->database->link,$mID);
 		$sSQL = "SELECT * FROM preorder WHERE id = $mID;";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysqli_fetch_object($oResult);
+		if ($this->database->rows >0)
+		{
+                $oRow = mysqli_fetch_object($oResult);
 		
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
@@ -67,10 +69,12 @@ class preorder {
                 $this->size = $oRow->size;
                 $this->country = $oRow->country;
                 $this->region = $oRow->region;
-                
-                $status_id;
-                $newsletter;
-                $comments;
+                $this->status_id = $oRow->status_id;
+                $this->newsletter = $oRow->newsletter;
+                $this->comments  = $oRow->comments;
+                }
+                else
+                    $this->id = null;
 	}
          public function confirm_preorder()
         {

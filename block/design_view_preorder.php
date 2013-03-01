@@ -267,13 +267,15 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                         <div class="profile_name"><?php echo $artist->name ?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
-                        <div class="profile_website"><?php echo $artist->website ?></div>
-                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>"><?php echo $artist->twitter; ?></a></div>
-
+                        <?php if (strlen($artist->website)>1) {?>
+                        <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>
+                        <?php } if (strlen($artist->twitter)>1) {?>
+                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>" target="_blank"><?php echo $artist->twitter; ?></a></div>
+                        <?php }?>
                     </div>
                     <!--End Of Block Profile-->
 
-				       <div style="margin-left:40px"><b>Order soon and get more perks.</b></div>
+				       <div style="margin-left:40px"><b>Order fast and get more perks.</b></div>
 
 				       <!----------------------------------------------------------------> 
 <?php

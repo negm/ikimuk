@@ -183,21 +183,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div> 
                                         <div class="faq_link">
-                                            <a href="#">Did you ever imagine that this project would be so successful ?</a>
+                                            <a href="/faq.php?#sec1" target="_blank">How does it work?</a>
                                         </div>
                                     </div>
 
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div>
                                         <div class="faq_link">
-                                            <a href="#">Since this project has far surpassed your expectation .. can you still deliver on your Dec. 18 Guarantee ? HOW !?</a>
+                                            <a href="/faq.php?#sec2" target="_blank">How do I pay?</a>
                                         </div>
                                     </div>
 
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div>
                                         <div class="faq_link">
-                                            <a href="#">Did you ever imagine that this project would be so successful ?</a>
+                                            <a href="/faq.php?#sec3" target="_blank">Did you ever imagine that this project would be so successful ?</a>
                                         </div>
                                     </div>
                                 </div>

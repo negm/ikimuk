@@ -465,11 +465,11 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                                 <div class="shipping_content">
                                     <div class="radio_holder"><input type="radio" checked="checked"/></div>
-                                    <div class="ads_text">  Aramex International Priority(2-5 business days)</div>
-                                    <div class="logo_holder"><img src="/img/ikimuk_aramex.png"/></div>
+                                    <div class="ads_text">  Aramex International Priority</div>
+                                    <!--<div class="logo_holder"><img src="/img/ikimuk_aramex.png"/></div>-->
                                     <div class="fee_content">
-                                        Custom fees and additional fees may apply for international shipments.
-                                        Please contact your local customs office for more information.
+                                        We will start shipping your order one week after the competition has ended. It
+                                        will then take (1 -5) business days to arrive to your home.
                                     </div>
                                 </div>
 
@@ -488,7 +488,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                             <div class="agreement">
                                 <div class="terms_conditions">
                                     <input type="checkbox" name="agree"/>I agree to ikimuk's 
-                                    <a href="#">Terms &amp; Conditions</a>
+                                    <a href="/terms.php" target="_blank">Terms &amp; Conditions</a>
                                 </div>
                                 <div class="line_error"></div>
                             </div>
@@ -533,7 +533,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">pre-order Summary</span>
+                                    <span class="label_title">order Summary</span>
                                 </div>
                             </div>
 
@@ -549,7 +549,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                 <div class="preorder_content">
                                 </div>
                                 <div class="empty_pre_order">
-                                    <span class="empty_message">PLEASE CHOOSE AT LEAST ONE T-SHIRT</span>
+                                    <span class="empty_message">PLEASE CHOOSE YOUR SIZE</span>
                                 </div>
 
                                 <div class="summary_sub_total">
@@ -583,7 +583,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                       
 
                         <div class="block_information">
-                         Your Order is only confirmed if this T-Shirt Design gets at least <?php echo $settngs->goals[0]; ?> 
+                         Your Order is only confirmed if this T-Shirt Design gets at least <?php echo $settings->goals[0]; ?> 
                          Orders by end of competition. We will reserve
                          the amount on your card. If there aren’t enough orders, the pre-authorization
                          on your card gets cancelled.

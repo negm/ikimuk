@@ -188,6 +188,9 @@ function signup()
         login_user($user);
         $error = "";
         $result = json_encode(array("error"=>$error));
+        $message = new message();
+        $message_body="Hello $user->name, \n Use the following link to reset your password: $settings->root"."reset_password.php?code=".urlencode($code);
+        $message->send($user->email, "ikimuk registeration confirmation", $message_body);
         print_r($result);
         return; 
      }
@@ -275,7 +278,7 @@ function reset_password()
         {
             $code = $user->insert_reset_code();
             $message = new message();
-            $message_body="Hello $user->name \n use the following link to reset your password $settings->root"."reset_password.php?code=".urlencode($code);
+            $message_body="Hello $user->name, \n Use the following link to reset your password: $settings->root"."reset_password.php?code=".urlencode($code);
             $message->send($user->email, "ikimuk Password Reset", $message_body);
             $result = json_encode(array("error"=>$error));
             print_r($result);

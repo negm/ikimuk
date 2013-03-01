@@ -384,9 +384,11 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                         <div class="profile_name"><?php echo $artist->name ?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
-                        <div class="profile_website"><?php echo $artist->website ?></div>
-                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>"><?php echo $artist->twitter; ?></a></div>
-
+                        <?php if (strlen($artist->website)>1) {?>
+                        <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>
+                        <?php } if (strlen($artist->twitter)>1) {?>
+                        <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>" target="_blank"><?php echo $artist->twitter; ?></a></div>
+                        <?php }?>
                     </div>
                     <!--End Of Block Profile-->
 
@@ -473,3 +475,29 @@ for ($i=0; $i < count($settings->goals); $i++){
         <!--End of shop container-->
     </div>
     <!--End of body content-->
+
+    
+
+    <!-- Start of Reset part-->
+<div id="item_added" class="modal hide fade member" data-backdrop="static">
+           <div class="member_content">
+                <!--Start of member header-->
+                 <div class="member_header">  
+                         <div class="member_title_box"><div class="member_title">Item Added!</div></div>
+                          <div class="member_close">
+                                <a href="#" data-dismiss="modal" aria-hidden="true">
+                                <img src="/images/ikimuk_disabled_close.png"/></a>
+                           </div>
+               <div class="member_body std_block_body">
+                   <div class="preorder_content">
+                                <div class="pre_order">
+                                    <div class="pre_order_avatar">
+                                        <img src="<?php echo $product->image;?>"></div>
+                                        </div>
+                   </div>
+                        </div>
+                </div>
+          <!--End of member content-->
+           </div>
+</div>
+    <!-- End of Reset part-->

@@ -217,7 +217,7 @@ $(document).ready(function(){
             if(!(password.val()===confirm_password.val()))//check password combination
             {
                 flag++;
-                confirm_password.parent().parent().find(".line_error").text("No combination");
+                confirm_password.parent().parent().find(".line_error").text("Passwords don't match");
             }
                    
         }
@@ -1034,7 +1034,7 @@ var size="";
             str+='<input type="hidden" name="category" value="'+category+'"/><input type="hidden" name="size" value="'+size+'"/>';
             str+='<input type="hidden" name="count" value="1"/><input type="hidden" name="price" value="25"/>';
             str+='<div class="pre_order_avatar"><img src="'+$("#product_image").val()+'"/></div><div class="pre_order_description">';
-            str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="img/ikimuk_snowstar_blue.png"/>';
+            str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="/img/ikimuk_snowstar_blue.png"/>';
             str+='</div><div class="pre_order_price">$ 25.00 </div><div class="pre_order_close"></div></div>';
             $(".pre_order_summary .std_block_body .preorder_content").append(str);//add new entry to cart
             $(".order_submit").find("input[name='category']").val("");//Reset category
