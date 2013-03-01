@@ -478,7 +478,7 @@ cursor: pointer;
 .competition_container .entry{
     float:left;
     width:286px;/*300px but border, 2px left+ 2px right*/
-    height:436px;/*440px but border, 2px top+ 2px bottom*/
+    height:464px;/*440px but border, 2px top+ 2px bottom*/
     margin-left:10px;
     background-color: transparent;
     border:2px solid #CCCCCC;
@@ -487,7 +487,7 @@ cursor: pointer;
 }
 
 .previous_competition_section .entry{
-    height: 396px;
+    height: 410px;
 }
 
 .entry .entry_option{
@@ -534,7 +534,7 @@ cursor: pointer;
 
 .entry .entry_avatar{
     float:left;
-    height:320px;
+    height:353px;
     width:286px;
     cursor: pointer;
 }
@@ -545,7 +545,7 @@ cursor: pointer;
     filter: alpha(opacity=0);
     -moz-opacity: 0;
     -khtml-opacity: 0;
-    height: 320px;
+    height: 362px;
     position: absolute;
     width: 286px;
     display:none;

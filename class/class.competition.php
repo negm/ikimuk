@@ -89,11 +89,13 @@ class competition {
 	}
         public function select_open_submission() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM competition WHERE submission_open =1;";
+		$sSQL = "SELECT * FROM competition WHERE submission_open =1 and start_date > NOW();";
                 $oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysqli_fetch_object($oResult);
 		
+                 if ($this->database->rows > 0)
+            {
+                $oRow = mysqli_fetch_object($oResult);
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
                 $this->title = $oRow->title;
@@ -104,6 +106,11 @@ class competition {
                 $this->end_date = $oRow->end_date;
                 $this->start_date = $oRow->start_date;
                 $this->submission_deadline = $oRow->submission_deadline;
+            }
+            else{
+                $this->id =null;
+                return false;
+            }
                 
 	}
        public function getCompletedCompetitions()

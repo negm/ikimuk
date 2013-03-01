@@ -6,6 +6,10 @@ if (!isset($_SESSION))
 {
     session_start ();
 }
+if(isset($_GET["promo_code"]))
+{
+$_SESSION["promo_code"]= $_GET["promo_code"];
+}
 if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
 {
     include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
@@ -80,7 +84,8 @@ ob_implicit_flush(0);
 <meta property="og:determiner" content="a" />
 <script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<!--<link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet"/>
 <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-light/light.css" type="text/css" media="screen" />
@@ -88,7 +93,8 @@ ob_implicit_flush(0);
 
 
 <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
-<script src="/js/bootstrap.js"></script>
+<!--<script src="/js/bootstrap.js"></script>-->
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
