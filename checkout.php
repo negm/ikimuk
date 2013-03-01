@@ -267,7 +267,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="shipping_content">
                                     <div class="radio_holder"><input type="radio" checked="checked"/></div>
                                     <div class="ads_text">  Aramex International Priority(2-5 business days)</div>
-                                    <div class="logo_holder"><img src="img/ikimuk_aramex.png"/></div>
+                                    <!--<div class="logo_holder"><img src="img/ikimuk_aramex.png"/></div>-->
                                     <div class="fee_content">
                                         Custom fees and additional fees may apply for international shipments.
                                         Please contact your local customs office for more information.
@@ -289,7 +289,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                             <div class="agreement">
                                 <div class="terms_conditions">
                                     <input type="checkbox" name="agree"/>I agree to ikimuk's 
-                                    <a href="#">Terms &amp; Conditions</a>
+                                    <a href="/terms.php" target="_blank">Terms &amp; Conditions</a>
                                 </div>
                                 <div class="line_error"></div>
                             </div>
