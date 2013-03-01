@@ -8,7 +8,7 @@ $competition->select_open_submission();
 $artist = new artist();
 $artist->user_id = $_SESSION["user_id"];
 $artist->select_by_user_id();
-$selected = isset($_GET["competition"])? $_GET["competition"]:0;
+$selected_comp = isset($_GET["competition"])? $_GET["competition"]:0;
 include_once $_SERVER["DOCUMENT_ROOT"] . '/block/header.php';
 ?>
 <script>//upload ajax
@@ -84,7 +84,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <div class="std_block_body type_body">
 
                         <?php
-                            if ($selected == $competition->id){
+                            if ($selected_comp == $competition->id){
                             echo '<div class="type_select"><input type="radio" name="competition_type" value="'
                             . $competition->id . '" checked="checked"/>   ' . $competition->title .
                             "  submit before " . date("d/m/Y", strtotime($competition->submission_deadline)) . '</div>';
