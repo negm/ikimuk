@@ -6,7 +6,7 @@
 //show the goodies :D  
 ?>
 <div class="body">
-    <form action="/preorder/<?php echo $product->id."/".str_replace(" ","-",trim($product->title))?>" method="get">
+    <form action="/preorder/<?php echo $product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title)))?>" method="get">
     <div class="body_content">
         
             <!--Start Of order progress-->
