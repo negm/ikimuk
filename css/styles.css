@@ -2058,10 +2058,17 @@ cursor: pointer;
     margin-left: 44px;
 }
 
-#join, #login{
+#join, #login, #reset{
     margin-left: -133px;
 }
-
+#reset{
+    border-radius: none;
+    height: 210px;
+    width: 368px;
+}
+#reset .member_content{
+    height:210px;
+}
 .member_header .member_close{
     float:right;
     height:10px;

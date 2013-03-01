@@ -51,11 +51,6 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                             <div class="login_header">
                                 <div class="login_arrow"></div>
                                 <div class="login_name">Hello, <b><?php echo $_SESSION["user_name"]; ?></b></div>
-                                <?php if (isset($_SESSION["fbid"])&& strlen($_SESSION["fbid"])>4){?>
-                                <div class="login_avatar"><img src="https://graph.facebook.com/<?php echo $_SESSION["fbid"];  ?>/picture"/></div>
-                                <?php } else {?>
-                                <!--<div class="login_avatar"><img src="/images/avatar_30.png"/></div>-->
-                                <?php } ?>
                                 
 
                             </div> 

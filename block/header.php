@@ -58,9 +58,9 @@ ob_start();
 ob_implicit_flush(0);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
