@@ -649,7 +649,7 @@ cursor: pointer;
 }
 
 
-.flags_container .flag_container .flag_medal{
+.flags_container .flag_container .flag_medal, .cart_element_option{
     width:100%;
     height:30px;
     background: url('../img/ikimuk_medal.png') no-repeat;
@@ -685,21 +685,21 @@ cursor: pointer;
 .flag_container.margin_l_400{margin-left:370px;}
 
 .flag_container.flag_cyan{background-image:url('../img/ikimuk_half_bottom_cyan.png');color: #6AD9D8;}
-.flag_container.flag_cyan .flag_medal{background-color: #6AD9D8;}
+.flag_container.flag_cyan .flag_medal, .cart_element_option_cyan{background-color: #6AD9D8;}
 
 .flag_container.flag_green{background-image:url('../img/ikimuk_half_bottom_green.png');color: #C2E05F;}
-.flag_container.flag_green .flag_medal{background-color: #C2E05F;}
+.flag_container.flag_green .flag_medal, .cart_element_option_green{background-color: #C2E05F;}
 
 .flag_container.flag_yellow{background-image:url('../img/ikimuk_half_bottom_yellow.png');color: #FFE000;}
-.flag_container.flag_yellow .flag_medal{background-color: #FFE000;}
+.flag_container.flag_yellow .flag_medal, .cart_element_option_yellow{background-color: #FFE000;}
 
 .flag_container.flag_firebrick{background-image:url('../img/ikimuk_half_bottom_firebrick.png');color: #FE705D;}
-.flag_container.flag_firebrick .flag_medal{background-color: #FE705D;}
+.flag_container.flag_firebrick .flag_medal, .cart_element_option_firebrick{background-color: #FE705D;}
 
 .flag_container.flag_magenta{background-image:url('../img/ikimuk_half_bottom_magenta.png');color: #A1529D;}
-.flag_container.flag_magenta .flag_medal{background-color: #A1529D;}
+.flag_container.flag_magenta .flag_medal, .cart_element_option_magenta{background-color: #A1529D;}
 
-.flag_container.flag_red .flag_medal{background-color: #EF4050;}
+.flag_container.flag_red .flag_medal, .cart_element_option_red{background-color: #EF4050;}
 
 
 
@@ -1778,7 +1778,7 @@ cursor: pointer;
     float:left;
     margin:0px 10px 10px 10px;
     width:346px;
-    height:80px;
+    min-height:80px;
     background-color: #EAEAEA;
 }
 .std_block_body .cart_element >div{
@@ -1792,7 +1792,9 @@ cursor: pointer;
 }
 .std_block_body .cart_element .cart_element_description{
     width:150px;
-    margin-top:30px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    font-size: 13px;
 }
 .std_block_body .cart_element .cart_element_option{
     width:30px;
@@ -1803,7 +1805,7 @@ cursor: pointer;
     width:55px;
     text-align: right;
     margin-top:30px;
-    font-size: 17px;
+    font-size: 14px;
 }
 .std_block .std_block_body .summary_sub_total{
     width:100%;
@@ -1857,7 +1859,7 @@ cursor: pointer;
     float:left;
     margin:0px 10px 10px 10px;
     width:346px;
-    height:80px;
+    min-height:80px;
     background-color: #EAEAEA;
 }
 .std_block_body .empty_pre_order .empty_message{
@@ -1938,9 +1940,8 @@ cursor: pointer;
     margin-top: -5px;
 }
 .std_block_body .t_shirt_option .cart_body{margin-top:40px;float:left;}
-.std_block_body .pre_order >div{
-    float:left;
-    margin-left:10px;
+.std_block_body .pre_order td{
+    padding:5px;
 }
 .std_block_body .pre_order .pre_order_avatar{
     width:60px;
@@ -1948,8 +1949,10 @@ cursor: pointer;
     margin-top:10px;
 }
 .std_block_body .pre_order .pre_order_description{
-    width:85px;
-    margin-top:30px;
+    width:205px;
+    font-size: 13px;
+    margin-top:10px;
+    margin-bottom: 10px;
 }
 .std_block_body .pre_order .pre_order_option{
     width:30px;
@@ -1960,7 +1963,7 @@ cursor: pointer;
     width:55px;
     text-align: right;
     margin-top:30px;
-    font-size: 17px;
+    font-size: 13px;
 }
 .std_block_body .pre_order .pre_order_close{
     width:63px;
@@ -2431,6 +2434,20 @@ cursor: pointer;
 .input_submit:hover{
     background-color: #E13E5D;  
 }
+.aboutus .blue_part{
+    margin-top:10px;
+    line-height: 24px;
+}
+.quote{
+    margin-top:25px;
+}
+.sq{
+    width:310px;
+    margin: auto;
+    height:130px;
+    clear:both;
+    padding-top:30px;
+}
 
 
 
@@ -2526,4 +2543,51 @@ input[type="submit"]:hover,input[type="button"]:hover,button:hover, .fake_button
     width: 300px;
     margin:auto;
     font-size: 18px;
+}
+
+.tumblr{
+    background-image: url(/images/ikimuk_tumblr_footer.png);
+}
+
+.mail{
+    background-image: url(/images/ikimuk_contact_footer.png);
+}
+
+.youtube{
+    background-image: url(/images/ikimuk_youtube_footer.png);
+}
+
+.twitter{
+    background-image: url(/images/ikimuk_twitter_footer.png);
+}
+
+.facebook{
+    background-image: url(/images/ikimuk_facebook_footer.png);
+}
+
+.tumblr:hover{
+    background-image: url(/images/ikimuk_tumblr_footer_hover.png);
+}
+
+.mail:hover{
+    background-image: url(/images/ikimuk_contact_footer_hover.png);
+}
+
+.youtube:hover{
+    background-image: url(/images/ikimuk_youtube_footer_hover.png);
+}
+
+.twitter:hover{
+    background-image: url(/images/ikimuk_twitter_footer_hover.png);
+}
+
+.facebook:hover{
+    background-image: url(/images/ikimuk_facebook_footer_hover.png);
+}
+
+.entry_goal_text ul, .entry_goal_text li{
+    font-size: 14px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    list-style: disc inside none;
+    margin-left: 5px;
 }

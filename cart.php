@@ -112,11 +112,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                          <div class="entry_description_type">  <?php echo $cart_item["cut"]."";
-                                              echo "&nbsp;(".$cart_item["size"].")"; ?> </div>
+                                          <div class="entry_description_type">  <?php echo $settings->size_names[$cart_item["size"]] . " " .$cart_item["cut"]."s T-shirt";
+                                               ?> </div>
                                           <div class="entry_description_details"> 
 						<div class="flags_container"><div class="flag_container flag_<?php echo $settings->goals_colors[$cart_item['goal']-1]; ?>" style="background-image:none"><div class="flag_medal"></div></div></div>
-						<div class="entry_goal_text">Goal <?php echo $cart_item["goal"]; ?> Perks</div>
+						<div class="entry_goal_text">Goal <?php echo $cart_item["goal"]; ?> Perks:<br/>
+					      <?php echo $settings->goals_perks[$cart_item["goal"]-1]; ?>
+						</div>
                                           </div>  
                                         </div>
 
@@ -217,7 +219,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         <!--shipment section-->
                         <div class="line_payment shipment">
                             <span class="type">Shipping Estimate:</span>
-                            <span id="shipping_text" class="payment_shipment"><?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
+                            <span id="shipping_text" class="payment_shipment">$<?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
                             <input id="checkout_shipping" type="hidden" name="payment_shipment" value="<?php echo number_format($_SESSION["delivery_charge"], 2); ?>"/>
                         </div>
                         <!--total section-->

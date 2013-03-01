@@ -351,11 +351,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                         </div>    
 
                                         <div class="cart_element_description">
-                                            <?php echo $cart_item["cut"]." ". $cart_item["quantity"]." ".$cart_item["size"]; ?>
+                                            <?php echo "<b>" . $cart_item["product_title"] . "</b><br/>" .$cart_item["quantity"] . " " . $settings->size_names[$cart_item["size"]] . " " . $cart_item["cut"]."s T-shirt " . $settings->goals_perks_add[$cart_item["goal"]-1]; ?>
                                         </div>
 
-                                        <div class="cart_element_option">
-                                            <img src="img/ikimuk_snowstar_blue.png"/>
+                                        <div class="cart_element_option cart_element_option_<?php echo $settings->goals_colors[$cart_item["goal"]-1]; ?>">
+         
                                         </div>
 
                                         <div class="cart_element_price">

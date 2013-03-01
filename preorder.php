@@ -227,6 +227,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                     <div class="order_submit">
                                         <input type="hidden" name="category" value=""/>
                                         <input type="hidden" name="size" value=""/>
+  <input type="hidden" name="perks" id="preorder-perks" value="<?php echo $settings->goals_perks_add[0]; ?>"/>
                                         <div class="add_t_shirt">
                                             <span >ADD T-SHIRT</span>
                                         </div>

@@ -993,13 +993,14 @@ var size="";
          
     }
 
-
+    var size_translator_object ={"XS" : "X Small", "S" : "Small", "M" : "Medium", "L" : "Large", "XL" : "X Large", "XXL" : "XX Large"};
     $(".t_shirt_option .order_submit").click(function(){
         
         $(".t_shirt_info .t_shirt_error").empty();//Clear the error field.
         
         var category=$(".order_submit").find("input[name='category']").val();//Get selected category
-        var size=$(".order_submit").find("input[name='size']").val();//Get selected size
+	var perks = $("#preorder-perks").val();
+        var size= size_translator_object[$(".order_submit").find("input[name='size']").val()];//Get selected size
         var product_id = $("#product_id").val();
         var flag_exist=false;
         var arr = new Array();
@@ -1013,7 +1014,7 @@ var size="";
                     new_count++;//increase by 1
                     $(this).find("input[name='count']").val(new_count);
                     
-                    var content=category+'\'s('+new_count+size+')';
+                    var content=new_count + " " +size+" " +category+' T-shirt'+perks;
                     $(this).find(".pre_order_description").text(content);//Upate the description
                     $(".order_submit").find("input[name='category']").val("");//Reset category
                     $(".order_submit").find("input[name='size']").val("");//Reset size       
@@ -1033,9 +1034,9 @@ var size="";
             var str='<div class="pre_order">';
             str+='<input type="hidden" name="category" value="'+category+'"/><input type="hidden" name="size" value="'+size+'"/>';
             str+='<input type="hidden" name="count" value="1"/><input type="hidden" name="price" value="25"/>';
-            str+='<div class="pre_order_avatar"><img src="'+$("#product_image").val()+'"/></div><div class="pre_order_description">';
-            str+=category+'\'s('+size+')</div><div class="pre_order_option"><img src="img/ikimuk_snowstar_blue.png"/>';
-            str+='</div><div class="pre_order_price">$ 25.00 </div><div class="pre_order_close"></div></div>';
+            str+='<table><tbody><tr><td class="pre_order_avatar"><img width=60 src="'+$("#product_image").val()+'"/></td><td class="pre_order_description">';
+            str+=size+' ' +category+' T-shirt'+perks+'</td>';
+            str+='<td class="pre_order_close"></td></tr></tbody></table></div>';
             $(".pre_order_summary .std_block_body .preorder_content").append(str);//add new entry to cart
             $(".order_submit").find("input[name='category']").val("");//Reset category
             $(".order_submit").find("input[name='size']").val("");//Reset size       
@@ -1061,7 +1062,7 @@ var size="";
     
     
     $("body").delegate(".pre_order_close", "click", function(e) {
-        $(this).parent().remove();//remove block
+        $(this).parent().parent().parent().parent().remove();//remove block
 
         RefreshPreorderPrices();//Update Prices
     });
