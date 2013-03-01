@@ -154,7 +154,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                         <input type="hidden" name="flag" value="<?php echo $selected[3];?>"/>
                         <!--This to set a link to go for when the user click-->
-                        <input type="hidden" name="link" value="about/index.php"/>
+                        <input type="hidden" name="link" value="/about-us.php"/>
 
                         <div class="menu_content">
                             <div class="about">
