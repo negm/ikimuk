@@ -65,7 +65,7 @@ class settings {
             $this->app_id = "299742366741440";
             $this->app_secret = "2369fc592909a16047bbce32bd75e23d";
             $this->root = "http://localhost:8080/";
-            $this->prodction = false;
+            $this->prodction = true;
         } else
         if (strpos($this->site_url, 'staging')) {
             $this->config = array(
@@ -80,7 +80,7 @@ class settings {
             $this->app_id = "151265838265960";
             $this->app_secret = "945fc91fd23a7e3cf56c9473fe813e63";
             $this->root = 'http://staging.phennec.com/';
-            $this->prodction = false;
+            $this->prodction = true;
         } else {
             $this->config = array(
                 'database' => 'ikimukfinal',
@@ -94,7 +94,7 @@ class settings {
             $this->app_id = "140388549312943";
             $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
             $this->root = $_SERVER['HTTP_HOST'] . '/';
-            $this->prodction = false;
+            $this->prodction = true;
         }
 
         $this->fbPermissions = 'publish_stream,email,publish_actions,offline_access';
