@@ -254,6 +254,9 @@ function reset_password()
     if (!isset($_POST["email"]))
     {
     $error = "No email provided";
+    $result = json_encode(array("error"=>$error));
+    print_r($result);
+    return;
     }
     else
     {

@@ -71,8 +71,9 @@ class user {
                 $sSQL = "SELECT * FROM user WHERE email = '$this->email';";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
-		$oRow = mysqli_fetch_object($oResult);
-		
+		 if ($this->database->rows >0)
+		{
+                $oRow = mysqli_fetch_object($oResult);
 		// Assign results to class.
 		$this->id = $oRow->id; // Primary Key
                 $this->fbid            = $oRow->fbid;
@@ -83,6 +84,9 @@ class user {
                 $this->image           = $oRow->image;
                 $this->newsletter      = $oRow->newsletter;
                 $this->points          = $oRow->points;
+                }
+                else
+                    $this->id = null;
 	}
         public function selectbyfb() { // SELECT Function
 		// Execute SQL Query to get record.
