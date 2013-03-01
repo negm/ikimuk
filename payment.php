@@ -23,10 +23,10 @@ if (!$order_id) {
     $return_url = $settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=order";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
     $vpc_secure = strtoupper(md5($settings->audi_secure_hash.$settings->audi_access_code .
-                    $_SESSION["total"]*100 . $order_id . $settings->audi_merchant_id . $order_info . $return_url));
+                    $_SESSION["total"]*100 . "O".$order_id . $settings->audi_merchant_id . $order_info . $return_url));
     $redirect_url = "https://gw1.audicards.com/TPGWeb/payment/prepayment.action?" .
             "accessCode=" . urlencode($settings->audi_access_code) . "&amount=" . urlencode($_SESSION["total"]*100)
-            . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id) .
+            . "&merchTxnRef=" . urlencode("O".$order_id) . "&merchant=" . urlencode($settings->audi_merchant_id) .
             "&orderInfo=" . urlencode($order_info) . "&returnURL=" . urlencode($return_url) . "&vpc_SecureHash=" . $vpc_secure;
 //    echo $vpc_secure . '<br>' . $redirect_url;
     header("Location: " . $redirect_url);
@@ -50,10 +50,10 @@ if (!$order_id) {
     $return_url = $settings->root . "payment.php?xrf=" . $_SESSION["csrf_code"]."&action=py&type=preorder";
     $order_info = $_SESSION["item_count"] . " items purchased from ikimuk.com";
     $vpc_secure = strtoupper(md5($settings->audi_secure_hash_preorder.$settings->audi_access_code_preorder .
-                    $total*100 . $order_id . $settings->audi_merchant_id_preorder . $order_info . $return_url));
+                    $total*100 . "P".$order_id . $settings->audi_merchant_id_preorder . $order_info . $return_url));
     $redirect_url = "https://gw1.audicards.com/TPGWeb/payment/prepayment.action?" .
             "accessCode=" . urlencode($settings->audi_access_code_preorder) . "&amount=" . urlencode($total*100)
-            . "&merchTxnRef=" . urlencode($order_id) . "&merchant=" . urlencode($settings->audi_merchant_id_preorder) .
+            . "&merchTxnRef=" . urlencode("P".$order_id) . "&merchant=" . urlencode($settings->audi_merchant_id_preorder) .
             "&orderInfo=" . urlencode($order_info) . "&returnURL=" . urlencode($return_url) . "&vpc_SecureHash=" . $vpc_secure;
 //    echo $vpc_secure . '<br>' . $redirect_url;
     header("Location: " . $redirect_url);
@@ -128,7 +128,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         $hoax = uniqid();
         if (isset($_GET["type"]) && $_GET["type"] == "order")
         {
-        $order->id = $_GET["merchTxnRef"];
+        $order->id = str_replace("O", "",$_GET["merchTxnRef"]);
         $x = $order->confirm_order();
         
              $order_details->order_id = $order->id;
@@ -152,7 +152,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         }
         if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
-            $preorder->id = $_GET["merchTxnRef"];
+            $preorder->id = str_replace("P", "",$_GET["merchTxnRef"]);
             $preorder->confirm_preorder();
             
                 $preorder_details->preorder_id = $preorder->id;
@@ -177,7 +177,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
         }
          if (isset($_GET["type"]) && $_GET["type"] == "preorder")
         {
-            $preorder->id = $_GET["merchTxnRef"];
+            $preorder->id = str_replace("P","",$_GET["merchTxnRef"]);
             $preorder->select($preorder->id);
             header("Location: /preorder.php?product_id=".$preorder->product_id."&payment=failure&error=".urlencode(getResponseDescription($_GET["vpc_TxnResponseCode"])));
         }
