@@ -103,7 +103,7 @@
                       <div class="round_link mail">  
                       </div></a>
                       <div class="empty_space"></div>
-                          <a href="http://ikimukscene.tumblr.com" target="_BLANK">
+                          <a href="http://ikimuk.tumblr.com" target="_BLANK">
                       <div class="round_link tumblr">   
                       </div></a>
                       <div class="empty_space"></div>

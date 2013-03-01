@@ -59,7 +59,7 @@ class ip2nationcountries {
 	}
 	public function select_all_countries() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM ip2nation_countries WHERE delivery_charge <> 0";
+		$sSQL = "SELECT * FROM ip2nation_countries WHERE delivery_charge <> 0 order by country_name";
 		$oResult = $this->database->query($sSQL);
 		$oResult = $this->database->result;
 		
