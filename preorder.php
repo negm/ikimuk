@@ -98,7 +98,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
                         <!--Start of contact info-->      
                         <div class="std_block choose_t_shirt">
-
+ <div id="error_link"></div>
                             <div class="std_block_label">
                                 <div class="label_box">
                                     <span class="label_title">1. Choose Your Size</span>
@@ -168,10 +168,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                             <!--End Of Male Part--> 
 
                                             <!--Start Of Female Part--> 
-                                            <div class="size_selection_header">GIRL - $<?php echo number_format($product->price,2);?>
-                                                <!--<span class="order_size_info">
+                                            <!--<div class="size_selection_header">GIRL - $<?php echo number_format($product->price,2);?>
+                                                <span class="order_size_info">
                                                     <a href="#">Size Chart</a>
-                                                </span>-->
+                                                </span>
                                             </div>
                                             <div class="selection_container female_part">
 
@@ -208,7 +208,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
                                                     <div>XL</div>
                                                 </div>
 
-                                            </div>
+                                            </div>-->
                                             <!--End Of Male Part--> 
 
 

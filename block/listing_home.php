@@ -103,8 +103,8 @@ while($row= mysqli_fetch_assoc($product->database->result))
               <span class="entry_item_price"><?php echo $row["price"];?></span>
               <span class="entry_dollar_sign">$</span>
         </div>
-        <div class="option_male"></div>
-        <div class="option_female"></div>
+<!--        <div class="option_male"></div>
+        <div class="option_female"></div> -->
     </div>
     
     <div class="entry_avatar">
