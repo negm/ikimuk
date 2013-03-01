@@ -147,7 +147,7 @@ right back to you!
 
             </div>
 
-            <div class="theme_panel"></div>
+            <div class="theme_panel"><img src="/images/submission-side-image.jpg"></div>
 
         </div>
 
