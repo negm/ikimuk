@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<configuration date="2013/03/02" author="e.World Technology Ltd.">
+<project id="{0CA276D3-D17C-410E-8A7B-A18E811C9C5A}" file="" name="project1" product="PHPMaker" version="9.0" datetime="2013/03/02 14:39:24" languagefolder="phplang" userlevel="0,&quot;Default&quot;,0">
+<table id="artist" name="artist" caption="artist" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="competition" name="competition" caption="competition" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="db_revisions" name="db_revisions" caption="db revisions" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="image" name="image" caption="image" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="ip2nation" name="ip2nation" caption="ip 2nation" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="ip2nation_countries" name="ip2nation_countries" caption="ip 2nation countries" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="message_log" name="message_log" caption="message log" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="order" name="order" caption="order" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="order_details" name="order_details" caption="order details" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="password_reset" name="password_reset" caption="password reset" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="preorder" name="preorder" caption="preorder" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="preorder_details" name="preorder_details" caption="preorder details" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="product" name="product" caption="product" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="role" name="role" caption="role" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="slider_image" name="slider_image" caption="slider image" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="status" name="status" caption="status" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="submission_image" name="submission_image" caption="submission image" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="submissions" name="submissions" caption="submissions" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="user" name="user" caption="user" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+</project></configuration>
