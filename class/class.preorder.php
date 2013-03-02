@@ -99,12 +99,7 @@ class preorder {
                 } 
 	public function unconfirmed_incompetition() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT u . * , p . * , s.status, im.url, p.last_modified 
-               AS preorder_date FROM preorder p INNER JOIN STATUS s ON 
-               p.status_id = s.id INNER JOIN user u ON p.user_id = u.id
-               INNER JOIN product pr ON p.product_id = pr.id INNER JOIN image im ON pr.id = im.product_id
-                INNER JOIN competition c ON pr.competition_id = c.id WHERE `small` =1
-                AND c.end_date > NOW( ) ORDER BY product_id, preorder_date ASC ";
+		$sSQL = "SELECT u . * , p . * , s.status, im.url, p.last_modified AS preorder_date FROM preorder p INNER JOIN STATUS s ON p.status_id = s.id INNER JOIN user u ON p.user_id = u.id INNER JOIN product pr ON p.product_id = pr.id INNER JOIN image im ON pr.id = im.product_id INNER JOIN competition c ON pr.competition_id = c.id WHERE `small` =1 AND c.end_date > NOW( ) ORDER BY product_id, preorder_date ASC ";
 		$this->database->Query($sSQL);
 		}
 	        
