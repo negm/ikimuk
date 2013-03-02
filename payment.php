@@ -122,7 +122,6 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     $preorder = new preorder();
     $preorder_details = new preorder_details();
     $order_details = new order_details();
-    $log = new KLogger($_SERVER["DOCUMENT_ROOT"], KLogger::INFO);
     if (is_numeric($_GET["vpc_TxnResponseCode"]) && $_GET["vpc_TxnResponseCode"] == 0 && !$errorExists)
     {
         $hoax = uniqid();
@@ -139,7 +138,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                     $order_details->product_id = $row["product_id"];
                     $order_details->quantity = $row["quantity"];
                     $order_details->update_order_count();
-                }
+                    }
         $_SESSION["cart"]=null;
         $_SESSION["item_count"]=0;
         $_SESSION["subtotal"]=0;
