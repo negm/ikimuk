@@ -5,5 +5,5 @@
  * and open the template in the editor.
  */
 
-echo $_SERVER["DOCUMENT_ROOT"];
+echo $_SERVER['HTTP_HOST'];
 ?>
