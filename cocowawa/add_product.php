@@ -4,7 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-include "../block/logged_in_admin.php";
+require_once  $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
 include "../class/class.artist.php";
 include "../class/class.competition.php";
 $pagetitle = "Add a design";

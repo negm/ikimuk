@@ -52,7 +52,7 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	if (!class_exists('FacebookApiException')) {
 	require_once($_SERVER["DOCUMENT_ROOT"].'/inc/facebook.php' );
 	}
-		$facebook = new Facebook(array('appId' => $settings->app_id,'secret' => $settings->app_secret,));
+        $facebook = new Facebook(array('appId' => $settings->app_id,'secret' => $settings->app_secret,));
 	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
         Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
 	$fbuser = $facebook->getUser();

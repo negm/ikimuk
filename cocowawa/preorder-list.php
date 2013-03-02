@@ -1,6 +1,6 @@
 <?php
 $pagetitle = "Preorders";
-include "/block/logged_in_admin.php";
+require_once  $_SERVER["DOCUMENT_ROOT"]."/block/logged_in_admin.php";
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.preorder.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.user.php';
 include $_SERVER["DOCUMENT_ROOT"].'/block/header.php';
@@ -9,7 +9,7 @@ $preorders_list = new preorder();
 $preorders_list->unconfirmed_incompetition();
 echo '<div class="container"><p>Unconfirmed in the current competition</p><div id="unconfirmed_incompetition">';
 ?>
-<table class="span12 tbl">
+<table class="table table-hover table-striped">
   <tbody class="tbl">
     <!-- Results table headers -->
     <tr>

@@ -7,6 +7,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/inc/facebook.php";
 require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.message.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
 if (!isset($_SESSION))
@@ -164,7 +165,7 @@ if (isset($_GET["vpc_TxnResponseCode"]))
                 }
             $message = new message();
             $message_body="Success! Your order is confirmed. \n We will notify you if this T-shirt gets printed. \n If You have any questions, please email us at hello@ikimuk.com, we will reply pronto.\n Have a great day,\n The folks at ikimuk";
-            $message->send($_SESSION['user_email'] , "ikimuk order confirmation", $message_body);    
+            $message->send($_SESSION['user_email'] , "ikimuk order confirmation", $message_body); 
             header("Location: /index.php?payment=success&type=preorder");
         }
     }
@@ -183,10 +184,10 @@ if (isset($_GET["vpc_TxnResponseCode"]))
     }
 }
 else{
-    
+    header ("Location: /index.php");
 }
 function place_order() {
-    global $size_enum, $cut_enum;
+    global $size_enum, $cut_enum,$settings;
     $order = new order();
     $order_details = new order_details();
     $country = new ip2nationcountries();
@@ -221,11 +222,14 @@ function place_order() {
         }
     }
     $_SESSION["total"] = $subtotal + $country->delivery_charge;
+    try {postToFB($order_details->product_id, $settings->app_id, $settings->app_secret);}
+    catch (FacebookApiException $e) 
+    {error_log($e);}
     return $order->id;
 }
 function place_preorder()
 {
-    global $size_enum, $cut_enum, $total;
+    global $size_enum, $cut_enum, $total,$settings;
     $country = new ip2nationcountries();
     $country->country_code = $_POST["country"];
     $country->select();
@@ -286,6 +290,9 @@ function place_preorder()
         }
         $total += $country->delivery_charge;
     }
+    try {postToFB($_POST["product_id"], $settings->app_id, $settings->app_secret);}
+    catch (FacebookApiException $e) 
+    {error_log($e);}
     return $preorder->id;
 }
 //function to map each response code number to a text message	
@@ -372,5 +379,11 @@ function getResponseDescription($responseCode) {
     
     
 }
+function postToFB($product_id,$api_key,$api_secret)
+{
 
+$facebook = new Facebook(array('appId'=>$api_key,'secret'=>$api_secret));
+$params = array('design'=>'http://ikimuk.com/design.php?product_id='.$product_id,'access_token'=>$_SESSION["access_token"]);
+$out = $facebook->api('/me/ikimukapp:preorder','post',$params);
+}
 ?>
