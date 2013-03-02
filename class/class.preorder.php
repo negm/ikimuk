@@ -125,8 +125,7 @@ class preorder {
 		$oResult = $this->database->Query($sSQL);
 		$this->id = $this->database->lastInsertId;
                 if ($this->id)
-                {$sSQL = "update product set preorders=preorders+1 where id=$this->product_id";
-                $this->database->Query($sSQL);
+                {
                 $sSQL = "update user set validated_mobile ='$this->phone' where id=$this->user_id";
                 $this->database->Query($sSQL);
                 }
