@@ -19,6 +19,26 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 unset($_SESSION["size"]);
 ?>
+<div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:vcard="http://www.w3.org/2006/vcard/ns#">
+ 
+  <div about="#company" typeof="gr:BusinessEntity">
+    <div property="gr:legalName" content="ikimuk."></div>
+    <div rel="vcard:adr">
+      <div typeof="vcard:Address">
+        <div property="vcard:country-name" content="Lebanon"></div>
+        <div property="vcard:locality" content="Beirut"></div>
+      </div>
+    </div>
+    <div property="vcard:tel" content="+961 767 87606"></div>
+    <div rel="foaf:depiction" resource="http://ikimuk.com/images/ikimuk_logo_beta_hover.png">
+    </div>
+    <div rel="foaf:page" resource=""></div>
+  </div>
+</div>
 <div class="body">
     <div class="body_content">
         <?php

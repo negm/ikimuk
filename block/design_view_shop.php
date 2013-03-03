@@ -1,10 +1,3 @@
-<?php
-/*
- * This is the design view with multiple images and thumbnail
- * 
- */
-//show the goodies :D  
-?>
 <div class="body">
 
     <div class="body_content">
@@ -96,8 +89,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                 </div>
                 <!--End Of order progress Container-->
 
-                <div class="order_progress_count">
-                    <div class="count_value"><?php echo $product->preorders; ?></div>
+                <div class="order_progress_count" temprop="aggregateRating"
+    itemscope itemtype="http://schema.org/AggregateRating">
+                    <div class="count_value" itemprop="ratingValue"><?php echo $product->preorders; ?></div>
                     <div class="count_text">T-shirt ordered</div>
                 </div>
 
@@ -120,10 +114,10 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                     <div class="shop_slider">
                         <div id="wrapper">
                             <div class="slider-wrapper theme-light">
-                                <div id="slider" class="nivoSlider nivo">
+                                <div id="slider" class="nivoSlider nivo" >
                                     <?php
                                     while ($image_row = mysqli_fetch_assoc($image->database->result)) {
-                                        echo '<img src="' . $image_row["url"] . '" data-thumb="' . $image_row["url"] . '" alt="' . $product->title . ' ikimuk" />';
+                                        echo '<img itemprop="image" src="' . $image_row["url"] . '" data-thumb="' . $image_row["url"] . '" alt="' . $product->title . ' ikimuk" />';
                                     }
                                     ?>
                                 </div>
@@ -214,9 +208,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                 <div class="option_column">
 
                     <!--Start Of Block Order-->
-                    <div class="block_order">
+                    <div class="block_order" itemscope itemtype="http://schema.org/Product">
 
-                        <div class="order_description">
+                        <div class="order_description" itemprop="name">
                             <?php echo $product->title; ?>
                         </div>
 
@@ -224,7 +218,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                             by <?php echo $artist->name; ?>
                         </div>
                         <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
-                        <div class="order_details">
+                        <div class="order_details" itemprop="description">
 			    <?php echo $product->desc; ?>
                         </div>
 

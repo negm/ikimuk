@@ -137,22 +137,22 @@
                 <div class="option_column">
 
                     <!--Start Of Block Order-->
-                    <div class="block_order">
+                    <div class="block_order"  itemscope itemtype="http://schema.org/Product">
 
-                        <div class="order_description">
-                            <?php echo $product->title; ?>
+                        <div itemprop="name" class="order_description"  >
+                            <span ><?php echo $product->title; ?></span>
                         </div>
 
                         <div class="order_author">
                             by <?php echo $artist->name; ?>
                         </div>
                         <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
-                        <div class="order_details">
+                        <div class="order_details" itemprop="description">
 			    <?php echo $product->desc; ?>
                         </div>
 			
-                <div class="order_ended_count" style="margin-top:20px;">
-                    <div class="count_value"><?php echo $product->preorders; ?></div>
+                <div class="order_ended_count" style="margin-top:20px;"  itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <div class="count_value" itemprop="ratingValue"><?php echo $product->preorders; ?></div>
                     <div class="count_text">T-shirts ordered</div>
                 </div>
 		</div>

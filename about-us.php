@@ -1,7 +1,8 @@
 <?php
         
+$pagetitle = "ikimuk: About Us";
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
-
+$selected = Array ("unselected","unselected","unselected","selected","unselected" );   
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
  ?>
 <div class="body">
@@ -39,6 +40,6 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 <div class="sq"><a href="http://seeqnce.com" target="_blank"><img src="/img/seeqnce.png"/></a></div>
 </div>
 </div>
-<?
+<?php
 include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
 ?>

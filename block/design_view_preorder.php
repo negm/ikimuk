@@ -207,9 +207,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                 <div class="option_column">
 
                     <!--Start Of Block Order-->
-                    <div class="block_order">
+                    <div class="block_order" itemscope itemtype="http://schema.org/Product">
 
-                        <div class="order_description">
+                        <div class="order_description" itemprop="name">
                             <?php echo $product->title; ?>
                         </div>
 
@@ -217,15 +217,15 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                             by <?php echo $artist->name; ?>
                         </div>
                         <input type="hidden" id="product_id" value="<?php echo $product->id; ?>">
-                        <div class="order_details">
+                        <div class="order_details" itemprop="description">
 			    <?php echo $product->desc; ?>
                         </div>
 
-                        <div class="order_progressbar">
+                        <div class="order_progressbar" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                             <div class="progress">
                                 <div class="bar progress_cyan"  style="width:<?php echo $product->preorders* (100/$settings->goals[0]); ?>%;"></div>
                             </div>                            
-                            <div class="progress_percentage">
+                            <div class="progress_percentage" itemprop="ratingValue">
                                 <?php echo $product->preorders."/".$settings->goals[0]; ?>
                             </div>
                         </div>

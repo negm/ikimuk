@@ -39,7 +39,7 @@ unset($_SESSION["size"]);
 echo '<meta property="og:title" content="' . $product->title . '" />';
 echo '<meta property="og:image" content="' . $product->image . '" />';
 echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
-echo '<meta property="og:url" content="' . $settings->site_url_vars . '" />';
+echo '<meta property="og:url" content="' . $settings->root."design/".$product->id."/".$product->title .'" />';
 if ($daysLeft > 0)
 {
     include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
@@ -59,6 +59,35 @@ else
     include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_ended.php";
     
 }
-
+?>
+<div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+ 
+  <div about="#offering" typeof="gr:Offering">
+    <div rev="gr:offers" resource="http://ikimuk.com/#company"></div>
+    <div property="gr:name" content="<?php echo $product->title." $".$product->price; ?>" xml:lang="en"></div>
+    <div property="gr:description" content="<?php echo $product->desc; ?>" xml:lang="en"></div>
+    <div rel="foaf:depiction"
+         resource="<?php echo $product->image; ?>">
+    </div>
+    <div rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell">
+    </div>
+    <div rel="gr:hasPriceSpecification">
+      <div typeof="gr:UnitPriceSpecification">
+        <div property="gr:hasCurrency" content="USD" datatype="xsd:string"></div>
+        <div property="gr:hasCurrencyValue" content="<?php echo $product->price; ?>" datatype="xsd:float"></div>
+      </div>
+    </div>
+    <div rel="gr:acceptedPaymentMethods"
+         resource="http://purl.org/goodrelations/v1#VISA"></div>
+    <div rel="gr:acceptedPaymentMethods"
+         resource="http://purl.org/goodrelations/v1#MasterCard"></div>
+    <div rel="foaf:page" resource="<?php echo $settings->root."design/".$product->id."/".$product->title;  ?>"></div>
+  </div>
+</div>
+<?php
 include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php";
 ?>

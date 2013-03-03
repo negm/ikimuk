@@ -23,15 +23,11 @@ $settings = new settings();
 $artist = new artist();
 if (!isset($_GET["product_id"]))
 {
- //header("Location: /index.php");
+ header("Location: /index.php");
 }
 else
 {
 $design_id = $_GET["product_id"];
-//if(!isset($_SESSION['size']) )
-{
-//header("Location: /design/$design_id");
-}
 if(!isset($_SESSION['sms_code']) )
 {$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
 
@@ -601,27 +597,44 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
  </form>
             </div>
             <!--End of Body-->
+<div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+ 
+  <div about="#offering" typeof="gr:Offering">
+    <div rev="gr:offers" resource="http://ikimuk.com/#company"></div>
+    <div property="gr:name" content="<?php echo $product->title." $".$product->price; ?>" xml:lang="en"></div>
+    <div property="gr:description" content="<?php echo $product->desc; ?>" xml:lang="en"></div>
+    <div rel="foaf:depiction"
+         resource="<?php echo $product->image; ?>">
+    </div>
+    <div rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell">
+    </div>
+    <div rel="gr:hasPriceSpecification">
+      <div typeof="gr:UnitPriceSpecification">
+        <div property="gr:hasCurrency" content="USD" datatype="xsd:string"></div>
+        <div property="gr:hasCurrencyValue" content="<?php echo $product->price; ?>" datatype="xsd:float"></div>
+      </div>
+    </div>
+    <div rel="gr:acceptedPaymentMethods"
+         resource="http://purl.org/goodrelations/v1#VISA"></div>
+    <div rel="gr:acceptedPaymentMethods"
+         resource="http://purl.org/goodrelations/v1#MasterCard"></div>
+    <div rel="foaf:page" resource="<?php echo $settings->root."design/".$product->id."/".$product->title;  ?>"></div>
+  </div>
+</div>
 
-
-          
-
-
-            <script type="text/javascript">
-                $(function () {
-                    $('body').popover({
-                        selector: 'input,select'
+<?php
+$inpage_script = '<script type="text/javascript">        $(function () {
+                    $("body").popover({
+                        selector: "input,select"
                     });
                     $("input, select").focusout(function(){
                         $(this).popover("hide");
                     });
-        
-                });
-          
-                
-            </script>
-
-
-
-<?php
+                });        
+            </script>';
 include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
 ?>

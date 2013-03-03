@@ -123,14 +123,18 @@ while($row= mysqli_fetch_assoc($product->database->result))
                  
              </div> </div>
 
+<?php 
+$inpage_script = '
 <script type="text/javascript" src="/js/jquery.simplePagination.js"></script>
 <script type="text/javascript">
   $(function() {
       $("#pagination_box").pagination({
-        pages: <?php echo $previous_count; ?>,
+        pages:'.$previous_count.',
 	  hrefTextPrefix: "/competitions.php?page=",
-	  currentPage: <?php echo $current_page; ?>,
-	  cssStyle: 'light-theme',prevText: "<", nextText: ">"
+	  currentPage:'.$current_page.',
+	  cssStyle: "light-theme" ,prevText: "<", nextText: ">"
+
 	    });
     });
-</script>
+</script>';
+?>
