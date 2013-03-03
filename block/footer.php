@@ -36,13 +36,6 @@
                        <!--start of social facebook section--> 
                       <div class="social_facebook">
                           <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-like" data-href="https://www.facebook.com/ikimukofficial" data-send="false" data-width="260" data-show-faces="true"></div>
                       </div>
                        <!--end of social facebook section--> 
@@ -145,6 +138,17 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', st
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
   })();
 </script>
+<!--<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!--<script src="/js/bootstrap.js"></script>-->
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+<script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id;?>"></script>
+<script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>
+<script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
+<script src="/js/javascript.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
 
 </div>
 </body>

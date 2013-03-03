@@ -92,16 +92,6 @@ ob_implicit_flush(0);
 <link type="text/css" rel="stylesheet" href="/css/simplePagination.css"/>
 
 
-<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
-<!--<script src="/js/bootstrap.js"></script>-->
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
-<script type="text/javascript" src="/js/jquery.form.min.js"></script>
-<script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
-<script src="/js/javascript.min.js"></script>
-<script type="text/javascript" src="/js/main.min.js"></script>
-
-
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
 .gainlayout { height: 0; }

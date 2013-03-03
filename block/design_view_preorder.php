@@ -127,7 +127,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                                 </div>
                             </div>
                         </div>
-                         <script type="text/javascript" src="/js/nivo-slider-custom-loader.js"></script>
+                         
                     </div> 
                 </div>
                     <!--End of shop slider-->
@@ -139,15 +139,6 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <!--Start of facebook share-->
                         <div class="share_facebook">
                             <div id="fb-root"></div>
-                            <script>(function(d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s); js.id = id;
-                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-
-
                               <?php if ($product->id > 50){?>
                         <div class="fb-like" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
                         <?php } else { ?>
@@ -199,14 +190,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                         <div class="social_body">
                          <div id="fb-root"></div>
-                            <script>(function(d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s); js.id = id;
-                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id?>";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-                        <?php if ($product->id > 50){?>
+                          <?php if ($product->id > 50){?>
                         <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->root."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
                         <?php } else { ?>
                         <div class="fb-comments" data-width="576" data-num-posts="15" data-href="<?php echo $settings->beta_base."design.php?product_id=".$product->id; ?>" data-colorscheme="light"></div>
