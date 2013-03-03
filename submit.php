@@ -11,7 +11,7 @@ $artist->select_by_user_id();
 $selected_comp = isset($_GET["competition"])? $_GET["competition"]:0;
 include_once $_SERVER["DOCUMENT_ROOT"] . '/block/header.php';
 $inpage_script='
-<script>//upload ajax
+<script>
     var uploaded = false;
 var img_list = new Array();
     $(function(){
@@ -24,16 +24,15 @@ var img_list = new Array();
                 $("#img_size_g").removeClass("alertr").addClass("hidden");
                 if (! (ext && /^(jpg|png|jpeg)$/.test(ext))){ 
 
-                    // extension is not allowed 
                     $("#img_url").parent().parent().find(".line_error").text("Only JPG, PNG files are allowed");
                     return false;
                 }
                 status.text("Uploading...");
             },
             onComplete: function(file, response){
-                //On completion clear the status
+                
                 status.text("");
-                //Add uploaded file to list
+                
                 if(response != "error" && response != "size_error"){
                     $("<li></li>").appendTo("#files").html(\'<img class="img-rounded" src="\'+response+\'" alt="" />\').addClass("success");
                     $("#upload").html("Upload another file");
@@ -46,11 +45,11 @@ var img_list = new Array();
                     $("#img_url").parent().parent().find(".line_error").text("Image is larger than 250 KB");  return false;
                 }
                 else{
-                    //$("<li></li>).appendTo("#files").text(file).addClass("error");
+                    /*$("<li></li>).appendTo("#files").text(file).addClass("error");*/
                 }
             }
         });
-    });</script>';
+    }); </script> ';
 
 $selected = Array ("unselected","selected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
