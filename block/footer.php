@@ -119,16 +119,6 @@
 <img src="/images/ikimuk_logo_beta_hover.png"/>
 </div>
 
-<script>
-$(document).ready(function(){
-window.fbAsyncInit = function() {
-FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', status:true, cookie: true,xfbml: true,oath:true});
-};
-// Load the SDK's source Asynchronously
- !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-});
-</script>
-
 <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" defer></script>
 <script type="text/javascript" defer>
   var uvOptions = {};
@@ -149,6 +139,15 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', st
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script src="/js/javascript.min.js"></script>
 <script type="text/javascript" src="/js/main.min.js"></script>
+<script>
+$(document).ready(function(){
+window.fbAsyncInit = function() {
+FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', status:true, cookie: true,xfbml: true,oath:true});
+};
+// Load the SDK's source Asynchronously
+ !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+});
+</script>
 
 </div>
 </body>
