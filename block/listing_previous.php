@@ -92,7 +92,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     </div>
     
     <div class="entry_avatar">
-        <a href="/design/<?php echo $row["id"]."/".str_replace(".","",str_replace("","-",trim($row["title"]))); ?>">
+        <a href="/design/<?php echo $row["id"]."/".str_replace(".","",str_replace(" ","-",trim($row["title"]))); ?>">
                                  <img src="<?php echo $row["url"];?>"/>
         </a>
     </div>

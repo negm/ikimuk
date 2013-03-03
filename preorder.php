@@ -53,7 +53,7 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
  echo '<meta property="og:title" content="'.$product->title.'" />';
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
-    echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.str_replace(".","",str_replace("","-",trim($product->title ))).'" />';
+    echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title ))).'" />';
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
 ?>
@@ -622,7 +622,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
          resource="http://purl.org/goodrelations/v1#VISA"></div>
     <div rel="gr:acceptedPaymentMethods"
          resource="http://purl.org/goodrelations/v1#MasterCard"></div>
-    <div rel="foaf:page" resource="<?php echo $settings->root."design/".$product->id."/".str_replace(".","",str_replace("","-",trim($product->title )));  ?>"></div>
+    <div rel="foaf:page" resource="<?php echo $settings->root."design/".$product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title )));  ?>"></div>
   </div>
 </div>
 
