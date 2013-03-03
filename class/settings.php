@@ -62,8 +62,8 @@ class settings {
                 'driver' => 'mysql',
                 'prefix' => '',
             );
-            $this->app_id = "140388549312943";
-            $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
+            $this->app_id = "299742366741440";
+            $this->app_secret = "2369fc592909a16047bbce32bd75e23d";
             $this->root = "http://localhost:8080/";
             $this->prodction = true;
         } else

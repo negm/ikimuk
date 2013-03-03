@@ -10,49 +10,48 @@ $artist->user_id = $_SESSION["user_id"];
 $artist->select_by_user_id();
 $selected_comp = isset($_GET["competition"])? $_GET["competition"]:0;
 include_once $_SERVER["DOCUMENT_ROOT"] . '/block/header.php';
-?>
+$inpage_script='
 <script>//upload ajax
     var uploaded = false;
 var img_list = new Array();
     $(function(){
-        var btnUploadSubmit=$('#upload');
-        var status=$('#status');
+        var btnUploadSubmit=$("#upload");
+        var status=$("#status");
         new AjaxUpload(btnUploadSubmit, {
-            action: 'process_upload.php',
-            name: 'uploadfileSubmit',
+            action: "process_upload.php",
+            name: "uploadfileSubmit",
             onSubmit: function(file, ext){
                 $("#img_size_g").removeClass("alertr").addClass("hidden");
                 if (! (ext && /^(jpg|png|jpeg)$/.test(ext))){ 
 
                     // extension is not allowed 
-                    $("#img_url").parent().parent().find(".line_error").text('Only JPG, PNG files are allowed');
+                    $("#img_url").parent().parent().find(".line_error").text("Only JPG, PNG files are allowed");
                     return false;
                 }
-                status.text('Uploading...');
+                status.text("Uploading...");
             },
             onComplete: function(file, response){
                 //On completion clear the status
-                status.text('');
+                status.text("");
                 //Add uploaded file to list
                 if(response != "error" && response != "size_error"){
-                    $('<li></li>').appendTo('#files').html('<img class="img-rounded" src="'+response+'" alt="" />').addClass('success');
-                    $('#upload').html('Upload another file');
+                    $("<li></li>").appendTo("#files").html(\'<img class="img-rounded" src="\'+response+\'" alt="" />\').addClass("success");
+                    $("#upload").html("Upload another file");
                     img_list.push(response);
-                    $('#img_url').val(img_list);
+                    $("#img_url").val(img_list);
                     uploaded = true;
-                    //$('#upload').hide();
                 }
                 if (response === "size_error")
                 {
                     $("#img_url").parent().parent().find(".line_error").text("Image is larger than 250 KB");  return false;
                 }
                 else{
-                    //$('<li></li>').appendTo('#files').text(file).addClass('error');
+                    //$("<li></li>).appendTo("#files").text(file).addClass("error");
                 }
             }
         });
-    });</script>
-<?php
+    });</script>';
+
 $selected = Array ("unselected","selected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>

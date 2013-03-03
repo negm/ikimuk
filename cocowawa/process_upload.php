@@ -20,7 +20,7 @@ $fileName = $_FILES['uploadfile']['name'];
 $s3fileName = time().'-'.rand(0,99).'-'.str_replace(' ', '', $fileName);
 $fileTempName = $_FILES['uploadfile']['tmp_name'];
 //move the file
-if ($s3->putObjectFile($fileTempName, $bucketname, $s3fileName, S3::ACL_PUBLIC_READ)) {
+if ($s3->putObjectFile($fileTempName, $bucketname, $s3fileName, S3::ACL_PUBLIC_READ,Array("Cache-Control"=>"Fri, Apr 23 2021 10:18:36 GMT", "Content-Encoding"=>"gzip"))) {
 echo "https://s3.amazonaws.com/".$bucketname."/".$s3fileName;
 }else{
 echo "error";
