@@ -81,6 +81,7 @@ ob_implicit_flush(0);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" version="XHTML+RDFa 1.0">
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 <title><?php echo $pagetitle; ?></title>

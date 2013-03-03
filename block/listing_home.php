@@ -149,7 +149,7 @@ unset($_SESSION["size"]);
 
                             <div class="entry_author">
                                 by
-                                <span class="entry_author_name"><?php echo $row["name"]; ?></span>
+                                <span class="entry_author_name"><?php echo urldecode($row["name"]); ?></span>
                             </div>
 
                             <div class="entry_progressbar">
