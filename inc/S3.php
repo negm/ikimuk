@@ -298,7 +298,8 @@ class S3 {
 		// We need to post with the content-length and content-type, MD5 is optional
 		if ($rest->size > 0 && ($rest->fp !== false || $rest->data !== false)) {
 			$rest->setHeader('Content-Type', $input['type']);
-			if (isset($input['md5sum'])) $rest->setHeader('Content-MD5', $input['md5sum']);
+                        $rest->setHeader('Cache-Control', "Fri, Apr 23 2021 10:18:36 GMT"); //added by Hussein
+                        if (isset($input['md5sum'])) $rest->setHeader('Content-MD5', $input['md5sum']);
 
 			$rest->setAmzHeader('x-amz-acl', $acl);
 			foreach ($metaHeaders as $h => $v) $rest->setAmzHeader('x-amz-meta-'.$h, $v);

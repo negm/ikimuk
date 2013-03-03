@@ -19,8 +19,14 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
 $fileName = $_FILES['uploadfile']['name'];
 $s3fileName = time().'-'.rand(0,99).'-'.str_replace(' ', '', $fileName);
 $fileTempName = $_FILES['uploadfile']['tmp_name'];
+$content_type=null;
+if (strpos($fileName, 'jpeg')|| strpos($fileName, 'jpg'))
+        $content_type = 'image/jpeg';
+if (strpos($fileName, 'png'))
+        $content_type = 'image/png';
+
 //move the file
-if ($s3->putObjectFile($fileTempName, $bucketname, $s3fileName, S3::ACL_PUBLIC_READ,Array("Cache-Control"=>"Fri, Apr 23 2021 10:18:36 GMT", "Content-Encoding"=>"gzip"))) {
+if ($s3->putObjectFile($fileTempName, $bucketname, $s3fileName, S3::ACL_PUBLIC_READ,Array(),$content_type)) {
 echo "https://s3.amazonaws.com/".$bucketname."/".$s3fileName;
 }else{
 echo "error";
