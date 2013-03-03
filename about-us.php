@@ -3,6 +3,13 @@
 $pagetitle = "ikimuk: About Us";
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
 $selected = Array ("unselected","unselected","unselected","selected","unselected" );   
+?>
+<meta property="og:title" content="ikimuk: about us" />
+<meta property="og:type" content="Website" />
+<meta property="og:url" content="http://ikimuk.com/about-us.php" />
+<meta property="og:image" content="http://ikimuk.com/images/ikimuk_logo_beta_hover.png" />
+<meta property="og:site_name" content="ikimuk" />
+<?php
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
  ?>
 <div class="body">

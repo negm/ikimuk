@@ -87,11 +87,6 @@ ob_implicit_flush(0);
 <meta name="title" content="Ikimuk">
 <meta name="description" content="Preorder your favorite T-shirt designs from leading artists in the Arab World." />
 <meta name="keywords" content="browse, catalog, collection, best, amazing, variety, guys, girls, men&#039;s, women&#039;s, t-shirts, tee shirts, tshirts, clothing, design, art, arab, gulf, lebanon, خليج ,عرب, ملابس , موضة , شباب" />
-<meta property="og:title" content="" />
-<meta property="og:type" content="" />
-<meta property="og:url" content="" />
-<meta property="og:image" content="" />
-<meta property="og:site_name" content="" />
 <meta property="fb:admins" content="134500527" />
 <meta property="og:site_name" content="Ikimuk" />
 <meta property="og:description" content="Cool T-shirt Design">

@@ -16,6 +16,13 @@ $competition->selectCurrentCompetition();
 $image = new image();
 $settings = new settings();
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+?>
+<meta property="og:title" content="ikimuk: cool T-shirt fashion" />
+<meta property="og:type" content="Website" />
+<meta property="og:url" content="http://ikimuk.com" />
+<meta property="og:image" content="http://ikimuk.com/images/ikimuk_logo_beta_hover.png" />
+<meta property="og:site_name" content="ikimuk" />
+<?php
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 unset($_SESSION["size"]);
 ?>
