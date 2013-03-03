@@ -100,34 +100,11 @@ ob_implicit_flush(0);
 <!--[if gt IE 7]><style>
 .gainlayout { zoom: 1; }
 </style><![endif]-->
-<!--<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />-->
+<!--<link rel="stylesheet" href="/css/styles.min.css" type="text/css" media="screen" />-->
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/html5.js"></script>
 <![endif]-->  
-<script type="text/javascript">
-$(document).ready(function() {
 
-$(".preorderButton").click(function() 
-{
-if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
-{//show the modal
-    target = $(this).parent().attr("href");
-    $('#login').modal(); return false; } else {return true;} 
-}
-    
-);
-$(".subButton").click(function() 
-{
-if(<?php if(!isset($_SESSION["logged_in"])||!$_SESSION["logged_in"]) echo "false";else echo "true";?> === false)
-{//show the modal
-    target = $(this).parent().attr("href");
-    $('#loginModal').modal(); return false; } else {return true;} 
-}
-    
-);
-
-})
-</script>
 <!-- start Mixpanel -->
 <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
 typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
