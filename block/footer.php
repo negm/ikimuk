@@ -132,7 +132,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!--<script src="/js/bootstrap.js"></script>-->
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
-<script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id;?>"></script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>
@@ -151,11 +150,11 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', st
 <?php if (isset($inpage_script)) echo $inpage_script;?>
 </div>
 <div style="display:none">
-    <img src="img/ikimuk_facebook_footer_hover.png"/>
-    <img src="img/ikimuk_twitter_footer_hover.png"/>
-    <img src="img/ikimuk_youtube_footer_hover.png"/>
-    <img src="img/ikimuk_contact_footer_hover.png"/>
-    <img src="img/ikimuk_tumblr_footer_hover.png"/>
+    <img src="/img/ikimuk_facebook_footer_hover.png"/>
+    <img src="/img/ikimuk_twitter_footer_hover.png"/>
+    <img src="/img/ikimuk_youtube_footer_hover.png"/>
+    <img src="/img/ikimuk_contact_footer_hover.png"/>
+    <img src="/img/ikimuk_tumblr_footer_hover.png"/>
 </div>
 </body>
 </html>

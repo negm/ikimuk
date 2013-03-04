@@ -31,7 +31,7 @@ fb_param.value = '0.00';
 })();
 </script>
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6008380954116&amp;value=0" /></noscript>
-<?php } ?>
+<?php }  ?>
 <meta property="og:title" content="ikimuk: cool T-shirt fashion" />
 <meta property="og:type" content="Website" />
 <meta property="og:url" content="http://ikimuk.com" />

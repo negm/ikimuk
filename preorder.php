@@ -28,9 +28,6 @@ if (!isset($_GET["product_id"]))
 else
 {
 $design_id = $_GET["product_id"];
-if(!isset($_SESSION['sms_code']) )
-{$_SESSION['sms_code'] = substr(number_format(time() * rand(),0,'',''),0,4);}
-
 $product->select($design_id);
 if(!$product->id)
    header("Location: /index.php"); 
@@ -54,6 +51,22 @@ include_once $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
     echo '<meta property="og:image" content="'.$product->image.'" />';
     echo '<meta property="fb:app_id" content="'.$settings->app_id.'" />';
     echo '<meta property="og:url" content="'.$settings->root.'design/'.$design_id.'/'.str_replace(".","",str_replace(" ","-",trim($product->title ))).'" />';
+     if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
+        ?>
+<script type="text/javascript">
+var fb_param = {};
+fb_param.pixel_id = '6008382078716';
+fb_param.value = '0.00';
+(function(){
+var fpw = document.createElement('script');
+fpw.async = true;
+fpw.src = '//connect.facebook.net/en_US/fp.js';
+var ref = document.getElementsByTagName('script')[0];
+ref.parentNode.insertBefore(fpw, ref);
+})();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6008382078716&amp;value=0" /></noscript>
+    <?php }
 include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 
 ?>

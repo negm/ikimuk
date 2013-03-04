@@ -101,7 +101,7 @@ ob_implicit_flush(0);
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-light/light.css" type="text/css" media="screen" />
 <link type="text/css" rel="stylesheet" href="/css/simplePagination.css"/>
-
+<script src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings->app_id;?>"></script>
 
 <!--[if lt IE 7]><style>
 /* style for IE6 + IE5.5 + IE5.0 */
