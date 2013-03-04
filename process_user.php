@@ -52,27 +52,32 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	if (!class_exists('FacebookApiException')) {
 	require_once($_SERVER["DOCUMENT_ROOT"].'/inc/facebook.php' );
 	}
+        header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
         $facebook = new Facebook(array('appId' => $settings->app_id,'secret' => $settings->app_secret,));
-	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+       	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
         Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
-	$fbuser = $facebook->getUser();
+        $fbuser = $facebook->getUser();
         if ($fbuser) {
 		try {
 			// Proceed knowing you have a logged in user who's authenticated.
 			$me = $facebook->api('/me'); //user
 			$uid = $facebook->getUser();
+                        
 		}
 		catch (FacebookApiException $e) 
 		{
+                    
                        	echo error_log($e);
-                       	$fbuser = null;
-                        return;
+                       	return;
 		}
 	}
 	
 	// redirect user to facebook login page if empty data or fresh login requires
 	if (!$fbuser){
-		$loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$settings->site_url, false));
+       $loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$_SERVER["HTTP_REFERER"], false));
+       echo $loginUrl;
+       return;
+                
 	}
 	//user details
 	$user->name = $me['name'];
@@ -84,13 +89,11 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	if($user->database->rows > 0)
 	{	
 	//User exist, Show welcome back message
-	echo "Welcome back $user->name!";
 	//User is now connected, log him in
         }
 	else
 	{
 	//User is new, Show connected message and store info in our Database
-	echo "Hi $user->name!.";
 	// Insert user into Database.
 	$user->insert_fb();
          }

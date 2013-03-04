@@ -6,7 +6,7 @@ if (!isset($_SESSION))
 {
     session_start ();
 }
-if(isset($_GET["promo_code"]))
+if(isset($_GET["utm_source"]))
 {
 $_SESSION["promo_code"]= $_GET["promo_code"];
 }

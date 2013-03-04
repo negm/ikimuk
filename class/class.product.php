@@ -122,6 +122,12 @@ class product {
 	}
          public function selectByCompetition($competitionID) { // SELECT Function
 		// Execute SQL Query to get record.
+                if (!is_numeric($competitionID))
+                {
+                    $this->database->result = Null;
+                    $this->id = null;
+                    return;
+                }
                 $this->database->OpenLink();
                 $competitionID = mysqli_real_escape_string($this->database->link, $competitionID);
 		$sSQL = "SELECT pr.*,artist.name, image.url, competition.end_date FROM `product` pr INNER JOIN competition ON pr.competition_id = competition.id INNER JOIN artist ON pr.artist_id = artist.id INNER JOIN image ON image.product_id = pr.id WHERE competition.id = $competitionID AND image.small = 1 order by `order`;";

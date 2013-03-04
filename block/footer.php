@@ -150,6 +150,13 @@ FB.init({appId: '<?php echo $settings->app_id ?>',channelUrl: '/channel.php', st
 </script>
 <?php if (isset($inpage_script)) echo $inpage_script;?>
 </div>
+<div style="display:none">
+    <img src="img/ikimuk_facebook_footer_hover.png"/>
+    <img src="img/ikimuk_twitter_footer_hover.png"/>
+    <img src="img/ikimuk_youtube_footer_hover.png"/>
+    <img src="img/ikimuk_contact_footer_hover.png"/>
+    <img src="img/ikimuk_tumblr_footer_hover.png"/>
+</div>
 </body>
 </html>
 <?php  print_gzipped_page(); ?>
