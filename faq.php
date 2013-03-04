@@ -338,7 +338,7 @@ Frequently asked questions (FAQ)
 </div>
 </div>
 </div>
-<script type="text/javascript">
+<?php $inpage_script=' <script type="text/javascript">
 								    $(".question").click(function(){
 									var sibling = $(this).siblings();
 									if(sibling.is(":visible") == false){
@@ -348,7 +348,6 @@ Frequently asked questions (FAQ)
 									  sibling.show();
 									}
 								      });
-</script>
-<?
+</script>';
 include $_SERVER["DOCUMENT_ROOT"].'/block/footer.php';
 ?>
