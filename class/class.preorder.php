@@ -89,6 +89,14 @@ class preorder {
                 return false;
             }
         }
+        public function select_by_product()
+        {
+            $this->database->OpenLink();
+            $this->product_id = mysqli_real_escape_string($this->database->link,$this->product_id);
+            $sSQL="SELECT DISTINCT u.email, p.* FROM `preorder` p INNER JOIN `user` u ON p.user_id = u.id  WHERE p.product_id = $this->product_id";
+            $this->database->query($sSQL);
+        }
+
         public function activePreorders($user_id)
                 {
                 $this->database->OpenLink();
