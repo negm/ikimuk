@@ -16,7 +16,22 @@ $competition->selectCurrentCompetition();
 $image = new image();
 $settings = new settings();
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+if (isset($_GET["payment"]) and $_GET["payment"] == "success") {
 ?>
+<script type="text/javascript">
+var fb_param = {};
+fb_param.pixel_id = '6008380954116';
+fb_param.value = '0.00';
+(function(){
+  var fpw = document.createElement('script');
+  fpw.async = true;
+  fpw.src = '//connect.facebook.net/en_US/fp.js';
+  var ref = document.getElementsByTagName('script')[0];
+  ref.parentNode.insertBefore(fpw, ref);
+})();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6008380954116&amp;value=0" /></noscript>
+<?php } ?>
 <meta property="og:title" content="ikimuk: cool T-shirt fashion" />
 <meta property="og:type" content="Website" />
 <meta property="og:url" content="http://ikimuk.com" />
@@ -24,7 +39,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 <meta property="og:site_name" content="ikimuk" />
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
-unset($_SESSION["size"]);
 ?>
 <div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns="http://www.w3.org/1999/xhtml"
