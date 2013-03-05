@@ -419,13 +419,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     </form>
             </div>
             <!--End of Body-->
+<?php
 
 
-
-            <script type="text/javascript">
+$inpage_script= '<script type="text/javascript">
                 $(function () {
-                    $('body').popover({
-                        selector: 'input,select'
+                    $("body").popover({
+                        selector: "input,select"
                     });
                     $("input, select").focusout(function(){
                         $(this).popover("hide");
@@ -434,6 +434,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 });
           
                 
-            </script>
+            </script>';
 
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php"; ?>
+ include $_SERVER["DOCUMENT_ROOT"] . "/block/footer.php"; ?>

@@ -75,7 +75,7 @@ function sanitize_output($buffer)
     return $buffer;
 }
 
-ob_start("sanitize_output");
+//ob_start("sanitize_output");
 ob_implicit_flush(0);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
