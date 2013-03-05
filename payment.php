@@ -1,13 +1,14 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/class/settings.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.order_details.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/inc/facebook.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/settings.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.order.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.order_details.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.payment_log.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/class/class.preorder_details.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
+require $_SERVER["DOCUMENT_ROOT"] . "/inc/facebook.php";
 require_once ($_SERVER["DOCUMENT_ROOT"]."/class/class.message.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/block/enums.php";
 if (!isset($_SESSION))
@@ -15,6 +16,7 @@ if (!isset($_SESSION))
     session_start ();
 }
 $settings = new settings();
+$logger = new payment_log();
 if (isset($_GET["action"])&& $_GET["action"]== "order" )
 {
 $order_id = place_order();
@@ -69,6 +71,9 @@ if (isset($_GET["vpc_TxnResponseCode"]))
   //validate response
     //get secure hash value of merchant	
 	//get the secure hash sent from payment client
+        $logger->response_code = $_GET["vpc_TxnResponseCode"];
+        $logger->entire_url = http_build_query($_GET);
+        $logger->log_request();
 	$vpc_Txn_Secure_Hash = addslashes($_GET["vpc_SecureHash"]);
 	unset($_GET["vpc_SecureHash"]); 
 	ksort($_GET);
@@ -304,90 +309,88 @@ function place_preorder()
 //function to map each response code number to a text message	
 function getResponseDescription($responseCode) {
     switch ($responseCode) {
-        case "0" : $result = "Transaction Successful";
+        case "0" : $result = "Payment is successful.";
             break;
-//        case "?" : $result = "Transaction status is unknown";
-//            break;
-//        case "1" : $result = "Unknown Error";
-//            break;
-//        case "2" : $result = "Bank Declined Transaction";
-//            break;
-//        case "3" : $result = "No Reply from Bank";
-//            break;
-        case "4" : $result = "Expired Card";
+        case "?" : $result = "Payment is unsuccessful. We will contact you shortly to resolve this issue.";
+           break;
+          case "1" : $result = "Payment is unsuccessful. We will contact you shortly to resolve this issue.";
             break;
-        case "5" : $result = "Insufficient funds";
+          case "2" : $result = "Your Bank declined the payment, please try a different card or contact your Bank.";
             break;
-//        case "6" : $result = "Error Communicating with Bank";
-//            break;
-//        case "7" : $result = "Payment Server System Error";
-//            break;
-//        case "8" : $result = "Transaction Type Not Supported";
-//            break;
-//        case "9" : $result = "Bank declined transaction (Do not contact Bank)";
-//            break;
-//        case "A" : $result = "Transaction Aborted";
-//            break;
-//        case "C" : $result = "Transaction Cancelled";
-//            break;
-//        case "D" : $result = "Deferred transaction has been received and is awaiting processing";
-//            break;
-        case "E" : $result = "Invalid Credit Card";
+          case "3" : $result = "Payment is unsuccessful. Please try again.";
             break;
-//        case "F" : $result = "3D Secure Authentication failed";
-//            break;
-        case "I" : $result = "Card Security Code verification failed";
+        case "4" : $result = "Payment is unsuccessful due to expired credit card. Please try a different card.";
             break;
-//        case "G" : $result = "Invalid Merchant";
-//            break;
-//        case "L" : $result = "Shopping Transaction Locked (Please try the transaction again later)";
-//            break;
-//        case "N" : $result = "Cardholder is not enrolled in Authentication scheme";
-//            break;
-//        case "P" : $result = "Transaction has been received by the Payment Adaptor and is being processed";
-//            break;
-//        case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
+        case "5" : $result = "Payment is unsuccessful due to insufficient funds. Please try a different card or contact your Bank.";
+            break;
+        case "6" : $result = "Payment is unsuccessful. Please try again.";
+            break;
+        case "7" : $result = "Payment is unsuccessful. Please verify that you entered the date in the correct format.";
+            break;
+        case "8" : $result = "Payment is unsuccessful. We will contact you shortly to resolve this issue.";
+            break;
+        case "9" : $result = "Payment is declined by your Bank. Please try a different card.";
+            break;
+        case "A" : $result = "Payment is unsuccessful. Please try again.";
+            break;
+        case "C" : $result = "Payment is unsuccessful. Please try again.";
+            break;
+        case "D" : $result = "Payment is being processed. We will contact you shortly to resolve this issue.";
+            break;
+        case "E" : $result = "Payment is unsuccessful due to invalid card number. Please try again.";
+            break;
+        case "F" : $result = "Payment is unsuccessful. Please try again.";
+            break;
+        case "I" : $result = "Payment is unsuccessful due to wrong CVC (security code). Please try again.";
+            break;
+        case "G" : $result = "Payment is unsuccessful. We will contact you shortly to resolve this issue.";
+            break;
+        case "L" : $result = "Payment is unsuccessful. Please try again.";
+            break;
+        case "N" : $result = "Payment is unsuccessful. Please try a different card or contact your Bank.";
+            break;
+        case "P" : $result = "Payment is being processed. We will contact you shortly to resolve this issue.";
+            break;
+        case "R" : $result = "Transaction Declined- Reached retry limit attempts";
 //            break;
 //        case "S" : $result = "Duplicate SessionID (OrderInfo)";
 //            break;
-//        case "T" : $result = "Address Verification Failed";
+        case "T" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
 //            break;
-        case "U" : $result = "Card Security Code Failed";
+//        case "U" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
             break;
 //        case "V" : $result = "Address Verification and Card Security Code Failed";
 //            break;
-//        case "X" : $result = "Credit Card Blocked";
+        case "X" : $result = "Transaction Failed: Please try a different credit card.";
 //            break;
-//        case "Y" : $result = "Invalid URL";
+        case "Y" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
 //            break;
-//        case "B" : $result = "Transaction was not completed";
+        case "B" : $result = "Transaction incomplete: Please try again";
 //            break;
-//        case "M" : $result = "Please enter all required fields";
+        case "M" : $result = "Missing fields: Please enter all required fields";
 //            break;
-        //case "J" : $result = "Transaction already in use";
+        case "J" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
             //break;
         //case "BL" : $result = "Card Bin Limit Reached";
             //break;
         //case "CL" : $result = "Card Limit Reached";
             //break;
-        //case "LM" : $result = "Merchant Amount Limit Reached";
+        case "LM" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
             //break;
-        //case "Q" : $result = "IP Blocked";
+        case "Q" : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
             //break;
         //case "R" : $result = "Transaction was not processed - Reached limit of retry attempts allowed";
             //break;
         //case "Z" : $result = "Bin Blocked";
             //break;
 
-        default : $result = "Transaction didn't pass through please try again";
+        default : $result = "Transaction Failed: We will contact you shortly to resolve the issue.";
     }
-    return $result;
-    
-    
+    return $result; 
 }
+
 function postToFB($product_id,$api_key,$api_secret)
 {
-
 $facebook = new Facebook(array('appId'=>$api_key,'secret'=>$api_secret));
 $params = array('design'=>'http://ikimuk.com/design.php?product_id='.$product_id,'access_token'=>$_SESSION["access_token"]);
 $out = $facebook->api('/me/ikimukapp:preorder','post',$params);

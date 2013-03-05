@@ -47,7 +47,7 @@ if ($product->preorders >= $settings->goals[0])
     
 else
 {
-    include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_preorder.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/block/design_view_shop.php";
     
     }
 }

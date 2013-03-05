@@ -61,3 +61,4 @@ include $_SERVER["DOCUMENT_ROOT"].'/block/top_area.php';
     
     </div>
 </div>
+<?php include $_SERVER["DOCUMENT_ROOT"]."/block/footer.php";?>

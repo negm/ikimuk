@@ -115,6 +115,7 @@ $(document).ready(function(){
     //reset password
     
     $("#change_password_reset").click(function(){ 
+    $("#change_password_reset").attr("disabled", "disabled");
     var flag=0;
     var password=$("#password_reset");
     var confirm_password=$("#password_reset_confirm");
@@ -143,6 +144,7 @@ $(document).ready(function(){
                 data:myData,
                 cache: false,
                 success:function(response){
+                    $("#change_password_reset").removeAttr("disabled");
                     if ((response.error).length > 5)
                     {
                         $('#reset_error').text(response.error).parent().show();
@@ -166,6 +168,7 @@ $(document).ready(function(){
 });
     //forgot password 
     $("#reset_password_submit").click(function(){ 
+    $("#reset_password_submit").attr("disabled", "disabled");
     var flag=0;
     var email=$("#email_reset");
     if(check_input_member(email,"Email field is empty"))flag++;
@@ -183,6 +186,7 @@ $(document).ready(function(){
                 data:myData,
                 cache: false,
                 success:function(response){
+                    $("#reset_password_submit").removeAttr("disabled");
                     if ((response.error).length > 5)
                     {
                         $('#reset_error').text(response.error).parent().show();
@@ -421,6 +425,7 @@ $(document).ready(function(){
     
     
     $("#add_to_cart").click(function(){
+        $("#add_to_cart").attr("disabled", "disabled");
         $('#size_error').hide();
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
@@ -436,7 +441,7 @@ $(document).ready(function(){
                 cache: false,
                 success:function(response){
                     //var json = $.parseJSON(response);
-        
+                    $("#add_to_cart").removeAttr("disabled");
                     if ((response.error).length >3)
                     {
                         //alert(response.error)

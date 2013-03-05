@@ -1,6 +1,6 @@
 <?php
 
-require_once("inc/ses.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/inc/ses.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
 // Begin Class "competition"
 class message {
@@ -22,6 +22,7 @@ class message {
     public function __destruct() {
 		unset($this->database);
                 unset($this->message);
+                unset ($this->settings);
 	}
     public function send ($to, $subject, $body)
     {
