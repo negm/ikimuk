@@ -64,7 +64,7 @@
                            <div class="member_or">OR</div>
                        </div>
                        
-                       <div class="member_facebook">
+                       <div class="member_facebook hide">
                            <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
                        
@@ -187,7 +187,7 @@
                            <div class="member_or">OR</div>
                        </div>
                        
-                       <div class="member_facebook">
+                       <div class="member_facebook hide">
                            <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
                        </div>
    <div class="loader_box hide">

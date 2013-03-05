@@ -36,11 +36,11 @@ while($row_preorder =  mysqli_fetch_object($submissions_list->database->result))
     $row_preorder->email = trim($row_preorder->email);
     echo '<tr>';
     echo "<td>$count</td>";
-    echo "<td>$row_preorder->name</td>";
+    echo "<td>".urldecode($row_preorder->name)."</td>";
     echo "<td>$row_preorder->email</td>";
     echo "<td>$row_preorder->fbid</td>";
-    echo "<td>$row_preorder->title</td>";
-    echo "<td>$row_preorder->comments</td>";
+    echo "<td>".urldecode($row_preorder->title)."</td>";
+    echo "<td>".urldecode($row_preorder->comments)."</td>";
     echo '<td class="thumb"><img src="'.htmlentities(urldecode($row_preorder->url)).'" /></td>';
     echo "<td>$row_preorder->submission_date</td>";
     //echo '<td><a class="btn" href="preorder-edit.php?preorder_id='.$row_preorder->id.'">Edit</a></td>';

@@ -56,7 +56,6 @@ function AjaxResponse()
         data:myData,
         cache: false,
         success:function(response){
-            $("#results").html(response); //Result
             if(target.length > 1)
                 window.location.href = target;
             else
@@ -70,11 +69,6 @@ function AjaxResponse()
 
 //from ali
 $(document).ready(function(){
-    if ($.browser.mozilla)
-        {
-            $(".member_or_line").hide();
-            $(".member_facebook").hide();
-        }
     // Login + Join
     // 
     //////////////////////////Join US part///////////////////////////////////////////////

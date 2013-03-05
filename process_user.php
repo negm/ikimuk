@@ -74,6 +74,7 @@ if(isset($_POST["connect"]) && $_POST["connect"]==1)
 	// redirect user to facebook login page if empty data or fresh login requires
 	if (!$fbuser){
        $loginUrl = $facebook->getLoginUrl(array('redirect_uri'=>$_SERVER["HTTP_REFERER"], false));
+       $logout = $facebook->getLoginUrl();
        echo $loginUrl;
        return;
                 
