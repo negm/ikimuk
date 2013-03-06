@@ -325,7 +325,7 @@ function getResponseDescription($responseCode) {
             break;
         case "6" : $result = "Payment is unsuccessful. Please try again.";
             break;
-        case "7" :{ if (isset($_GET["vpc_Message"])&& strpos("Invalid Expiry Date", $_GET["vpc_Message"]) > 0) 
+        case "7" :{ if (isset($_GET["vpc_Message"])&& strpos("Invalid Card Expiry Date", $_GET["vpc_Message"]) > 0) 
                 $result = "Payment is unsuccessful. Please verify that you entered the date in the correct format.";
                 else $result = "Payment is unsuccessful. We will contact you shortly to resolve this issue.";}
             break;
