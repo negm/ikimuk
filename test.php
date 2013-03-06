@@ -12,7 +12,7 @@ $logger->response_code = "M";
 $logger->entire_url = http_build_query($_GET);
 $x = $logger->log_request();
 $x = array_search($logger->response_code, $logger->codes_for_email);
-echo $x;*/
+echo $x;
 $result = null;
 switch ($_GET["test"]) {
         case "0" : $result = "Payment is successful.";
@@ -21,6 +21,6 @@ switch ($_GET["test"]) {
                     else $result = "shit";
             break;
 }
-echo $result;
+echo $result;*/
 ?>
 
