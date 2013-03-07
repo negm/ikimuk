@@ -198,6 +198,20 @@ else{
     header ("Location: /index.php");
 }
 function place_order() {
+    if (!isset($_POST["country"])||!isset($_POST["first_name"])||
+    !isset($_POST["last_name"])||!isset($_POST["address"])||
+    !isset($_POST["city"])||!isset($_POST["region"])||
+    !isset($_POST["tel"])||!isset($_POST["code"]))
+    {header("Location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    $_SESSION["form_first_name"]=$_POST["first_name"];
+    $_SESSION["form_last_name"]=$_POST["last_name"];
+    $_SESSION["form_address"]=$_POST["address"];
+    $_SESSION["form_city"]=$_POST["city"];
+    $_SESSION["form_region"]=$_POST["region"];
+    $_SESSION["form_tel"]=$_POST["tel"];
+    if (isset($_POST["zip"]))
+        $_SESSION["form_zip"] = $_POST["zip"];
     global $size_enum, $cut_enum,$settings;
     $order = new order();
     $order_details = new order_details();

@@ -142,7 +142,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">First Name</div>
                                         <div class="line_input">
-                                            <input id="first_name" type="text" name="first_name" data-animation="true" data-trigger="focus"/>
+                                            <input id="first_name" type="text" name="first_name" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_first_name"])) echo $_SESSION["form_first_name"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -150,7 +150,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">Last Name</div>
                                         <div class="line_input">
-                                            <input id="last_name" type="text" name="last_name" data-animation="true" data-trigger="focus"/>
+                                            <input id="last_name" type="text" name="last_name" data-animation="true" data-trigger="focus"value="<?php if(isset($_SESSION["form_last_name"])) echo $_SESSION["form_last_name"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
@@ -164,7 +164,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="full_line">
                                         <div class="line_header">Address</div>
                                         <div class="line_input">
-                                            <input type="text" name="address" data-content="Please write down your full address so we can deliver to your doorstep." data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="address" data-content="Please write down your full address so we can deliver to your doorstep." data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_address"])) echo $_SESSION["form_address"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -177,7 +177,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">City</div>
                                         <div class="line_input">
-                                            <input type="text" name="city" data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="city" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_city"])) echo $_SESSION["form_city"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div>
@@ -186,7 +186,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">State, Region or Province</div>
                                         <div class="line_input">
-                                            <input type="text" name="region" data-animation="true" data-trigger="focus" />
+                                            <input type="text" name="region" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_region"])) echo $_SESSION["form_region"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
@@ -197,7 +197,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line">
                                         <div class="line_header">Zip Code (if Applicable)</div>
                                         <div class="line_input">
-                                            <input type="text" name="zip" data-animation="true" data-trigger="focus"/>
+                                            <input type="text" name="zip" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_zip"])) echo $_SESSION["form_zip"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div>
                                     </div> 
@@ -252,7 +252,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="half_line marginl20">
                                         <div class="line_header">Telephone Number</div>
                                         <div class="line_input">
-                                            <input type="text" name="tel" data-animation="true" data-trigger="focus"/>
+                                            <input type="text" name="tel" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_tel"])) echo $_SESSION["form_tel"]; ?>"/>
                                         </div>
                                         <div class="line_error"></div> 
                                     </div>
