@@ -225,9 +225,12 @@ function place_order() {
     $order->user_id = $_SESSION["user_id"];
     $order->country = $_POST["country"];
     $order->region = $_POST["region"];
-    $order->address = $_POST["address"];
+    $order->address = $_POST["last_name"]." ".$_POST["first_name"]
+            ." ".$_POST["address"].", ".$_POST["region"].", ". $_POST["city"];
+    if (isset($_POST["zip"]))
+        $order->address .=" ".$_POST["zip"];
     $order->phone = $_POST["phone"];
-    $order->status_id = 2;
+    $order->status_id = 1;
     $order->newsletter = isset($_POST["newsletter"]) ? 1 : 0;
     $order->insert();
     if (!$order->id) {
