@@ -425,6 +425,7 @@ $(document).ready(function(){
     
     
     $("#add_to_cart").click(function(){
+        mixpanel.track("Add to Cart");
         $("#add_to_cart").attr("disabled", "disabled");
         $('#size_error').hide();
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category

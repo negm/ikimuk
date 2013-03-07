@@ -9,8 +9,8 @@
 ********************************************************************************/
 
 // Files required by class:
-require_once("class.database.php");
-
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.database.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/class/settings.php");
 // Begin Class "order_details"
 class order_details {
 	// Variable declaration
@@ -22,15 +22,18 @@ class order_details {
         public $cut;
         public $price;
         public $quantity;
+        protected $settings;
 
         // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
+                $this->settings = new settings();
 	}
 	
 	// Class Destructor
 	public function __destruct() {
 		unset($this->database);
+                unset($this->settings);
 	}
 	
 	// GET Functions
@@ -62,6 +65,11 @@ class order_details {
 		$oResult = $this->database->result;
                 return $oResult;
 	}
+        public function get_refunds()
+        {
+            $sSQL = "SELECT order_id, SUM( quantity * price ) AS refund_amount FROM order_details WHERE product_id IN (SELECT p.id FROM product p INNER JOIN competition c ON p.competition_id = c.id WHERE end_date > DATE_SUB( NOW( ) , INTERVAL 10 DAY ) AND p.preorders >=". $this->settings->goals[0]." ) GROUP BY order_id order by order_id";
+            $oResult = $this->database->query($sSQL);
+        }
         public function update_order_count(){
             $sSQL = "UPDATE `product` SET preorders = preorders + $this->quantity WHERE id = $this->product_id;";
             $oResult = $this->database->query($sSQL);

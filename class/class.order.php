@@ -73,12 +73,16 @@ class order {
       " INNER JOIN STATUS ON order.status_id = status.id WHERE user_id = $user_id AND image.`small` =1 AND status_id in (1,2)";
                 $this->database->Query($sSQL);
                 } 
-	public function unconfirmed_incompetition() { // SELECT Function
+	public function unconfirmed_in_competition() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT u.*,p.*,s.status,im.url, p.last_modified as order_date  FROM order p INNER JOIN status s ON p.status_id = s.id INNER JOIN user u ON p.user_id = u.id INNER JOIN product pr ON p.product_id = pr.id INNER JOIN image im ON pr.id = im.product_id WHERE status_id = 1 AND `primary`=1  ORDER BY product_id, order_date ASC;";
 		$this->database->Query($sSQL);
 		}
-	        
+        public function confirmed_in_competition() { // SELECT Function
+		// Execute SQL Query to get record.
+		$sSQL = "SELECT * FROM `order` WHERE status_id = 2";
+		$this->database->Query($sSQL);
+		}
        /* public function already_ordered() { // SELECT Function
 		// Execute SQL Query to get record.
 		$sSQL = "SELECT * FROM order WHERE user_id = $this->user_id AND product_id = $this->product_id;";
