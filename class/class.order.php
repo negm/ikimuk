@@ -80,7 +80,7 @@ class order {
 		}
         public function confirmed_in_competition() { // SELECT Function
 		// Execute SQL Query to get record.
-		$sSQL = "SELECT * FROM `order` WHERE status_id = 2 UNION SELECT * FROM `preorder` WHERE status_id = 2";
+		$sSQL = "SELECT * FROM `order` WHERE status_id = 2 UNION (SELECT id, user_id, phone, country,region, address, newsletter, status_id, comments, last_modified FROM `preorder` WHERE status_id = 2)";
 		$this->database->Query($sSQL);
 		}
        /* public function already_ordered() { // SELECT Function
