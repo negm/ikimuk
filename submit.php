@@ -1,4 +1,12 @@
 <?php
+if (!isset($_SESSION))
+{
+    session_start ();
+}
+if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"])
+{
+    header("Location: /submit-intro.php");
+}
 include $_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.competition.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.artist.php";
