@@ -441,7 +441,7 @@ for ($i=0; $i < count($settings->goals); $i++){
     echo '%;"></div></div>';
     echo '<div class="progress_percentage">';
     if($i == 0){
-      echo $settings->goals[$i];
+      echo $product->preorders;
     }else{
       if($product->preorders >= $settings->goals[$i]){
 	echo ($settings->goals[$i] - $settings->goals[$i-1]);
