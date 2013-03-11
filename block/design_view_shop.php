@@ -221,7 +221,8 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="order_details" itemprop="description">
 			    <?php echo $product->desc; ?>
                         </div>
-
+                        <?php if ($product->preorders > $settings->goals[0]){?>
+                        
                         <div class="order_progressbar">
                             <div class="progress">
                                 <div class="bar progress_cyan"  style="width:100%;"></div>
@@ -238,6 +239,21 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                                 This T-shirt is Getting Printed
                             </span>
                         </div>
+                        <?php } else {?>
+                        <div class="order_progressbar" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <div class="progress">
+                                <div class="bar progress_cyan"  style="width:<?php echo $product->preorders* (100/$settings->goals[0]); ?>%;"></div>
+                            </div>                            
+                            <div class="progress_percentage" itemprop="ratingValue">
+                                <?php echo $product->preorders."/".$settings->goals[0]; ?>
+                            </div>
+                        </div>
+
+
+                        <div class="order_remaining">
+                                <?php echo $settings->goals[0]-$product->preorders?> Orders till the T-shirt gets printed
+                            </div>
+                        <?php }?>
 
                         <!--Start Of Cart Body--> 
                         <div class="cart_body">
