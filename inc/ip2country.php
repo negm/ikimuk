@@ -14,8 +14,9 @@ class ip2country {
 
 	private $ip_num=0;
 	private $ip='';
-	private $country_code='';
-	private $country_name='';
+	public $country_code='';
+	public $country_name='';
+        public $country_name_ar='';
         public  $delivery_charge='';
         public $phone_code="";
         private $con=false;
@@ -43,8 +44,9 @@ class ip2country {
 
 		$this->ip=$newip;
 		$this->calculate_ip_num();
-		$this->country_code='';
-		$this->country_name='';
+		$this->country_code ='';
+		$this->country_name ='';
+                $this->country_name_ar ='';
                 $this->phone_code='';
 	}
 	public function calculate_ip_num()
@@ -79,7 +81,8 @@ class ip2country {
 
 		$row=mysqli_fetch_assoc($r);
 		$this->close();
-		$this->country_name=$row['country_name'];
+		$this->country_name = $row['country_name'];
+                $this->country_name_ar = $row['country_name_ar'];
 		$this->country_code=$row['country_code'];
                 $this->phone_code = $row["phone_code"];
                 $this->delivery_charge = $row["delivery_charge"];
@@ -91,7 +94,11 @@ class ip2country {
 		$this->get_country_code($ip_addr);
 		return $this->country_name;
 	}
-
+        public function get_country_name_ar($ip_addr='')
+	{
+		$this->get_country_code($ip_addr);
+		return $this->country_name_ar;
+	}
 	public function get_client_ip()
 	{
 		$v='';

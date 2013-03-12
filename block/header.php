@@ -1,11 +1,13 @@
 <?php
-    // Include this function on your pages
+include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
 include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
+
 $settings = new settings();
 if (!isset($_SESSION))
 {
     session_start ();
 }
+$_SESSION["lang"] = "ar";
 if(isset($_GET["utm_source"]))
 {
 $_SESSION["promo_code"]= $_GET["promo_code"];
@@ -79,7 +81,7 @@ function sanitize_output($buffer)
 ob_implicit_flush(0);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" version="XHTML+RDFa 1.0">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" version="XHTML+RDFa 1.0" <?php if(isset($_SESSION["lang"]) && $_SESSION["lang"] == "ar") echo 'dir="rtl"'?>>
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">

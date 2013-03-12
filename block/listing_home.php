@@ -112,9 +112,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
             <div class="competition_header">
-                competition no
+                <?php echo _txt("competitionno");?>
                 <span class="competition_no"><?php echo $competition->competition_order; ?></span>
-                (ends on
+                (<?php echo _txt("endson");?>
                 <span class="competition_end_date"><?php $date = new DateTime($competition->end_date);
         echo $date->format('d/m/Y'); ?></span>)
             </div>
@@ -137,7 +137,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         <input type="hidden" name="user_id" value="/design/<?php echo $row["id"] . "/" . str_replace(".", "", str_replace(" ", "-", trim($row["title"]))); ?>"/>
                         <div class="entry_transparent">
                             <div class="entry_order_now">
-                                ORDER NOW
+                                <?php echo _txt("ordernow");?>
                             </div>
                         </div>
                         <div class="entry_option">
@@ -174,13 +174,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="entry_remaining">
     <?php if ($row["preorders"] >= $settings->goals[0]) { ?>
-                                        <span class="entry_remaining_hilight">Hooray !</span>
+                                        <span class="entry_remaining_hilight"><?php echo _txt("hooray");?></span>
                                         <span class="entry_remaining_value"> 
-                                            This T-shirt is Getting Printed
+                                            <?php echo _txt("tobeprinted");?>
                                         </span>
                                         <?php } else { ?>
                                         <span class="entry_remaining_value"> 
-                                        <?php echo $settings->goals[0] - $row["preorders"]; ?> orders until this T-shirt gets printed
+                                        <?php echo $settings->goals[0] - $row["preorders"]; ?> <?php echo _txt("ordersremain");?>
                                         </span>
     <?php } ?>
                                 </div>

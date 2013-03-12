@@ -7,7 +7,7 @@
                <!--Start of member header-->
                  <div class="member_header">  
                                 
-                         <div class="member_title_box"><div class="member_title">LOGIN</div></div>
+                         <div class="member_title_box"><div class="member_title"><?php echo _txt("login");?></div></div>
     
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
@@ -15,8 +15,8 @@
                            </div>
                          
                  <div class="member_unjoin">
-                    <span>Not a member?</span>
-                    <a href="#join" data-toggle="modal" onclick="$('#login').modal('hide');">Join Us</a>
+                    <span><?php echo _txt("notamember");?></span>
+                    <a href="#join" data-toggle="modal" onclick="$('#login').modal('hide');"><?php echo _txt("signup");?></a>
                   </div>     
                    </div>
                <!--End of member header-->
@@ -29,7 +29,7 @@
                        <!--Start of email section-->
                        <div class="member_line">
                            <div class="member_line_title">
-                               E-mail
+                               <?php echo _txt("email");?>
                            </div>
                            
                             <div class="member_line_input">
@@ -42,7 +42,7 @@
                        
                        <!--Start of password section-->
                         <div class="member_line">
-                           <div class="member_line_title">Password</div>
+                           <div class="member_line_title"><?php echo _txt("password");?></div>
                            
                             <div class="member_line_input">
                                <input class="round_corners" type="password" name="password"/>
@@ -53,23 +53,23 @@
                       <!--End of password section-->
                        
                        
-                       <div class="member_details"><a href="#reset" data-toggle="modal" onclick="$('#login').modal('hide');">Forgot Your Password?</a></div>
+                       <div class="member_details"><a href="#reset" data-toggle="modal" onclick="$('#login').modal('hide');"><?php echo _txt("forgotpassword");?></a></div>
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" id="login-button" value="LOGIN"/>
+                           <input type="submit" name="join" id="login-button" value="<?php echo _txt("login");?>"/>
                        </div>
                        
                        <div class="member_or_line">  
-                           <div class="member_or">OR</div>
+                           <div class="member_or"><?php echo _txt("or");?></div>
                        </div>
                        
                        <div class="member_facebook hide">
-                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
+                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>"><?php echo _txt("connectwithfacebook");?></div></a>
                        </div>
                        
    <div class="loader_box hide">
-   <img src="/img/loader.gif" /> Connecting to Facebook ... </div>
+   <img src="/img/loader.gif" /> <?php echo _txt("connectingtofb");?> </div>
                        
                        
                        
@@ -99,7 +99,7 @@
            <div class="member_content">
                         <!--Start of member header-->
                  <div class="member_header">  
-                         <div class="member_title_box"><div class="member_title">JOIN US</div></div>       	      
+                         <div class="member_title_box"><div class="member_title"><?php echo _txt("signup");?></div></div>       	      
                              
                           <div class="member_close">
                                 <a href="#" data-dismiss="modal" aria-hidden="true">
@@ -107,8 +107,8 @@
                            </div>
                          
                  <div class="member_unjoin">
-                    <span>Already a member?</span>
-                    <a href="#login" data-toggle="modal"  onclick="$('#join').modal('hide');">Login</a>
+                    <span><?php echo _txt("alreadymember");?></span>
+                    <a href="#login" data-toggle="modal"  onclick="$('#join').modal('hide');"><?php echo _txt("login");?></a>
                   </div>     
                    </div>
                <!--End of member header-->
@@ -121,7 +121,7 @@
                        <!--Start of name section-->
                        <div class="member_line">
                            <div class="member_line_title">
-                               Name
+                               <?php echo _txt("name");?>
                            </div>
                            
                             <div class="member_line_input">
@@ -137,7 +137,7 @@
                        <!--Start of email section-->
                        <div class="member_line">
                            <div class="member_line_title">
-                               E-mail
+                               <?php echo _txt("email");?>
                            </div>
                            
                             <div class="member_line_input">
@@ -150,7 +150,7 @@
                        
                        <!--Start of password section-->
                         <div class="member_line">
-                           <div class="member_line_title">Password</div>
+                           <div class="member_line_title"><?php echo _txt("password");?></div>
                            
                             <div class="member_line_input">
                                <input class="round_corners" type="password" name="password"/>
@@ -162,7 +162,7 @@
                       
                       <!--Start of password section-->
                         <div class="member_line">
-                           <div class="member_line_title">Confirm Password</div>
+                           <div class="member_line_title"><?php echo _txt("cpassword");?></div>
                            
                             <div class="member_line_input">
                                <input class="round_corners" type="password" name="confirm_password"/>
@@ -174,24 +174,24 @@
                        
                        
                        <div class="member_details">
-                        By clicking "JOIN US", you agree to our
-                        <a href="/terms.php" target="_blank">Terms & Conditions</a>
+                        <?php echo _txt("termsmsg");?>
+                        <a href="/terms.php" target="_blank"><?php echo _txt("termsanch");?></a>
                         </div>
                        
                        
                        <div class="member_join">
-                           <input type="submit" name="join" value="JOIN US" id='join-button'/>
+                           <input type="submit" name="join" value="<?php echo _txt("signup");?>" id='join-button'/>
                        </div>
               
                        <div class="member_or_line">  
-                           <div class="member_or">OR</div>
+                           <div class="member_or"><?php echo _txt("or");?></div>
                        </div>
                        
                        <div class="member_facebook hide">
-                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>">Connect With Facebook</div></a>
+                           <a href="#" onclick="LoadingAnimate();"><div class="fb-login-button" onlogin="javascript:CallAfterLogin();" data-width="600" data-max-rows="1" data-show-faces="false" scope="<?php echo $settings->fbPermissions; ?>"><?php echo _txt("connectwithfacebook");?></div></a>
                        </div>
    <div class="loader_box hide">
-   <img src="/img/loader.gif" /> Connecting to Facebook ... </div>
+   <img src="/img/loader.gif" /> <?php echo _txt("connectingtofb");?> ... </div>
                        
                        
                        

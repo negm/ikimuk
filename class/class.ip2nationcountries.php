@@ -18,6 +18,8 @@ class ip2nationcountries {
         public $delivery_charge;
         public $database;
 	public $phone_code;
+        public $country_name;
+        public $country_name_ar;
 
         // Class Constructor
 	public function __construct() {
@@ -51,6 +53,8 @@ class ip2nationcountries {
                 $this->delivery_charge = $oRow->delivery_charge;
                 $this->phone_code = $oRow->phone_code; // Primary Key
 		$this->country_code = $oRow->country_code; // Primary Key
+                $this->country_name = $oRow->country_name;
+                $this->country_name_ar = $oRow->country_name_ar;
                 }
                 else
                 {

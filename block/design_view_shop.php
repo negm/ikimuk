@@ -234,9 +234,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
 
                         <div class="order_remaining">
-                            <span class="order_remaining_hilight">Hooray !</span>
+                            <span class="order_remaining_hilight"><?php echo _txt("hooray");?></span>
                             <span class="order_remaining_value"> 
-                                This T-shirt is Getting Printed
+                                <?php echo _txt("tobeprinted");?>
                             </span>
                         </div>
                         <?php } else {?>
@@ -251,7 +251,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
 
                         <div class="order_remaining">
-                                <?php echo $settings->goals[0]-$product->preorders?> Orders till the T-shirt gets printed
+                                <?php echo $settings->goals[0]-$product->preorders?> <?php echo _txt("ordersremain");?>
                             </div>
                         <?php }?>
 

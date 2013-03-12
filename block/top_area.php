@@ -21,8 +21,8 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
 
                 <div class="header_title">
-                    We deliver internationally including 
-                        <?php 
+                    <?php echo _txt("intldelivery");
+                        
                     if (!isset($_SESSION["country_name"]) || strlen($_SESSION["country_name"]) < 2)
                        if(isset($ip2c)) {echo $ip2c->get_country_name();}
                        else {echo "your country"; }
@@ -35,8 +35,8 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <?php
                     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                         ?>
-                        <a href="#join" data-toggle="modal"><div class="header_button joinus">Join Us</div></a>
-		        <a href="#login" data-toggle="modal"><div class="header_button login">Login</div></a>
+                        <a href="#join" data-toggle="modal"><div class="header_button joinus"><?php echo _txt("signup");?></div></a>
+		        <a href="#login" data-toggle="modal"><div class="header_button login"><?php echo _txt("login");?></div></a>
 
     <?php
 } else {
@@ -45,14 +45,14 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="login_menu">
                             <div class="login_header">
                                 <div class="login_arrow"></div>
-                                <div class="login_name">Hello, <b><?php echo $_SESSION["user_name"]; ?></b></div>
+                                <div class="login_name"><?php echo _txt("hello").", <b> ".$_SESSION["user_name"]; ?></b></div>
                                 
 
                             </div> 
                             <div class="menu_drop">
                                 <!--<div class="menu_entry"><span class="profile">My Profile</span></div>-->
                                 <div class="menu_h_line"></div>
-                                <a href="/index.php?logout=1"><div class="menu_entry"><span class="logout">Log Out</span></div></a>
+                                <a href="/index.php?logout=1"><div class="menu_entry"><span class="logout"><?php echo _txt("logout");?></span></div></a>
                             </div>
                         </div>
 
@@ -93,8 +93,8 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="menu_content">
 
                             <div class="preorder">
-                                <div class="line"> ORDER </div>
-                                <div class="line"> A T-SHIRT</div>
+                                <div class="line"> <?php echo _txt("order");?> </div>
+                                <div class="line"> <?php echo _txt("tshirt");?></div>
                             </div>
 
                         </div>
@@ -112,8 +112,8 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
                         <div class="menu_content">
                             <div class="submit">
-                                <div class="line"> SUBMIT </div>
-                                <div class="line"> YOUR DESIGN </div>
+                                <div class="line"> <?php echo _txt("submit");?> </div>
+                                <div class="line"> <?php echo _txt("yourdesign");?> </div>
                             </div>
                         </div>
                     </div>
@@ -130,25 +130,41 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
 
                         <div class="menu_content">
                             <div class="previous">
-                                <div class="line"> PAST </div>
-                                <div class="line"> COMPETITIONS </div>
+                                <div class="line"> <?php echo _txt("past");?> </div>
+                                <div class="line"> <?php echo _txt("competitions");?> </div>
                             </div>
                         </div>
                     </div>
                     <!--End of menu element-->
-
-                    <div class="pipe"></div>
+                     <div class="pipe"></div>
 
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
                         <input type="hidden" name="flag" value="<?php echo $selected[3];?>"/>
                         <!--This to set a link to go for when the user click-->
+                        <input type="hidden" name="link" value="/interviews.php"/>
+
+                        <div class="menu_content">
+                            <div class="about">
+                                <div class="line"> <?php echo _txt("artist");?> </div>
+                                <div class="line"> <?php echo _txt("interviews");?> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of menu element-->
+                    <div class="pipe"></div>
+
+                    <!--Start of Menu element-->
+                    <div class="menu_element">
+                        <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
+                        <input type="hidden" name="flag" value="<?php echo $selected[4];?>"/>
+                        <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/about-us.php"/>
 
                         <div class="menu_content">
                             <div class="about">
-                                <div class="line"> ABOUT </div>
+                                <div class="line"> <?php echo _txt("about");?> </div>
                                 <div class="line"> ikimuk </div>
                             </div>
                         </div>
@@ -159,14 +175,14 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                     <!--Start of Menu element-->
                     <div class="menu_element">
                         <!--This to Determine if the user is in the current menu link,selected=yes - unselected=no-->
-                        <input type="hidden" name="flag" value="<?php echo $selected[4];?>"/>
+                        <input type="hidden" name="flag" value="<?php echo $selected[5];?>"/>
                         <!--This to set a link to go for when the user click-->
                         <input type="hidden" name="link" value="/cart.php"/>
 
                         <div class="menu_content">
                             <div class="cart">
                                 <div class="line"><img src="/img/ikimuk_cart.png"/></div>
-                                <div class="line"> CART(<span id="cart_sum" class="cart_sum">
+                                <div class="line"> <?php echo _txt("cart");?>(<span id="cart_sum" class="cart_sum">
                                     <?php if (!isset($_SESSION["item_count"])) echo '0'; else echo $_SESSION["item_count"]; ?>
                                     </span>)</div>
 

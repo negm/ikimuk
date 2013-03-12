@@ -8,8 +8,8 @@
                       <!--start of social mail section--> 
                       <div class="social_mail">
                           <div class="mail_title">
-                              <span class="blue_part">NEWSLETTER</span>
-                              <span class="black_part">join for updates</span>
+                              <span class="blue_part"><?php echo _txt("newsletter");?></span>
+                              <span class="black_part"><?php echo _txt("newslettermsg");?></span>
                           </div>
                           
                           
@@ -24,7 +24,7 @@
                               </div>
                               <div class="subscribe_link">
 
-                        <input class="input_submit" type="submit" value="subscribe" id="mc-embedded-subscribe" name="subscribe">
+                        <input class="input_submit" type="submit" value="<?php echo _txt("subscribe");?>" id="mc-embedded-subscribe" name="subscribe">
                     </div>
                               </div>   
                           </div>
@@ -41,7 +41,7 @@
                        <!--end of social facebook section--> 
                        
                        
-                      <div class="social_twitter">
+                      <div class="social_twitter" dir="ltr">
                           
                           <div class="twitter_balloon round_corners">
                           
