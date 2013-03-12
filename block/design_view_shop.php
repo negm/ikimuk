@@ -305,9 +305,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                                 <!--Start Of Female Part--> 
                                  <div class="size_selection_header">GIRL - $<?php echo number_format($product->price, 2); ?>
-                                    <span class="order_size_info">
+                                    <!--<span class="order_size_info">
                                         <a href="#">Size Info</a>
-                                    </span> 
+                                    </span>--> 
                                 </div>
                                 <div class="selection_container female_part">
 
