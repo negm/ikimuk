@@ -106,7 +106,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                     <div class="social_label">
                         <div class="social_label_content">
 
-                            <div class="social_label_left">  <?php echo $daysLeft;?> Days left</div>
+                            <div class="social_label_left">  <?php echo $daysLeft." "._txt("daysleft");?></div>
                         </div>
                     </div>
 
@@ -185,7 +185,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="comment_label"></div>
 
                         <div class="social_header">
-                            Show your support
+                            <?php echo _txt("showsupport"); ?>
                         </div>
 
                         <div class="social_body">
@@ -262,7 +262,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                             <div class="cart_size_selection">
 
                                 <!--Start Of Male Part--> 
-                                <div class="size_selection_header">GUY - $<?php echo number_format($product->price, 2); ?> 
+                                <div class="size_selection_header"><?php echo _txt("guy")." - $".number_format($product->price, 2); ?> 
                                     <!--<span class="order_size_info"><a href="#">Size Info</a></span>-->
                                 </div>
 
@@ -304,7 +304,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                                 <!--End Of Male Part--> 
 
                                 <!--Start Of Female Part--> 
-                                 <div class="size_selection_header">GIRL - $<?php echo number_format($product->price, 2); ?>
+                                 <div class="size_selection_header"><?php echo _txt("girl")." - $".number_format($product->price, 2); ?>
                                     <!--<span class="order_size_info">
                                         <a href="#">Size Info</a>
                                     </span>--> 
@@ -362,7 +362,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div id="add_to_cart" class="order_submit">
                             <input type="hidden" name="category" value=""/>
                             <input type="hidden" name="size" value=""/>
-                            <input type="submit" name="add_to_cart" value="ADD TO CART"/>
+                            <input type="submit" name="add_to_cart" value="<?php echo _txt("addtocart")?>"/>
                         </div>
 
 
@@ -384,7 +384,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                             </div>
                         </div>
 
-                        <div class="profile_name"><?php echo $artist->name ?></div> 
+                        <div class="profile_name"><?php if (strlen($artist->name_ar)> 5 && isset($_SESSION["lang"])&&$_SESSION["lang"]=="ar") echo $artist->name; else echo $artist->name_ar?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
                         <?php if (strlen($artist->website)>1) {?>
                         <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>

@@ -4,9 +4,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 echo $_SERVER['HTTP_HOST'];
-/*require_once($_SERVER["DOCUMENT_ROOT"]."/class/class.payment_log.php");
+/*
 $logger = new payment_log();
 $logger->response_code = "M";
 $logger->entire_url = http_build_query($_GET);
@@ -22,5 +21,8 @@ switch ($_GET["test"]) {
             break;
 }
 echo $result;*/
+require_once($_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php");
+$x = _txt("test");
+echo $x[0];
 ?>
 

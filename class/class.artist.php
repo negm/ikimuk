@@ -17,6 +17,7 @@ class artist {
 	public $id; // Primary Key
 	public $database;
 	public $name;
+        public $name_ar;
         public $image;
         public $website;
         public $location;
@@ -65,6 +66,7 @@ class artist {
 		$this->id = $oRow->id; // Primary Key
                 
 		$this->name       =urldecode($oRow->name);
+                $this->name_ar       =urldecode($oRow->name_ar);
                 $this->image      =htmlentities(urldecode($oRow->image))   ;
                 $this->website    =htmlentities(urldecode($oRow->website)) ;
                 $this->location   =htmlentities(urldecode($oRow->location));

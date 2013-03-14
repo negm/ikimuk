@@ -1,7 +1,6 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
 include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
-
 $settings = new settings();
 if (!isset($_SESSION))
 {
@@ -17,6 +16,7 @@ if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
     include $_SERVER["DOCUMENT_ROOT"]."/inc/ip2country.php";
     $ip2c=new ip2country();
     $_SESSION["country_name"] = $ip2c->get_country_name();
+    $_SESSION["country_name_ar"] = $ip2c->country_name_ar;
     $_SESSION["delivery_charge"] = $ip2c->delivery_charge;
     $_SESSION["phone_code"]=$ip2c->phone_code;
 }
@@ -98,7 +98,7 @@ ob_implicit_flush(0);
 <script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet"/>
-<link href="/css/styles.min.css" rel="stylesheet" type="text/css"/>
+<link href="/css/styles.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-light/light.css" type="text/css" media="screen" />
 <link type="text/css" rel="stylesheet" href="/css/simplePagination.css"/>

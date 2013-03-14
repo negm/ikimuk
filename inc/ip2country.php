@@ -111,6 +111,9 @@ class ip2country {
 	public function mysql_con()
 	{
             $this->con = mysqli_connect($this->mysql_host, $this->db_user, $this->db_pass, $this->db_name);
+            if (!mysqli_set_charset($this->con, "utf8")) {
+		failureHandler(mysqli_error(), 'mysqli_set_charset($link, "utf8")');
+			} 
             return true;
 
 	}

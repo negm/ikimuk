@@ -27,7 +27,7 @@ while($row_order =  mysqli_fetch_object($orders_list->database->result))
     {
         $product->select($row_order_detail->product_id);
         if ($product->preorders > $settings->goals[0])
-            $refund_amount += $row_order_detail->quantity * $row_order_detail->price;
+            $refund_amount += $row_order_detail->quantity * $product->price;
         else
         {$subtract_delivery = false;  
         $one_piece = true;

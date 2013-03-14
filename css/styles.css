@@ -227,9 +227,9 @@ cursor: pointer;
 }
 .menu_content .line{width:100%;}
 .menu_content >div{margin-top:20px;}
-.menu_content .preorder{width:145px;}
-.menu_content .submit{width:165px;}
-.menu_content .previous{width:167px;}
+.menu_content .preorder{width:120px;}
+.menu_content .submit{width:120px;}
+.menu_content .previous{width:120px;}
 .menu_content .about{width:113px;}
 .menu_content .cart{margin-top: 15px;width:122px;}
 /*End of header section*/
@@ -884,7 +884,7 @@ cursor: pointer;
 }
 .block_order .order_submit{
     height:50px;
-    margin-top:20px;
+    margin-top:70px;
 }
 .block_order .order_submit input{
     height:100%;
