@@ -2,7 +2,7 @@
         
 $pagetitle = "ikimuk: About Us";
 include $_SERVER["DOCUMENT_ROOT"]."/block/header.php";
-$selected = Array ("unselected","unselected","unselected","selected","unselected" );   
+$selected = Array ("unselected","unselected","unselected","unselected","selected","unselected" );   
 ?>
 <meta property="og:title" content="ikimuk: about us" />
 <meta property="og:type" content="Website" />
