@@ -3,9 +3,8 @@
  * View the cart content and remove/update items
  */
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 session_start();
-$selected = Array ("unselected","unselected","unselected","unselected","selected" );
+$selected = Array ("unselected","unselected","unselected","unselected","unselected","selected" );
 if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $cart = null;
     $item_count = 0;
@@ -44,6 +43,9 @@ function validate_cart_items() {
 
 $pagetitle = "ikimuk | Cart";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+$goals_texts = _txt("goals_texts");
+$goals_perks = _txt("goals_perks");
+$goals_perks_add = _txt("goals_perks_add");
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
 <div class="body">
@@ -57,26 +59,26 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                             <div class="link_deactive"><a class="link_deactive" href="/index.php">ikimuk</a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
-                                <a href="#">Cart</a>
+                                <a href="#"><?php echo _txt("cart"); ?></a>
                             </div>
                         </div>
                     </div>
       
         <!--start of Cart section content-->
         <div class="cart_section_content">
-            <div class="cart_section_header">items in your cart</div>
+            <div class="cart_section_header"><?php echo _txt("itemsincart"); ?></div>
 
         <?php if ($NUM_OF_ITEM != 0) { ?>
                 <div class="cart_table">
                         <!--Start of cart table header-->
                         
                             <div class="cart_header">
-                                <div class="cart_preview">Preview</div>
-                                <div class="cart_title">Title</div>
-                                <div class="cart_description">Description</div>
-                                <div class="cart_price">Price</div>
-                                <div class="cart_quantity">Quantity</div>
-                                <div class="cart_total">Total</div>
+                                <div class="cart_preview"><?php echo _txt("preview"); ?></div>
+                                <div class="cart_title"><?php echo _txt("title"); ?></div>
+                                <div class="cart_description"><?php echo _txt("description"); ?></div>
+                                <div class="cart_price"><?php echo _txt("price"); ?></div>
+                                <div class="cart_quantity"><?php echo _txt("quantity"); ?></div>
+                                <div class="cart_total"><?php echo _txt("total"); ?></div>
                             </div>
                         
                         <!--End of cart table header-->
@@ -101,23 +103,23 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                         <div class="cart_entry_title">
                                             <div class="cart_title_content">
 					    <div class="cart_entry_name"><?php echo $cart_item["product_title"]; ?></div>
-					    <div class="cart_entry_author">by <?php echo $cart_item["artist_name"]; ?></div></div>
+					    <div class="cart_entry_author"><?php   echo _txt("by")." ". $cart_item["artist_name"]; ?></div></div>
                                             <div class="cart_remove">
                                                 <input type="hidden" name="product_id" id="product_id" value="<?php echo $cart_item["product_id"]; ?>">
                                                 <input type="hidden" name="size" id="size" value="<?php echo $cart_item["size"]; ?>">
                                                 <input type="hidden" name="cut" id="cut" value="<?php echo $cart_item["cut"]; ?>">
-                                                <a href="#">Remove</a></div>
+                                                <a href="#"><?php echo _txt("remove"); ?></a></div>
                                         </div>
 
 
                                         <!--Description section-->
                                         <div class="cart_entry_description">
-                                          <div class="entry_description_type">  <?php echo $settings->size_names[$cart_item["size"]] . " " .$cart_item["cut"]."s T-shirt";
+                                            <div class="entry_description_type">  <?php echo $settings->size_names[$cart_item["size"]] . " " ._txt(strtolower($cart_item["cut"]));
                                                ?> </div>
                                           <div class="entry_description_details"> 
 						<div class="flags_container"><div class="flag_container flag_<?php echo $settings->goals_colors[$cart_item['goal']-1]; ?>" style="background-image:none"><div class="flag_medal"></div></div></div>
-						<div class="entry_goal_text">Goal <?php echo $cart_item["goal"]; ?> Perks:<br/>
-					      <?php echo $settings->goals_perks[$cart_item["goal"]-1]; ?>
+						<div class="entry_goal_text">Goal <?php echo $cart_item["goal"]; ?> <?php echo _txt("perks"); ?>:<br/>
+					      <?php echo $goals_perks[$cart_item["goal"]-1]; ?>
 						</div>
                                           </div>  
                                         </div>
@@ -139,7 +141,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                                 <input type="hidden" name="cut" id="cut" value="<?php echo $cart_item["cut"]; ?>">
                                             </div>
                                             <div class="item_update">
-                                                Update 
+                                                <?php echo _txt("update"); ?> 
                                             </div>
                                         </div>
 
@@ -175,7 +177,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="cart_panel_label">
                                     <div class="panel_label_container">
-                                        <span> FAQ (Frequently Asked Questions)</span>
+                                        <span> <?php echo _txt("faqcart"); ?></span>
                                     </div>
                                 </div>
 
@@ -211,20 +213,20 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                         <!--Subtotal section-->
                         <div class="line_payment subtotal">
-                            <span class="type">Subtotal:</span>
+                            <span class="type"><?php echo _txt("subtotal"); ?></span>
                             <span id="subtotal_text" class="payment_subtotal">$<?php echo number_format($_SESSION["subtotal"], 2); ?></span>
                             <input id="checkout_subtotal" type="hidden" name="payment_subtotal" value="<?php echo number_format($_SESSION["subtotal"], 2); ?>"/>
                         </div>
 
                         <!--shipment section-->
                         <div class="line_payment shipment">
-                            <span class="type">Shipping Estimate:</span>
+                            <span class="type"><?php echo _txt("shippingestimate"); ?></span>
                             <span id="shipping_text" class="payment_shipment">$<?php echo number_format($_SESSION["delivery_charge"], 2); ?></span>
                             <input id="checkout_shipping" type="hidden" name="payment_shipment" value="<?php echo number_format($_SESSION["delivery_charge"], 2); ?>"/>
                         </div>
                         <!--total section-->
                         <div class="line_total">
-                            <span class="type">Estimate Total:</span>
+                            <span class="type"><?php echo _txt("totalestimate"); ?></span>
                             <span id="total_text" class="payment_total">$<?php echo number_format($_SESSION["subtotal"]+$_SESSION["delivery_charge"], 2); ?></span>
                             <input id="checkout_total" type="hidden" name="payment_total" value="0"/>
                         </div>
@@ -236,9 +238,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                             </div>
                             <div class="payment_checkout">
     <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) { ?>
-                                    <input type="button" name="checkout" value="CHECKOUT">
+                                    <input type="button" name="checkout" value="<?php echo _txt("checkout"); ?>">
     <?php } else { ?>
-                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button">Checkout</div></a>
+                                    <a href="#login" data-toggle="modal" style="text-decoration: none"><div class="fake_button"><?php echo _txt("checkout"); ?></div></a>
     <?php } ?>
                             </div>
                         </div>
@@ -252,7 +254,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 else {//show the empty cart
     ?>
                 <div class="no_item_cart">
-                    <span>No Items found in your shopping cart!</span>
+                    <span><?php echo _txt("noitems"); ?></span>
                 </div>
             <?php } ?>
         </div>       

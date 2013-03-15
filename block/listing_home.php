@@ -88,8 +88,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <!-- Carousel items -->
                 <div class="carousel-inner">
 
-                    <div class="active item"><img src="/images/slide_1.jpg"/></div>
-                    <div class="item"><img src="/images/slide_2.jpg"/></div>
+                    <!--<div class="item"><img src="/images/slide_1.jpg"/></div>-->
+                    <div class="active item"><img src="/images/slide_2.jpg"/></div>
                     <div class="item"><img src="/images/slide_3.jpg"/></div>
 
                 </div>

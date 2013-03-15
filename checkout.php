@@ -4,7 +4,7 @@
  * The user would enter Shipping details and that would determine
  * the shupping cost
  */
-$selected = Array ("unselected","unselected","unselected","unselected","selected" );
+$selected = Array ("unselected","unselected","unselected","unselected","unselected","selected" );
 include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");
@@ -51,6 +51,9 @@ function validate_cart_items() {
 
 $pagetitle = "ikimuk| Checkout";
 include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+$goals_texts = _txt("goals_texts");
+$goals_perks = _txt("goals_perks");
+$goals_perks_add = _txt("goals_perks_add");
 if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
         ?>
 <script type="text/javascript">
@@ -104,7 +107,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
   <div id="error_link"></div>
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">1. Shipping</span>
+                                    <span class="label_title">1. <?php echo _txt("shipping");?> </span>
                                 </div>
                             </div>
 
@@ -116,19 +119,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="line_element">
                                     <div class="full_line">
-                                        <div class="line_header">Country</div>
+                                        <div class="line_header"><?php echo _txt("country");?></div>
 
                                         <div class="line_input round_corners combo">
                                             <div class="select_country">
-                                                <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]; else echo 'Select Country';?>
+                                                <?php if (isset($_SESSION["country_name"])) if(isset($lang)&& $lang =="ar")
+                               {echo $country_name_ar;}
+                            else {echo $country_name;} else echo _txt("selectcountry");?>
                                             </div>
                                             <select name="country" class="country_list hidden_input" data-animation="true" data-trigger="focus">
                                                <?php
                                                    foreach($countries_array as $key=>$country)
                                                         if($country->country_name == $_SESSION["country_name"])
-                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name . '</option>';
+                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name_ar . '</option>';
                                                         else
-                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name . '</option>';
+                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name_ar . '</option>';
                                                  ?>
                                             </select>
                                         </div>
@@ -140,7 +145,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="line_element">
 
                                     <div class="half_line">
-                                        <div class="line_header">First Name</div>
+                                        <div class="line_header"><?php echo _txt("firstname");?></div>
                                         <div class="line_input">
                                             <input id="first_name" type="text" name="first_name" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_first_name"])) echo $_SESSION["form_first_name"]; ?>"/>
                                         </div>
@@ -148,7 +153,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     </div>
 
                                     <div class="half_line marginl20">
-                                        <div class="line_header">Last Name</div>
+                                        <div class="line_header"><?php echo _txt("lastname");?></div>
                                         <div class="line_input">
                                             <input id="last_name" type="text" name="last_name" data-animation="true" data-trigger="focus"value="<?php if(isset($_SESSION["form_last_name"])) echo $_SESSION["form_last_name"]; ?>"/>
                                         </div>
@@ -162,7 +167,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="line_element">
 
                                     <div class="full_line">
-                                        <div class="line_header">Address</div>
+                                        <div class="line_header"><?php echo _txt("address");?></div>
                                         <div class="line_input">
                                             <input type="text" name="address" data-content="Please write down your full address so we can deliver to your doorstep." data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_address"])) echo $_SESSION["form_address"]; ?>"/>
                                         </div>
@@ -175,7 +180,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="line_element">
 
                                     <div class="half_line">
-                                        <div class="line_header">City</div>
+                                        <div class="line_header"><?php echo _txt("city");?></div>
                                         <div class="line_input">
                                             <input type="text" name="city" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_city"])) echo $_SESSION["form_city"]; ?>"/>
                                         </div>
@@ -184,7 +189,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                                     <div class="half_line marginl20">
-                                        <div class="line_header">State, Region or Province</div>
+                                        <div class="line_header"><?php echo _txt("region");?></div>
                                         <div class="line_input">
                                             <input type="text" name="region" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_region"])) echo $_SESSION["form_region"]; ?>"/>
                                         </div>
@@ -195,7 +200,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="line_element">
                                     <div class="half_line">
-                                        <div class="line_header">Zip Code (if Applicable)</div>
+                                        <div class="line_header"><?php echo _txt("zip");?></div>
                                         <div class="line_input">
                                             <input type="text" name="zip" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_zip"])) echo $_SESSION["form_zip"]; ?>"/>
                                         </div>
@@ -216,7 +221,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">2. Contact info</span>
+                                    <span class="label_title">2. <?php echo _txt("contactinfo");?></span>
                                 </div>
                             </div>
 
@@ -226,21 +231,23 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="line_element">
 
                                     <div class="half_line">
-                                        <div class="line_header">Country Code</div>
+                                        <div class="line_header"><?php echo _txt("countrycode");?></div>
 
                                         <div class="line_input round_corners combo">
 
                                             <div class="country_code">
-                                                <?php if (isset($_SESSION["country_name"])) echo $_SESSION["country_name"]." +".$_SESSION["phone_code"]; else echo 'Select Country Code';?>
-                                            </div>
+                                                <?php if (isset($_SESSION["country_name"])) if(isset($lang)&& $lang =="ar")
+                               {echo $country_name_ar." +".$_SESSION["phone_code"];}
+                            else {echo $country_name." +".$_SESSION["phone_code"];} else echo _txt("selectcountrycode");?>
+                                      </div>
 
                                             <select name="code" class="code_list hidden_input" data-animation="true" data-trigger="focus">
                                                 <?php
                                                     foreach($countries_array as $key=>$country)
                                                         if($country->country_name == $_SESSION["country_name"])
-                                                            echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . " ".$country->phone_code.'</option>';
+                                                            echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name_ar . " ".$country->phone_code.'</option>';
                                                         else
-                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name." ".$country->phone_code. '</option>';
+                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name_ar." ".$country->phone_code. '</option>';
                                                  ?>
                                             </select>
                                         </div>
@@ -250,7 +257,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                                     <div class="half_line marginl20">
-                                        <div class="line_header">Telephone Number</div>
+                                        <div class="line_header"><?php echo _txt("telephonenumber");?></div>
                                         <div class="line_input">
                                             <input type="text" name="tel" data-animation="true" data-trigger="focus" value="<?php if(isset($_SESSION["form_tel"])) echo $_SESSION["form_tel"]; ?>"/>
                                         </div>
@@ -273,7 +280,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">3. Delivery Type</span>
+                                    <span class="label_title">3. <?php echo _txt("deliverytype");?></span>
                                 </div>
                             </div>
 
@@ -282,11 +289,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="shipping_content">
                                     <div class="radio_holder"><input type="radio" checked="checked"/></div>
-                                    <div class="ads_text">  Aramex International Priority</div>
+                                    <div class="ads_text">  <?php echo _txt("aramex");?></div>
                                     <!--<div class="logo_holder"><img src="img/ikimuk_aramex.png"/></div>-->
                                     <div class="fee_content">
-                                        Custom fees and additional fees may apply for international shipments. Please contact your local customs office for more information. We will start shipping your order one week after the competition has ended.
-                                        It will then take (1 -5) business days to arrive to your home.
+                                        <?php echo _txt("deliverynote");?>
                                     </div>
                                 </div>
 
@@ -304,14 +310,14 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="agreement">
                                 <div class="terms_conditions">
-                                    <input type="checkbox" name="agree"/>I agree to ikimuk's 
-                                    <a href="/terms.php" target="_blank">Terms &amp; Conditions</a>
+                                    <input type="checkbox" name="agree"/><?php echo _txt("agree");?> 
+                                    <a href="/terms.php" target="_blank"><?php echo _txt("termsanch");?></a>
                                 </div>
                                 <div class="line_error"></div>
                             </div>
 
                             <div class="newsletter">
-                                <input type="checkbox" name="subscribe"/>Keep me in the loop, sign me up for your newsletter
+                                <input type="checkbox" name="subscribe"/><?php echo _txt("newsletteragree");?>
                             </div>
 
                             <div class="proceed">
@@ -324,7 +330,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <input type="submit" value="PLACE ORDER" name="place">
                                         <div class="gateway">
                                             <div class="gateway_icon"><img src="img/ikimuk_lock.png"/>  </div>  
-                                            <div class="gateway_text">You will be redirected to Bank Audi's payment gateway </div>
+                                            <div class="gateway_text"><?php echo _txt("aduinotice");?> </div>
                                         </div>
                                 </div>
 
@@ -345,7 +351,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                             <div class="std_block_label">
                                 <div class="label_box">
-                                    <span class="label_title">Cart Summary</span>
+                                    <span class="label_title"><?php echo _txt("cartsummary");?></span>
                                 </div>
                             </div>
 
@@ -356,7 +362,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                 <div class="line_link" style="margin-bottom:10px;">
                                     <div class="link_holder">
-                                        <a href="/cart.php">Edit</a>
+                                        <a href="/cart.php"><?php echo _txt("update");?></a>
                                     </div>
                                 </div>
                                 <?php foreach ($cart as $key => $cart_item) { ?>
@@ -367,7 +373,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                         </div>    
 
                                         <div class="cart_element_description">
-                                            <?php echo "<b>" . $cart_item["product_title"] . "</b><br/>" .$cart_item["quantity"] . " " . $settings->size_names[$cart_item["size"]] . " " . $cart_item["cut"]."s T-shirt " . $settings->goals_perks_add[$cart_item["goal"]-1]; ?>
+                                            <?php echo "<b>" . $cart_item["product_title"] . "</b><br/>" .$cart_item["quantity"] . " " . $settings->size_names[$cart_item["size"]] . " " ._txt(strtolower($cart_item["cut"])). $goals_perks_add[$cart_item["goal"]-1]; ?>
                                         </div>
 
                                         <div class="cart_element_option cart_element_option_<?php echo $settings->goals_colors[$cart_item["goal"]-1]; ?>">
@@ -385,13 +391,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                 <div class="summary_sub_total">
                                    
                                     <div class="sub_total_line">
-                                        <span class="line_type">Subtotal :</span>
+                                        <span class="line_type"><?php echo _txt("subtotal");?> </span>
                                         <span  id="subtotal_text" class="line_value">$ <?php echo number_format($_SESSION["subtotal"],2);?></span>
                                         <input id="checkout_subtotal" type="hidden" name="checkout_subtotal" value="<?php echo $_SESSION["subtotal"];?>"/>
                                     </div>
                                        
                                     <div class="sub_total_line">
-                                        <span class="line_type">Aramex Shipping</span>
+                                        <span class="line_type"><?php echo _txt("aramexshipping");?></span>
                                         <span  id="shipping_text" class="line_value">$ <?php echo number_format($_SESSION["delivery_charge"],2);?></span>
                                         <input id="checkout_shipping" type="hidden" name="checkout_shipping" value="<?php echo $_SESSION["delivery_charge"];?>"/>
                                     </div>
@@ -401,7 +407,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     
                                 <div class="summary_total">
                                     <div class="sub_total_line">
-                                        <span class="line_type">Total :</span>
+                                        <span class="line_type"><?php echo _txt("total");?></span>
                                         <span  id="total_text" class="line_value">$ <?php echo number_format($_SESSION["subtotal"]+$_SESSION["delivery_charge"],2)?></span>
                                         <input id="checkout_total" type="hidden" name="checkout_total" value="50"/>
                                     </div>

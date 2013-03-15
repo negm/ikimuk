@@ -41,7 +41,7 @@ unset($_SESSION["size"]);
  <div class="body_content">
   <!-- Start of selector area -->
   <div class="page_header" style="margin-bottom:10px;">
-    Previous Competitions
+    <?php echo _txt("past")." "._txt("competitions");?>
   </div>
   <div class="selectors_box">
     <div class="full_line" style="float:left">
@@ -64,9 +64,9 @@ unset($_SESSION["size"]);
                      
                      
                       <div class="competition_header">
-                            competition no
+                            <?php echo _txt("competitionno");?>
   <span class="competition_no"><?php echo $competition->competition_order;?></span>
-  (ended on
+  (<?php echo _txt("endedon");?>
    <span class="competition_end_date"><?php $date = new DateTime($competition->end_date); echo $date->format('d/m/Y'); ?></span>)
                         </div>
                      

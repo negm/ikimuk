@@ -1,0 +1,62 @@
+.body_content .option_column{
+direction: ltr;
+}
+.block_goal .goal_info {
+direction: rtl;
+}
+.social_column .slider_section {
+direction: ltr;
+}
+.social_label .social_label_content .social_label_left {
+padding-right: 10px;
+direction: rtl;
+float:right;
+}
+.social_column .social_comment {
+direction: ltr;
+}
+.mail_subscribe .subscribe_container {
+margin-right: 10px;
+}
+.competition_container .entry {
+direction: ltr;
+}
+.entry .entry_transparent .entry_order_now {
+margin-left: 100px;
+}
+.entry .entry_control .entry_remaining {
+direction: rtl;
+}
+.cart_bottom .cart_panel {
+direction: ltr;
+}
+.cart_body_content .cart_entry {
+direction: ltr;
+}
+.cart_table .cart_header {
+direction: ltr;
+}
+.cart_bottom .cart_payment {
+direction: ltr;
+}
+.body .checkout_column_left {
+direction: ltr;
+}
+.full_line .line_header, .half_line .line_header {
+direction: rtl;
+}
+.checkout_column_right .std_block {
+direction: ltr;
+}
+.std_block_body .cart_element .cart_element_description {
+direction: rtl;
+}
+.light-theme a, .light-theme span {
+direction: ltr;    
+}
+.full_line .combo {
+direction: ltr;
+}
+.full_line .select_box.combo {
+direction: ltr;
+}

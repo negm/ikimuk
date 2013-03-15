@@ -14,7 +14,7 @@
                         <div class="links_content">
                             <div class="link_deactive"><a class="link_deactive" href="/index.php">ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive"><a class="link_deactive" href="/competitions.php"> Previous Competitions </a></div>
+                            <div class="link_deactive"><a class="link_deactive" href="/competitions.php"> <?php echo _txt("past")." "._txt("competitions");?> </a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
                                 <a href="#"><?php echo $product->title; ?></a>
@@ -35,7 +35,7 @@
                     <div class="social_label">
                         <div class="social_label_content" style="width:190px">
 
-                            <div class="social_label_left" style="width:180px">Past Contestant</div>
+                            <div class="social_label_left" style="width:180px"><?php echo _txt("pastcontestant")?></div>
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                         <div class="comment_label"></div>
 
                         <div class="social_header">
-                            Show your support
+                            <?php echo _txt("showsupport");?>
                         </div>
                          <div id="fb-root"></div>
                             
@@ -153,7 +153,7 @@
 			
                 <div class="order_ended_count" style="margin-top:20px;"  itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                     <div class="count_value" itemprop="ratingValue"><?php echo $product->preorders; ?></div>
-                    <div class="count_text">T-shirts ordered</div>
+                    <div class="count_text"><?php echo _txt("tshirtsordered");?></div>
                 </div>
 		</div>
                         <!--End Of Block Column-->

@@ -25,19 +25,16 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         
                     if (!isset($_SESSION["country_name"]) || strlen($_SESSION["country_name"]) < 2)
                        if(isset($ip2c)) 
-                           if(isset($_SESSION["lang"])&& $_SESSION["lang"]=="ar")
-                               {echo $ip2c->country_name_ar;}
-                            else {echo $ip2c->country_name;}
+                           if(isset($lang)&& $lang =="ar")
+                               {echo $country_name_ar;}
+                            else {echo $country_name;}
                        else 
-                           if(isset($_SESSION["lang"])&& $_SESSION["lang"]=="ar")
-                               {echo "بلدك"; }
-                           else
-                           {echo "your country";}
+                           echo _txt("yourcountry");
                     else 
-                        if(isset($_SESSION["lang"])&& $_SESSION["lang"]=="ar")
-                            echo $_SESSION["country_name_ar"]; 
+                        if(isset($lang)&& $lang =="ar")
+                            echo $country_name_ar; 
                         else
-                            echo $_SESSION["country_name"]; 
+                            echo $country_name; 
                     ?> 
                 </div>
 

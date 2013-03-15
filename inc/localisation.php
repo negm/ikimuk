@@ -9,6 +9,7 @@ $en = array(
     "login" => "Login",
     "signup" => "Join Us",
     "logout" => "Log Out",
+    "yourcountry" => "your country",
     "intldelivery"=>"We deliver internationally including ",
     "cart" => "Cart",
     "about" => "About",
@@ -51,20 +52,72 @@ $en = array(
     "connectwithfacebook" => "Connect With Facebook",
     //design page
     "addtocart"=>"ADD TO CART",
+    "by" => "by",
     "daysleft" =>"Days left",
     "showsupport" => "Show your support",
     "guy"=>"GUY",
     "girl"=>"GIRL",
+    "tshirtsordered"=> "T-shirts ordered",
+    //cart
     "goals_texts" => array("Once this T-shirt reaches 35 orders it will get printed. You will receive your T-shirt, stickers and a certificate of awesomeness",
 				"If you order this T-shirt when it has between 35 to 75 orders, you will receive your T-shirt and stickers ",
 				"If you order this T-shirt after it has reached 75 orders, you will just receive your T-shirt",
-				)
+				),
+    "goals_perks_add" => array(" + stickers + certificate of awesomness", " + stickers", "."),
+    "goals_perks" => array("<ul><li>T-shirt</li><li>Stickers</li><li>Certificate of Awesomeness</li></ul>",
+				"<ul><li>T-shirt</li><li>Stickers</li></ul>",
+				"<ul><li>T-shirt</li></ul>"),
+    "perks"=>"Perks",
+    "itemsincart"=> "items in your cart",
+    "preview" => "Preview",
+    "title" => "Title",
+    "description"=> "Description",
+    "price"=> "Price",
+    "quantity" => "Quantity",
+    "total" => "Total",
+    "remove"=> "Remove",
+    "update" => "Update",
+    "subtotal" => "Subtotal",
+    "shippingestimate" => "Shipping Estimate",
+    "totalestimate" => "Estimate Total",
+    "checkout" => "Checkout",
+    "noitems" => "No Items found in your shopping cart!",
+    "faqcart" => "FAQ (Frequently Asked Questions)",
+    //checkout
+    "shipping"=>"SHIPPING",
+    "selectcountry" => "Select Country",
+    "firstname"=> "First Name",
+    "lastname"=>"Last Name",
+    "country"=> "Country",
+    "address"=> "Address",
+    "city"=>"City",
+    "region"=>"State, Region or Province",
+    "zip"=> "Zip Code (if Applicable)",
+    "contactinfo"=>"CONTACT INFO",
+    "countrycode"=>"Country Code",
+    "telephonenumber"=>"Telephone Number",
+    "deliverytype"=> "DELIVERY TYPE",
+    "aramex"=> "Aramex International Priority",
+    "deliverynote"=> "Custom fees and additional fees may apply for international shipments. 
+        Please contact your local customs office for more information. We will start shipping your order one week 
+        after the competition has ended. It will then take (1 -5) business days to arrive to your home",
+    "selectcountrycode"=>"Select Country Code",
+    "aramexshipping" => "Aramex Shipping",
+    "cartsummary"=> "CART SUMMARY",
+    "agree"=>"I agree to ikimuk's",
+    "newsletteragree"=>"Keep me in the loop, sign me up for your newsletter",
+    "aduinotice"=>"You will be redirected to Bank Audi's payment gateway",
+    //previous
+    "endedon"=>"Ended on",
+    "pastcontestant"=> "Past Contestant"
+    
 );
 $ar = array(
      "hello" => "اهلا",
     "login" => "الدخول",
     "signup" => "التسجيل",
     "logout" => "الخروج",
+    "yourcountry" => "بلدك",
     "intldelivery"=>"خدمة التوصيل الدولي متوفرة في ",
     "cart" => "المشتريات",
     "about" => "عن",
@@ -102,15 +155,69 @@ $ar = array(
     "connectwithfacebook" => "التسجيل بواسطة Facebook",
     //design page
     "addtocart"=>"أضف للمشتريات",
+    "by" => "",
     "daysleft" =>"ايام متبقية",
     "showsupport" => "قول رأيك",
     "guy"=>"رجال",
-    "girl"=>"بنات"
+    "girl"=>"بنات",
+    "tshirtsordered"=> "T-shirts ordered",
+    //cart
+    "goals_texts" => array("لما التصميم يوصل ل35 هيطبع و هتستلم التيشرت و ستيكرز و شهادة الجودة :)",
+				"لو طلبت التصميم بعد ما وصل 35 هتاخد التيشرت و الاستيكرز  ",
+				"لو طلبت التصميم بعد 75 هتاخد التيشرت",
+				),
+    "goals_perks_add" => array(" + ستيكرز + شهادة الجودة"  ,  " + ستيكرز", "."),
+    "goals_perks" => array("<ul><li>تيشرت</li><li>ستيكرز</li><li>شهادة الجودة</li></ul>",
+				"<ul><li>تيشرت</li><li>ستيكرز</li></ul>",
+				"<ul><li>تيشرت</li></ul>"),
+    "perks"=> "المميزات",
+    "itemsincart"=> "المشتريات",
+    "preview" => "التصميم",
+    "title" => "الاسم",
+    "description"=> "الوصف",
+    "price"=> "السعر",
+    "quantity" => "العدد",
+    "total" => "الاجمالي",
+    "remove"=> "حذف",
+    "update" => "تعديل",
+    "subtotal" => "الاجمالي بدون مصاريف الشحن",
+    "shippingestimate" => "تكلفة الشحن تقريبا",
+    "totalestimate" => "الاجمالي تقريبا",
+    "checkout" => "استكمال الشراء",
+    "noitems" => " لا توجد اي تصميمات لاستكمال الشراء",
+    "faqcart" => "الاسئلة الشائعة",
+    //checkout
+    "shipping"=>"بيانات التوصيل",
+    "selectcountry" => "اختار الدولة",
+    "firstname"=> "الاسم",
+    "lastname"=>"اسم العائلة",
+    "country"=> "الدولة",
+    "address"=> "العنوان",
+    "city"=>"المدينة",
+    "region"=>"المحافظة او المنطقة",
+    "zip"=> "الرمز البريدي (ان وجد)",
+    "contactinfo"=>"التليفون",
+    "countrycode"=>"كود الدولة",
+    "telephonenumber"=>"رقم التليفون",
+    "deliverytype"=> "التوصيل",
+    "aramex"=> "ارامكس: الشحن الدولي السريع",
+    "deliverynote"=> "قد تكون هناك مصاريف جمارك حسب قانون دولتك. 
+        للتأكد تواصل مع مكتب الجمارك. يبدأ الشحن بعد أسبوع من الطلب\نهاية المسابقة 
+        تصلك الشحنة خلال (1-5) ايام",
+    "selectcountrycode"=>"اختار كود الدولة",
+    "aramexshipping" => "ارامكس",
+    "cartsummary"=> "المشتريات",
+    "agree"=>"اوافق على",
+    "newsletteragree"=>"اريد ان اعرف اخر الاخبار و التغييرات",
+    "aduinotice"=>"سيتم تحويلك لبوابة الدفع الامنة لبنك عودة",
+    //previous
+    "endedon"=>"انتهت في",
+    "pastcontestant"=> "متنافس سابق"
 );
 function _txt($l)
 {
-    global $en, $ar;
-    if(isset($_SESSION["lang"]) && $_SESSION["lang"] == "ar")
+    global $en, $ar,$lang;
+    if(isset($lang)&& $lang =="ar")
     return $ar[$l];
     else
         return $en[$l];

@@ -1,12 +1,15 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
-include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
-$settings = new settings();
 if (!isset($_SESSION))
 {
     session_start ();
 }
+
 $_SESSION["lang"] = "ar";
+$lang = "ar";
+include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
+include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
+$settings = new settings();
+
 if(isset($_GET["utm_source"]))
 {
 $_SESSION["promo_code"]= $_GET["promo_code"];
@@ -19,7 +22,14 @@ if (!isset($_SESSION["country_name"])|| strlen($_SESSION["country_name"])<2)
     $_SESSION["country_name_ar"] = $ip2c->country_name_ar;
     $_SESSION["delivery_charge"] = $ip2c->delivery_charge;
     $_SESSION["phone_code"]=$ip2c->phone_code;
+    $country_name= $ip2c->get_country_name();
+    $country_name_ar= $ip2c->country_name_ar;;
 }
+else
+{
+     $country_name= $_SESSION["country_name"];
+     $country_name_ar= $_SESSION["country_name_ar"];
+};
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // last request was more than 30 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
@@ -122,3 +132,6 @@ typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var
 e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("e867a294154ea2179f35f9bdef93b979");</script>
 <!-- end Mixpanel -->
+<?php if(isset($lang)&& $lang =="ar")
+    echo '<link href="/css/ar-css.css" rel="stylesheet" type="text/css"/>';
+ ?>

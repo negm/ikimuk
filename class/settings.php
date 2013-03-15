@@ -67,7 +67,7 @@ class settings {
             $this->root = "http://localhost:8080/";
             $this->prodction = true;
         } else
-        if (strpos($this->site_url, 'staging')) {
+        if (strpos($this->site_url, '176.58.126.220')) {
             $this->config = array(
                 'database' => 'ikimukfinal',
                 'username' => 'root',
@@ -77,9 +77,9 @@ class settings {
                 'driver' => 'mysql',
                 'prefix' => '',
             );
-            $this->app_id = "140388549312943";
-            $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
-            $this->root = 'http://staging.phennec.com/';
+            $this->app_id = "151265838265960";
+            $this->app_secret = "945fc91fd23a7e3cf56c9473fe813e63";
+            $this->root = 'http://176.58.126.220/';
             $this->prodction = true;
         } else {
             $this->config = array(

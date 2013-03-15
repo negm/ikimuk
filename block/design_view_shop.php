@@ -16,6 +16,9 @@
                     <!--Start of Flags Container-->
                     <div class="flags_container">
    <?php
+   $goals_texts = _txt("goals_texts");
+$goals_perks = _txt("goals_perks");
+$goals_perks_add = _txt("goals_perks_add");
    
    $single_shirt_pixel_size = (805 - count($settings->goals)) / $settings->goals[count($settings->goals)-2];
 for ($i=0; $i < count($settings->goals)-1; $i++){
@@ -384,7 +387,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                             </div>
                         </div>
 
-                        <div class="profile_name"><?php if (strlen($artist->name_ar)> 5 && isset($_SESSION["lang"])&&$_SESSION["lang"]=="ar") echo $artist->name; else echo $artist->name_ar?></div> 
+                        <div class="profile_name"><?php if (strlen($artist->name_ar)> 5 && isset($_SESSION["lang"])&&$_SESSION["lang"]=="ar") echo $artist->name_ar; else echo $artist->name?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
                         <?php if (strlen($artist->website)>1) {?>
                         <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>
@@ -420,7 +423,7 @@ for ($i=0; $i < count($settings->goals); $i++){
                             </div>
                         </div>
                         <div class="goal_header">GOAL ' . ($i+1) . '</div>
-                        <div class="goal_info">' . $settings->goals_texts[$i] . '
+                        <div class="goal_info">' . $goals_texts[$i] . '
                         </div>';
 
   if($i < count($settings->goals) -1){
