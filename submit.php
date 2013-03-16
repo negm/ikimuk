@@ -70,7 +70,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
         <div class="submit_design">
 
             <div class="page_header">
-                SUBMIT YOUR DESIGN
+                <?php echo _txt("submit")." "._txt("yourdesign");?>
             </div>
 
 
@@ -81,7 +81,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
       <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
-			     <span class="label_title">1. Choose Competition</span>
+			     <span class="label_title">1. <?php echo _txt("choosecompetition");?></span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -99,7 +99,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                             <?php } else {
                                 echo '<div class="type_select"><input type="radio" name="competition_type" value="'
                             . $competition->id . '" />   ' . $competition->title .
-                            "  submit before " . date("d/m/Y", strtotime($competition->submission_deadline)) . '</div>';
+                            " "._txt("submitbefore")." " . date("d/m/Y", strtotime($competition->submission_deadline)) . '</div>';
                                 ?>
                             <div class="type_select"><input type="radio" name="competition_type" value="0" checked="checked"> Open Submission</div>
                             <?php }   ?>
@@ -117,7 +117,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
-			     <span class="label_title">2. Add Images</span>
+			     <span class="label_title">2. <?php echo _txt("addimages");?></span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -125,10 +125,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <!--Start of submit body-->
                     <div class="std_block_body">
                         <div class="upload_body_content">
-                            <span class="upload_info"> Choose the file(s) to display your design. Submit a JPG or PNG version of your design (RGB), 300 px wide x 450 px tall. Maximum file size 250 KB.</span>
+                            <span class="upload_info"><?php echo _txt("designguide");?> </span>
                             <ul id="files" class="thumb"></ul>
                             <div class="upload_holder">
-                                <input type="button" id="upload" value="UPLOAD FILE" style=""/>
+                                <input type="button" id="upload" value="<?php echo _txt("uploadfile");?>" style=""/>
                                 <div class="line_info">
                                     <input type="hidden" id="img_url">
                                     <div class="line_error"></div></div>
@@ -150,7 +150,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
-                            <span class="label_title">3. Design Info</span>
+                            <span class="label_title">3. <?php echo _txt("designinfo");?></span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -159,7 +159,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <div class="std_block_body info_body">
 
                         <div class="line_info">   
-                            <div class="line_header">Design Title</div>
+                            <div class="line_header"><?php echo _txt("designtitle");?></div>
                             <div class="line_input">
                                 <input type="text" class="round_corners" name="design_title"/>
                             </div>
@@ -168,7 +168,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                         <div class="line_info">   
-                            <div class="line_header">About your design</div>
+                            <div class="line_header"><?php echo _txt("designdesc");?></div>
                             <div class="line_input">
                                 <textarea  class="round_corners" name="design_details"></textarea>
                             </div>
@@ -191,7 +191,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
-                            <span class="label_title">4. Your Info</span>
+                            <span class="label_title">4. <?php echo _txt("yourinfo");?></span>
                         </div>
                     </div>
                     <!--End of cart table header-->
@@ -200,7 +200,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                     <div class="std_block_body self_info_body">
 
                         <div class="line_info">   
-                            <div class="line_header">City</div>
+                            <div class="line_header"><?php echo _txt("city");?></div>
                             <div class="line_input">
                                 <input type="text" class="round_corners" name="city" value="<?php echo htmlentities(urldecode($artist->location)); ?>"/>
                             </div>
@@ -209,7 +209,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                         <div class="line_info">   
-                            <div class="line_header">Website, Blog Or Portfolio</div>
+                            <div class="line_header"><?php echo _txt("blog");?></div>
                             <div class="line_input">
                                 <input type="text" class="round_corners" name="website_blog_1" value="<?php echo htmlentities(urldecode($artist->website)); ?>"/>
                             </div>
@@ -218,7 +218,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 
                         <div class="line_info">   
-                            <div class="line_header">Twitter Handle</div>
+                            <div class="line_header"><?php echo _txt("twitter");?></div>
                             <div class="line_input">
                                 <input type="text" class="round_corners" name="website_blog_2" value="<?php echo htmlentities(urldecode($artist->twitter)); ?>"/>
                             </div>
@@ -240,20 +240,20 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <div class="agreement">
                     <div class="terms_conditions">
                         <input type="checkbox" name="agree"/>
-                        <span>I agree to ikimuk's </span>
-                        <a href="/terms.php" target="_blank">Terms & Conditions</a>
+                        <span><?php echo _txt("agree");?></span>
+                        <a href="/terms.php" target="_blank"><?php echo _txt("termsanch");?></a>
                     </div>
                     <div class="line_error"></div>
                 </div>
 
                 <div class="newsletter">
                     <input type="checkbox" name="subscribe"/>
-                    <span>Keep me in the loop, sign me up for your newsletter</span>
+                    <span><?php echo _txt("newsletteragree");?></span>
                 </div>
 
 
                 <div class="submit_personal_design">
-                    <input type="button" name="submit_design" value="SUBMIT" />
+                    <input type="button" name="submit_design" value="<?php echo _txt("submit");?>" />
                 </div>
 
             </div>      

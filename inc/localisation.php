@@ -109,7 +109,140 @@ $en = array(
     "aduinotice"=>"You will be redirected to Bank Audi's payment gateway",
     //previous
     "endedon"=>"Ended on",
-    "pastcontestant"=> "Past Contestant"
+    "pastcontestant"=> "Past Contestant",
+    //submit-intro
+    "submit_text"=>'<!--Start of body block-->
+                <div class="std_block submit_body">
+
+                    <!--Start of cart table header-->
+                    <div class="std_block_label">
+                        <div class="label_box">
+                            <span class="label_title">How To Submit</span>
+                                </div>
+                    </div>
+                    <!--End of cart table header-->
+
+
+
+                    <!--Start of submit body-->
+                    <div class="std_block_body" style="margin:20px">
+		    <div style="margin:-20px 0px 20px -20px; width:570px" class="line_link">
+                        <div class="link_holder">
+  <a href="/submission_terms.php" target="_blank">Terms &amp; Conditions</a>
+                                    </div>
+                                </div>
+                        <!--Start of submit content-->
+                        <div class="submit_content">
+
+	<p>
+		After picking a theme, it is time to create your design.
+	</p>
+
+	<div>
+		<h2 class="submit_title">
+			1. Eureka, the T-shirt idea!
+		</h2> 
+
+		<div>
+			<p>
+				Come up with a mind-blowing idea for a T-shirt.
+			</p>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			2. Make it Digital
+		</h2>
+
+		<div>
+			<p>
+				Turn the idea into a design by using either Photoshop (*.psd) or Illustrator (*.ai).
+			</p>
+
+			<p>
+				Guidelines:
+			</p>
+
+			<ul>
+				<li>Your file should be high resolution (300 dpi).</li>
+				<li>Canvas size of 40 cm x 60 cm.</li>
+				<li>Maximum of 6 colors (with each color on a separate layer).</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div>
+		<h2 class="submit_title">
+			3. Submit to a competition
+		</h2>
+
+		<div> 
+
+			<p>
+				After you have made sure that your design is compatible with the guidelines, here is what is going to happen:
+			<p>
+
+		<ul>
+			<li>Submit a JPG web version of your design (RGB 300 px wide x 450 px tall).</li>
+			<li>We will confirm receipt of your design.</li>
+			<li>You will know if you made it through to the contest via email.</li>
+		</ul>
+
+			<p>
+				Your design will be rejected if:
+			</p>	
+
+			<ul>
+				<li>It has copyright infringement or is a duplicate submission.</li>
+				<li>It has offensive or inappropriate content.</li>
+				<li>The file you sent is damaged or the design needs more work.</li>
+			</ul>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			4. Promote your design
+		</h2>
+
+		<div>
+								<p>To get more orders, you can:</p>
+								<ul>
+				<li>Tweet about it.</li>  
+				<li>Share it.</li> 
+				<li>Mention it on your blog.</li>
+				<li>Tell your friends about it!</li>
+			</p>
+		</div>
+	</div> 
+
+
+	<div>
+		<h2 class="submit_title">
+		5. Reach for goals
+		</h2>
+
+		<div>
+			<ul>
+				<li>
+						Goal 1 - 35 orders: Once you reach this goal, your design will get printed, and you will receive $50. If you are the first one to reach this goal in the competition, you receive an additional $50.
+				</li>
+				<li>
+		    Goal 2 - 75 orders: Once you reach this goal, you get an extra $100. If you are the first one to reach this goal in the competition, you receive an additional $50.
+				</li>
+			</ul>
+
+			<p>
+				By the end of the competition, if your design receives the most orders, you earn $100 on top of the money you made.
+			</p>
+		</div>
+	</div>
+                               
+                        </div>
+                        <!--End of submit content-->',
+    "ongoing" =>"Ongoing"
     
 );
 $ar = array(
@@ -212,7 +345,156 @@ $ar = array(
     "aduinotice"=>"سيتم تحويلك لبوابة الدفع الامنة لبنك عودة",
     //previous
     "endedon"=>"انتهت في",
-    "pastcontestant"=> "متنافس سابق"
+    "pastcontestant"=> "متنافس سابق",
+    //submit-intro
+    "submit_text"=>'<!--Start of body block-->
+                <div class="std_block submit_body">
+
+                    <!--Start of cart table header-->
+                    <div class="std_block_label">
+                        <div class="label_box">
+                            <span class="label_title">ازاي تشارك بتصميم؟</span>
+                                </div>
+                    </div>
+                    <!--End of cart table header-->
+
+
+
+                    <!--Start of submit body-->
+                    <div class="std_block_body" style="margin:20px">
+		    <div style="margin:-20px 0px 20px -20px; width:570px" class="line_link">
+                        <div class="link_holder">
+  <a href="/submission_terms.php" target="_blank">القواعد و الشروط</a>
+                                    </div>
+                                </div>
+                        <!--Start of submit content-->
+                        <div class="submit_content">
+
+	<p>
+		اختار مسابقة من ال2 اللي موجودين فوق و بعدها ابتدي .
+	</p>
+
+	<div>
+		<h2 class="submit_title">
+			1. الفكرة, الالهام!
+		</h2> 
+
+		<div>
+			<p>
+				فكر في حاجة جديدة و في نفس الوقت مرتبطة بموضوع المسابقة و بالثقافة العربية
+			</p>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			2. نفذ الفكرة
+		</h2>
+
+		<div>
+			<p>
+                        حول الفكرة لتصميم عن طريق Photoshop او Illustrator 
+				
+			</p>
+
+			<p>
+				مواصفات للصورة:
+			</p>
+
+			<ul>
+				<li>الصورة لازم تكون جودتها عالية (300 dpi)</li>
+				<li>المقاس 40 * 60 cm</li>
+				<li>حد اقصى 6 الوان (كل لون في طبقة منفصلة).</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div>
+		<h2 class="submit_title">
+			3. سلم التصميم
+		</h2>
+
+		<div> 
+
+			<p>
+                        بعد ما تخلص التصميم و تتأكد انه مطابق للمواصفات المطلوبة
+			<p>
+
+		<ul>
+			<li>سلم نسخة JPG من التصميم (RGB مقاس 300*450)</li>
+			<li>هتوصلك رسالة تأكد اننا استلمنا التصميم</li>
+			<li>لو اخترنا التصميم عشان يدخل المسابقة هتوصلك رسالة تانية.</li>
+		</ul>
+
+			<p>
+				هيتم رفض التصميم في حالة:
+			</p>	
+
+			<ul>
+				<li>مخالفة حقوق الملكية الفكرية لجهة اخرى</li>
+				<li>لو فيه محتوى مسئ</li>
+				<li>الملف المستلم لا يعمل او غير مطابق لمواصفات الصورة المطلوبة</li>
+			</ul>
+		</div>
+	</div> 
+
+	<div>
+		<h2 class="submit_title">
+			4. انشر تصميمك
+		</h2>
+
+		<div>
+								<p>عشان تكسب المسابقة ممكن :</p>
+								<ul>
+				<li>تستخدم تويتر</li>  
+				<li>انشره بين اصدقائك</li> 
+				<li>انشر عنه في المدونة بتاعتك</li>
+				<li>عرف اصدقائك و الناس المعجبة بفنك و موهبتك</li>
+			</p>
+		</div>
+	</div> 
+
+
+	<div>
+		<h2 class="submit_title">
+		5. اكسب
+		</h2>
+
+		<div>
+			<ul>
+				<li>
+                                اول مرحلة من 1-35: اول ما توصل 35 التصميم هيتطبع و انت هتكسب اول 50 دولارو لو كان تصميمك اول تصميم ييوصل المرحلة في المسابقة هتكسب كمان 50 دولار
+						
+				</li>
+				<li>
+                                المرحلة الثانية: اول ما توصل 75 هتكسب كمان 100 دولار و لو كنت انت اول واحد توصل المرحلة في المسابقة هتكسب كمان 50 دولار
+		   
+				</li>
+			</ul>
+
+			<p>
+                        في اخر المسابقة لو تصميمك جمع اكبر عدد هتاخد 100 دولار اضافية
+			</p>
+		</div>
+	</div>
+                               
+                        </div>
+                        <!--End of submit content-->',
+    "ongoing" =>"مستمرة",
+    "participate" => "شارك في مسابقة مع ikimuk",
+    "submitbefore" => "اخر ميعاد للتسليم",
+    "submitnow" => "سلم تصميمك الان",
+    "choosecompetition" => "اختار مسابقة",
+    "blog"=> "موقعك الالكتروني او المدونة الخاصة بك",
+    "addimages" => "ارفع التصميم",
+    "designguide" => "اختار التصميم و سلمه في صيغة JPG او PNG العرض 300px و الطول 450px و مساحة الملف اقل من 500 كيلوبايت",
+    "uploadfile" => "ارفع التصميم",
+    "designinfo"=> "بيانات التصميم",
+    "designtitle"=> "اسم التصميم",
+    "designdesc" => "الفكرة او الالهام",
+    "yourinfo" => "بياناتك",
+    "twitter" => "تويتر"
 );
 function _txt($l)
 {

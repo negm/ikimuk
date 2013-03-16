@@ -5,7 +5,7 @@ if (!isset($_FILES['uploadfileSubmit']['name']) || !isset($_FILES['uploadfileSub
  header("Location: index.php");
 }
 $file_size = $_FILES['uploadfileSubmit']['size'];
-if ($file_size > 200*1024)
+if ($file_size > 500*1024)
 {echo "size_error";return;}
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 $settings = new settings();

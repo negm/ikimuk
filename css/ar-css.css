@@ -60,3 +60,28 @@ direction: ltr;
 .full_line .select_box.combo {
 direction: ltr;
 }
+.submit .body_theme .std_block {
+direction: ltr;
+}
+.submit_content {
+direction: rtl;
+}
+.submit .submit_theme {
+direction: ltr;
+}
+.theme_content .std_block_label .label_box .label_title {
+direction: rtl;
+}
+.upload_body_content {
+direction: rtl;
+}
+.body_content .submit_design .std_block {
+direction: ltr;
+}
+.design_self_info .std_block_body .line_info .line_header, .design_info .std_block_body .line_info .line_header ,
+.self_info .std_block_body .line_info .line_header {
+direction: rtl;
+}
+.choose_competition .std_block_body .type_select {
+direction: rtl;
+}
