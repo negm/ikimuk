@@ -4,7 +4,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-echo $_SERVER['HTTP_HOST'];
+//echo $_SERVER['HTTP_HOST'];
 /*
 $logger = new payment_log();
 $logger->response_code = "M";
@@ -22,7 +22,17 @@ switch ($_GET["test"]) {
 }
 echo $result;*/
 require_once($_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php");
-$x = _txt("test");
-echo $x[0];
+//print_r($_SERVER);
+if (isset($_GET["lang"]))
+{
+unset($_GET["lang"]);
+header ("Location: ".$_SERVER["PHP_SELF"]."?".http_build_query($_GET));
+}
+else
+{
+    $_GET["lang"]="ar";
+    echo ("Location: ".$_SERVER["PHP_SELF"]."?".http_build_query($_GET));
+}
+
 ?>
 

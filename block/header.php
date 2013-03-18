@@ -4,9 +4,8 @@ if (!isset($_SESSION))
     session_start ();
 }
 
-$_SESSION["lang"] = "ar";
-$lang = "ar";
-include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
+
+$country_default_arabic = array("Egypt","Saudi Arabia", "");
 include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
 $settings = new settings();
 
@@ -29,8 +28,40 @@ else
 {
      $country_name= $_SESSION["country_name"];
      $country_name_ar= $_SESSION["country_name_ar"];
-};
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+}
+if (!isset($_SESSION["lang"]))
+{
+    if ( in_array($country_name, $country_default_arabic))
+    {$lang = "ar";
+    $_SESSION["lang"] = "ar";
+    }
+        else {
+            $lang = "en";
+            $_SESSION["lang"] = "en";
+        }
+}
+else
+{
+    $lang = $_SESSION["lang"];
+}
+if(isset($_GET["lang"]))
+{
+    $lang = $_GET["lang"];
+    $_SESSION["lang"] = $_GET["lang"];
+    unset($_GET["lang"]);
+    if (count($_GET)>0)
+    header ("Location: ".$_SERVER["PHP_SELF"]."?".http_build_query($_GET));
+    else
+        header ("Location: ".$_SERVER["PHP_SELF"]);
+}
+$get = $_GET;
+$get["lang"]="ar";
+$ar_link = $_SERVER["PHP_SELF"]."?".http_build_query($get);
+$get["lang"]="en";
+$en_link = $_SERVER["PHP_SELF"]."?".http_build_query($get);
+
+include_once $_SERVER["DOCUMENT_ROOT"]."/inc/localisation.php";
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 3600)) {
     // last request was more than 30 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
     session_destroy();   // destroy session data in storage
@@ -91,7 +122,7 @@ function sanitize_output($buffer)
 ob_implicit_flush(0);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" version="XHTML+RDFa 1.0" <?php if(isset($_SESSION["lang"]) && $_SESSION["lang"] == "ar") echo 'dir="rtl"'?>>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" version="XHTML+RDFa 1.0" <?php if(isset($lang) && $lang == "ar") echo 'dir="rtl"'?>>
 <head  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ikimukapp: http://ogp.me/ns/fb/ikimukapp#">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome-1">

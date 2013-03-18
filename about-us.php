@@ -21,15 +21,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/block/top_area.php";
 <div style="margin-top:15px">
 <img src="/img/aboutus.gif" />
 </div>
-<p class="blue_part">
-	If you're looking for beautifully designed, head-turning t-shirts, you've come to the right place. We sell the kind of tees that have a personality of their own.
-</p>
-
-<p class="blue_part">
-	And, if you're a creative, you can even design our stylish tees and make money. You'll love seeing people wearing your art. Guaranteed. 
-</p>
-
-
+<?php echo _txt("about_text");?>
 <div class="quote" style="float:left">
 	<a href="http://www.dailystar.com.lb/Culture/Lifestyle/2013/Feb-14/206371-helping-design-dreams-become-fashion-reality.ashx#axzz2KrEVliH8" target="_blank">	
   <div><i>"ikimuk is helping design dreams become fashion reality"</i></div>

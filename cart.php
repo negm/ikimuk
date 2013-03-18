@@ -187,21 +187,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div> 
                                         <div class="faq_link">
-                                            <a href="/faq.php?#sec1" target="_blank">How does it work?</a>
+                                            <a href="/faq.php?#sec1" target="_blank"><?php echo _txt("faq_q1"); ?></a>
                                         </div>
                                     </div>
 
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div>
                                         <div class="faq_link">
-                                            <a href="/faq.php?#sec2" target="_blank">How do I pay?</a>
+                                            <a href="/faq.php?#sec2" target="_blank"><?php echo _txt("faq_q9"); ?></a>
                                         </div>
                                     </div>
 
                                     <div class="faq_panel_link">
                                         <div class="faq_icon">&nbsp;</div>
                                         <div class="faq_link">
-                                            <a href="/faq.php?#sec3" target="_blank">Who will deliver my order?</a>
+                                            <a href="/faq.php?#sec3" target="_blank"><?php echo _txt("faq_q20"); ?></a>
                                         </div>
                                     </div>
                                 </div>

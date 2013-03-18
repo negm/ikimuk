@@ -361,8 +361,9 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <!--End Of Cart Selection--> 
 
 
-                        <span id="size_error" class="hide"></span>
+                        
                         <div id="add_to_cart" class="order_submit">
+                            <span id="size_error" class="hide"></span>
                             <input type="hidden" name="category" value=""/>
                             <input type="hidden" name="size" value=""/>
                             <input type="submit" name="add_to_cart" value="<?php echo _txt("addtocart")?>"/>

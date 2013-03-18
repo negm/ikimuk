@@ -85,3 +85,11 @@ direction: rtl;
 .choose_competition .std_block_body .type_select {
 direction: rtl;
 }
+.checkout_column_left .place_order >div, .shipping_content,.shipping_content .ads_text
+{
+  direction: rtl;  
+}
+.agreement .terms_conditions input[type="checkbox"], .newsletter input[type="checkbox"] {
+width: 15px;
+margin: 0px 0px 0px 5px;
+}

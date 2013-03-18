@@ -107,6 +107,7 @@ $en = array(
     "agree"=>"I agree to ikimuk's",
     "newsletteragree"=>"Keep me in the loop, sign me up for your newsletter",
     "aduinotice"=>"You will be redirected to Bank Audi's payment gateway",
+    "placeorder"=> "PLACE ORDER",
     //previous
     "endedon"=>"Ended on",
     "pastcontestant"=> "Past Contestant",
@@ -242,7 +243,81 @@ $en = array(
                                
                         </div>
                         <!--End of submit content-->',
-    "ongoing" =>"Ongoing"
+    "ongoing" =>"Ongoing",
+    //about
+    "about_text"=> '<p class="blue_part">
+	If you are looking for beautifully designed, head-turning t-shirts, you have come to the right place. We sell the kind of tees that have a personality of their own.
+</p><p class="blue_part">And, if you are a creative, you can even design our stylish tees and make money. You will love seeing people wearing your art. Guaranteed.</p>',
+    //FAQ
+    "faq_q1"=>"How does it work?",
+    "faq_a1"=>"<ol><li>Order your favorite T-shirt design from the competition.</li>
+<li>If that design reaches a minimum of 35 orders, we print it.</li>
+<li>We then deliver the T-shirt to your front door.</li></ol>",
+    "faq_q2"=>"Can I order more than one design?",
+    "faq_a2"=>"Of course you can. You can order as many T-shirt designs as you'd like, as long as you pay for them in the event that they all get printed.",
+    "faq_q3"=> "What happens if my favorite design doesn't reach 35 orders?",
+    "faq_a3"=>'If a design does not reach the minimum of 35 orders, it will not get printed. It will only be showcased in our "Past Competitions" section.',
+    "faq_q4"=>"How can I help my favorite design get printed?",
+    "faq_a4"=>"<ol><li>Tweet about it</li>
+<li>Share it</li>
+<li>Mention it on your blog</li>
+<li>Tell your friends about it!</li></ol>",
+    "faq_q5"=>"Why have competitions? Why can't you just sell all the T-shirts?",
+    "faq_a5"=>"Competitions are a fun and engaging way to ensure that you all love what we sell.",
+    "faq_q6"=>"How often do you come out with new designs?",
+    "faq_a6"=>"We put up a new batch of designs every two weeks.",
+    "faq_q7"=>"Is there an ikimuk store?",
+    "faq_a7"=>"Nope. We're currently only operating online, but you may stumble upon concept stores and boutiques selling handfuls of our tees.",
+    "faq_q8"=>"How do I contact the ikimuk team?",
+    "faq_a8"=>'You can contact us through <a href="mailto:hello@ikimuk.com" target="_blank">hello@ikimuk.com</a> with any queries, concerns or suggestions you might have.',
+    "faq_q9"=>"How do I pay?",
+    "faq_a9"=>"You can pay online using your credit card. We have partnered with Bank Audi to ensure that you can shop online in a comfortable, safe and reliable way.",
+    "faq_q10"=>"How much is a T-shirt?",
+    "faq_a10"=>"Our T-shirts are $25 each.",
+    "faq_q11"=>"Do I keep the rights to my artwork?",
+    "faq_a11"=>"If your design is accepted for the competition, it is considered commissioned work, done exclusively for the purpose of the contest. So while we retain full rights over it, you will always be credited as the artist.
+If your design isn't accepted, you keep all rights over your design.",
+    "faq_q12"=>"How do I submit a design?",
+    "faq_a12"=>"You can submit your design by going to the 'Submit page' and following the simple guidelines. It's really easy, we promise!",
+    "faq_q13"=>"How long does it take for a submission to go up?",
+    "faq_a13"=>"If you are submitting to a themed competition, your design will go up when the competition is scheduled to start.
+If you are submitting to an open competition, we will put your design up when there are a sufficient number of designs in that competition.",
+    "faq_q14"=>"How am I paid if my design is picked?",
+    "faq_a14"=>"We will handle payment on a case by case basis. Depending on your country, we can give you a check or a money transfer.",
+    "faq_q15"=>"Are there types of designs that aren't allowed?",
+    "faq_a15"=>"Designs that aren't allowed are the ones that are offensive, contain copyright issues and are sent in damaged files. If your design needs more work, we'll talk you through the process to make it better.",
+    "faq_q16"=>"How are the submissions chosen?",
+    "faq_a16"=>"A jury of artists and creatives sit around a round wooden table, with heaps of coffee, to keep them focused. Each design is then evaluated based on a lot of back-and-forth, and diligence to technique, concept and whether that submission is translatable on a T-shirt.",
+    "faq_q17"=>"Do I need an account to place an order?",
+    "faq_a17"=>"Not necessarily. You can create an account (It'll take less than a minute), or you can login through Facebook.",
+    "faq_q18"=>"How do I find my size?",
+    "faq_a18"=>"You can find your size on our size chart provided on the order form.",
+    "faq_q19"=>"What are the washing instructions?",
+    "faq_a19"=>"The instructions are as follows:
+Machine wash cold. Wash dark colors separately. Use non-chlorine bleach only if needed. Tumble dry low. Do not iron awesome design.
+The tees are primarily 100% organic cotton t-shirts so expect some shrinkage. To lessen this, try hang drying your tees.
+",
+    "faq_q20"=>"Who will deliver my order?",
+    "faq_a20"=>"We rely on our shipping partner Aramex who has the long-haul capabilities as well as the distribution expertise to get your order to your doorstep as soon as possible.",
+    "faq_q21"=>"How much is shipping?",
+    "faq_a21"=>"The cost of shipping depends on where you live. To find out how much shipping is, add the item to your shopping cart and proceed to checkout.",
+    "faq_q22"=>"How long do I have to wait to get my T-shirt delivered?",
+    "faq_a22"=>"We will start shipping your order one week after the competition has ended. It will then take 1-5 business days to arrive to your home.",
+    "faq_q23"=>"What can do if I haven't received my order yet?",
+    "faq_a23"=>'Each order will have a tracking code on it, which you will receive in your confirmation email. If you have not received your order, you can email this code to <a href="mailto:info@ikimuk.com" target="_blank">info@ikimuk.com</a> and we will track your order for you.',
+    "faq_q24"=>"What is your refund policy?",
+    "faq_a24"=>"We currently don't give refunds, but we're pretty sure you won't want to return these awesome tees.",
+    "faq_h1"=>"About ikimuk",
+    "faq_h2"=>"Payment",
+    "faq_h3"=>"Design Submissions",
+    "faq_h4"=>"User Account Information",
+    "faq_h5"=>"Product & Sizing Information",
+    "faq_h6"=>"Shipping & Delivery Information",
+    "faq_h7"=>"Returns",
+    "faq_h8"=>"",
+    "faq_h9"=>"",
+    "faq_h10"=>""
+    
     
 );
 $ar = array(
@@ -343,6 +418,7 @@ $ar = array(
     "agree"=>"اوافق على",
     "newsletteragree"=>"اريد ان اعرف اخر الاخبار و التغييرات",
     "aduinotice"=>"سيتم تحويلك لبوابة الدفع الامنة لبنك عودة",
+    "placeorder"=> "شراء",
     //previous
     "endedon"=>"انتهت في",
     "pastcontestant"=> "متنافس سابق",
@@ -353,7 +429,7 @@ $ar = array(
                     <!--Start of cart table header-->
                     <div class="std_block_label">
                         <div class="label_box">
-                            <span class="label_title">ازاي تشارك بتصميم؟</span>
+                            <span class="label_title">كيف تشارك بتصميم؟</span>
                                 </div>
                     </div>
                     <!--End of cart table header-->
@@ -371,7 +447,7 @@ $ar = array(
                         <div class="submit_content">
 
 	<p>
-		اختار مسابقة من ال2 اللي موجودين فوق و بعدها ابتدي .
+		اختار مسابقة من ال2 اللي موجودين اعلى الصفحة و بعدها ابدأ .
 	</p>
 
 	<div>
@@ -381,7 +457,7 @@ $ar = array(
 
 		<div>
 			<p>
-				فكر في حاجة جديدة و في نفس الوقت مرتبطة بموضوع المسابقة و بالثقافة العربية
+				فكر في فكرة جديدة و في نفس الوقت مرتبطة بموضوع المسابقة و بالثقافة العربية
 			</p>
 		</div>
 	</div> 
@@ -418,22 +494,22 @@ $ar = array(
 		<div> 
 
 			<p>
-                        بعد ما تخلص التصميم و تتأكد انه مطابق للمواصفات المطلوبة
+                        بعد الانتهاء من التصميم و تتأكد انه مطابق للمواصفات المطلوبة
 			<p>
 
 		<ul>
 			<li>سلم نسخة JPG من التصميم (RGB مقاس 300*450)</li>
-			<li>هتوصلك رسالة تأكد اننا استلمنا التصميم</li>
-			<li>لو اخترنا التصميم عشان يدخل المسابقة هتوصلك رسالة تانية.</li>
+			<li>ستصلك رسالة تأكيد اننا استلمنا التصميم</li>
+			<li>اذا تم اختيار التصميم للمشاركة في المسابقة ستصلك رسالة ثانية.</li>
 		</ul>
 
 			<p>
-				هيتم رفض التصميم في حالة:
+				سيتم رفض التصميم في حالة:
 			</p>	
 
 			<ul>
 				<li>مخالفة حقوق الملكية الفكرية لجهة اخرى</li>
-				<li>لو فيه محتوى مسئ</li>
+				<li>اذا وجد محتوى مسئ</li>
 				<li>الملف المستلم لا يعمل او غير مطابق لمواصفات الصورة المطلوبة</li>
 			</ul>
 		</div>
@@ -445,11 +521,11 @@ $ar = array(
 		</h2>
 
 		<div>
-								<p>عشان تكسب المسابقة ممكن :</p>
+								<p>حتى تكسب المسابقة يمكن:</p>
 								<ul>
 				<li>تستخدم تويتر</li>  
 				<li>انشره بين اصدقائك</li> 
-				<li>انشر عنه في المدونة بتاعتك</li>
+				<li>انشر عنه في مدونتك</li>
 				<li>عرف اصدقائك و الناس المعجبة بفنك و موهبتك</li>
 			</p>
 		</div>
@@ -464,11 +540,11 @@ $ar = array(
 		<div>
 			<ul>
 				<li>
-                                اول مرحلة من 1-35: اول ما توصل 35 التصميم هيتطبع و انت هتكسب اول 50 دولارو لو كان تصميمك اول تصميم ييوصل المرحلة في المسابقة هتكسب كمان 50 دولار
+                                اول مرحلة من 1-35:بمجرد ان تصل 35 ستتم طباعة التصميم و انت ستحصل على اول 50 دولارواذا كان تصميمك اول تصميم يصل المرحلة في المسابقة ستربح  50 دولاراخرى
 						
 				</li>
 				<li>
-                                المرحلة الثانية: اول ما توصل 75 هتكسب كمان 100 دولار و لو كنت انت اول واحد توصل المرحلة في المسابقة هتكسب كمان 50 دولار
+                                المرحلة الثانية: عندما تحصل على 75 ستربح 100 دولار اخرى و لو كنت انت اول واحد توصل المرحلة في المسابقة هتكسب كمان 50 دولار
 		   
 				</li>
 			</ul>
@@ -494,7 +570,85 @@ $ar = array(
     "designtitle"=> "اسم التصميم",
     "designdesc" => "الفكرة او الالهام",
     "yourinfo" => "بياناتك",
-    "twitter" => "تويتر"
+    "twitter" => "تويتر",
+    //about
+    "about_text"=> '<p class="blue_part">
+	إذا كنت ترغب في اقتناء تيشيرتات ذات تصميم جذاب، فقد اخترت المكان المناسب. نوفر لك تيشرتات ذات تصميمات معبرة تعكس تميز شخصيتك
+</p><p class="blue_part">وإن كانت لديك الموهبة، يمكنك تصميم التيشيرت الخاص بك وتحقيق ربح من خلاله. نضمن لك أنك ستستمتع برؤية الناس وهم يرتدون تصميماتك</p>',
+    //FAQ
+    "faq_q1"=>"كيف يتم الشراء؟",
+    "faq_a1"=>"اطلب التيشرت المفضل لك من المسابقة
+لو حصل التصميم على 35 طلب فأكثر سيتم طبعه 
+وبعد ذلك سيتم توصيل التيشرت الى باب بيتك",
+    "faq_q2"=>"هل يمكنني طلب أكثر من تصميم؟",
+    "faq_a2"=>"بالطبع . يمكنك طلب اى عدد من التيشرتات والتصميمات طالما دفعت ثمنهم وحصلوا على اكثر من 35 طلب وتمت طباعتهم ",
+    "faq_q3"=>"ماذا سيحدث إذا تصميمي المفضلة لم يحصل على 35 طلب؟",
+    "faq_a3"=>'اذا لم يحصل التصميم على الحد الادنى وهو 35 طلب لن يتم طبعه وسيظهر فقط فى قسم "المسابقات السابقة"',
+    "faq_q4"=>"كيف يمكنني مساعدة التيشرت المفضل لدي لتتم طباعته؟",
+    "faq_a4"=>"<ol><li> غرد عن تصميمك على تويتر 
+</li><li>انشر الرابط الخاص به</li>
+ <li>اذكره في مدونتك</li>
+<li>أخبر أصدقائك عنه!
+</li></ol>",
+    "faq_q5"=>"لماذا تتبنون فكرة المسابقة؟ لماذا لاتبيعون جميع التيشرتات؟",
+    "faq_a5"=>"المسابقات هي طريقة ممتعة جذابة لضمان أن يحب العملاء كل ما نبيع",
+    "faq_q6"=>"كم من الوقت تحتاجون لعمل تصميمات جديدة؟",
+    "faq_a6"=>"نحن نضع دفعة جديدة من التصميمات كل أسبوعين",
+    "faq_q7"=>"هل هناك متجر لikimuk؟",
+    "faq_a7"=>"لا. نحن حاليا نعمل على الانترنت فقط ، ولكن قد نجد مخازن ومحلات تبيع تصميماتنا اذا كنت تريد ان تصبح موزع راسلنا",
+    "faq_q8"=>"كيف يمكنني الاتصال بفريق ikimuk؟",
+    "faq_a8"=>'<a href="mailto:hello@ikimuk.com" target="_blank">hello@ikimuk.com</a> يمكنك إرسال أى استفسارات أو مخاوف أو اقتراحات على ',
+    "faq_q9"=>"كيف أدفع؟",
+    "faq_a9"=>"يمكنك الدفع عبر الإنترنت باستخدام بطاقة الائتمان الخاصة بك. ولدينا شراكة مع بنك عودة لنضمن لك التسوق عبر الإنترنت بطريقة مريحة وآمنة وموثوق بها.",
+    "faq_q10"=>"ما تكلفة التيشرت الواحد؟",
+    "faq_a10"=>"$25 للتيشرت الواحد",
+    "faq_q11"=>"هل يمكنني الحفاظ على حقوق ملكية تصميمى أو عملى الفنى؟",
+    "faq_a11"=>"في حال قبول التصميم الخاص بك للمسابقة، يعتبر التصميم عمل ذو عمولة يتم فقط لغرض المسابقة. لذا في حين نحتفظ نحن بكامل الحقوق التجارية على التصميم، يتم حفظ حقك الفكري كمصمم. 
+إذا لم يتم قبول التصميم الخاص بك، سوف تحتفظ بجميع الحقوق (سواء الفكرية أو التجارية) على التصميم الخاص بك.
+",
+    "faq_q12"=>"كيف يمكنني تقديم تصميم؟",
+    "faq_a12"=>'يمكنك تقديم التصميم الخاص بك عن طريق الذهاب إلى صفحة "شارك بتصميم" واتبع بعض الإرشادات البسيطة. العملية سهلة جدا، نعدكم بذلك.',
+    "faq_q13"=>"كم يلزم من الوقت حتى يظهر التصميم على الموقع؟",
+    "faq_a13"=>"إذا كنت تقدم لمسابقة ذات موضوع معين، فسوف يظهر التصميم الخاص بك على الموقع فى الموعد المقرر لبدأ المسابقة.
+إذا كنت تقدم لمسابقة مفتوحة، فسوف نضع التصميم الخاص بك عندما يكون هناك عدد كافٍ من التصميمات في هذا المسابقة..",
+    "faq_q14"=>"كيف أحصل على مستحقاتي إذا تم اختيار تصميمي؟",
+    "faq_a14"=>"سنقوم بالتعامل مع الدفع كل حالة على حدة. اعتمادا على بلدكم، سوف يتم إرسال شيك أو حوالة مالية.",
+    "faq_q15"=>"هل هناك أنواع من التصميمات لا يسمح بمشاركتها؟",
+    "faq_a15"=>"التصميمات التي لا يسمح بها هي المسيئة لفئة معينة أو أكثر، أو التى بها مشاكل حقوق ملكية، أو التصميمات المرسلة فى ملفات تالفة. إذا كان تصميمك يحتاج إلى مزيد من العمل، سوف نتواصل معكم لجعله أفضل.",
+    "faq_q16"=>"كيف يتم اختيار التصاميم؟",
+    "faq_a16"=>"لجنة تحكيم من الفنانين والمبدعين تجلس معا حول طاولة خشبية مستديرة مع الكثير من القهوة للحفاظ على تركيزهم. ثم يتم تقييم كل تصميم على أساس التقنية، الفكرة، وعما إذا كان يمكن تطبيق التصميم على تيشرت. ",
+    "faq_q17"=>"هل أحتاج إلى حساب لكى اشترى تيشرت؟",
+    "faq_a17"=>"ليس بالضرورة. ويمكنك إنشاء حساب (سوف يستغرق أقل من دقيقة)، أو يمكنك الدخول عن طريق الفيسبوك.",
+    "faq_q18"=>"كيف يمكنني العثور على مقاسي؟",
+    "faq_a18"=>"يمكنك أن تجد المقاس الخاص بك عن طريق مربع المقاسات الموجود على صفحة التصميم.",
+    "faq_q19"=>"ما هي تعليمات الغسيل؟",
+    "faq_a19"=>"التعليمات هي كما يلي:
+غسيل آلي على البارد. تغسل الألوان الداكنة بشكل منفصل. يمكن استخدام مبيض لا يحتوى على كلور، فقط إذا لزم الأمر. يستخدم البخار ذو درجة حرارة منخفضة، ولا يمكن كيه. 
+ التيشرتات 100% من القطن الطبيعي، لذلك توقع بعض الانكماش. للتخفيف من هذا، يمكن تركها تجف وهي معلقة. 
+",
+    "faq_q20"=>"من سيقوم بتوصيل الطلبات؟",
+    "faq_a20"=>"نحن نعتمد على أرامكس، فهو الشريك المسئول عن الشحن ولديهم قدرات على التوصيل لمسافات طويلة، وكذلك الخبرة في التوزيع حتى يصل طلبك إلى باب منزلك في أقرب وقت ممكن.",
+    "faq_q21"=>"كم تبلغ تكلفة الشحن؟",
+    "faq_a21"=>"تكلفة الشحن تعتمد على المكان الذي تعيش فيه. لمعرفة التكلفة قم بإضافة التيشرت إلى سلة التسوق الخاصة بك، واستكمل الخطوات للمحاسبة ثم الخروج.",
+    "faq_q22"=>"كم من الوقت يتطلب وصول التيشيرت إلي؟",
+    "faq_a22"=>"سنبدأ شحن طلبك بعد أسبوع من انتهاء المسابقة. ثم سوف يستغرق من 1-5 أيام عمل ليصل إلى منزلك.",
+    "faq_q23"=>"ماذا يمكن أن أفعل إذا لم أحصل على طلبي؟",
+    "faq_a23"=> 'كل طلب سيكون له رمز للتتبع خاص به، ستحصل علية فى رسالة تأكيد الحجز. اذا لم تكن قد تلقيت طلبك، ارسل لنا هذا الرمز  على <a href="mailto:info@ikimuk.com" target="_blank">info@ikimuk.com</a> ونحن سنتتبع مسار الطلب ونرجع لك',
+    "faq_q24"=>"ما هي سياستكم فى رد المشتريات؟",
+    "faq_a24"=>"نحن حالياً لا نقبل رد المشتريات، ولكننا واثقون تماماً أنك لن ترغب في رد التيشرتات الخاصة بنا.",
+    "faq_h1"=>"عن ikimuk",
+    "faq_h2"=>"الدفع",
+    "faq_h3"=>"تسليم التصميمات",
+    "faq_h4"=>"معلومات عن حسابات المستخدمين",
+    "faq_h5"=>"معلومات عن المنتج والمقاسات",
+    "faq_h6"=>"معلومات عن الشحن والتوصيل",
+    "faq_h7"=>"عائدات",
+    "faq_h8"=>"",
+    "faq_h9"=>"",
+    "faq_h10"=>""
+
+
+    
 );
 function _txt($l)
 {

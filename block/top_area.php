@@ -23,7 +23,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                 <div class="header_title">
                     <?php echo _txt("intldelivery");
                         
-                    if (!isset($_SESSION["country_name"]) || strlen($_SESSION["country_name"]) < 2)
+                    if (!isset($country_name) || strlen($country_name) < 2)
                        if(isset($ip2c)) 
                            if(isset($lang)&& $lang =="ar")
                                {echo $country_name_ar;}
@@ -37,7 +37,14 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                             echo $country_name; 
                     ?> 
                 </div>
-
+                <div class="lang_control control_section">
+                    <?php
+                    if ($lang != "ar")
+                    echo '<a href="'.$ar_link.'" > عربي </a>';
+                    else
+                    echo '<a href="'.$en_link.'">English</a>';
+                    ?>
+                </div>
 
                 <div class="control_section">                          
                     <?php

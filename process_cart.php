@@ -53,6 +53,11 @@ function add_to_cart() {
 	  $quantity = 1;
 	  $price = $product->price;
 	  $goal = 0;
+          if ($product->shop)
+          {
+           $goal = count($settings->goals);
+          }
+        else {
 	  for($i = 0; $i < count($settings->goals); $i++){
 	    if($product->preorders < $settings->goals[$i]){
 	      $goal = $i + 1;
@@ -62,7 +67,7 @@ function add_to_cart() {
 	  if($goal == 0){
 	    $goal = count($settings->goals);
 	  }
-		
+        }	
 		  
             $found = false;
             if (isset($_SESSION["cart"])) {

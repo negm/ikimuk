@@ -1,4 +1,9 @@
-
+.option_column .block_order {
+width: 256px;
+float: left;
+border: 2px solid #CCCCCC;
+padding: 15px 20px 30px 20px;
+}
 /*Reset CSS*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-weight:normal}
 ul , ol , li { list-style:none; list-style-type:none;}
@@ -835,7 +840,7 @@ cursor: pointer;
     width:256px;
     float:left;
     border:2px solid #CCCCCC;
-    padding: 15px 20px 10px 20px;/*top right bottom left*/
+    padding: 15px 20px 30px 20px;/*top right bottom left*/
 }
 .block_order >div{width:100%;float:left;}
 
