@@ -58,6 +58,7 @@ $en = array(
     "guy"=>"GUY",
     "girl"=>"GIRL",
     "tshirtsordered"=> "T-shirts ordered",
+    "size_error"=>"Please choose your size",
     //cart
     "goals_texts" => array("Once this T-shirt reaches 35 orders it will get printed. You will receive your T-shirt, stickers and a certificate of awesomeness",
 				"If you order this T-shirt when it has between 35 to 75 orders, you will receive your T-shirt and stickers ",
@@ -417,6 +418,7 @@ $ar = array(
     "guy"=>"رجال",
     "girl"=>"بنات",
     "tshirtsordered"=> "طلب تيشرت",
+    "size_error"=>"اختر مقاسك",
     //cart
     "goals_texts" => array("لما التصميم يوصل ل35 هيطبع و هتستلم التيشرت و ستيكرز و شهادة الجودة :)",
 				"لو طلبت التصميم بعد ما وصل 35 هتاخد التيشرت و الاستيكرز  ",

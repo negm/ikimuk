@@ -363,7 +363,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
 
                         
                         <div id="add_to_cart" class="order_submit">
-                            <span id="size_error" class="hide"></span>
+                            <span id="size_error" class="hide"><?php echo _txt("size_error");?></span>
                             <input type="hidden" name="category" value=""/>
                             <input type="hidden" name="size" value=""/>
                             <input type="submit" name="add_to_cart" value="<?php echo _txt("addtocart")?>"/>

@@ -432,7 +432,7 @@ $(document).ready(function(){
         $('#size_error').hide();
         var cut=$(".order_submit").find("input[name='category']").val();//Get selected category
         var size=$(".order_submit").find("input[name='size']").val();//Get selected size
-        if(cut=="") $('#size_error').text("Please choose you size").show();//check if the user didn't click on any cell
+        if(cut=="") $('#size_error').show();//check if the user didn't click on any cell
         else{  
             var myData = 'action=add&cut='+cut+"&size="+size+"&product_id="+$("#product_id").val();
             //alert(myData)

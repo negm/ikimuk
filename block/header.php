@@ -5,7 +5,9 @@ if (!isset($_SESSION))
 }
 
 
-$country_default_arabic = array("Egypt","Saudi Arabia", "");
+$country_default_arabic = array("Egypt","Saudi Arabia", "United Arab Emirates",
+    "Bahrain","Iraq","Jordan","Kuwait","Libya","Oman","Palestine","Qatar",
+    "Sudan","Yemen");
 include_once $_SERVER["DOCUMENT_ROOT"]."/class/settings.php";
 $settings = new settings();
 
