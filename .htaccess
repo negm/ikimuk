@@ -142,6 +142,8 @@ DirectoryIndex index.php index.html index.htm
   RewriteRule ^design/([^.]+)/([0-9]+)$ design.php?lang=$1product_id=$2
   RewriteRule ^preorder/([0-9]+)$ preorder.php?product_id=$1
   RewriteRule ^preorder/([0-9]+)/([^.]+)$ preorder.php?product_id=$1&design_title=$2
+  RewriteRule ^interviews$ interviews.php
+  RewriteRule ^interviews/$ interviews.php
   RewriteRule ^interviews/([0-9]+)$ interviews.php?interview_id=$1
   RewriteRule ^interviews/([0-9]+)/([^.]+)$ interviews.php?interview_id=$1&design_title=$2
 </IfModule>

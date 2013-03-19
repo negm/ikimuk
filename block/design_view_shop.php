@@ -95,7 +95,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                 <div class="order_progress_count" temprop="aggregateRating"
     itemscope itemtype="http://schema.org/AggregateRating">
                     <div class="count_value" itemprop="ratingValue"><?php echo $product->preorders; ?></div>
-                    <div class="count_text">T-shirt ordered</div>
+                    <div class="count_text"><?php echo _txt("tshirtsordered");?></div>
                 </div>
 
 
@@ -487,7 +487,7 @@ for ($i=0; $i < count($settings->goals); $i++){
     <!-- Start of Reset part-->
 <div id="item_added" class="modal hide fade member" data-backdrop="static">
            
-        <div class='alert alert-success'><strong>Success!</strong> You have successfully added an item to your cart</div>
+        <div class='alert alert-success'><?php echo _txt("cart_msg");?></div>
               
 </div>
     <!-- End of Reset part-->

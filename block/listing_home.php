@@ -64,22 +64,16 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     <div class="body_content">
         <?php
         if (isset($_GET["payment"]) and $_GET["payment"] == "success") {
-            echo "<div class='alert alert-success'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> We have processed your order.";
-            if (isset($_GET["type"]) and $_GET["type"] == "preorder") {
-                echo " You will be notified if this design gets printed.";
-            } else {
-                echo " Your T-shirt will be delivered to you soon.";
-            }
-            echo "</div>";
+            echo "<div class='alert alert-success'> <button type='button' class='close' data-dismiss='alert'>&times;</button>".  _txt("payment_success")."</div>";
         }
         if (isset($_GET["submit"]) and $_GET["submit"] == "success") {
-            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> You have successfully submitted your design</div>";
+            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button>"._txt("submit_msg")."</div>";
         }
         if (isset($_GET["reset"]) and $_GET["reset"] == "email") {
-            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> Check your email now to reset your password</div>";
+            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button>". _txt("pwd_reset_email")."</div>";
         }
         if (isset($_GET["reset"]) and $_GET["reset"] == "success") {
-            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Success!</strong> Password was reset successfully. Login now with your new password</div>";
+            echo "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button>". _txt("pwd_reset_complete")."</div>";
         }
         ?>
         <!--Start of Slider section-->

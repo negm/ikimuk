@@ -90,10 +90,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 <?php 
   if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
     echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong. ";
-    if(isset($_GET["error"])){
-      echo $_GET["error"];
+    if(isset($_GET["error"]) && isset( _txt($_GET["error"]))){
+      echo _txt($_GET["error"]);
     }else{
-      echo "Your payment could not be processed, please try again later.";
+      echo _txt("payment_error_else");
     }
     echo "</div>";
   }

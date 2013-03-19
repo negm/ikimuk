@@ -137,7 +137,7 @@
 <script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script src="/js/javascript.min.js"></script>
-<script type="text/javascript" src="/js/main.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {

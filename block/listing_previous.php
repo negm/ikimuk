@@ -87,7 +87,7 @@ while($row= mysqli_fetch_assoc($product->database->result))
     <input type="hidden" name="user_id" value="/design/<?php echo $row["id"]. "/" . str_replace(".","",str_replace(" ","-",trim($row["title"]))); ?>"/>
     <div class="entry_transparent">
          <div class="entry_order_now">
-          VIEW DESIGN
+          <?php echo _txt("view_design");?>
          </div>
     </div>
     

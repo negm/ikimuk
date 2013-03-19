@@ -1,3 +1,5 @@
+//woopera
+function woopraReady(tracker){tracker.setDomain('ikimuk.com');tracker.setIdleTimeout(1800000);tracker.track();return false;}(function() {var wsc = document.createElement('script');wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';wsc.type = 'text/javascript';wsc.async = true;var ssc = document.getElementsByTagName('script')[0];ssc.parentNode.insertBefore(wsc, ssc);})();
 //////////////////GA
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-36448861-1']);
@@ -658,7 +660,7 @@ var size="";
      
         $(this).find(".entry_transparent").css("display","block");//show the float div
         
-        $(this).find(".entry_transparent").delay(0).animate({
+        $(this).find(".entry_transparent").delay(0).stop(true,false).animate({
             opacity:0.9
         },400);  //make opacity for the floating div
     
@@ -708,7 +710,7 @@ var size="";
         if(category==cell_category)
             if(size==cell_size)return; //check if the cell over is the same selected
     
-        $(this).delay(0).animate({
+        $(this).delay(0).stop(true,false).animate({
             opacity:1
         },100); 
     });
@@ -723,7 +725,7 @@ var size="";
         if(category==cell_category)
             if(size==cell_size)return; //check if the cell over is the same selected
     
-        $(this).delay(0).animate({
+        $(this).delay(0).stop(true,false).animate({
             opacity:0.3
         },100);   
     });
@@ -929,7 +931,7 @@ var size="";
         if(category==cell_category)
             if(size==cell_size)return; //check if the cell over is the same selected
     
-        $(this).delay(0).animate({
+        $(this).delay(0).stop(true,false).animate({
             opacity:1
         },100); 
     });
@@ -944,7 +946,7 @@ var size="";
         if(category==cell_category)
             if(size==cell_size)return; //check if the cell over is the same selected
     
-        $(this).delay(0).animate({
+        $(this).delay(0).stop(true,false).animate({
             opacity:0.3
         },100);   
     });
@@ -1101,7 +1103,7 @@ var size="";
                     var option = {
                         top: diff
                     };//set top position
-                    $('.cart_summary, .pre_order_summary').animate(
+                    $('.cart_summary, .pre_order_summary').stop(true,false).animate(
                         option, 
                         {
                             queue:false, 
@@ -1120,13 +1122,41 @@ var size="";
    
 /////////////////////////////////////////////////////////////////////////////////
     
-    
-    
-    
-    
-    
-    
 });
+ //Mouse over the avatar section
+                $(document).ready(function(){
+                        
+                    $(".designer .designer_avatar").mouseenter(function(){
+                        $(this).parent().find(".designer_transparent").css("display","block");//show the float div
+        
+                        $(this).parent().find(".designer_transparent").stop(true,false).delay(0).animate({
+                            opacity:0.9
+                        },400);  //make opacity for the floating div
+    
+                        $(this).parent().css("border-color","#333333");
+         
+                    });
+    
+                    //Mouse leave the avatar section
+                    $(".designer .designer_transparent").mouseleave(function(){ 
+             
+                        $(this).stop();
+                        $(this).parent().find(".designer_transparent").css("display","none");
 
+                        $(this).parent().css("border-color","#CCCCCC");
+                        $(this).parent().find(".designer_transparent").css("opacity",0);
+       
+                    });
+                     
+                     
+                         $(".designer .designer_transparent").click(function(){
+        var link=$(this).parent().find("input[name='designer_id']").val();
+        location.href = link;
+    });
+                     
+                     
+                     
+                });
+    
 /*
 */

@@ -83,6 +83,7 @@ $en = array(
     "checkout" => "Checkout",
     "noitems" => "No Items found in your shopping cart!",
     "faqcart" => "FAQ (Frequently Asked Questions)",
+    "cart_msg" => "Success! You have successfully added an item to your cart",
     //checkout
     "shipping"=>"SHIPPING",
     "selectcountry" => "Select Country",
@@ -109,6 +110,7 @@ $en = array(
     "aduinotice"=>"You will be redirected to Bank Audi's payment gateway",
     "placeorder"=> "PLACE ORDER",
     //previous
+    "view_design"=>"VIEW DESIGN",
     "endedon"=>"Ended on",
     "pastcontestant"=> "Past Contestant",
     //submit-intro
@@ -314,9 +316,55 @@ The tees are primarily 100% organic cotton t-shirts so expect some shrinkage. To
     "faq_h5"=>"Product & Sizing Information",
     "faq_h6"=>"Shipping & Delivery Information",
     "faq_h7"=>"Returns",
-    "faq_h8"=>"",
-    "faq_h9"=>"",
-    "faq_h10"=>""
+    "submit_msg"=>"<strong>Success!</strong> You have successfully submitted your design",
+    "pwd_reset_email" => "<strong>Success!</strong> Check your email now to reset your password",
+    "pwd_reset_complete" => "<strong>Success!</strong> Password was reset successfully. Login now with your new password",
+    "payment_success"=>"<strong>Success!</strong> We have processed your order.",
+    //payment error messages
+    "payment_err_else"=>"Your payment could not be processed, please try again later.",
+    "payment_err1"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err2"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err3"=>"Your Bank declined the payment, please try a different card or contact your Bank.",
+    "payment_err4"=>"Payment is unsuccessful. Please try again.",
+    "payment_err5"=>"Payment is unsuccessful due to expired credit card. Please try a different card.",
+    "payment_err6"=>"Payment is unsuccessful due to insufficient funds. Please try a different card or contact your Bank.",
+    "payment_err7"=>"Payment is unsuccessful. Please try again.",
+    "payment_err8"=>"Payment is unsuccessful. Please verify that you entered the date in the correct format.",
+    "payment_err9"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err10"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err11"=>"Payment is declined by your Bank. Please try a different card.",
+    "payment_err12"=>"Payment is unsuccessful. Please try again.",
+    "payment_err13"=>"Payment is unsuccessful. Please try again.",
+    "payment_err14"=>"Payment is being processed. We will contact you shortly to resolve this issue.",
+    "payment_err15"=>"Payment is unsuccessful due to invalid card number. Please try again.",
+    "payment_err16"=>"Payment is unsuccessful. Please try again.",
+    "payment_err17"=>"Payment is unsuccessful due to wrong CVC (security code). Please try again.",
+    "payment_err18"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err19"=>"Payment is unsuccessful. Please try again.",
+    "payment_err20"=>"Payment is unsuccessful. Please try a different card or contact your Bank.",
+    "payment_err21"=>"Payment is being processed. We will contact you shortly to resolve this issue.",
+    "payment_err22"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue to resolve the issue.",
+    "payment_err23"=>"Payment is unsuccessful. Please try again.",
+    "payment_err24"=>"Payment is unsuccessful. Please try a different card or contact your Bank.",
+    "payment_err25"=>"Payment is unsuccessful due to wrong CVC (security code). Please try again.",
+    "payment_err26"=>"Payment is unsuccessful due to wrong CVC (security code). Please try again.",
+    "payment_err27"=>"Payment is unsuccessful. Please try a different card.",
+    "payment_err28"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err29"=>"Payment is being processed. We will contact you shortly to resolve this issue.",
+    "payment_err30"=>"Payment is unsuccessful due to missing required fields. Please try again.",
+    "payment_err31"=>"Payment is being processed. We will contact you shortly to resolve this issue.",
+    "payment_err32"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err33"=>"Payment is unsuccessful due to card limit. Please try a different card or contact your bank.",
+    "payment_err34"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err35"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err36"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue to resolve the issue.",
+    "payment_err37"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue.",
+    "payment_err38"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue to resolve the issue.",
+    "payment_err39"=>"Payment is unsuccessful. We will contact you shortly to resolve this issue to resolve the issue."
+    
+    
+    
+    
     
     
 );
@@ -368,7 +416,7 @@ $ar = array(
     "showsupport" => "قول رأيك",
     "guy"=>"رجال",
     "girl"=>"بنات",
-    "tshirtsordered"=> "T-shirts ordered",
+    "tshirtsordered"=> "طلب تيشرت",
     //cart
     "goals_texts" => array("لما التصميم يوصل ل35 هيطبع و هتستلم التيشرت و ستيكرز و شهادة الجودة :)",
 				"لو طلبت التصميم بعد ما وصل 35 هتاخد التيشرت و الاستيكرز  ",
@@ -394,6 +442,7 @@ $ar = array(
     "checkout" => "استكمال الشراء",
     "noitems" => " لا توجد اي تصميمات لاستكمال الشراء",
     "faqcart" => "الاسئلة الشائعة",
+    "cart_msg" => "تم الاضافة الى سلة المشتريات بنجاح",
     //checkout
     "shipping"=>"بيانات التوصيل",
     "selectcountry" => "اختار الدولة",
@@ -420,6 +469,7 @@ $ar = array(
     "aduinotice"=>"سيتم تحويلك لبوابة الدفع الامنة لبنك عودة",
     "placeorder"=> "شراء",
     //previous
+    "view_design"=>"شاهد التصميم",
     "endedon"=>"انتهت في",
     "pastcontestant"=> "متنافس سابق",
     //submit-intro
@@ -447,7 +497,7 @@ $ar = array(
                         <div class="submit_content">
 
 	<p>
-		اختار مسابقة من ال2 اللي موجودين اعلى الصفحة و بعدها ابدأ .
+		اختار مسابقة من ال2 الموجودين اعلى الصفحة و بعدها ابدأ .
 	</p>
 
 	<div>
@@ -478,7 +528,7 @@ $ar = array(
 			</p>
 
 			<ul>
-				<li>الصورة لازم تكون جودتها عالية (300 dpi)</li>
+				<li>الصورة لابد ان تكون عالية الجودة (300 dpi)</li>
 				<li>المقاس 40 * 60 cm</li>
 				<li>حد اقصى 6 الوان (كل لون في طبقة منفصلة).</li>
 			</ul>
@@ -550,7 +600,7 @@ $ar = array(
 			</ul>
 
 			<p>
-                        في اخر المسابقة لو تصميمك جمع اكبر عدد هتاخد 100 دولار اضافية
+                        في اخر المسابقة لو تصميمك جمع اكبر عدد ستحصل على 100 دولار اضافية
 			</p>
 		</div>
 	</div>
@@ -643,9 +693,53 @@ $ar = array(
     "faq_h5"=>"معلومات عن المنتج والمقاسات",
     "faq_h6"=>"معلومات عن الشحن والتوصيل",
     "faq_h7"=>"عائدات",
-    "faq_h8"=>"",
-    "faq_h9"=>"",
-    "faq_h10"=>""
+    "submit_msg"=>"<strong>تم!</strong> لقد اتممت تسليم التصميم بنجاح",
+    "pwd_reset_email" => "<strong>تم!</strong> تفقد بريدك الالكتروني لخطوات تغيير كلمة السر",
+    "pwd_reset_complete" => "<strong>تم!</strong> تم تغيير كلمة المرور. يمكنك الان الدخول باستخدام كلمة المرور الجديدة",
+    "payment_success"=>"<strong>تم!</strong> لقد اتممت عملية الشراء بنجاح",
+    //payment error messages
+    "payment_err_else"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err1"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err2"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err3"=>"تم رفض العملية من قبل المصرف. الرجاء استخدام بطاقة أخرى أو الإتصال بالمصرف.",
+    "payment_err4"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err5"=>"لم يتم الدفع لانتهاء صلاحية البطاقة. الرجاء استخدام بطاقة أخرى.",
+    "payment_err6"=>"لم يتم الدفع لعدم توفر الرصيد الكافي. الرجاء استخدام بطاقة أخرى أو الإتصال بالمصرف.",
+    "payment_err7"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err8"=>"لم يتم الدفع. تأكد من إدخال التاريخ بصيغة صحيحة.",
+    "payment_err9"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err10"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err11"=>"تم رفض العملية من قبل المصرف. الرجاء استخدام بطاقة أخرى أو الإتصال بالمصرف",
+    "payment_err12"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err13"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err14"=>"جاري الدفع. سيتم التواصل معكم قريباً لتأكيد العملية.",
+    "payment_err15"=>"لم يتم الدفع. رقم البطاقة خاطئ، يرجى إعادة المحاولة.",
+    "payment_err16"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err17"=>"لم يتم الدفع. الرقم السري خاطئ، يرجى إعادة المحاولة.",
+    "payment_err18"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err19"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err20"=>"تم رفض العملية من قبل المصرف. الرجاء استخدام بطاقة أخرى.",
+    "payment_err21"=>"جاري الدفع. سيتم التواصل معكم قريباً لتأكيد العملية.",
+    "payment_err22"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err23"=>"لم يتم الدفع. الرجاء إعادة المحاولة.",
+    "payment_err24"=>"تم رفض العملية من قبل المصرف. الرجاء استخدام بطاقة أخرى.",
+    "payment_err25"=>"لم يتم الدفع. الرقم السري خاطئ، يرجى إعادة المحاولة.",
+    "payment_err26"=>"لم يتم الدفع. الرقم السري خاطئ، يرجى إعادة المحاولة.",
+    "payment_err27"=>"تم رفض العملية من قبل المصرف. الرجاء استخدام بطاقة أخرى.",
+    "payment_err28"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err29"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err30"=>"لم يتم الدفع. تأكد من إدخال جميع البيانات المطلوبة.",
+    "payment_err31"=>"جاري الدفع. سيتم التواصل معكم قريباً لتأكيد العملية.",
+    "payment_err32"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err33"=>"لم يتم الدفع لتجاوز حدود البطاقة. الرجاء استخدام بطاقة أخرى أو الاتصال بالمصرف.",
+    "payment_err34"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err35"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err36"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err37"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err38"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت.",
+    "payment_err39"=>"لم يتم الدفع. سيتم التواصل معكم لحل المشكلة بأسرع وقت."
+    
+    
 
 
     
