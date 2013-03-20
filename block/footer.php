@@ -132,12 +132,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!--<script src="/js/bootstrap.js"></script>-->
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>
 <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>
 <script src="/js/javascript.min.js"></script>
 <script type="text/javascript" src="/js/main2.min.js"></script>
+
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {

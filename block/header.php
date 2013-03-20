@@ -138,8 +138,6 @@ ob_implicit_flush(0);
 <meta property="og:description" content="Cool T-shirt Design">
 <meta property="og:type" content="ikimukapp:design" />
 <meta property="og:determiner" content="a" />
-<script type="text/javascript" src="//use.typekit.net/vql4qaw.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet"/>
 <link href="/css/styles2.min.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
