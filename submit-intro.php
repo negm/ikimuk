@@ -54,7 +54,7 @@ $daysLeft = $daysLeft<0 ? 0: $daysLeft;
 		<div class="label_box"><span class="label_title"><?php echo _txt("ongoing");?></span></div>
 		</div>
                 <div class="theme_transparent"><div class="transparent_text"><?php echo _txt("submitnow");?></div></div>
-                <div class="theme_avatar"><img src="/images/open_theme_submissions_ikimuk.png"></div>
+                <div class="theme_avatar"><img src="/images/open_theme_banner_sub_ikimuk.png"></div>
                 <div class="theme_title">Open Submission</div>
                 <!--<div class="theme_date">Submit before 21/1/2013</div>-->
             </div>
