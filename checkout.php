@@ -58,7 +58,7 @@ if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
         ?>
 <script type="text/javascript">
 var fb_param = {};
-fb_param.pixel_id = '6008382078716';
+fb_param.pixel_id = '6007942136463';
 fb_param.value = '0.00';
 (function(){
 var fpw = document.createElement('script');
@@ -68,7 +68,7 @@ var ref = document.getElementsByTagName('script')[0];
 ref.parentNode.insertBefore(fpw, ref);
 })();
 </script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6008382078716&amp;value=0" /></noscript>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6007942136463&amp;value=0" /></noscript>
     <?php }
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
