@@ -79,10 +79,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         <div class="links_content">
                             <div class="link_deactive"><a class="link_deactive" href="/index.php"> ikimuk</a></div>
                             <div class="link_deactive">/</div>
-                            <div class="link_deactive"><a class="link_deactive" href="/cart.php"> Cart</a></div>
+                            <div class="link_deactive"><a class="link_deactive" href="/cart.php"><?php echo _txt("cart"); ?></a></div>
                             <div class="link_deactive">/</div>
                             <div class="link_active">
-                                <a href="#">Checkout</a>
+                                <a href="#"><?php echo _txt("checkout");?></a>
                             </div>
                         </div>
                     </div>
