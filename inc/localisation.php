@@ -249,6 +249,17 @@ $en = array(
     "ongoing" =>"Ongoing",
 	"participate" => "Participate in a competition with ikimuk",
     "submitbefore" => "Submit before",
+    "submitnow" => "Submit Now",
+    "choosecompetition" => "CHOOSE COMPETITION",
+    "blog"=> "Website or blog",
+    "addimages" => "Add Images",
+    "designguide" => "choose the image (JPG or PNG) 300px width & 450px height and the size should be less than 500KB",
+    "uploadfile" => "UPLOAD FILE",
+    "designinfo"=> "Design Info",
+    "designtitle"=> "Design Title",
+    "designdesc" => "Idea or inspiration",
+    "yourinfo" => "Your Info",
+    "twitter" => "Twitter",
     //about
     "about_text"=> '<p class="blue_part">
 	If you are looking for beautifully designed, head-turning t-shirts, you have come to the right place. We sell the kind of tees that have a personality of their own.

@@ -93,7 +93,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                             if ($selected_comp == $competition->id){
                             echo '<div class="type_select"><input type="radio" name="competition_type" value="'
                             . $competition->id . '" checked="checked"/>   ' . $competition->title .
-                            "  (submit before " . date("d/m/Y", strtotime($competition->submission_deadline)) . ')</div>';
+                            "  ( " . _txt("submitbefore")." ".date("d/m/Y", strtotime($competition->submission_deadline)) . ')</div>';
                                 ?>
                             <div class="type_select"><input type="radio" name="competition_type" value="0" > Open Submission</div>
                             <?php } else {
