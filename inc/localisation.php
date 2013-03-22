@@ -247,6 +247,8 @@ $en = array(
                         </div>
                         <!--End of submit content-->',
     "ongoing" =>"Ongoing",
+	"participate" => "Participate in a competition with ikimuk",
+    "submitbefore" => "Submit before",
     //about
     "about_text"=> '<p class="blue_part">
 	If you are looking for beautifully designed, head-turning t-shirts, you have come to the right place. We sell the kind of tees that have a personality of their own.
