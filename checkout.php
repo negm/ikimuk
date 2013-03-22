@@ -89,8 +89,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 <?php 
   if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
-    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong. ";
-    if(isset($_GET["error"]) && isset( _txt($_GET["error"]))){
+    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong.";
+    if(isset($_GET["error"]) && ( _txt($_GET["error"]))){
       echo _txt($_GET["error"]);
     }else{
       echo _txt("payment_error_else");
@@ -327,7 +327,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                     <div class="payment_master"><img src="img/ikimuk_master.png"></div>
                                 </div>
                                 <div class="payment_checkout">
-                                    <input type="submit" value="PLACE ORDER" name="place">
+                                    <input type="submit" value="<?php echo _txt("placeorder");?>" name="place">
                                         <div class="gateway">
                                             <div class="gateway_icon"><img src="img/ikimuk_lock.png"/>  </div>  
                                             <div class="gateway_text"><?php echo _txt("aduinotice");?> </div>
