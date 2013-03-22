@@ -89,7 +89,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
 <?php 
   if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
-    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Oops!</strong> Something went wrong.";
+    echo "<div class='alert alert-error'> <button type='button' class='close' data-dismiss='alert'>&times;</button>";
     if(isset($_GET["error"]) && ( _txt($_GET["error"]))){
       echo _txt($_GET["error"]);
     }else{
