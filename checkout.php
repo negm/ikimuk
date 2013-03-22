@@ -129,11 +129,23 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                             </div>
                                             <select name="country" class="country_list hidden_input" data-animation="true" data-trigger="focus">
                                                <?php
+											   
                                                    foreach($countries_array as $key=>$country)
+												   {
+														if(isset($lang)&& $lang =="ar"){
                                                         if($country->country_name == $_SESSION["country_name"])
                                                     echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name_ar . '</option>';
                                                         else
                                                             echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name_ar . '</option>';
+													
+													}
+													else{
+													    if($country->country_name == $_SESSION["country_name"])
+                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name . '</option>';
+                                                        else
+                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name . '</option>';
+													}
+													}
                                                  ?>
                                             </select>
                                         </div>
@@ -244,10 +256,21 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                             <select name="code" class="code_list hidden_input" data-animation="true" data-trigger="focus">
                                                 <?php
                                                     foreach($countries_array as $key=>$country)
+													{
+													if(isset($lang)&& $lang =="ar")
+													{
                                                         if($country->country_name == $_SESSION["country_name"])
                                                             echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name_ar . " ".$country->phone_code.'</option>';
                                                         else
                                                             echo '<option value="' . $country->country_code . '">' . $country->country_name_ar." ".$country->phone_code. '</option>';
+													}
+													else{
+													    if($country->country_name == $_SESSION["country_name"])
+                                                            echo '<option selected="selected" value="' . $country->country_code . '">' . $country->country_name . " ".$country->phone_code.'</option>';
+                                                        else
+                                                            echo '<option value="' . $country->country_code . '">' . $country->country_name." ".$country->phone_code. '</option>';
+													}
+													}
                                                  ?>
                                             </select>
                                         </div>
