@@ -60,7 +60,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
                         <div class="login_menu">
                             <div class="login_header">
                                 <div class="login_arrow"></div>
-                                <div class="login_name"><?php echo _txt("hello").", <b> ".$_SESSION["user_name"]; ?></b></div>
+                                <div class="login_name"><?php echo _txt("hello").", <b> ".substr($_SESSION["user_name"],0,30); ?></b></div>
                                 
 
                             </div> 
