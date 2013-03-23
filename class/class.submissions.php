@@ -58,7 +58,8 @@ class submissions {
                 }
 	public function selectAllSubmissions()
         {
-            $sSQL = "select * from `submissions` INNER JOIN `submission_image` sim ON sim.submission_id = submissions.id INNER JOIN `user` ON submissions.user_id = user.id";
+            $sSQL = "select * from `submissions` ss inner join `competition` cc on ss.competition_id = cc.id INNER JOIN `submission_image` sim ON sim.submission_id = ss.id INNER JOIN `user` ON ss.user_id = user.id
+where ss.competition_id  = 0 or cc. submission_open = 1";
             $oResult = $this->database->query($sSQL);
         }
         public function selectUserSubmissions()
