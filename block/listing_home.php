@@ -82,7 +82,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                 <!-- Carousel items -->
                 <div class="carousel-inner">
 
-                    <!-<div class="item"><img src="/images/pop_art_arab_idols _Subm_banner_ikimuk.png"/></div>
+                    <div class="item"><img src="/images/pop_art_arab_idols _Subm_banner_ikimuk.png"/></div>
                     <div class="active item"><img src="/images/slide_2.jpg"/></div>
                     <div class="item"><img src="/images/slide_3.jpg"/></div>
 
