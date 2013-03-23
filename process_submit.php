@@ -4,6 +4,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submissions.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.artist.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.submission_image.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/class.message.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/settings.php';
 if (!isset($_POST["action"]))
 {
     header("Location: /index.php");
@@ -18,6 +19,7 @@ else
 }
 function add_submission()
 {
+$settings = new settings();
 $submission = new submissions();
 $message = new message();
 $sub_img = new submission_image();
@@ -43,6 +45,8 @@ else
     $sub_img->submission_id = $submission->id;
     foreach ($img_arr as $img)
     {
+        if (!filter_var($img,FILTER_VALIDATE_URL)&& strpos($img, "https://s3.amazonaws.com/".$settings->submissionBucketName))
+                 {echo 'shit'; return;}
         $sub_img->url = $img;
         $sub_img->insert();
         if ($sub_img->id == null)
