@@ -39,7 +39,7 @@ echo '<meta property="og:title" content="' . $product->title . '" />';
 echo '<meta property="og:image" content="' . $product->image . '" />';
 echo '<meta property="fb:app_id" content="' . $settings->app_id . '" />';
 echo '<meta property="og:url" content="' . $settings->root."design/".$product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title ))).'" />';
-if ($daysLeft > 0)
+if ($daysLeft >= 0)
 {
     include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 if ($product->preorders >= $settings->goals[0])
