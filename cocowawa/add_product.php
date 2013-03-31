@@ -33,7 +33,7 @@ onComplete: function(file, response){
 status.text("");
 /*Add uploaded file to list*/
 if(response != "error"){
-$("<li></li>").appendTo("#files").html(\'<img class="img-rounded" src="\'+response+\' " /><br />\'+file).addClass("success"\');
+$("<li></li>").appendTo("#files").html("<img class="img-rounded" src="\'+response+\' " /><br />"+file).addClass("success"\');
 img_list.push(response);$("#img_url").val(img_list); uploaded = true;}else{$("<li></li>")
     appendTo("#files").text(file).addClass("error")  ;}}})   ;});</script> ';
  include '../block/top_area.php';  ?>
