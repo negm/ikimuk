@@ -93,7 +93,9 @@
                         </div>
                         <!--End of google share-->  
                         <!-- Start of Pinterest -->
+                        <div class="share_pinterest">
                         <a data-pin-config="beside" href="//pinterest.com/pin/create/button/?url=<?php echo urlencode($settings->root."design/".$product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title )))); ?>&media=<?php echo urlencode($product->image); ?>&description=<?php echo urlencode($product->title); ?>" data-pin-do="buttonPin" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+                        </div>
                         <!-- End of Pinterest -->
                     </div> 
                     <!--End Of Social Share-->
