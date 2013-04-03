@@ -22,6 +22,7 @@ function CallAfterLogin(){
     FB.login(function(response) {		
         if (response.status === "connected") 
         {
+            _gaq.push(['_trackEvent', 'Users', 'Register', 'Facebook']);
             LoadingAnimate(); //Animate login
             FB.api('/me', function(data) {
                 if(data.email == null)
@@ -149,11 +150,13 @@ $(document).ready(function(){
                     $("#change_password_reset").removeAttr("disabled");
                     if ((response.error).length > 5)
                     {
+                        _gaq.push(['_trackEvent', 'Users', 'Password_Reset', 'Failure']);
                         $('#reset_error').text(response.error).parent().show();
                         //$('#error').html(response.error).show();
                         return false;
                     }
                     else {
+                        _gaq.push(['_trackEvent', 'Users', 'Password_Reset', 'success']);
                            window.location.href = "/index.php?reset=success";
                     }
                     return false;
@@ -191,11 +194,13 @@ $(document).ready(function(){
                     $("#reset_password_submit").removeAttr("disabled");
                     if ((response.error).length > 5)
                     {
+                        _gaq.push(['_trackEvent', 'Users', 'Password_Reset', 'Failure']);
                         $('#reset_error').text(response.error).parent().show();
                         //$('#error').html(response.error).show();
                         return false;
                     }
                     else {
+                        _gaq.push(['_trackEvent', 'Users', 'Password_Reset', 'Success']);
                            window.location.href = "/index.php?reset=email";
                     }
                     return false;
@@ -255,13 +260,20 @@ $(document).ready(function(){
                     if ((response.error).length >5)
                     {
                         $('#join_error').text(response.error).parent().show();
+                        _gaq.push(['_trackEvent', 'Users', 'Register', 'Failure']);
                         return false;
                     }
                     else {
                         if(target.length > 1)
+                            {
+                            _gaq.push(['_trackEvent', 'Users', 'Register', 'Success']);
                             window.location.href = target;
+                            }
                         else
+                            {
+                            _gaq.push(['_trackEvent', 'Users', 'Register', 'Success']);
                             location.reload();
+                            }
                     }
                     return false;
     
@@ -314,12 +326,17 @@ $(document).ready(function(){
                     if ((response.error).length >5)
                     {
                         email.parent().parent().find(".line_error").text("Incorrect Email/password");
+                        _gaq.push(['_trackEvent', 'Users', 'Signin', 'Failure']);
                         return false;
                     }
                     if(target.length > 1)
                         window.location.href = target;
                     else
+                        {
+                        _gaq.push(['_trackEvent', 'Users', 'Signin', 'Success']);    
                         location.reload();
+                        }
+                     
     
                 },
                 error:function (xhr, ajaxOptions, thrownError){
@@ -361,6 +378,7 @@ $(document).ready(function(){
             data:myData,
             cache: false,
             success:function(response){
+                _gaq.push(['_trackEvent', 'Product', 'remove_from_cart',$('#product_id').val() ]);
                 if (response.item_count == 0)
                 {
                     location.reload();

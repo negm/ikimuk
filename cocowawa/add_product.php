@@ -36,7 +36,7 @@ if(response != "error"){
 $("<li></li>").appendTo("#files").html(\'<img class="img-rounded" src="\'+response+\' " /><br />\'+file).addClass("success");
 img_list.push(response);$("#img_url").val(img_list); uploaded = true;}else{$("<li></li>").appendTo("#files").text(file).addClass("error")  ;}}});
     });
-    </script>';
+    </script><script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>';
  include '../block/top_area.php';  ?>
 <form id="addproduct" method="post" action="" class="span7">
     <p>Product title</p>

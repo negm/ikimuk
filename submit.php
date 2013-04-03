@@ -57,7 +57,7 @@ var img_list = new Array();
                 }
             }
         });
-    }); </script> ';
+    }); </script> <script type="text/javascript" src="/js/ajaxupload.3.5.min.js"></script>';
 
 $selected = Array ("unselected","selected","unselected","unselected","unselected" );
 include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";

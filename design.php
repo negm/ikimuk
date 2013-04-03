@@ -4,6 +4,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+$inpage_script = '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" defer></script>
+    <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>';
 $selected = Array ("selected","unselected","unselected","unselected","unselected" );
 if (isset($_GET["product_id"])) {
     $mID = (int) $_GET["product_id"];
