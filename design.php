@@ -4,7 +4,29 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-$inpage_script = '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js" defer></script>
+$inpage_script = '<script type="text/javascript">
+(function(d){
+  var f = d.getElementsByTagName(\'SCRIPT\')[0], p = d.createElement(\'SCRIPT\');
+  p.type = \'text/javascript\';
+  p.async = true;
+  p.src = \'//assets.pinterest.com/js/pinit.js\';
+  f.parentNode.insertBefore(p, f);
+}(document));
+</script>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ <script type="text/javascript">
+                        window.___gcfg = {
+                            lang: \'en-US\'
+                        };
+
+                        (function() {
+                            var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;
+                            po.src = \'https://apis.google.com/js/plusone.js\';
+                            var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                            </script>
     <script type="text/javascript" src="/js/jquery.nivo.slider.js"></script>
     <script type="text/javascript" src="/js/nivo-slider-custom-loader.min.js"></script>';
 $selected = Array ("selected","unselected","unselected","unselected","unselected" );

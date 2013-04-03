@@ -82,30 +82,19 @@
                         <div class="share_twitter">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
 
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-                            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";
-                                fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+                            
                         </div>
                         <!--End of twitter share--> 
 
                         <!--Start of google share-->                             
                         <div class="share_google">
                             <g:plus annotation='bubble' action="share"></g:plus>
-                            <script type="text/javascript">
-                        window.___gcfg = {
-                            lang: 'en-US'
-                        };
-
-                        (function() {
-                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                            po.src = 'https://apis.google.com/js/plusone.js';
-                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                        })();
-                            </script>
+                          
                         </div>
                         <!--End of google share-->  
-
+                        <!-- Start of Pinterest -->
+                        <a data-pin-config="beside" href="//pinterest.com/pin/create/button/?url=<?php echo urlencode($settings->root."design/".$product->id."/".str_replace(".","",str_replace(" ","-",trim($product->title )))); ?>&media=<?php echo urlencode($product->image); ?>&description=<?php echo urlencode($product->title); ?>" data-pin-do="buttonPin" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+                        <!-- End of Pinterest -->
                     </div> 
                     <!--End Of Social Share-->
 
