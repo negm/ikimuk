@@ -381,7 +381,7 @@ for ($i=0; $i < count($settings->goals)-1; $i++){
                         <div class="profile_name"><?php if (strlen($artist->name_ar)> 5 && isset($_SESSION["lang"])&&$_SESSION["lang"]=="ar") echo $artist->name_ar; else echo $artist->name?></div> 
                         <div class="profile_address"><?php echo $artist->location ?></div>
                         <?php if (strlen($artist->website)>1) {?>
-                        <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo $artist->website ?></a></div>
+                        <div class="profile_website"><a href="<?php echo $artist->website ?>" target="_blank"><?php echo substr($artist->website,0,30); ?></a></div>
                         <?php } if (strlen($artist->twitter)>1) {?>
                         <div class="profile_twitter"><a href="http://twitter.com/<?php echo $artist->twitter ?>" target="_blank"><?php echo $artist->twitter; ?></a></div>
                         <?php }?>
