@@ -5,6 +5,12 @@
 include $_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/inc/KLogger.php";
 session_start();
+
+
+
+$pagetitle = "ikimuk | Cart";
+include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 $selected = Array ("unselected","unselected","unselected","unselected","selected" );
 if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $cart = null;
@@ -16,8 +22,8 @@ if (!isset($_SESSION["cart"]) || $_SESSION["cart"] == null) {
     $item_count = $_SESSION["item_count"];
     $subtotal = $_SESSION["subtotal"];
 }
-
 function validate_cart_items() {
+  global $settings;
     $subtotal = 0;
     $item_count = 0;
     $cart = $_SESSION["cart"];
@@ -29,7 +35,8 @@ function validate_cart_items() {
             unset($cart[$key]);
         } else {
             $cart[$key]["price"] = $product->price;
-            $cart[$key]["subtotal"] = $product->price * $cart_item["quantity"];
+	    $discount = 1 - $settings->goals_discount[$cart[$key]["goal"]-1];
+            $cart[$key]["subtotal"] = $product->price * $cart_item["quantity"] * $discount;
             $cart[$key]["product_title"] = $product->title;
             $cart[$key]["url"] = $product->image;
             $cart[$key]["artist_name"] = $product->artist_name;
@@ -41,10 +48,6 @@ function validate_cart_items() {
     $_SESSION["item_count"] = $item_count;
     $_SESSION["subtotal"] = $subtotal;
 }
-
-$pagetitle = "ikimuk | Cart";
-include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
-include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 ?>
 <div class="body">
 
@@ -125,7 +128,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
 
                                         <!--Price section-->
                                         <div class="cart_entry_price">
-                                            <input type="hidden" name="price" value="<?php echo $cart_item["price"]; ?>"/>
+                                            <input type="hidden" name="price" value="<?php echo $cart_item["price"] * (1-$settings->goals_discount[$cart_item["goal"]-1]); ?>"/>
                                             $<span><?php echo number_format($cart_item["price"], 2); ?></span>
                                         </div>
 

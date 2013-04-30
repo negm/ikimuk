@@ -8,6 +8,8 @@ $selected = Array ("unselected","unselected","unselected","unselected","selected
 include ($_SERVER["DOCUMENT_ROOT"] . "/block/logged_in.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.product.php");
 include ($_SERVER["DOCUMENT_ROOT"] . "/class/class.ip2nationcountries.php");
+include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
+
 $countries = new ip2nationcountries();
 $countries->select_all_countries();
 $countries_array = array();
@@ -25,7 +27,8 @@ if (isset($_SESSION["cart"])) {
 }
 
 function validate_cart_items() {
-    $subtotal = 0;
+  global $settings;  
+  $subtotal = 0;
     $item_count = 0;
     $cart = $_SESSION["cart"];
     $product = new product();
@@ -36,7 +39,8 @@ function validate_cart_items() {
             unset($cart[$key]);
         } else {
             $cart[$key]["price"] = $product->price;
-            $cart[$key]["subtotal"] = $product->price * $cart_item["quantity"];
+	    $discount = 1 - $settings->goals_discount[$cart_item["goal"] - 1];
+            $cart[$key]["subtotal"] = $product->price * $cart_item["quantity"] * $discount;
             $cart[$key]["product_title"] = $product->title;
             $cart[$key]["url"] = $product->image;
             $cart[$key]["artist_name"] = $product->artist_name;
@@ -50,7 +54,6 @@ function validate_cart_items() {
 }
 
 $pagetitle = "ikimuk| Checkout";
-include $_SERVER["DOCUMENT_ROOT"] . "/block/header.php";
 if(isset($_GET["payment"]) and $_GET["payment"] == "failure"){
         ?>
 <script type="text/javascript">

@@ -27,15 +27,20 @@ class settings {
     public $audi_merchant_id_preorder = "846401";
     public $audi_secure_hash_preorder = "1A95D89470433CC15E2CEBD12FCE5D90";
     public $size_names = array("XS" => "X Small", "S" => "Small", "M" => "Medium", "L" => "Large", "XL" => "X Large", "XXL" => "XX Large");
-    public $goals = array(35, 75, 76);
-    public $goals_perks_add = array(" + stickers + certificate of awesomness", " + stickers", ".");
+    public $goals = array(25, 50, 75, 100, 101);
+    public $goals_discount = array(0.2, 0.15, 0.1, 0.05, 0);
+    public $goals_perks_add = array("20% discount + stickers + certificate of awesomness", " 15% discount + stickers", "10% discount", "5% discount", ".");
     public $goals_colors = array("cyan" , "green", "yellow", "firebrick", "magenta", "red");
-    public $goals_texts = array("Once this T-shirt reaches 35 orders it will get printed. You will receive your T-shirt, stickers and a certificate of awesomeness",
-				"If you order this T-shirt when it has between 35 to 75 orders, you will receive your T-shirt and stickers ",
-				"If you order this T-shirt after it has reached 75 orders, you will just receive your T-shirt",
+    public $goals_texts = array("Once this T-shirt reaches 25 orders it will get printed. You will receive your T-shirt, stickers, a certificate of awesomeness and a 20% discount",
+				"If you order this T-shirt when it has between 25 to 50 orders, you will receive your T-shirt, stickers and a 15% discount",
+				"If you order this T-shirt when it has between 50 to 75 orders, you will receive your T-shirt and a 10% discount",
+				"If you order this T-shirt when it has between 50 to 75 orders, you will receive your T-shirt and a 5% discount",
+				"If you order this T-shirt after it has 100 orders, you will just receive your T-shirt",
 				);
-    public $goals_perks = array("<ul><li>T-shirt</li><li>Stickers</li><li>Certificate of Awesomeness</li></ul>",
-				"<ul><li>T-shirt</li><li>Stickers</li></ul>",
+    public $goals_perks = array("<ul><li>T-shirt</li><li>20% discount</li><li>Stickers</li><li>Certificate of Awesomeness</li></ul>",
+				"<ul><li>T-shirt</li><li>15% discount</li><li>Stickers</li></ul>",
+				"<ul><li>T-shirt</li><li>10% discount</li></ul>",
+				"<ul><li>T-shirt</li><li>5% discount</li></ul>",
 				"<ul><li>T-shirt</li></ul>");
     public function __construct() {
         $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';
