@@ -245,8 +245,9 @@ function place_order() {
             $order_details->quantity = $cart_item["quantity"];
             $order_details->size = isset($size_enum[strtolower($cart_item["size"])]) ? $size_enum[strtolower($cart_item["size"])] : 0;
             $order_details->cut = isset($cut_enum[$cart_item["cut"]]) ? $cut_enum[$cart_item["cut"]] : 0;
-            $subtotal+= $cart_item["price"] * $cart_item["quantity"];
-            $order_details->insert();
+$discount = 1 - $settings->goals_discount[$cart_item["goal"]-1];
+            $subtotal+= $cart_item["price"] * $cart_item["quantity"]*$discount;
+	    $order_details->insert();
         }
     }
     $_SESSION["total"] = $subtotal + $country->delivery_charge;

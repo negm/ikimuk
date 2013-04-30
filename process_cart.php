@@ -67,7 +67,9 @@ function add_to_cart() {
 	  if($goal == 0){
 	    $goal = count($settings->goals);
 	  }
-        }	
+        }
+	  $discount_factor = 1 - $settings->goals_discount[$goal-1];
+	  	
 		  
             $found = false;
             if (isset($_SESSION["cart"])) {
@@ -76,23 +78,23 @@ function add_to_cart() {
                 foreach ($cart as $key => $cart_item) {
                     if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"]) {
                         $cart[$key]["quantity"]+= $quantity;
-                        $cart[$key]["subtotal"] = $cart[$key]["quantity"] * $cart[$key]["price"];
-                        $_SESSION["subtotal"] += $quantity * $cart[$key]["price"];
+                        $cart[$key]["subtotal"] = $cart[$key]["quantity"] * $cart[$key]["price"] * $discount_factor;
+                        $_SESSION["subtotal"] += $quantity * $cart[$key]["price"] * $discount_factor;
                         $found = true;
                     }
                 }
                 if (!$found) {
                     $cart[] = array("product_id" => $product_id, "product_title" => $product_title, "quantity" => $quantity, "size" => $size, "cut" => $cut, "price" => $price,
-                        "subtotal" => $price * $quantity, "subtotal" => $price * $quantity,"goal"=>$goal);
-                    $_SESSION["subtotal"] += $quantity * $price;
+                        "subtotal" => $price * $quantity * $discount_factor, "subtotal" => $price * $quantity * $discount_factor,"goal"=>$goal);
+                    $_SESSION["subtotal"] += $quantity * $price * $discount_factor;
                     $item_count += 1;
                 }
             } else {
                 $item_count = 0;
                 $cart = array();
                 $cart[] = array("product_id" => $product_id, "product_title" => $product_title, "quantity" => $quantity, "size" => $size, "cut" => $cut, "price" => $price,
-                    "subtotal" => $price * $quantity, "subtotal" => $price * $quantity,"goal"=>$goal);
-                $_SESSION["subtotal"] = $quantity * $price;
+                    "subtotal" => $price * $quantity * $discount_factor, "subtotal" => $price * $quantity * $discount_factor,"goal"=>$goal);
+                $_SESSION["subtotal"] = $quantity * $price * $discount_factor;
                 $item_count = 1;
             }
         }
@@ -135,6 +137,7 @@ function remove_from_cart() {
 }
 
 function update_cart() {
+  global $settings;
     //if cart is empty return
     //if product isn't there return
     //update the product quantity in cart
@@ -163,11 +166,12 @@ function update_cart() {
         $cart = $_SESSION["cart"];
         $item_count = 0;
         foreach ($cart as $key => $cart_item) {
+	  $discount = 1 - $settings->goals_discount[$cart[$key]["goal"]-1];
             if ($cart_item["product_id"] == $product_id && $cart_item["size"] == $size && $cut == $cart_item["cut"]) {
                 $cart[$key]["quantity"] = $quantity;
-                $cart[$key]["subtotal"] = $quantity * $cart[$key]["price"];
+                $cart[$key]["subtotal"] = $quantity * $cart[$key]["price"] * $discount;
             }
-            $subtotal += $cart[$key]["quantity"] * $cart[$key]["price"];
+            $subtotal += $cart[$key]["quantity"] * $cart[$key]["price"] * $discount;
             $item_count += 1;
         }
     }
