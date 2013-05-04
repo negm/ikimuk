@@ -24,6 +24,7 @@ class order {
         public $status_id;
         public $newsletter;
         public $comments;
+	public $type;
 
         // Class Constructor
 	public function __construct() {
@@ -101,7 +102,8 @@ class order {
                 $this->region = mysqli_real_escape_string($this->database->link, $this->region);
                 $this->address = mysqli_real_escape_string($this->database->link, $this->address);
                 $this->newsletter= mysqli_real_escape_string($this->database->link, $this->newsletter);
-		$sSQL = "INSERT INTO `order` (user_id, phone, country, region, address,newsletter) VALUES ($this->user_id,'$this->phone','$this->country','$this->region','$this->address',$this->newsletter)";
+		$this->type = mysqli_real_escape_string($this->database->link, $this->type);
+		$sSQL = "INSERT INTO `order` (user_id, phone, country, region, address,newsletter, type) VALUES ($this->user_id,'$this->phone','$this->country','$this->region','$this->address',$this->newsletter, '$this->type')";
 		$oResult = $this->database->Query($sSQL);
 		$this->id = $this->database->lastInsertId;
                 if ($this->id)

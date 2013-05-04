@@ -20,7 +20,7 @@ class ip2nationcountries {
 	public $phone_code;
         public $country_name;
         public $country_name_ar;
-
+	public $cash_on_delivery;
         // Class Constructor
 	public function __construct() {
 		$this->database = new Database();
@@ -55,6 +55,7 @@ class ip2nationcountries {
 		$this->country_code = $oRow->country_code; // Primary Key
                 $this->country_name = $oRow->country_name;
                 $this->country_name_ar = $oRow->country_name_ar;
+		$this->cash_on_delivery = $oRow->cash_on_delivery;
                 }
                 else
                 {

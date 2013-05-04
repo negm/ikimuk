@@ -136,7 +136,7 @@
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script type="text/javascript" src="/js/jquery.form.min.js"></script>
 <script src="/js/javascript.min.js"></script>
-<script type="text/javascript" src="/js/main.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 
 <div id="fb-root"></div>
 <script>

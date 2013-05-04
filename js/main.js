@@ -811,6 +811,12 @@ var size="";
         var val=$('.combo .country_list option:selected').text();
         $('.combo .select_country').text(val);
         var shipping = $('.combo .country_list option:selected').data("delivery");
+	var allows_cash = $('.combo .country_list option:selected').data("allowscash");
+	if(allows_cash == 0){
+	    $("#cash_payment").attr('disabled', 'disabled');
+	}else{
+	    $("#cash_payment").removeAttr('disabled');
+	}
        $("#checkout_shipping").val(shipping);//change delivery charge
        $("#shipping_text").text("$ "+shipping.toFixed(2));
        refresh_checkout_prices();

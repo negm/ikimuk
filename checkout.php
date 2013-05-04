@@ -16,6 +16,7 @@ while ($country = mysqli_fetch_object($countries->database->result))
 {
 $countries_array[]=$country;
 }
+$allows_cash = 45;
 $product = new product();
 if (isset($_SESSION["cart"])) {
     validate_cart_items();
@@ -96,7 +97,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
     if(isset($_GET["error"]) && ( _txt($_GET["error"]))){
       echo _txt($_GET["error"]);
     }else{
-      echo _txt("payment_error_else");
+      if($_GET["error"] == "cash_err1"){
+	echo "Only one T-shirt of a design is allowed with cash on delivery";
+      }else{	
+	echo _txt("payment_error_else");
+      }
     }
     echo "</div>";
   }
@@ -136,17 +141,22 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                                                    foreach($countries_array as $key=>$country)
 												   {
 														if(isset($lang)&& $lang =="ar"){
-                                                        if($country->country_name == $_SESSION["country_name"])
-                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name_ar . '</option>';
-                                                        else
-                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name_ar . '</option>';
+														  if($country->country_name == $_SESSION["country_name"]){
+
+							  $allows_cash = $country->cash_on_delivery;
+                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'" data-allowscash="'.$country->cash_on_delivery.'">' . $country->country_name_ar . '</option>';
+														  }else
+                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '" data-allowscash="'.$country->cash_on_delivery.'">' . $country->country_name_ar . '</option>';
 													
 													}
 													else{
-													    if($country->country_name == $_SESSION["country_name"])
-                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'">' . $country->country_name . '</option>';
-                                                        else
-                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '">' . $country->country_name . '</option>';
+													  if($country->country_name == $_SESSION["country_name"]){
+													    
+							  $allows_cash = $country->cash_on_delivery;
+
+                                                    echo '<option selected="selected" value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge.'" data-allowscash="'.$country->cash_on_delivery.'">' . $country->country_name . '</option>';
+													  }                                                        else
+                                                            echo '<option value="' . $country->country_code . '" data-delivery="'.$country->delivery_charge. '" data-allowscash="'.$country->cash_on_delivery.'">' . $country->country_name . '</option>';
 													}
 													}
                                                  ?>
@@ -328,7 +338,35 @@ include $_SERVER["DOCUMENT_ROOT"] . "/block/top_area.php";
                         </div>
                         <!--End of shipping method-->
 
+  
+                        <!--Start of payment method-->
+                        <div class="std_block payment_method">
 
+
+                            <div class="std_block_label">
+                                <div class="label_box">
+                                    <span class="label_title">4. Payment Method<?php echo _txt("paymenttype");?></span>
+                                </div>
+                            </div>
+
+                            <!-- Start of block body-->
+                            <div class="std_block_body">
+
+                                <div class="payment_content">
+                                    <div class="radio_holder"><input type="radio" name="payment" value="credit" id="credit_payment" checked="checked"/></div>
+                                    <div class="ads_text"> Pay by Credit Card using Bank Audi's payment gateway <?php echo _txt("creditpayment");?></div>
+                                </div>
+  <div class="clearfix" style="clear:both"></div>
+                                <div class="payment_content" >
+                                    <div class="radio_holder"><input <?php if($allows_cash == 0){ echo "disabled='disabled'";} ?> type="radio" name="payment" value="cash" id="cash_payment"/></div>
+                                    <div class="ads_text"> Pay by Cash on delivery (only one shirt per design allowed in this option) <?php echo _txt("cashpayment");?></div>
+                                </div>
+
+                            </div>
+                            <!--End of Block Body-->
+
+                        </div>
+                        <!--End of payment method-->
 
                         <!--Start of Place Order-->
                         <div class="place_order">

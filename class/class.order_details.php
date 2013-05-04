@@ -65,6 +65,21 @@ class order_details {
 		$oResult = $this->database->result;
                 return $oResult;
 	}
+	public function select_cash_delivery_by_user_product_and_size($user_id){
+	  $this->database->OpenLink();    
+	  $user_id = mysqli_real_escape_string($this->database->link, $user_id);
+	  $this->product_id = mysqli_real_escape_string($this->database->link, $this->product_id);
+	  $this->size = mysqli_real_escape_string($this->database->link, $this->size);
+	  $sSQL = "SELECT od.* FROM order_details as od join `order` on `order`.id = od.order_id WHERE user_id = $user_id and product_id= $this->product_id and size= $this->size and `order`.type='cash';";
+	  $oResult = $this->database->query($sSQL);
+	  $oResult = $this->database->result;
+	  if($this->database->rows == 0){
+	    return false;
+	  }
+	  return $oResult;
+
+	}
+
         public function get_refunds()
         {
             $sSQL = "SELECT order_id, SUM( quantity * price ) AS refund_amount FROM order_details WHERE product_id IN (SELECT p.id FROM product p INNER JOIN competition c ON p.competition_id = c.id WHERE end_date > DATE_SUB( NOW( ) , INTERVAL 10 DAY ) AND p.preorders >=". $this->settings->goals[0]." ) GROUP BY order_id order by order_id";

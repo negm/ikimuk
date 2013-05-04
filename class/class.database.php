@@ -61,8 +61,8 @@ if($this->debug) {
             return("<hr>" . $sRet);
             //header("location: index.php");
         }
-        //return("<hr>Requested page has encountered an error, please try again later.");
-        header("location: index.php");
+//        return("<hr>Requested page has encountered an error, please try again later." . $sRet);
+	        header("location: index.php");
     }
 
     public function SetSettings($strHost, $strUser, $strPass, $strDatabase) {
