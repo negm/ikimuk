@@ -20,12 +20,12 @@ class settings {
     public $salt = '$6$rounds=5000$z@3dSa890LkWsiU<$';
     public $beta_base = 'http://beta.ikimuk.com/';
     public $prodction;
-    public $audi_access_code = "4A0ED359";
-    public $audi_access_code_preorder = "4A0ED359";
-    public $audi_secure_hash = "1A95D89470433CC15E2CEBD12FCE5D90";
-    public $audi_merchant_id = "846401";
-    public $audi_merchant_id_preorder = "846401";
-    public $audi_secure_hash_preorder = "1A95D89470433CC15E2CEBD12FCE5D90";
+    public $audi_access_code = "payment gateway code for 1st account";
+    public $audi_access_code_preorder = "payment gateway code for 2nd account";
+    public $audi_secure_hash = "secure hash";
+    public $audi_merchant_id = "merchant id for 1st account";
+    public $audi_merchant_id_preorder = "merchant id for 2nd account";
+    public $audi_secure_hash_preorder = "secure hash";
     public $size_names = array("XS" => "X Small", "S" => "Small", "M" => "Medium", "L" => "Large", "XL" => "X Large", "XXL" => "XX Large");
     public $goals = array(35, 75, 76);
     public $goals_perks_add = array(" + stickers + certificate of awesomness", " + stickers", ".");
@@ -38,8 +38,8 @@ class settings {
 				"<ul><li>T-shirt</li><li>Stickers</li></ul>",
 				"<ul><li>T-shirt</li></ul>");
     public function __construct() {
-        $this->awsAccessKey = 'AKIAJTHFGNALHAXCUBZA';
-        $this->awsSecretKey = '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';
+        $this->awsAccessKey = 'aws key';
+        $this->awsSecretKey = 'aws secret';
         $this->site_url = "";
         $this->site_url_vars = "";
         $this->pageURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
@@ -62,12 +62,12 @@ class settings {
                 'driver' => 'mysql',
                 'prefix' => '',
             );
-            $this->app_id = "299742366741440";
-            $this->app_secret = "2369fc592909a16047bbce32bd75e23d";
+            $this->app_id = "facebook app id for local testing";
+            $this->app_secret = "facebook app secret";
             $this->root = "http://localhost:8080/";
             $this->prodction = true;
         } else
-        if (strpos($this->site_url, '176.58.126.220')) {
+        if (strpos($this->site_url, 'production url')) {
             $this->config = array(
                 'database' => 'ikimukfinal',
                 'username' => 'root',
@@ -77,29 +77,15 @@ class settings {
                 'driver' => 'mysql',
                 'prefix' => '',
             );
-            $this->app_id = "151265838265960";
-            $this->app_secret = "945fc91fd23a7e3cf56c9473fe813e63";
-            $this->root = 'http://176.58.126.220/';
+            $this->app_id = "production facebook app";
+            $this->app_secret = "secret code";
+            $this->root = 'production url';
             $this->prodction = true;
-        } else {
-            $this->config = array(
-                'database' => 'ikimukfinal',
-                'username' => 'root',
-                'password' => 'sqp.2012.sql++',
-                'host' => 'localhost',
-                'port' => '',
-                'driver' => 'mysql',
-                'prefix' => '',
-            );
-            $this->app_id = "140388549312943";
-            $this->app_secret = "d69fc7d02813ea962a959258e22adfde";
-            $this->root = 'http://'.$_SERVER['HTTP_HOST'] . '/';
-            $this->prodction = true;
-        }
+        } 
 
         $this->fbPermissions = 'publish_stream,email,publish_actions,offline_access';
-        $this->nexmo_key = 'f20b967a';
-        $this->nexmo_secret = '9d3daa40';
+        $this->nexmo_key = 'nexmo ket';
+        $this->nexmo_secret = 'nexmo secret';
     }
 
 }
